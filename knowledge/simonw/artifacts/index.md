@@ -7,3 +7,4 @@ this index lists them, one line each.
 May stay sparse — the source is a guide of practices. Do not force material here.
 
 - `content-type-addition-workflow.md` — Three-part prompt pattern for comprehensive feature implementation
+- `webassembly-compilation-workflow.md` — Complete workflow for compiling C projects to WASM with web interfaces

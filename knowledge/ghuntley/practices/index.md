@@ -10,3 +10,8 @@ one line each.
 - [Context engineering and backpressure](context-engineering-and-backpressure.md) — Managing context windows as scarce resources, avoiding MCP overallocation, capturing resistance signals as engineering feedback
 - [Software engineering vs development distinction](software-engineering-vs-development.md) — Development is commoditized (anyone can code), engineering remains essential (locomotive engineers keeping systems on track)
 - [Codebase porting methodology](codebase-porting-methodology.md) — Three-stage Ralph process: extract test specs, document functionality, implement with citations as bridges between languages
+- [Model-weight-first companies](model-weight-first-companies.md) — Building with the grain of LLM preferences rather than imposing corporate standards; optimizing for AI development velocity
+- [AI as economic warfare](ai-as-economic-warfare.md) — Open-source AI models as potential nation-state financial weapons, following historical patterns of destroying commercial markets through free alternatives
+- [Cognitive security concerns](cognitive-security-concerns.md) — The risks of outsourcing decision-making to frontier labs and the concentration of cognitive influence in few organizations
+- [Secure code generation principles](secure-code-generation-principles.md) — Building security into AI-generated codebases from first principles rather than relying on tool-based restrictions
+- [Hyper-personalized software and embedded factories](hyper-personalized-software-and-embedded-factories.md) — Applications as IDEs enabling real-time modification; return to rapid application development paradigm enhanced by AI

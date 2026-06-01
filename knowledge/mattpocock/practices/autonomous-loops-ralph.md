@@ -56,7 +56,7 @@ PRs rather than commits to main, which turns Ralph into a backlog-triaging engin
 
 ## Sources
 
-- `sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md` — origin: https://www.aihero.dev/tips-for-ai-coding-with-ralph-wiggum
-- `sources/mattpocock/aihero/https-www.aihero.dev-getting-started-with-ralph-7f6ee75f.md` — origin: https://www.aihero.dev/getting-started-with-ralph
-- `sources/mattpocock/aihero/https-www.aihero.dev-why-the-anthropic-ralph-plugin-sucks-60344c9c.md` — origin: https://www.aihero.dev/why-the-anthropic-ralph-plugin-sucks
-- `sources/mattpocock/aihero/https-www.aihero.dev-heres-how-to-stream-claude-code-with-af-8595552d.md` — origin: https://www.aihero.dev/heres-how-to-stream-claude-code-with-afk-ralph
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-getting-started-with-ralph-7f6ee75f.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-why-the-anthropic-ralph-plugin-sucks-60344c9c.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-heres-how-to-stream-claude-code-with-af-8595552d.md

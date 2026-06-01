@@ -55,9 +55,20 @@ global and undiscoverable (which tracker, that `ready-for-agent` is spelled
 `Sandcastle` here, that the layout is single-context with ADRs under `docs/adr/`);
 everything else is a link the agent follows when the task needs it.
 
+## Context window phases and hardwired constraints
+
+The agent's context window divides into flexible and hardwired phases. The **system prompt** (containing `CLAUDE.md`) is hardwired at startup, while exploration, implementation, and testing are flexible — a simple task needs little exploration, bug-free code needs little testing. But everything in `CLAUDE.md` inflates the hardwired portion, leaving less room for actual work and increasing costs.
+
+This creates a **globality problem**: every instruction applies to every session regardless of relevance. A React pattern rule added after a frontend session burns budget in all subsequent backend, docs, and database sessions. The natural feedback loop of "agent does something wrong → add rule to file" creates growing files that hurt performance through irrelevant context.
+
+## Deterministic enforcement over prose rules
+
+When enforceable constraints can be encoded as PreToolUse hooks (that exit with code 2 to block actions), they should become hooks rather than prose instructions. A hook that blocks `npm` and requires `pnpm` is both deterministic and costs zero instruction budget, while a prose rule only lowers the odds and consumes budget on every session.
+
 ## Sources
 
-- `sources/mattpocock/aihero/https-www.aihero.dev-never-run-claude-init-4c8085b5.md` — origin: https://www.aihero.dev/never-run-claude-init
-- `sources/mattpocock/aihero/https-www.aihero.dev-a-complete-guide-to-agents-md-e11c36f3.md` — origin: https://www.aihero.dev/a-complete-guide-to-agents-md
-- `sources/mattpocock/aihero/https-www.aihero.dev-my-agents-md-file-for-building-plans-yo-12a7f93d.md` — origin: https://www.aihero.dev/my-agents-md-file-for-building-plans-you-actually-read
-- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-never-run-claude-init-4c8085b5.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-a-complete-guide-to-agents-md-e11c36f3.md  
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-my-agents-md-file-for-building-plans-yo-12a7f93d.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-how-to-use-claude-code-hooks-to-enforce-c827626c.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/CLAUDE.md.md

@@ -28,7 +28,8 @@ This naming flexibility maintains the state machine's discipline while allowing 
 
 ## Sources
 
-- `sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/SKILL.md
-- `sources/mattpocock/skills-repo/skills-engineering-triage-AGENT-BRIEF.md-5b16e7c5.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/AGENT-BRIEF.md
-- `sources/mattpocock/skills-repo/skills-engineering-triage-OUT-OF-SCOPE.md-a52875a4.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/OUT-OF-SCOPE.md
-- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/skills-repo/skills-engineering-triage-AGENT-BRIEF.md-5b16e7c5.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/skills-repo/skills-engineering-triage-OUT-OF-SCOPE.md-a52875a4.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/CLAUDE.md.md
+- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-burn-through-your-backlog-with-my-triag-5cd34996.md
