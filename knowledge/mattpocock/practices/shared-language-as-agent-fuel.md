@@ -1,0 +1,103 @@
+# A shared language is agent fuel, captured live
+
+A project's `CONTEXT.md` is a glossary and *nothing else* — devoid of
+implementation detail, not a spec, not a scratchpad. Matt rates building this
+shared language with the agent as possibly the single most powerful technique in
+the repo. The payoff is concrete: the agent stops using twenty words where one
+will do ("the materialization cascade" instead of a paragraph), variables and
+files get named consistently from the same vocabulary, the codebase becomes
+easier for the agent to navigate, and the agent spends fewer tokens thinking
+because it has a more concise language to think in.
+
+## Capture terms the moment they resolve, not in a batch
+
+The discipline that makes this work is *liveness*. In `grill-with-docs`, the
+moment a term is pinned down during the interview, `CONTEXT.md` is updated right
+there — don't batch. Files are created lazily: no `CONTEXT.md` until the first
+term resolves, no `docs/adr/` until the first decision needs one. The agent also
+*polices* the language as it goes: if the user says a term that conflicts with
+the glossary, it calls it out immediately; if the user is vague ("account" —
+Customer or User?), it proposes a precise canonical term; if the code
+contradicts a stated rule, it surfaces the contradiction.
+
+This same live-capture discipline is reused, not reinvented:
+`improve-codebase-architecture` adds a term to `CONTEXT.md` the moment it names a
+deepened module after a concept the glossary doesn't yet have, citing
+`grill-with-docs`'s `CONTEXT-FORMAT.md` as the shared standard.
+
+## Where the glossary lives: by language overlap, not by repo
+
+When the same vocabulary spans multiple repos, the placement rule is overlap-
+driven. "If you have multiple repos that 100% share the same domain language,
+store the glossary outside the repo and have `/grill-with-docs` fetch it. If they
+don't share 100% of the language, keep them in the repos." A glossary is only worth
+centralising when it's genuinely identical across consumers; the moment two repos
+diverge on even part of the language, a shared external glossary starts lying to
+one of them, and per-repo `CONTEXT.md` files (with a context map above them) are
+the safer shape.
+
+## Where the glossary came from: ubiquitous language
+
+The practice traces to **ubiquitous language** from domain-driven design — one
+vocabulary shared by the codebase, the developers, and the domain experts. Matt
+arrived at it by noticing the limits of plain `grill-me`: alignment on the code
+kept dissolving because he had to re-explain the domain every session, and good
+terms coined in a session were never written down. "What's the thinnest layer of
+documentation I could use to give the AI a head start?" The answer became
+`CONTEXT.md`, and the standalone `ubiquitous-language` skill was folded into
+`grill-with-docs` so capture happens *inside* the alignment interview, supporting
+multiple bounded contexts (one `CONTEXT.md` per context, a context map above
+them) rather than one glossary per repo.
+
+The same conviction scales past a single project. Matt also publishes a canonical
+62-term **dictionary of AI coding** (`mattpocock/dictionary-of-ai-coding`) — terse,
+one-line definitions for the field's vocabulary (model, harness, context window,
+smart zone, progressive disclosure, handoff/spec/ticket, AFK/HITL, grilling). It's
+the field-level instance of the same move: pin precise, shared terms so humans *and*
+agents reason in the same concise language. The whole KB downstream leans on exactly
+these terms, which is why a fixed gloss is worth maintaining.
+
+## The glossary drives the questions
+
+In a real session the documented terms aren't passive — they generate the
+interview. Adding a "pitch" concept to a course tool, the agent immediately flags
+a *terminology collision* with the existing `CONTEXT.md` definition of
+"Standalone Video", and resolves it by minting sub-terms (Pitched vs Unattached
+Standalone Video) precisely because the distinction "will affect every variable
+name and file name the AI generates." That is the whole payoff loop: the glossary
+forces the question, the answer sharpens the glossary, and the sharpened glossary
+makes the *next* generation of code and questions tighter. The benefit is
+two-sided — replies get concise ("standalone videos are changing, we need to
+change the pitches and how they display" instead of a paragraph), and because the
+model thinks *to itself* in chain-of-thought, a precise shared vocabulary makes
+its internal reasoning cheaper too. The same reason DDD works for humans is why
+it works for agents.
+
+The committed form of that course-tool glossary makes the policing mechanical: each
+term in `course-video-manager`'s `CONTEXT.md` ships with an explicit `_Avoid_` line
+listing the rejected synonyms — **Course** _Avoid_ Repo/Project, **Section**
+_Avoid_ Module/Unit, **Pitch** _Avoid_ Idea/Concept/Draft. The anti-synonyms aren't
+decoration; they're what lets the agent (and a reviewer) catch drift the moment a
+generated name reaches for a banned word, the same enforcement posture as the
+structural vocabulary in [[enforced-architecture-vocabulary]].
+
+## ADRs only for genuine, hard-to-reverse trade-offs
+
+The glossary's companion is the ADR, and Matt is deliberately stingy with them.
+An ADR is offered only when **all three** hold: the decision is hard to reverse,
+surprising without context, and the result of a real trade-off with genuine
+alternatives. Miss any one and skip it. The framing is forward-looking: record
+it so a *future explorer* (or a future architecture review) doesn't re-litigate
+the decision — not as a log of everything that happened.
+
+## Sources
+
+- `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
+- `sources/mattpocock/skills-repo/CONTEXT.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/CONTEXT.md
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md
+- `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/grill-with-docs/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/improve-codebase-architecture/SKILL.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060426073083412751-d41431eb.md` — origin: https://x.com/mattpocockuk/status/2060426073083412751
+- `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-changelog-ubiquitous-language-gr-ec926d6c.md` — origin: https://www.aihero.dev/skills-changelog-ubiquitous-language-grill-with-docs
+- `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary

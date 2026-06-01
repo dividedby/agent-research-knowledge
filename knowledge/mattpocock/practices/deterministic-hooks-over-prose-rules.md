@@ -1,0 +1,43 @@
+# Deterministic hooks over prose rules
+
+When you want an agent to *always* do X or *never* do Y, Matt's rule is: if the
+constraint can be enforced mechanically, don't write it as prose in `CLAUDE.md` —
+make it a hook. A prose rule ("use pnpm not npm", "don't `git push`") only
+*reduces* the probability of the wrong behaviour; it never prevents it, and it
+spends scarce instruction budget (see `claude-md-is-an-instruction-budget`) on a
+guarantee it can't actually make. A `PreToolUse` hook makes the wrong command
+*impossible* and costs zero budget.
+
+## How the guardrail works
+
+The hook is deterministic code wired into `.claude/settings.json` with a `Bash`
+matcher. It receives the proposed command as JSON on stdin, greps it against
+forbidden patterns, and **exits 2 to block** — which returns the error message
+straight to the agent, who reads it and retries correctly ("Blocked: use pnpm
+instead of npm"). It's a hard guardrail, not a suggestion buried in prose, so the
+agent can't talk its way around it. Matt's `git-guardrails` skill ships exactly
+this for destructive git (`push`, `reset --hard`, `clean -f`, `branch -D`,
+`checkout .`), framed as "safe by default" rather than "never allow" — you
+whitelist what your workflow genuinely needs.
+
+## Why this matters most for autonomous work
+
+The driving case is AFK/Ralph in a Docker sandbox. A sandbox isolates *where*
+commands run (it can't reach your home dir or SSH keys) but doesn't restrict
+*what* runs — and your git history lives inside the mounted project folder, so a
+single `git reset --hard` can still wipe weeks of work while you're away. The hook
+fills exactly that gap: deterministic protection for the commands the sandbox
+can't reason about, on an agent no human is watching. Matt also notes the agent
+can *write its own* hooks — point it at the `CLAUDE.md`, have it extract only the
+deterministically-enforceable instructions (CLI preferences, banned commands) and
+translate them into hook scripts, confirming before it does.
+
+This is the same instinct as the pre-commit feedback loop (see
+`feedback-loop-is-the-work`): for anything that should be guaranteed rather than
+merely encouraged, prefer an automated, deterministic gate over trusting the
+model's judgement.
+
+## Sources
+
+- `sources/mattpocock/aihero/https-www.aihero.dev-how-to-use-claude-code-hooks-to-enforce-c827626c.md` — origin: https://www.aihero.dev/how-to-use-claude-code-hooks-to-enforce-the-right-cli
+- `sources/mattpocock/aihero/https-www.aihero.dev-this-hook-stops-claude-code-running-dan-bcfc7d9c.md` — origin: https://www.aihero.dev/this-hook-stops-claude-code-running-dangerous-git-commands
