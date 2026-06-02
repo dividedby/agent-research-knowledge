@@ -63,6 +63,8 @@ The dictionary itself demonstrates the practice in motion — tracked revisions 
 
 Each revision tightens definitions rather than expanding them — "smart zone" becomes more precise, "handoff" mechanisms get clearer distinctions. This demonstrates that vocabulary maintenance isn't just about adding terms but about continuously sharpening the existing language to eliminate ambiguity and improve precision.
 
+A later revision shows the sharpening move from a different angle: the 62 entries are now grouped into seven thematic sections — The Model; Sessions, Context Windows & Turns; Tools & Environment; Failure Modes; Handoffs; Memory and Steering; Patterns of Work — and many definitions are stated *relationally*, by their counterpart. Parametric knowledge is defined against contextual knowledge, stateless against stateful, input tokens against output tokens, and "attention relationship / budget / degradation" form a deliberate family. Precision comes not just from a tight one-liner per term but from contrast: a term is pinned by what it is *not* and by the neighbour it trades off against, which is exactly the discriminating signal an agent needs to keep two adjacent concepts from collapsing into one.
+
 ## The glossary drives the questions
 
 In a real session the documented terms aren't passive — they generate the

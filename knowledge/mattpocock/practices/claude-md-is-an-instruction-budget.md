@@ -55,6 +55,16 @@ global and undiscoverable (which tracker, that `ready-for-agent` is spelled
 `Sandcastle` here, that the layout is single-context with ADRs under `docs/adr/`);
 everything else is a link the agent follows when the task needs it.
 
+Pushed to its limit, this reframes what a skill even *is*: at root, "that's what
+skills are" — a context pointer you add into `AGENTS.md`, not a piece of bespoke
+machinery. You can get most of the value without the formal apparatus by just
+pointing `AGENTS.md` at the relevant context; the slash (`/`) syntax is a
+welcome affordance for *finding* those pointers, not a prerequisite for having
+them. Reference knowledge follows the same shape under a different filename: a
+`RESOURCES.md` holds a resource and **says how to query it**, so the agent pulls
+it in on demand — e.g. a knowledge base "used during teaching sessions, a thing
+to query against." The pointer-doc, not the inlined instruction, is the unit.
+
 ## Context window phases and hardwired constraints
 
 The agent's context window divides into flexible and hardwired phases. The **system prompt** (containing `CLAUDE.md`) is hardwired at startup, while exploration, implementation, and testing are flexible — a simple task needs little exploration, bug-free code needs little testing. But everything in `CLAUDE.md` inflates the hardwired portion, leaving less room for actual work and increasing costs.
@@ -72,3 +82,6 @@ When enforceable constraints can be encoded as PreToolUse hooks (that exit with 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-my-agents-md-file-for-building-plans-yo-12a7f93d.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-how-to-use-claude-code-hooks-to-enforce-c827626c.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/CLAUDE.md.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061685783342256491-4bba91f0.md` — origin: https://x.com/mattpocockuk/status/2061685783342256491
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061707663088529896-786519e4.md` — origin: https://x.com/mattpocockuk/status/2061707663088529896
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061712630071362011-02e73004.md` — origin: https://x.com/mattpocockuk/status/2061712630071362011

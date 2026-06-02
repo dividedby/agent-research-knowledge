@@ -38,6 +38,24 @@ The course-video-manager project demonstrates the ultimate evolution of this pra
 
 This scale reveals the practice's true power: once agents and humans share exact language for every domain concept, complex reasoning becomes possible. The agent can distinguish "Ghost Section" (derives real-ness from containing real lessons) from "Materialize" (creating on-disk representation) without conceptual drift, enabling sophisticated domain reasoning that would be impossible with loose terminology.
 
+## Mature entries carry the contract, not just the name
+
+A later course-video-manager revision shows the glossary outgrowing pure
+term↔synonym mapping: the entries now encode each concept's *behavioral
+contract*. The most load-bearing axis is **derived vs stored** — "Pitch State",
+"Deliverable Status", and "Video Warning" are each explicitly *derived, never
+stored*, while "Lesson Authoring Status" and "Export Hash" are explicitly
+persisted. Entries also state cross-entity invariants ("Lesson Authoring Status"
+is in a biconditional with `fsStatus` — a real lesson always has a status, a
+Ghost Lesson never does), give whole algorithms when a term names one
+("Dependency Group" is defined as a within-section, contiguous, directed-backward
+walk), and pin the rule to the implementing code ("Ghost Section" real-ness is
+"never inferred from the path prefix — see `sectionHasRealLessons` in
+`section-path-service.ts`"). Declaring where a value's truth lives — derived on
+read vs written to a column — is exactly the disambiguation an agent needs before
+it can safely reason about or mutate state, so the glossary becomes the home for
+those rules rather than leaving them to be re-discovered in the code each session.
+
 ## Revision tracking preserves vocabulary evolution
 
 Domain vocabularies evolve as understanding deepens, and Matt tracks these changes through revision fingerprints within the same document. The course-video-manager CONTEXT.md shows three revisions across dates, capturing how concepts like "Pitch Desk State" evolved into "Pitch State" and how definitions became more precise over time.
