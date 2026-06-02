@@ -50,12 +50,18 @@ multiple bounded contexts (one `CONTEXT.md` per context, a context map above
 them) rather than one glossary per repo.
 
 The same conviction scales past a single project. Matt also publishes a canonical
-62-term **dictionary of AI coding** (`mattpocock/dictionary-of-ai-coding`) — terse,
+**dictionary of AI coding** (`mattpocock/dictionary-of-ai-coding`) — terse,
 one-line definitions for the field's vocabulary (model, harness, context window,
 smart zone, progressive disclosure, handoff/spec/ticket, AFK/HITL, grilling). It's
 the field-level instance of the same move: pin precise, shared terms so humans *and*
 agents reason in the same concise language. The whole KB downstream leans on exactly
 these terms, which is why a fixed gloss is worth maintaining.
+
+## Vocabulary precision through continuous refinement
+
+The dictionary itself demonstrates the practice in motion — tracked revisions show continuous refinement of definitions and growth from 62 to 64+ terms across multiple versions. The word count evolution (1,932 → 1,955 words across revisions) captures the disciplined expansion: new concepts earn inclusion only when they represent genuinely distinct ideas rather than synonym proliferation.
+
+Each revision tightens definitions rather than expanding them — "smart zone" becomes more precise, "handoff" mechanisms get clearer distinctions. This demonstrates that vocabulary maintenance isn't just about adding terms but about continuously sharpening the existing language to eliminate ambiguity and improve precision.
 
 ## The glossary drives the questions
 

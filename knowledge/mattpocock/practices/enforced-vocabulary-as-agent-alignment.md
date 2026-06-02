@@ -32,6 +32,19 @@ The "avoid" lists aren't suggestions — they're architectural constraints that 
 
 This negative space is as important as the positive definitions. It closes off attractive but problematic alternatives that would slowly erode the vocabulary's precision if allowed to creep in through casual usage.
 
+## Domain vocabulary scales to comprehensive coverage
+
+The course-video-manager project demonstrates the ultimate evolution of this practice — a 750-line domain vocabulary covering every concept from course structure to video export, with multiple revisions tracked over time. Terms like "Ghost Lesson" (database entity without filesystem presence), "Materialization Cascade" (chain reaction creating on-disk representations), and "Export Hash" (SHA256 determining re-export need) show the precision possible when vocabulary discipline is applied comprehensively.
+
+This scale reveals the practice's true power: once agents and humans share exact language for every domain concept, complex reasoning becomes possible. The agent can distinguish "Ghost Section" (derives real-ness from containing real lessons) from "Materialize" (creating on-disk representation) without conceptual drift, enabling sophisticated domain reasoning that would be impossible with loose terminology.
+
+## Revision tracking preserves vocabulary evolution
+
+Domain vocabularies evolve as understanding deepens, and Matt tracks these changes through revision fingerprints within the same document. The course-video-manager CONTEXT.md shows three revisions across dates, capturing how concepts like "Pitch Desk State" evolved into "Pitch State" and how definitions became more precise over time.
+
+This evolution tracking serves both historical context and operational clarity — agents can see not just what terms mean now, but how they've changed, preventing confusion when encountering older usage in code or documentation.
+
 ## Sources
 
 - `sources/mattpocock/sandcastle/CONTEXT.md.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/CONTEXT.md
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md
