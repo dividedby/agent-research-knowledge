@@ -16,5 +16,6 @@ One concept per file; this index lists them, one line each.
 - [own-your-tools-as-skills](./own-your-tools-as-skills.md) — have the agent write and maintain its own tools as skills so they stay under your control.
 - [plan-via-a-file-on-disk](./plan-via-a-file-on-disk.md) — plan by iterating on a markdown file you control; plan mode is just a prompt plus UX.
 - [shape-the-codebase-for-local-reasoning](./shape-the-codebase-for-local-reasoning.md) — simple code, plain SQL, local checks, greppability; refactor and parallelize at the right moment.
+- [make-the-bad-state-impossible](./make-the-bad-state-impossible.md) — LLMs locally defend against bad states; pull them back to the global invariant instead.
 - [slop-loops-and-agent-psychosis](./slop-loops-and-agent-psychosis.md) — the dopamine loop produces slop and dependence the moment you turn off your brain.
 - [you-are-the-bottleneck](./you-are-the-bottleneck.md) — review and accountability are the irreducible bottleneck; you were the bottleneck all along.

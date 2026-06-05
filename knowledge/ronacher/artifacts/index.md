@@ -20,3 +20,5 @@ them, one line each.
 - [skills-over-deferred-tool-loading](./skills-over-deferred-tool-loading.md) — why skills beat Anthropic's deferred MCP loading, from the model internals.
 - [malleable-self-extending-agent](./malleable-self-extending-agent.md) — Pi: an agent that extends itself, no MCP, provider-portable tree sessions, hot reload.
 - [design-a-language-for-agents](./design-a-language-for-agents.md) — local reasoning, no LSP-split, effect markers, diff stability: designing a language agents read well.
+- [agent-driven-issue-triage](./agent-driven-issue-triage.md) — Pi's `.pi` `/is`+`prompt-url-widget`+`/wr` setup: feed issues to the agent but instruct it to distrust the issue.
+- [local-models-as-a-first-class-provider](./local-models-as-a-first-class-provider.md) — pick one model+stack and polish it end-to-end inside the harness; tool-param streaming is a product bug (pi-ds4).

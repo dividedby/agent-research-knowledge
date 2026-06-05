@@ -64,6 +64,9 @@ them. Reference knowledge follows the same shape under a different filename: a
 `RESOURCES.md` holds a resource and **says how to query it**, so the agent pulls
 it in on demand — e.g. a knowledge base "used during teaching sessions, a thing
 to query against." The pointer-doc, not the inlined instruction, is the unit.
+In the same spirit Matt keeps a `CODING_STANDARDS.md` *separate* from the root
+file: standards are relevant only to sessions that write code, so they live in
+their own pulled-in doc rather than burning budget on every session.
 
 ## Context window phases and hardwired constraints
 
@@ -85,3 +88,4 @@ When enforceable constraints can be encoded as PreToolUse hooks (that exit with 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061685783342256491-4bba91f0.md` — origin: https://x.com/mattpocockuk/status/2061685783342256491
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061707663088529896-786519e4.md` — origin: https://x.com/mattpocockuk/status/2061707663088529896
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061712630071362011-02e73004.md` — origin: https://x.com/mattpocockuk/status/2061712630071362011
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062528961855287580-6a45a883.md` — origin: https://x.com/mattpocockuk/status/2062528961855287580

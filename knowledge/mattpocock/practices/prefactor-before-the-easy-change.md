@@ -48,3 +48,5 @@ used to.
 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/.claude-skills-to-issues-project-SKILL.md-7f209ac1.md — https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.claude/skills/to-issues-project/SKILL.md (revision 2026-06-03)
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/.sandcastle-to-issues-prd-prompt.md-a986a929.md — https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/to-issues-prd/prompt.md (revision 2026-06-03)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062139630955184170-1a58ad17.md` — origin: https://x.com/mattpocockuk/status/2062139630955184170
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062151546616291780-0cb9e767.md` — origin: https://x.com/mattpocockuk/status/2062151546616291780

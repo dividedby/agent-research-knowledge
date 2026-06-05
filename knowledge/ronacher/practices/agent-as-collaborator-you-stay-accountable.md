@@ -29,6 +29,22 @@ have to *fight* this with the same judgement you'd apply to your own code — se
 [[shape-the-codebase-for-local-reasoning]] for the structural half and
 [[you-are-the-bottleneck]] for where accountability ultimately binds.
 
+**Language is part of the accountability discipline.** Ronacher deliberately
+calls the thing a *clanker* (a tool, a machine of numbers and matrices) rather
+than an *agent*, because "agent" smuggles in agency and responsibility the
+machine cannot hold. The harness is a language model plus a prompt, some tools,
+a bit of context, and a boring tool loop — the agency lives in the human and the
+org that deployed it, never in the model. The point is operational, not
+semantic: "if my coding tool opens a pull request, *I* opened that pull request";
+"if my machine spams someone's issue tracker, *I* spammed it." Softer,
+anthropomorphic language ("the agent decided", "the model refused") is dangerous
+precisely because it makes it easy to launder responsibility into an undefined
+void. Don't extend empathy or moral status to a token predictor that can emit an
+"ouch"; keep a clear division — humans on one side with responsibility, the
+machine on the other as a tool — because that boundary is what keeps you owning
+the output.
+
 ## Sources
 - /home/runner/work/agent-research/agent-research/sources/ronacher/blog/https-lucumr.pocoo.org-2025-1-30-how-i-ai-1b7a9db7.md — https://lucumr.pocoo.org/2025/1/30/how-i-ai/
 - /home/runner/work/agent-research/agent-research/sources/ronacher/blog/https-lucumr.pocoo.org-2025-9-29-90-percent-fa7af1a5.md — https://lucumr.pocoo.org/2025/9/29/90-percent/
+- /home/runner/work/agent-research/agent-research/sources/ronacher/blog/https-lucumr.pocoo.org-2026-5-26-clankers-83bdc563.md — https://lucumr.pocoo.org/2026/5/26/clankers/

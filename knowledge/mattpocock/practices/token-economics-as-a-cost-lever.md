@@ -28,6 +28,18 @@ savings live. (Provider-side prefix caching cuts the input side too, re-billing 
 unchanged prefix at a much lower rate — a reason to keep the stable part of a
 prompt stable.)
 
+## Match the format to the agent, not to the human habit
+
+The same output-shaping logic governs *format* choice, not just length. Matt's
+rule: **any to-agent communication should be in a token-efficient format** — which
+is why he wants the recurring "HTML vs Markdown" debate dead. The mistake he calls
+out is treating "put input into a richer format" as a golden hammer that hits every
+nail; a richer, more verbose representation that helps a human (or a rendering
+layer) is dead weight when the consumer is a model paying per token. The resolution
+is not one winner but *right format per purpose*: a stack uses HTML for the things
+that need it and Markdown for the things that don't — you pick the cheapest
+representation the consumer can act on, rather than standardizing on the prettiest.
+
 ## Why vocabulary size sits underneath all of this
 
 Tokenization is learned bottom-up from a corpus — characters, then frequent
@@ -42,3 +54,7 @@ sharper and cheaper to run.
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-what-are-tokens-61b05ccd.md` — origin: https://www.aihero.dev/what-are-tokens
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061888307231945005-94786110.md` — origin: https://x.com/mattpocockuk/status/2061888307231945005
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061888451700486547-e7f2ccaf.md` — origin: https://x.com/mattpocockuk/status/2061888451700486547
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061888589542162693-79619669.md` — origin: https://x.com/mattpocockuk/status/2061888589542162693
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061889988761960787-38e06b2c.md` — origin: https://x.com/mattpocockuk/status/2061889988761960787
