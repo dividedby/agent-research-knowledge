@@ -47,6 +47,39 @@ Documents are saved to the OS temporary directory as disposable working document
 
 Handoff creates a DIY sub-agent pattern: use a full context window for exploration, compress learnings into a handoff document, and pass insights back to the parent session. This enables complex exploration without bloating the main session's context.
 
+## Primary vs Secondary Source: the lossiness is structural
+
+Underneath every handoff and compaction is a single trade-off Matt names with two
+terms: a **primary source** is the thing itself — code, transcripts, raw data —
+complete and authoritative but expensive to load into context; a **secondary
+source** is an account of a primary source one step removed — summaries, docs,
+compaction summaries — cheap to load but *lossy by construction*. This is why a
+handoff artifact and an autocompact summary are never free wins: they buy context
+headroom by spending fidelity. The practitioner consequence is to handoff with
+**pointers to the primary source** (reference the file, don't paste it) so the
+next session can re-load the authoritative original on demand, rather than
+inheriting only the lossy secondary account — the same instinct behind "reference
+existing artifacts rather than copying content."
+
+Matt frames any context-engineering decision as managing this trade-off: primary
+sources are expensive to load but give richer context; secondary sources are
+cheap but information-lossy. The corollary that bites in practice is **doc rot**:
+a secondary source captures its primary at one moment, so the more often the
+primary changes the faster the secondary drifts out of true. Hence his rule —
+**delete secondaries where the underlying primary changes often.** Spending tokens
+to generate docs that go stale almost immediately is a *false economy*: you pay to
+build a cache that lies. The escape hatch is to label intent: anything explicitly
+marked a **historical record** drifts less, because it never claims to "represent
+the truth right now" — it's an account of a past state, not a stale mirror of the
+present one. (One subtlety: raw model reasoning is rarely a usable source on its
+own — you cite the code or transcript it produced, the primary, not the reasoning.)
+
 ## Sources
 
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-skills-handoff-2afa3dc0.md
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-handoff-2afa3dc0.md` — origin: https://www.aihero.dev/skills/handoff
+- `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary (revision 2026-06-05)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062825992486269441-a87fb8b9.md` — origin: https://x.com/mattpocockuk/status/2062825992486269441
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062828424817737840-3c0696fe.md` — origin: https://x.com/mattpocockuk/status/2062828424817737840
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062830915466780739-12ea3c41.md` — origin: https://x.com/mattpocockuk/status/2062830915466780739
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062876525553197221-2eed6697.md` — origin: https://x.com/mattpocockuk/status/2062876525553197221
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062876787881718069-873859ad.md` — origin: https://x.com/mattpocockuk/status/2062876787881718069
