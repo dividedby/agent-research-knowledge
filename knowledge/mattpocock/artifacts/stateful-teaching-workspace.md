@@ -25,6 +25,16 @@ Every teaching session ties back to the mission file. If unclear or missing, the
 
 Terms get added to the glossary only after the agent feels confident the user understands them. This creates a living vocabulary that all workspace files adhere to, enabling more sophisticated discussions as the shared language grows. The glossary becomes fuel for increasingly complex instruction.
 
+## Validated on a non-code mission, still in the in-progress bucket
+
+Matt road-tests `/teach` against a deliberately non-software mission — whether it
+can teach him to solve a Rubik's cube — which is the workspace design eating its
+own dog food: a real-world "why" (the MISSION), tight interactive feedback loops
+(SKILL phase), and a confidence signal so concrete he ordered a speed cube. The
+skill is invoked as `/teach me about this codebase` and still lives in the
+`in-progress/` bucket — consistent with the buckets-and-promotion discipline,
+where a draft skill is fully hidden (unadvertised) until it earns promotion.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-SKILL.md-993c30ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/SKILL.md
@@ -32,3 +42,5 @@ Terms get added to the glossary only after the agent feels confident the user un
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-GLOSSARY-FORMAT.md-40a3046d.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/GLOSSARY-FORMAT.md
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-RESOURCES-FORMAT.md-270f7fbb.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/RESOURCES-FORMAT.md
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-LEARNING-RECORD-FORMAT.md-0e2d7095.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/LEARNING-RECORD-FORMAT.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062973868344524834-0d3780ae.md` — origin: https://x.com/mattpocockuk/status/2062973868344524834
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2063002181305868492-1108dcdd.md` — origin: https://x.com/mattpocockuk/status/2063002181305868492
