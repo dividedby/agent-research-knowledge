@@ -34,7 +34,12 @@ on?") and are grillable; *high-fidelity* questions can only be answered by seein
 the thing ("how should this UI feel?", "one big form or several pages?"). Trying
 to grill a high-fidelity question is a top failure mode — the move is to hand off
 to a prototype session, build enough to answer it, then hand back:
-**grill → prototype → grill again**. Grilling is also a *conversation, not an
+**grill → prototype → grill again**. Matt names this move on its own —
+**prototyping**: having the agent build a quick, rough version precisely *when
+conversation is too low-fidelity* and you need a real artifact to react to. It's
+the general escape from a stalled design concept, not a grilling-only step: when
+talk can't resolve a decision, stop talking and make something to talk about.
+Grilling is also a *conversation, not an
 interview*: stay active and steer, or the agent explodes the scope with hundreds
 of low-fidelity questions; but don't over-grill low-fidelity detail when you
 should be writing code.
@@ -88,3 +93,4 @@ work starts.
 - `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-5-agent-skills-i-use-every-day-056774d5.md` — origin: https://www.aihero.dev/5-agent-skills-i-use-every-day
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-grill-me-8337a3c4.md` — origin: https://www.aihero.dev/skills-grill-me
+- `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary (revision 2026-06-05, "Prototyping")

@@ -5,13 +5,24 @@ The `teach` skill implements learning as a stateful, file-backed workspace where
 ## The workspace file structure
 
 - **`MISSION.md`** — captures the *reason* the user wants to learn, grounding all instruction in real-world goals rather than abstract study
-- **`GLOSSARY.md`** — builds shared terminology incrementally, compressing knowledge into language so complex concepts become building blocks for harder ones  
 - **`RESOURCES.md`** — catalogs high-quality, trusted sources for knowledge acquisition, with agent instruction to "never trust your parametric knowledge" before this is populated
 - **`learning-records/*.md`** — numbered ADR-style records (`0001-concept-name.md`) capturing non-obvious lessons and key insights that drive future sessions and help calculate the zone of proximal development
+- **`lessons/*.html`** — the *primary unit of teaching*: numbered (`0001-name.html`), self-contained HTML files that each teach ONE tightly-scoped thing tied to the mission (see the lesson/reference split below)
+- **`reference/*.html`** — durable, compressed cheat sheets (syntax, algorithms, glossaries, yoga poses) designed for quick re-reference
+- **`NOTES.md`** — a scratchpad for user teaching preferences and working notes
 
 ## Knowledge-Skills-Wisdom progression
 
-Teaching follows a three-phase model: **Knowledge** (gathered from trusted resources, taught via beautiful HTML explainers saved to disk), **Skills** (acquired through interactive exercises with tight feedback loops), and **Wisdom** (gained by directing users to real-world communities for authentic practice). The workspace files support this progression by providing context for each phase.
+Teaching follows a three-phase model: **Knowledge** (gathered from trusted resources, taught via beautiful, citation-littered HTML lessons saved to disk), **Skills** (acquired through interactive lessons with tight, ideally automatic feedback loops), and **Wisdom** (gained by directing users to real-world communities for authentic practice). The workspace files support this progression by providing context for each phase.
+
+## The lesson/reference split: disposable teaching vs durable reference
+
+The output structure hardened over revisions from a single undifferentiated "HTML explainer" into two distinct HTML artifact types with opposite lifespans, codifying that *teaching* and *reference* are different jobs:
+
+- A **lesson** is the primary unit — one self-contained HTML file teaching ONE thing, quickly completable for a tangible win, opened via a single CLI command. Lessons are knowledge-as-skill: only the knowledge required for the target skill, then an interactive feedback loop. They are treated as largely *disposable* — "lessons will rarely be revisited later."
+- A **reference document** is the *durable* counterpart — the compressed essence of lessons, formatted for quick lookup and meant to be returned to. Glossaries (previously a top-level `GLOSSARY.md`) folded into reference docs, and the glossary remains the canonical one: "once one is created, it should be adhered to in every lesson."
+
+The distinction is the design lesson — separating the throwaway pedagogical scaffold from the long-lived artifact the learner keeps, rather than conflating both in one document.
 
 ## Zone of proximal development calculation
 
@@ -23,7 +34,7 @@ Every teaching session ties back to the mission file. If unclear or missing, the
 
 ## Progressive glossary building
 
-Terms get added to the glossary only after the agent feels confident the user understands them. This creates a living vocabulary that all workspace files adhere to, enabling more sophisticated discussions as the shared language grows. The glossary becomes fuel for increasingly complex instruction.
+A glossary compresses knowledge into language so complex concepts become building blocks for harder ones, and all lessons adhere to it once created — making it fuel for increasingly sophisticated instruction. Originally a dedicated top-level `GLOSSARY.md`, it was later folded into the `reference/` documents, consistent with the lesson/reference split: the glossary is durable, lookup-oriented reference material, not transient lesson content.
 
 ## Validated on a non-code mission, still in the in-progress bucket
 
