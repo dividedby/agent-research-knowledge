@@ -56,6 +56,18 @@ prototyping in a child session, compress the learnings into a handoff document,
 and pass only those back to the parent — and because it's a portable markdown file
 it works across tools (Claude Code → Codex, adversarial review, etc.).
 
+## Set the auto-compact threshold deliberately
+
+Smart-zone discipline isn't only manual `/compact` and `/handoff` — the harness
+itself has a lever, and Matt tunes it. His `course-video-manager` project pins
+`"autoCompactWindow": 180000` in `.claude/settings.json`: the token threshold at
+which Claude Code automatically compacts the session. Setting it explicitly (here,
+180k tokens) is the same instinct as the status line — treat the point at which
+context gets pulled back toward the smart zone as a configurable, per-project
+decision rather than a vendor default to live with. It's the deterministic-config
+counterpart to the manual budget habits: where the status line tells *you* when to
+act, `autoCompactWindow` makes the harness act for you at a chosen line.
+
 ## Make the budget visible
 
 Because the smart zone is invisible by default, Matt surfaces it: his Claude Code
@@ -76,3 +88,4 @@ check it.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060403350332448950-8300a75e.md` — origin: https://x.com/mattpocockuk/status/2060403350332448950
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060426881535512807-c7b0c21c.md` — origin: https://x.com/mattpocockuk/status/2060426881535512807
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060652913442062670-48fea6c3.md` — origin: https://x.com/mattpocockuk/status/2060652913442062670
+- `sources/mattpocock/course-video-manager/.claude-settings.json-32bd95e6.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.claude/settings.json
