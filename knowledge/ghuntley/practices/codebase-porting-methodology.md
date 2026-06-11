@@ -52,4 +52,4 @@ Within the same repository, run classic Ralph loop:
 
 This methodology demonstrates how Ralph loops can systematically tackle complex, multi-stage transformations while maintaining quality and traceability throughout the porting process.
 
-Sources: [porting software has been trivial for a while now](sources/ghuntley/blog/https-ghuntley.com-porting-c1d70add.md)
+Sources: [porting software has been trivial for a while now](https://ghuntley.com/porting/) — `sources/ghuntley/blog/https-ghuntley.com-porting-c1d70add.md`

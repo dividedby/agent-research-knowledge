@@ -86,4 +86,4 @@ Building agents is now fundamental knowledge:
 - Understanding the loop is as essential as knowing what a primary key is
 - Failing to learn risks falling behind coworkers who leverage multiple agents
 
-Sources: [how to build a coding agent: free workshop](sources/ghuntley/blog/https-ghuntley.com-agent-55a508d9.md)
+Sources: [how to build a coding agent: free workshop](https://ghuntley.com/agent/) — `sources/ghuntley/blog/https-ghuntley.com-agent-55a508d9.md`

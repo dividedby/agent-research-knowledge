@@ -64,4 +64,4 @@ For system design:
 - Create mechanisms to detect and respond to context pressure
 - Engineer systems that degrade gracefully under context constraints
 
-Sources: [too many model context protocol servers and LLM allocations on the dance floor](sources/ghuntley/blog/https-ghuntley.com-allocations-d8cf275f.md), [don't waste your back pressure](sources/ghuntley/blog/https-ghuntley.com-pressure-d34d2128.md)
+Sources: [too many model context protocol servers and LLM allocations on the dance floor](https://ghuntley.com/allocations/) — `sources/ghuntley/blog/https-ghuntley.com-allocations-d8cf275f.md`, [don't waste your back pressure](https://ghuntley.com/pressure/) — `sources/ghuntley/blog/https-ghuntley.com-pressure-d34d2128.md`

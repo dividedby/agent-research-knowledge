@@ -75,4 +75,4 @@ The ultimate goal is democratizing software modification, where any user can ada
 
 ## Sources
 
-[a sneak preview behind an embedded software factory. I suspect rapid application dev is back](sources/ghuntley/blog/https-ghuntley.com-rad-32017f75.md)
+[a sneak preview behind an embedded software factory. I suspect rapid application dev is back](https://ghuntley.com/rad/) — `sources/ghuntley/blog/https-ghuntley.com-rad-32017f75.md`
