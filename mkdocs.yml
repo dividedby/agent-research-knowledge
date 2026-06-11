@@ -1,0 +1,43 @@
+site_name: agent-research knowledge
+site_description: >-
+  Synthesized, source-cited knowledge about how skilled practitioners build and
+  work with coding agents. A public, read-only mirror — do not edit here.
+docs_dir: knowledge
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - scripts/gen_nav.py
+
+exclude_docs: |
+  **/.synthesized/*
+  **/*.stamp
+  **/.DS_Store
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite

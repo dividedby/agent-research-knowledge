@@ -1,2 +1,6 @@
 .DS_Store
 Thumbs.db
+
+# Pages build artifacts
+site/
+.venv/
