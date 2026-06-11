@@ -91,4 +91,4 @@ The transformation enables hyper-personalized software where old models of build
 - Embracing abundance rather than fighting scarcity mindset
 - Building systems that leverage rather than resist AI capabilities
 
-Sources: [A couple of days ago, I sat down with Vivek Bharathi](sources/ghuntley/blog/https-ghuntley.com-frontier-2cb71b1f.md), [Software development now costs less than than the wage of a minimum wage worker](sources/ghuntley/blog/https-ghuntley.com-real-6ff4b12c.md)
+Sources: [A couple of days ago, I sat down with Vivek Bharathi](https://ghuntley.com/frontier/) — `sources/ghuntley/blog/https-ghuntley.com-frontier-2cb71b1f.md`, [Software development now costs less than than the wage of a minimum wage worker](https://ghuntley.com/real/) — `sources/ghuntley/blog/https-ghuntley.com-real-6ff4b12c.md`

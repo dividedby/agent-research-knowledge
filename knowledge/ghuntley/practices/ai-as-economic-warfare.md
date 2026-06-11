@@ -61,4 +61,4 @@ The analysis serves as both a warning about potential economic vulnerabilities a
 
 ## Sources
 
-[AI as economic warfare](sources/ghuntley/blog/https-ghuntley.com-warfare-e816dc1e.md)
+[AI as economic warfare](https://ghuntley.com/warfare/) — `sources/ghuntley/blog/https-ghuntley.com-warfare-e816dc1e.md`

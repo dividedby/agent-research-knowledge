@@ -50,4 +50,4 @@ This represents a fundamental shift from optimizing code for human readability t
 
 ## Sources
 
-[llm weights vs the papercuts of corporate](sources/ghuntley/blog/https-ghuntley.com-papercuts-6c9925cc.md)
+[llm weights vs the papercuts of corporate](https://ghuntley.com/papercuts/) — `sources/ghuntley/blog/https-ghuntley.com-papercuts-6c9925cc.md`

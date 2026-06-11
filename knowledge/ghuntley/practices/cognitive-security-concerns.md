@@ -63,4 +63,4 @@ The insidious nature of cognitive influence means that manipulation could occur 
 
 ## Sources
 
-[cognitive security](sources/ghuntley/blog/https-ghuntley.com-cogsec-1e08af8c.md)
+[cognitive security](https://ghuntley.com/cogsec/) — `sources/ghuntley/blog/https-ghuntley.com-cogsec-1e08af8c.md`

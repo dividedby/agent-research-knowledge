@@ -46,4 +46,4 @@ The transition to AI-generated code necessitates fundamental changes in how secu
 
 ## Sources
 
-[anti-patterns and patterns for achieving secure generation of code via AI](sources/ghuntley/blog/https-ghuntley.com-secure-codegen-8fe2a042.md)
+[anti-patterns and patterns for achieving secure generation of code via AI](https://ghuntley.com/secure-codegen/) — `sources/ghuntley/blog/https-ghuntley.com-secure-codegen-8fe2a042.md`

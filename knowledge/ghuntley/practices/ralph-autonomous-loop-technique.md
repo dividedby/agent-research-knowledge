@@ -60,4 +60,4 @@ Ralph enables:
 - Dramatic reduction in development costs
 - Automation of entire job functions
 
-Sources: [everything is a ralph loop](sources/ghuntley/blog/https-ghuntley.com-loop-5a016131.md), [i ran Claude in a loop for three months](sources/ghuntley/blog/https-ghuntley.com-cursed-e03af03c.md)
+Sources: [everything is a ralph loop](https://ghuntley.com/loop/) — `sources/ghuntley/blog/https-ghuntley.com-loop-5a016131.md`, [i ran Claude in a loop for three months](https://ghuntley.com/cursed/) — `sources/ghuntley/blog/https-ghuntley.com-cursed-e03af03c.md`
