@@ -37,6 +37,12 @@ Loud beats lossy. (The same instinct rejects tolerant JSON parsing for structure
 output in ADR 0010: "Hides genuine model failures behind a forgiving parser… Loud
 is better.")
 
+The same instinct shapes `sandcastle init`: every interactive prompt is paired with
+a CLI flag so the whole setup can run non-interactively (CI, scripts). When stdin is
+not a TTY and a required flag is missing, init **fails fast naming the missing
+flag** rather than wedging on a prompt library or proceeding with a silent default —
+a wrong setup is worse than a clean stop that tells you exactly which flag to pass.
+
 ## Expose recovery, but keep the loop in the consumer
 
 The thin-harness line is sharpest where it would be tempting to add cleverness:
@@ -53,7 +59,11 @@ hiding a loop. This is the seam the consumer-side retry pattern is built on
 The payoff of the discipline is that adding a provider or a workflow is *purely
 additive* (ADR 0012: providers own their own session storage end-to-end, so a new
 agent is "implement `sessionStorage`, emit `session_id`… no central code changes").
-A harness that owns less has less to change. Most of these boundaries are recorded
+A harness that owns less has less to change. The payoff is visible in the breadth
+the abstraction now carries: a single `AgentProvider` interface fronts claudeCode,
+codex, pi, opencode, copilot, and cursor, each normalizing its own CLI-flag shape,
+stream-parse format, and session quirks behind the same contract — adding the next
+one is still purely additive. Most of these boundaries are recorded
 as refusals in [[out-of-scope-as-design-discipline]]; the philosophy here is the
 *why* underneath them.
 
@@ -66,3 +76,6 @@ as refusals in [[out-of-scope-as-design-discipline]]; the philosophy here is the
 - `sources/mattpocock/sandcastle/docs-adr-0010-structured-output.md-df5103e4.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0010-structured-output.md
 - `sources/mattpocock/sandcastle/docs-adr-0011-resume-is-one-iteration.md-217c0b1d.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0011-resume-is-one-iteration.md
 - `sources/mattpocock/sandcastle/docs-adr-0012-agent-provider-owned-session-storage.md-8ca410f0.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0012-agent-provider-owned-session-storage.md
+- `sources/mattpocock/sandcastle/CHANGELOG.md.md` — origin: github.com/mattpocock/sandcastle (CHANGELOG.md)
+- `sources/mattpocock/sandcastle/README.md.md` — origin: github.com/mattpocock/sandcastle (README.md)
+- `sources/mattpocock/sandcastle/src-AgentProvider.ts-c6a6e278.md` — origin: github.com/mattpocock/sandcastle (src/AgentProvider.ts)

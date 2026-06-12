@@ -24,6 +24,31 @@ The output structure hardened over revisions from a single undifferentiated "HTM
 
 The distinction is the design lesson — separating the throwaway pedagogical scaffold from the long-lived artifact the learner keeps, rather than conflating both in one document. A later refinement wires the two output types into a navigable web: each lesson links via HTML anchors out to other lessons and reference documents, so the disposable scaffold still threads the learner back to the durable material it distilled from.
 
+## Fluency vs storage strength: difficulty is asymmetric across the two jobs
+
+A later revision sharpens the Knowledge-vs-Skills distinction into an explicit
+learning-science frame and makes the two phases pull in opposite directions on
+*difficulty*. The skill names two kinds of learning — **fluency strength**
+(in-the-moment retrieval) and **storage strength** (long-term retention) — and
+warns that fluency gives "an illusory sense of mastery" while storage strength is
+the real goal. The design consequence is a deliberate split:
+
+- **For knowledge acquisition, difficulty is the enemy** — it "eats working
+  memory you need for understanding," so lessons stay short (lessons are sized to
+  the learner's small working memory, "Think Tufte") and each recommends a single
+  primary source to read or watch.
+- **For skill acquisition, difficulty is the tool** — effortful retrieval is what
+  builds storage strength. Skills lessons engineer *desirable difficulty* via
+  retrieval practice (recall from memory), spacing (distributing practice over
+  time), and interleaving (mixing related topics — for skills practice only).
+
+This is why the workspace separates teaching knowledge from drilling skills rather
+than treating "a lesson" as one undifferentiated thing: easing cognitive load is
+correct for the first and self-defeating for the second. A small but telling
+enforcement of the same principle: quiz answers must be the same length (words and
+characters) so formatting leaks no clue — the difficulty has to live in the recall,
+not the presentation.
+
 ## Zone of proximal development calculation
 
 The `learning-records/` directory functions as memory for optimal challenge level — the agent reads prior records to understand what the user already knows, then teaches "the most relevant thing that fits in their zone of proximal development" based on their mission. This prevents both overwhelming beginners and boring advanced learners.

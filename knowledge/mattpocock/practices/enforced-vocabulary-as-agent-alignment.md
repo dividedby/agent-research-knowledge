@@ -32,6 +32,26 @@ The "avoid" lists aren't suggestions — they're architectural constraints that 
 
 This negative space is as important as the positive definitions. It closes off attractive but problematic alternatives that would slowly erode the vocabulary's precision if allowed to creep in through casual usage.
 
+A later course-video-manager revision sharpens what the `_Avoid_` list is *for*:
+it forbids not only synonyms but terms that name a concept the system has
+deliberately chosen **not** to model. "Section Workbench" rejects "Lesson page"
+with the reason "the workbench is section-altitude; there is no lesson-altitude
+page" — the banned term is barred because it implies a surface that does not
+exist, not because it is an alias. (The same move appears in "Reference Video"
+rejecting "Previous Take" because that "implies take-history we don't model.")
+Used this way the blacklist encodes *modeling decisions*: an agent that reaches
+for the forbidden word is reaching for a non-existent abstraction, and the avoid
+line tells it so before it generates code around a concept the system never
+built. The negative space carries architecture, not just spelling.
+
+The same revision shows the glossary minting an **inverse** term to keep a
+contract explicit: alongside the long-standing "Materialize" (ghost → real) it
+adds "Dematerialize" (real → ghost), defined by exactly what it deletes (the
+on-disk directory) versus preserves (the entity's Videos, Segments, and Clips).
+Naming the reverse operation — rather than describing it as "the opposite of
+materializing" each time — gives the agent a single token for a state transition
+whose data-preservation contract it must not guess at.
+
 ## Domain vocabulary scales to comprehensive coverage
 
 The course-video-manager project demonstrates the ultimate evolution of this practice — a 750-line domain vocabulary covering every concept from course structure to video export, with multiple revisions tracked over time. Terms like "Ghost Lesson" (database entity without filesystem presence), "Materialization Cascade" (chain reaction creating on-disk representations), and "Export Hash" (SHA256 determining re-export need) show the precision possible when vocabulary discipline is applied comprehensively.

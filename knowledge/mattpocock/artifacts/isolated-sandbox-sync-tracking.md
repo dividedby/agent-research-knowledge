@@ -26,6 +26,31 @@ The `refs/sandcastle/` namespace keeps the sync bookmark invisible to `git log`,
 
 This keeps the sync tracking mechanism out of the user's mental model while solving the coordination problem invisibly in the background.
 
+## The worktree, not sync, is now the spine of the architecture
+
+The sync-in/sync-out machinery above is the **isolated-provider** path, and the
+README's "How it works" has been rewritten around a **worktree-based** model rather
+than that sync model as the headline architecture. The current framing is three
+*branch strategies* over a git worktree: `head` (agent writes the host working
+directory directly, no worktree), `merge-to-head` (temp branch in a worktree,
+merged back to HEAD), and `branch` (commits land on a named branch in a worktree).
+For the common bind-mount providers (Docker, Podman) the worktree directory is
+simply *bind-mounted into the container* — the agent writes the host filesystem
+through the mount, so **no sync is needed at all**. The `format-patch`/`am` sync
+dance described above is now the fallback specific to *isolated* providers whose
+sandbox can't reach the host filesystem, not the general mechanism.
+
+The worktree is also promoted to a **first-class, standalone concept** via
+`createWorktree()` — a worktree independent of any sandbox. The motivating workflow
+is hand-off: run an *interactive* session in the worktree first (to explore and
+understand), then hand the *same* worktree to a sandboxed AFK agent. Ownership
+splits accordingly — when a sandbox is created via `wt.createSandbox()`,
+`sandbox.close()` tears down the container only and the worktree survives;
+`wt.close()` owns worktree cleanup (preserving it if dirty). This differs from the
+top-level `createSandbox()`, where one `close()` owns both.
+
 ## Sources
 
 - `sources/mattpocock/sandcastle/docs-adr-0017-sandbox-owned-sync-base-ref.md-792c3e43.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0017-sandbox-owned-sync-base-ref.md
+- `sources/mattpocock/sandcastle/README.md.md` — origin: github.com/mattpocock/sandcastle (README.md)
+- `sources/mattpocock/sandcastle/CHANGELOG.md.md` — origin: github.com/mattpocock/sandcastle (CHANGELOG.md)

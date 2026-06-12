@@ -14,6 +14,18 @@ File-based agents (Claude Code, Codex, Pi) persist one self-contained record per
 
 This boundary keeps session transfer simple and stable. The agent owns its session format completely; Sandcastle owns only the transport mechanism. Schema changes within the session file don't affect the transfer logic because the file remains the unit of transfer.
 
+The public seam has since narrowed to make this even cleaner: the `SessionStore`
+factory exports were removed in favour of **pure-string** helpers —
+`transferClaudeSession(jsonl, fromCwd, toCwd)` / `transferCodexSession(...)` — that
+rewrite a session JSONL's embedded `cwd` paths *without touching the filesystem*.
+The actual file I/O (read the sandbox file, write the host file) moves to the call
+site. So the transferable-file requirement is now expressed as a pure transform over
+a string plus thin path/scan utilities (`claudeHostSessionPath`,
+`findClaudeSessionOnHost`, …), with each provider's `AgentSessionStorage`
+composing them. The transform is testable in isolation and provider-owned, which is
+the whole point: the agent's session format stays the agent's, and the harness's
+contact with it is one string-rewrite function per provider.
+
 ## Qualification by storage architecture
 
 The requirement is architectural, not technological. Codex uses SQLite as an index over filesystem JSONL files, with the files being the source of truth — this qualifies because the session data exists as transferable files. OpenCode stores sessions primarily in SQLite rows without file backing — this doesn't qualify.
@@ -29,3 +41,5 @@ This graceful degradation means adding a new agent provider doesn't require solv
 ## Sources
 
 - `sources/mattpocock/sandcastle/docs-adr-0016-resume-requires-filesystem-backed-sessions.md-46d84860.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0016-resume-requires-filesystem-backed-sessions.md
+- `sources/mattpocock/sandcastle/CHANGELOG.md.md` — origin: github.com/mattpocock/sandcastle (CHANGELOG.md)
+- `sources/mattpocock/sandcastle/src-AgentProvider.ts-c6a6e278.md` — origin: github.com/mattpocock/sandcastle (src/AgentProvider.ts)
