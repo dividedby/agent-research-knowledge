@@ -28,4 +28,4 @@ explicitly rather than assuming good human ergonomics transfer.
 
 ## Sources
 
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md (origin: https://www.aihero.dev/ai-coding-dictionary, revision 2026-06-05)
+- `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary

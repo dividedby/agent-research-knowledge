@@ -106,7 +106,60 @@ He affirms it generalizes to learning to code and (probably) to remodeling a
 house, fixing a car, or running local AI inference. Nothing in the workspace
 files is software-specific; the same mission → resources → lessons → records loop
 carries any skill-acquisition domain, which is why the artifact lives in
-`productivity/` rather than a code-tooling bucket.
+`productivity/` rather than a code-tooling bucket. The generality reaches further
+in the wild: learners report wiring it to a chess engine plus an API for their own
+recent games so it builds custom lessons, puzzles, and quizzes from their actual
+play, and Matt himself recommends *giving the skill domain tools* — "give it
+access to a chess engine" — when the bare LLM hits a domain limit (it can't track
+chess board state and hallucinates positions). The fix for a weak domain is a
+tool, not a different model. The same domain-reach is why he points beginners at it
+for GitHub onboarding and non-technical use.
+
+## Don't shackle the learner: primary sources and graduation
+
+A late design move makes the skill recommend a **primary source** to read in every
+lesson — git docs, AWS articles, Next.js docs. The stated goal is anti-dependence:
+"The goal isn't to keep you shackled to the agent, it's to get you confident enough
+to read the sources for yourself." This is the `RESOURCES.md` "never trust your
+parametric knowledge" discipline pointed outward at the learner — the workspace
+isn't trying to be the learner's permanent oracle, it's trying to make itself
+unnecessary.
+
+## Steerable by stated preference; the next step is improvised, not roadmapped
+
+Two deliberate non-features clarify the design boundary. First, the skill is
+*tunable by telling it your preference*: a learner finding lessons too superficial
+or short should say so and it adapts — Matt prefers short lessons and tuned the
+skill so quiz answers don't telegraph the right choice. The fix for "wrong
+lesson size/feel" is conversation, the same report-back channel that aims every
+turn, not a config knob. Second, he declines a companion *roadmap* skill on
+purpose: "it's better to have the next step improvised based on what the user wants
+to learn next." Pre-committing a syllabus would defeat the zone-of-proximal-
+development calculation that re-aims each lesson from the live learning records —
+the absence of a fixed roadmap is the feature, not a gap.
+
+## Runs as-is across harnesses; ship as its own thing
+
+Matt's portability stance is to **run the skill unchanged on a different harness**
+(e.g. on Codex) rather than have an agent rewrite a port — a Codex-specific rewrite
+"don't know if it's as good" is the wrong move; "I'd run the skill as is on Codex."
+This is the same model-agnostic posture as his other skills ([[small-adaptable-not-process-owning]]):
+the artifact is the markdown, and a capable harness should execute it directly. He
+also signals `/teach` may move to its own repo with a bigger treatment (100 example
+prompts, guides on the underlying pedagogy) because "it's not really about
+engineering" — the skill outgrew the engineering-skills bucket it shipped in.
+
+## Endorsement signal: learners build whole personalized systems on it
+
+The skill's reach shows up as amplification. Matt reposts learners describing what
+they built on `/teach`: one (@AmjadAbubkr) used it to "teach me how to be a senior
+engineer," reporting it "created a whole system, gathered all resources before even
+starting," emitting an HTML file per lesson; another (@N3sOnline) wired it to a
+chess engine and a games API so it analyzes hundreds of their games and builds
+custom visual lessons, puzzles, and quizzes — "the new way to learn things." These
+are foreign authors' accounts that Matt *amplified*, not his own claims; they
+corroborate that the stateful, resource-first, HTML-output workspace generalizes
+to learner-built domain integrations in practice.
 
 ## Sources
 
@@ -133,3 +186,14 @@ carries any skill-acquisition domain, which is why the artifact lives in
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2063724667613876291-41881487.md` — origin: https://x.com/mattpocockuk/status/2063724667613876291
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2063915648711852164-7521b816.md` — origin: https://x.com/mattpocockuk/status/2063915648711852164
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2063682032077562117-5ccdd4fd.md` — origin: https://x.com/mattpocockuk/status/2063682032077562117
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2064697254779228450-0d6f6fe2.md` — origin: https://x.com/mattpocockuk/status/2064697254779228450
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065068530387591319-29aa1cb3.md` — origin: https://x.com/mattpocockuk/status/2065068530387591319
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065387598978130147-7170f8e0.md` — origin: https://x.com/mattpocockuk/status/2065387598978130147
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065688234630271409-5aa6f3a9.md` — origin: https://x.com/mattpocockuk/status/2065688234630271409
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065126872736755939-52c24bc4.md` — origin: https://x.com/mattpocockuk/status/2065126872736755939
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065170177528856845-f584baff.md` — origin: https://x.com/mattpocockuk/status/2065170177528856845
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2064733849309925652-c11ab915.md` — origin: https://x.com/mattpocockuk/status/2064733849309925652
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065422956298207639-2adff3b7.md` — origin: https://x.com/mattpocockuk/status/2065422956298207639
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065421652532302220-2e43149e.md` — origin: https://x.com/mattpocockuk/status/2065421652532302220
+- `sources/mattpocock/twitter/https-x.com-AmjadAbubkr-status-2065032802370834721-60f3593f.md` — origin: https://x.com/AmjadAbubkr/status/2065032802370834721
+- `sources/mattpocock/twitter/https-x.com-N3sOnline-status-2065090964751052833-6ed08e66.md` — origin: https://x.com/N3sOnline/status/2065090964751052833

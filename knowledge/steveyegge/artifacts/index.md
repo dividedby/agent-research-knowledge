@@ -17,3 +17,4 @@ One concept per file; this index lists them, one line each.
 - `cli-visual-design-system.md` — Visual design principles prioritizing cognitive efficiency over decoration
 - `async-coordination-gates.md` — Beads (gates, merge-slot) that block work on external async conditions and serialize conflict resolution
 - `human-in-the-loop-escalation.md` — A `human` label/queue turning "an agent needs a person" into trackable, answerable work
+- `operational-state-dimensions.md` — Event-sourced multi-dimensional operational state (patrol/mode/health) making a fleet of agents observable and steerable

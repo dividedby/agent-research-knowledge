@@ -89,6 +89,19 @@ decoration; they're what lets the agent (and a reviewer) catch drift the moment 
 generated name reaches for a banned word, the same enforcement posture as the
 structural vocabulary in [[enforced-architecture-vocabulary]].
 
+## Endorsement signal: the shared-vocabulary move travels
+
+The practice resonates outside Matt's own repos. He amplifies a practitioner
+(@delba_oliveira) describing a Claude Code + Remotion pipeline for animated
+diagrams whose load-bearing insight is exactly this one: "It really helps to have
+a shared vocabulary with your agent" — having taught the agent that "rise in fast
+on enter" means a specific fade-up offset, duration, and bezier curve, plain
+English now compiles to the team's input language. Her recommended reading for
+building that common language explicitly names Matt's `/grill-with-docs`. This is a
+foreign author's account that Matt endorsed, not his own assertion — but it
+corroborates that the canonical-vocabulary technique generalizes well past code
+into design-system and animation work.
+
 ## ADRs only for genuine, hard-to-reverse trade-offs
 
 The glossary's companion is the ADR, and Matt is deliberately stingy with them.
@@ -109,3 +122,4 @@ the decision — not as a log of everything that happened.
 - `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-changelog-ubiquitous-language-gr-ec926d6c.md` — origin: https://www.aihero.dev/skills-changelog-ubiquitous-language-grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065470273160097977-1e6995c1.md` — origin: https://x.com/mattpocockuk/status/2065470273160097977

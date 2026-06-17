@@ -87,6 +87,26 @@ Optional `BEADS_DOLT_SHARED_SERVER=1` configuration:
 - Workflow command guidance  
 - Agent-specific instruction snippets
 
+**Adaptive token budget.** `bd prime` detects whether an MCP server is active and
+right-sizes its own output: MCP mode emits only ~50-token workflow *reminders*
+(the tool schemas already carry the detail), while CLI mode emits the full
+~1-2k-token command reference. Its explicit job is **re-priming after context
+compaction** — SessionStart hooks for Claude Code, Gemini CLI, and Codex re-inject
+it so the agent doesn't forget the bd workflow once its window is squeezed.
+`--memories-only` trims the injection to just persistent memories for compact hook
+contexts, `--hook-json` wraps output in the SessionStart hook envelope, and a
+`.beads/PRIME.md` file (or `--export` of the default) lets a project override the
+primed content entirely.
+
+### Lean Onboarding Snippet
+`bd onboard` (the same minimal profile `bd init` writes) is the inverse of bloating
+the agent-instructions file: it emits only a ~10-line snippet that *points to*
+`bd prime` rather than embedding the command reference. The instructions file stays
+lean and static; `bd prime` supplies the dynamic, always-current detail at session
+start. Embedding the full reference is the opt-in fallback
+(`bd init --agents-profile=full`) for agents/environments that can't auto-inject
+hook output.
+
 ### Automatic Context Refresh
 Hooks ensure context stays current:
 - SessionStart: Initial context injection
@@ -123,3 +143,4 @@ Hooks ensure context stays current:
 - `sources/steveyegge/beads/docs-CLAUDE_INTEGRATION.md-772005ab.md` (lines 8-122)
 - `sources/steveyegge/beads/docs-MULTI_REPO_AGENTS.md-82567446.md` (lines 12-43)
 - `sources/steveyegge/beads/AGENTS.md.md` (lines 149-242)
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd prime`, `bd onboard` — adaptive token budget, re-priming after compaction, lean snippet) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

@@ -64,10 +64,17 @@ Provides agents with project context and accumulated insights.
 
 ### Memory Persistence
 ```bash
-bd remember \"insight\"  # Store project memory across sessions
+bd remember \"insight\"               # Store project memory across sessions
+bd remember \"...\" --key dolt-phantoms  # Keyed, updates in place if re-stored
+bd recall dolt-phantoms             # Retrieve full content by key
+bd memories \"race flag\"             # List / keyword-search stored memories
 ```
 
-Allows agents to accumulate knowledge that survives session boundaries.
+Allows agents to accumulate knowledge that survives session boundaries — and,
+explicitly, **account rotations** (a new agent identity inherits the accumulated
+insights). Memories are auto-injected at prime time, so they reappear in every
+session without manual loading; a key makes a memory addressable and idempotent
+(re-`remember`ing the same key updates in place rather than duplicating).
 
 ## Cross-Session Data Flow
 
@@ -129,3 +136,4 @@ The session is NOT complete until `git push` succeeds. Unpushed work breaks coor
 - `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (lines 247-304, session workflow)
 - `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (lines 164-246, \"landing the plane\")
 - `sources/steveyegge/beads/docs-MOLECULES.md-d06ec0d4.md` (lines 57-72, multi-day execution)
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd remember`/`bd recall`/`bd memories` — keyed memory, persistence across account rotations) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

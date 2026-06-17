@@ -10,8 +10,14 @@ and rewire.
 
 This philosophy explains several recurring shapes in the repo:
 
-- **Model-agnostic.** Skills are designed to "work with any model" — they encode
-  engineering discipline in prose and structure, not provider-specific features.
+- **Model-agnostic — and harness-agnostic: run as-is, don't port.** Skills are
+  designed to "work with any model" — they encode engineering discipline in prose
+  and structure, not provider-specific features. The corollary, stated when a user
+  had Codex generate a Codex-specific rewrite of `/teach`: don't port the skill,
+  *run it unchanged on the other harness*. "I would not do that — instead, I'd run
+  the skill as is on Codex." The markdown is the artifact; a capable harness
+  should execute it directly rather than have an agent re-author a variant of
+  unknown fidelity.
 - **Checkpoints over autonomy.** The heavy skills keep handing control back:
   `grill` waits for an answer per question; `to-issues` and `to-prd` get user
   approval on the module/slice breakdown before publishing; `diagnose` shows its
@@ -60,3 +66,5 @@ and then removed, because kept too long they go stale and steer the agent wrong
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-SKILL.md-82a24dd7.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/SKILL.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-prototype-43e38695.md` — origin: https://www.aihero.dev/skills-prototype
 - `sources/mattpocock/aihero/https-www.aihero.dev-my-7-phases-of-ai-development-8d95cfb2.md` — origin: https://www.aihero.dev/my-7-phases-of-ai-development
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065422956298207639-2adff3b7.md` — origin: https://x.com/mattpocockuk/status/2065422956298207639
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065421652532302220-2e43149e.md` — origin: https://x.com/mattpocockuk/status/2065421652532302220
