@@ -74,7 +74,7 @@ about a plan for when you don't yet need the full domain-model workflow — befo
 PRD, before implementing a feature, before committing to a data model or API shape,
 or whenever you want the agent to push back instead of agree.
 
-## Grilling is a reusable primitive
+## Grilling is a reusable primitive — now literally extracted into one
 
 Grilling is not a one-off skill; it's a sub-routine other skills drop into.
 `triage` runs a grilling session to flesh out an underspecified issue;
@@ -83,11 +83,25 @@ refactor. Establishing "interview to alignment" as a named, reusable move is
 what lets the heavier workflows assume the human and agent actually agree before
 work starts.
 
+This principle was eventually made structural. The relentless-interview logic —
+previously duplicated verbatim in `grill-me` and `grill-with-docs` — was extracted
+into a single **model-invoked** `grilling` skill (the one-paragraph "interview me
+relentlessly… one question at a time… explore the codebase instead" loop). The two
+former skills collapsed to thin **user-invoked** wrappers: `grill-me` is now just
+"Run a `/grilling` session", and `grill-with-docs` is "Run a `/grilling` session,
+using the `/domain-modeling` skill" — so the only difference between them is that
+the codebase variant also fires the active glossary-building discipline (see
+`domain-modeling-active-discipline`). This is the invocation-axis refactor applied
+to grilling: the orchestrators a human types stay thin; the reusable competence
+lives in a model-invoked primitive that other skills (and the model) can reach
+(see `invocation-axis-user-vs-model`).
+
 ## Sources
 
-- `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
-- `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/grill-me/SKILL.md
-- `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/grill-with-docs/SKILL.md
+- `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md (revision 2026-06-17)
+- `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/grill-me/SKILL.md (revision 2026-06-17)
+- `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/grill-with-docs/SKILL.md (revision 2026-06-17)
+- `sources/mattpocock/skills-repo/skills-productivity-grilling-SKILL.md-84a3ca23.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/grilling/SKILL.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-things-people-get-wrong-with-grill-me-a-2cf46126.md` — origin: https://www.aihero.dev/things-people-get-wrong-with-grill-me-and-grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-my-grill-me-skill-has-gone-viral-2f0f061b.md` — origin: https://www.aihero.dev/my-grill-me-skill-has-gone-viral
 - `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs

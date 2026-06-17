@@ -161,9 +161,25 @@ are foreign authors' accounts that Matt *amplified*, not his own claims; they
 corroborate that the stateful, resource-first, HTML-output workspace generalizes
 to learner-built domain integrations in practice.
 
+## Reuse-first lessons: the `./assets/` component library
+
+A later revision makes the workspace **reuse-first**, adding an `./assets/`
+directory of reusable **components** — stylesheets, quiz widgets, simulators,
+diagram helpers — anything a second lesson could reuse. Reuse is now the *default,
+not the exception*: before authoring a lesson the agent reads `./assets/` and
+builds from what's there, and when a lesson needs something new and reusable it
+extracts that into a component and links to it rather than inlining code a future
+lesson would duplicate. The first component every workspace earns is a shared
+stylesheet, so the lessons "look like one consistent course rather than a pile of
+one-offs," and the component library grows with the workspace. This is the
+single-source-of-truth discipline (the same anti-duplication instinct as
+`writing-great-skills`) applied to generated teaching artifacts: state isn't only
+the learner's records, it's also a growing library of reusable building blocks.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-SKILL.md-993c30ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/SKILL.md
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-MISSION-FORMAT.md-a060ea4c.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/MISSION-FORMAT.md
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-GLOSSARY-FORMAT.md-40a3046d.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/GLOSSARY-FORMAT.md
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-RESOURCES-FORMAT.md-270f7fbb.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/RESOURCES-FORMAT.md

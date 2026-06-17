@@ -1,13 +1,14 @@
 # The feedback loop is the work
 
 The third failure mode Matt targets is "the code doesn't work", and his answer is
-that an agent without a fast pass/fail signal is flying blind. Across `diagnose`
-and `tdd` the same conviction recurs: constructing the feedback loop *is* the
-skill; everything downstream just consumes its signal.
+that an agent without a fast pass/fail signal is flying blind. Across
+`diagnosing-bugs` (formerly `diagnose`) and `tdd` the same conviction recurs:
+constructing the feedback loop *is* the skill; everything downstream just consumes
+its signal.
 
 ## Build the loop before hypothesising
 
-`diagnose` makes Phase 1 — building a feedback loop — the heart of the whole
+`diagnosing-bugs` makes Phase 1 — building a feedback loop — the heart of the whole
 discipline and refuses to proceed to hypothesising without one. It offers a
 ranked menu of loop constructions (failing test → curl script → CLI snapshot
 diff → headless browser → replay a captured trace → throwaway harness → fuzz
@@ -22,6 +23,32 @@ parallelise, inject sleeps until the flake rate is debuggable.
 When no loop can be built, the skill stops and says so explicitly rather than
 hypothesising into the void — it asks for environment access, a captured
 artifact, or permission to instrument.
+
+The completion bar for Phase 1 is precise and self-policing: name **one command**
+you have **already run at least once** (paste the invocation and output) that is
+*red-capable* (drives the actual bug path and asserts the user's exact symptom —
+not "runs without erroring"), *deterministic*, *fast*, and *agent-runnable*. "If
+you catch yourself reading code to build a theory before this command exists, stop
+— jumping straight to a hypothesis is the exact failure this skill prevents."
+
+## The phases past the loop are mechanical — but each guards a specific failure
+
+Once the loop exists the rest of `diagnosing-bugs` is a six-phase discipline where
+every phase exists to head off a named mistake: **reproduce + minimise** (shrink
+to the smallest scenario that still goes red, cutting one element at a time, so
+the hypothesis space and the eventual regression test are both minimal);
+**hypothesise** (generate 3–5 *ranked, falsifiable* hypotheses before testing any
+— single-hypothesis generation anchors on the first plausible idea — and show the
+list to the user, who often re-ranks it instantly); **instrument** (one variable
+at a time, prefer a debugger/REPL over logs, tag every debug log with a unique
+prefix like `[DEBUG-a4f2]` so cleanup is one grep, and *measure first* for perf
+regressions where logs mislead); **fix + regression test** (write the test before
+the fix — *but only if a correct seam exists*: a too-shallow seam gives false
+confidence, and "if no correct seam exists, that itself is the finding" to hand to
+architecture work); and **cleanup + post-mortem** (remove tagged instrumentation,
+state the correct hypothesis in the commit message so the next debugger learns,
+and only *then* — with the most information — recommend any architectural change to
+`/improve-codebase-architecture`).
 
 ## HITL bash script as the last resort feedback loop
 
@@ -48,7 +75,12 @@ commit you to a structure before you understand it. The correct unit is a
 **vertical slice / tracer bullet**: one test → one implementation → repeat, each
 cycle informed by what the last one taught you. Tests must exercise behaviour
 through public interfaces so they survive refactors; a test that breaks on an
-internal rename was testing implementation. "Never refactor while RED."
+internal rename was testing implementation. "Never refactor while RED." `tdd`'s
+planning step no longer bundles its own deep-module notes — it now points at the
+shared `/codebase-design` skill for interface-design and testability guidance
+(see `codebase-design-deep-module-vocabulary`), a consequence of the
+invocation-axis refactor that extracted reusable discipline into model-invoked
+primitives.
 
 The tracer-bullet principle propagates beyond testing: `to-issues` breaks plans
 into thin vertical slices that each cut through every layer end-to-end, for the
@@ -100,8 +132,10 @@ frontend.
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-SKILL.md-82a24dd7.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-scripts-hitl-loop.template.sh-7d00841a.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/scripts/hitl-loop.template.sh
-- `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-scripts-hitl-loop.templat-b79f1c8e.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh
+- `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-tracer-bullets-0575e91a.md` — origin: https://www.aihero.dev/tracer-bullets

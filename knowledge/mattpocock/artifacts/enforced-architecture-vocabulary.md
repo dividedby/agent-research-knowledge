@@ -49,10 +49,24 @@ and the repo's own `CONTEXT.md` for *domain* ("the Order intake module", not
 "the FooBarHandler"). Mixing them is mandated; drifting out of either is the
 failure mode it guards against.
 
+## The vocabulary was later promoted to its own shared skill
+
+This term-set no longer lives inside `improve-codebase-architecture`'s
+`LANGUAGE.md`. It was extracted — "generalized for reuse across skills" — into a
+standalone model-invoked `codebase-design` skill, and `improve-codebase-architecture`
+now *runs* `/codebase-design` for the vocabulary rather than carrying it inline (as
+does `tdd` for its interface-design guidance). The terms, the deletion test, and
+the seam rules are unchanged; what changed is that the language became shared
+infrastructure many skills point at instead of one orchestrator's private appendix.
+The full skill, plus its DEEPENING dependency-category model and DESIGN-IT-TWICE
+parallel-sub-agent pattern, is covered in `codebase-design-deep-module-vocabulary`.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-LANGUAGE.md-d7d1e1c1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/improve-codebase-architecture/LANGUAGE.md
-- `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/improve-codebase-architecture/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/improve-codebase-architecture/SKILL.md (revision 2026-06-17)
+- `sources/mattpocock/skills-repo/skills-engineering-codebase-design-SKILL.md-533bf87d.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/codebase-design/SKILL.md
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/skills-repo/skills-engineering-tdd-deep-modules.md-31fec91f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/deep-modules.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-changelog-ubiquitous-language-gr-ec926d6c.md` — origin: https://www.aihero.dev/skills-changelog-ubiquitous-language-grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-improve-codebase-architecture-23b24b6b.md` — origin: https://www.aihero.dev/skills-improve-codebase-architecture

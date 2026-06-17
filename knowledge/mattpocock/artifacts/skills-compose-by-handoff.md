@@ -27,19 +27,18 @@ themselves. `handoff` writes a continuation document that includes an explicit
 recommends `improve-codebase-architecture`. This keeps each skill scoped to one
 job while still threading a multi-skill workflow together.
 
-## Two-tier architecture: Commands and Skills
+## Two-tier architecture: now realized as the invocation axis
 
-Matt sees future potential in dividing skills into two categories for better
-composability:
-
-- **User-invocable skills (commands)** — top-level workflows users run directly
-  (e.g. `/improve-codebase-architecture`, `/grill-with-docs`)
-- **Model-invocable skills (skills)** — atomic capabilities that commands can
-  compose (e.g. `/deep-modules`, `/domain-modeling`)
-
-This would enable both "give me a report on the `/deep-modules` in this repo"
-and compound workflows where `/grill-with-docs` relies on `/domain-modeling`.
-Commands become orchestrators; skills become composable primitives.
+What Matt earlier framed as *future potential* — dividing skills into top-level
+user-run "commands" and atomic model-invocable "skills" the commands compose — is
+now the repo's organising principle, renamed **user-invoked vs model-invoked** and
+enforced in `CLAUDE.md` and `docs/invocation.md`. The compound workflows he
+predicted shipped: `grill-with-docs` now composes the model-invoked `domain-modeling`,
+and `improve-codebase-architecture` composes `codebase-design`. Commands became the
+orchestrators; the primitives became composable model-invoked skills. The full
+shape of that taxonomy — the one-way invocation rule, the router skill, and the
+fleet-wide refactor it drove — is its own concept: see
+`invocation-axis-user-vs-model`.
 
 ## The data spine: the issue tracker
 
@@ -56,5 +55,6 @@ orchestrator. This is why "what's the issue tracker?" is the first thing
 - `sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/improve-codebase-architecture/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-SKILL.md-82a24dd7.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/SKILL.md
-- `sources/mattpocock/skills-repo/skills-productivity-handoff-SKILL.md-c846b3b5.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/handoff/SKILL.md
+- `sources/mattpocock/skills-repo/skills-productivity-handoff-SKILL.md-c846b3b5.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/handoff/SKILL.md (revision 2026-06-17)
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2059576485111808071-85921d94.md` — origin: https://x.com/mattpocockuk/status/2059576485111808071

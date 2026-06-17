@@ -44,9 +44,16 @@ older "prefer many thin slices over few thick ones" guidance in both files:
 ordering discipline (prefactor first) now carries the weight that raw thinness
 used to.
 
+The rule has since propagated into the canonical public skills-repo: its
+`to-issues` skill now adds a step to "look for opportunities to prefactor the code
+to make the implementation easier" with the same Beck maxim, and its slice rules
+mandate "any prefactoring should be done first" — the same ordering discipline,
+now in the shipped skill rather than only the course-video-manager variants.
+
 ## Sources
 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/.claude-skills-to-issues-project-SKILL.md-7f209ac1.md — https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.claude/skills/to-issues-project/SKILL.md (revision 2026-06-03)
+- `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md (revision 2026-06-17)
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/.sandcastle-to-issues-prd-prompt.md-a986a929.md — https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/to-issues-prd/prompt.md (revision 2026-06-03)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062139630955184170-1a58ad17.md` — origin: https://x.com/mattpocockuk/status/2062139630955184170
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062151546616291780-0cb9e767.md` — origin: https://x.com/mattpocockuk/status/2062151546616291780
