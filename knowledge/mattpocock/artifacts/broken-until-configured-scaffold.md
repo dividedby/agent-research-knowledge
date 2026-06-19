@@ -41,8 +41,25 @@ This generalizes the setup-pointer instinct of [[setup-seeded-config-and-depende
 to scaffolding: a hard dependency that *can't* be auto-resolved is left provably
 broken with a loud pointer, rather than guessed at.
 
+## Every init prompt is paired with a non-interactive flag — or it fails fast
+
+The same fail-loud posture governs `init` itself becoming scriptable. Sandcastle
+made `init` fully non-interactive by pairing **every** interactive prompt with a CLI
+flag that resolves the same choice (`--issue-tracker`, `--create-label`,
+`--build-image`, `--install-template-deps`, on top of `--agent`/`--template`/
+`--sandbox`/…). The two are treated as one inseparable unit, encoded as a coding
+standard: adding a prompt without its flag breaks scripted/CI setup (no TTY → the
+prompt wedges or the prompt library crashes), and adding a flag without wiring it
+into the prompt path leaves the interactive flow inconsistent — so the new prompt
+and new flag land in the **same change**. And when stdin is not a TTY and a flag is
+missing for a prompt that would otherwise fire, init **fails fast naming the missing
+flag** rather than letting the prompt library crash on a non-interactive stream —
+the same "make the unconfigured state a loud, self-explaining stop" instinct,
+applied to AFK invocation of the scaffolder.
+
 ## Sources
 
 - `sources/mattpocock/sandcastle/CHANGELOG.md.md` — origin: github.com/mattpocock/sandcastle (CHANGELOG.md)
 - `sources/mattpocock/sandcastle/README.md.md` — origin: github.com/mattpocock/sandcastle (README.md)
 - `sources/mattpocock/sandcastle/src-InitService.ts-d49955f9.md` — origin: github.com/mattpocock/sandcastle (src/InitService.ts)
+- `sources/mattpocock/sandcastle/.sandcastle-CODING_STANDARDS.md-7b893b74.md` — origin: github.com/mattpocock/sandcastle (.sandcastle/CODING_STANDARDS.md)

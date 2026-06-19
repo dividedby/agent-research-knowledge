@@ -18,3 +18,4 @@ One concept per file; this index lists them, one line each.
 - `async-coordination-gates.md` — Beads (gates, merge-slot) that block work on external async conditions and serialize conflict resolution
 - `human-in-the-loop-escalation.md` — A `human` label/queue turning "an agent needs a person" into trackable, answerable work
 - `operational-state-dimensions.md` — Event-sourced multi-dimensional operational state (patrol/mode/health) making a fleet of agents observable and steerable
+- `backlog-hygiene-tooling.md` — First-class lint/dedup/stale/status commands keeping an agent-written issue corpus from rotting

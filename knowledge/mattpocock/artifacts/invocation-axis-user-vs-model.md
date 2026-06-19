@@ -54,6 +54,32 @@ handoff] → to-prd → to-issues → implement`), **on-ramps** that merge onto 
 slash-commands into a navigable map with explicit context-hygiene rules (keep the
 planning chain in one unbroken smart-zone window; start each `/implement` fresh).
 
+## "Context load" is the cost being managed; continuous verbs name the model-invoked set
+
+Matt's own term for the permanent per-turn tax a model-invoked `description`
+charges is **context load** — every model-invoked skill's trigger phrasing sits
+in the window whether or not it fires, so the axis is fundamentally a context-load
+budget. The v1 release was largely a *de-loading* pass: "loads of them changed
+from model-invoked to user-invoked, and I shortened the descriptions" — and he
+frames the improvement honestly, "behind every improved perf metric is an implicit
+admission of previous guilt." A naming convention falls out of the axis:
+**continuous verbs (`-ing`) are the standard for skills the model invokes
+itself** (`grilling`, `domain-modeling`), distinguishing the model-reachable
+primitives from the user-typed orchestrators by their description grammar alone.
+
+The split is a deliberate choice about *where the cognitive load lives*. Matt
+prefers the load on the **user**, not the model: a skill the model is trusted to
+auto-fire "runs counter to how my skills actually work." He rejects two common
+attempts to dodge the axis. (1) Keeping a skill model-invocable but giving it a
+"don't invoke unless explicitly asked" description "costs nothing" only on paper —
+Matt finds "the token waste of that approach very annoying," because the
+description still loads every turn. (2) Hiding rarely-used skills *outside*
+`/skills` and pointing at them manually is rejected the other way: that's "higher
+cognitive load for the user, makes no sense." The user-invoked mechanism
+(zero-context-load, typed by name) is the principled middle — neither paying
+context load for a skill the model shouldn't fire, nor offloading filing onto the
+human.
+
 ## How the buckets express it
 
 The convention is enforced structurally: `CLAUDE.md` mandates that every
@@ -74,3 +100,10 @@ release as redundant (`caveman`, `zoom-out`), and `write-a-skill` was replaced b
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/grill-me/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/grill-with-docs/SKILL.md (revision 2026-06-17)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067321326801437113-2af8141d.md` — origin: https://x.com/mattpocockuk/status/2067321326801437113
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067330241266061777-1f8ff90f.md` — origin: https://x.com/mattpocockuk/status/2067330241266061777
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067272387905671362-3c1d62fe.md` — origin: https://x.com/mattpocockuk/status/2067272387905671362
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067264261408063757-4da8b3a1.md` — origin: https://x.com/mattpocockuk/status/2067264261408063757
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067536507653468380-59ce88dc.md` — origin: https://x.com/mattpocockuk/status/2067536507653468380
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067556399945589239-1ceb3ba7.md` — origin: https://x.com/mattpocockuk/status/2067556399945589239
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067966169860931606-a1f7c79f.md` — origin: https://x.com/mattpocockuk/status/2067966169860931606

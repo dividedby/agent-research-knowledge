@@ -31,6 +31,20 @@ sanctioned exception: a snippet that *encodes a decision more precisely than
 prose* (a state machine, reducer, schema, or type shape, ideally from a
 prototype) may be inlined, trimmed to the decision-rich part.
 
+## A brief on a PR specifies the remaining work, not the whole build
+
+The brief template stretches to a second surface: an external pull request, which
+`triage` treats as *"an issue with attached code."* For an issue the brief
+describes building the change from nothing; for a PR it states **what's left to do
+to the existing diff** — finish it, close the gaps, address review points — under
+the same durability and behavioural rules. So a PR brief's "Current behavior"
+describes the *state of the diff* ("the happy path works; errors aren't JSON yet
+and there's no test"), its acceptance criteria target the delta, and a notable
+out-of-scope line is *don't redo what the contributor already got right* ("reuse
+the serializer the PR already added; don't introduce a second"; "the success
+payload shape the PR defined is fixed"). The brief is still the contract; the diff
+is context, exactly as the issue body is.
+
 ## In a Ralph loop the brief is a living scope, not a waterfall doc
 
 When the AFK agent is a Ralph loop (see `autonomous-loops-ralph`), the brief

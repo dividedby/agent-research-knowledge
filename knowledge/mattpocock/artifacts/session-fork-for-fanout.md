@@ -30,7 +30,23 @@ exposes the fan-out primitive and the constraint, and leaves the orchestration
 `sessionStorage` (Claude Code, Codex) — hence the optional-chaining call — and the
 same single-iteration and session-file-must-exist constraints apply.
 
+## Resume and fork inside a warm sandbox amortize container boot across phases
+
+Both primitives later gained a second home: `sandbox.run()` (from
+`createSandbox()`) exposes `.resume(prompt, options?)` and `.fork(prompt, options?)`
+on its result, continuing the agent session *inside the same long-lived container*.
+The payoff is purely operational but sharp — a multi-phase loop (implement → review
+→ edit) keeps the container, the worktree, and the on-ready dependencies **warm**
+across phases instead of each phase paying container boot. The conversation thread
+continues exactly as the top-level `.resume()`/`.fork()` do; what's reused is the
+expensive surrounding environment, which the top-level entry points tear down per
+run. This rests on a session-capture fix in the same release: bind-mount providers
+were silently dropping the handle that the capture gate keys on, so `.resume()`
+inside a created sandbox had nothing to resume from; non-bind-mount (isolated,
+no-sandbox) providers skip capture and so still have nothing to resume.
+
 ## Sources
 
 - `sources/mattpocock/sandcastle/CHANGELOG.md.md` — origin: github.com/mattpocock/sandcastle (CHANGELOG.md)
 - `sources/mattpocock/sandcastle/README.md.md` — origin: github.com/mattpocock/sandcastle (README.md)
+- `sources/mattpocock/sandcastle/src-createSandbox.ts-9b83cab1.md` — origin: github.com/mattpocock/sandcastle (src/createSandbox.ts)

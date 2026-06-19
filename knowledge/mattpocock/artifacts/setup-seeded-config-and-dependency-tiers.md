@@ -2,12 +2,24 @@
 
 The engineering skills are not standalone; several read per-repo configuration
 that a dedicated setup skill, `/setup-matt-pocock-skills`, scaffolds once. That
-config is three things: the **issue tracker** (GitHub, GitLab, local markdown,
-or freeform "other"), the **triage label vocabulary** (the real label strings
-behind five canonical roles), and the **domain doc layout** (single `CONTEXT.md`
-+ `docs/adr/`, or a multi-context `CONTEXT-MAP.md`). Setup writes these into an
-`## Agent skills` block in the repo's `CLAUDE.md`/`AGENTS.md` plus
-`docs/agents/*.md`, seeded from bundled templates.
+config is three things: the **issue tracker** (GitHub via `gh`, GitLab via `glab`,
+local markdown, or freeform "other"), the **triage label vocabulary** (the real
+label strings behind five canonical roles), and the **domain doc layout** (single
+`CONTEXT.md` + `docs/adr/`, or a multi-context `CONTEXT-MAP.md`). Setup writes these
+into an `## Agent skills` block in the repo's `CLAUDE.md`/`AGENTS.md` plus
+`docs/agents/*.md`, seeded from bundled templates. Each tracker backend ships its
+own template (`issue-tracker-github.md`, `issue-tracker-gitlab.md`,
+`issue-tracker-local.md`) recording the CLI shape the skills shell out to — the
+GitLab one is a near-isomorphic remap of the GitHub one (`glab mr` for `gh pr`,
+GitLab's "notes" for comments, separate issue/MR number spaces vs GitHub's shared
+one).
+
+For GitHub and GitLab only, setup also records one extra flag: **whether external
+PRs/MRs are a request surface** (default no). When on, the config tells `triage`
+to pull contributors' external PRs into the same queue as issues and how to tell
+them apart from maintainers' in-flight work (`gh`'s `authorAssociation`, or
+filtering GitLab MR authors against project members). Local-markdown and "other"
+trackers skip the question — they have no PRs.
 
 This is how a generic skill becomes repo-aware without hard-coding: the skill
 reads the config the user's repo already declares, rather than guessing or
@@ -46,4 +58,6 @@ place rather than creating a competing file.
 
 - `sources/mattpocock/skills-repo/docs-adr-0001-explicit-setup-pointer-only-for-hard-dependenc-071cb663.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/docs/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-SKILL.md-5dba7935.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md

@@ -62,7 +62,20 @@ batch orchestration loop — see [[sandcastle-plan-execute-merge-loop]] — and 
 hand the agent's results to deterministic steps via
 [[structured-output-with-session-retry]].
 
+## The shipped stack: GitHub Actions + Sandcastle + Claude Code
+
+Matt's current "favourite stack" is exactly this topology productised:
+**GitHub Actions + Sandcastle + Claude Code**, with the one-line promise *"Label
+an issue, get an implementation."* The same label-as-trigger surface scales up
+from a single issue to **multi-step PRDs** running live. Where this repo's
+`course-video-manager` shows the pattern hand-rolled, the Sandcastle harness is
+the reusable form — and it carries built-in support for the autonomous-loop case
+too: a Ralph loop is configured by setting `maxIterations` rather than scripting a
+bash cap (see `sandcastle-plan-execute-merge-loop`, `autonomous-loops-ralph`).
+
 ## Sources
 
 - `sources/mattpocock/course-video-manager/.github-workflows-agent-implement.yml-f2a00aec.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-implement.yml
 - `sources/mattpocock/course-video-manager/.github-workflows-agent-review.yml-ddaff44e.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-review.yml
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721938894500036-65f0fb11.md` — origin: https://x.com/mattpocockuk/status/2067721938894500036
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067919429216645366-e4027437.md` — origin: https://x.com/mattpocockuk/status/2067919429216645366

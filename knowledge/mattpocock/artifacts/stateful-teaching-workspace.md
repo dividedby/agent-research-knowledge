@@ -175,6 +175,10 @@ one-offs," and the component library grows with the workspace. This is the
 single-source-of-truth discipline (the same anti-duplication instinct as
 `writing-great-skills`) applied to generated teaching artifacts: state isn't only
 the learner's records, it's also a growing library of reusable building blocks.
+Matt names the two payoffs of the components turn directly: it is **more
+token-efficient** (later lessons reuse rather than regenerate shared assets) and
+it **builds momentum** (each lesson starts from a richer base) — reuse is
+positioned as a compounding asset, not just deduplication.
 
 ## Sources
 
@@ -213,3 +217,4 @@ the learner's records, it's also a growing library of reusable building blocks.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065421652532302220-2e43149e.md` — origin: https://x.com/mattpocockuk/status/2065421652532302220
 - `sources/mattpocock/twitter/https-x.com-AmjadAbubkr-status-2065032802370834721-60f3593f.md` — origin: https://x.com/AmjadAbubkr/status/2065032802370834721
 - `sources/mattpocock/twitter/https-x.com-N3sOnline-status-2065090964751052833-6ed08e66.md` — origin: https://x.com/N3sOnline/status/2065090964751052833
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067358584833257744-0d53bc5b.md` — origin: https://x.com/mattpocockuk/status/2067358584833257744

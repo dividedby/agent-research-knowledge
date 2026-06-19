@@ -26,10 +26,18 @@ While the canonical state vocabulary is `needs-triage`, `needs-info`, `ready-for
 
 This naming flexibility maintains the state machine's discipline while allowing projects to surface their automation in terms users expect. The core workflow remains unchanged; only the presentation adapts to the project's ubiquitous language.
 
+## One machine, two surfaces: a PR is an issue with attached code
+
+The same state machine runs over **external pull requests** as well as issues — *"a PR is an issue with attached code"* — when the repo opts in (a per-repo `PRs as a request surface: yes/no` flag, off by default, set during setup). Same category and state roles, same transitions, read against the diff: `ready-for-agent` means a brief is attached and an agent should take the *next* step on the existing diff (finish it, close gaps, address review); `ready-for-human` means it's ready for a human to merge. Discovery surfaces only *external* PRs — a contributor's, never a collaborator's in-flight work — but that author filter is discovery-only; an explicitly named PR is always triaged regardless of author. This is why the surface is a *flag*, not a default: only open-source repos that genuinely receive feature requests as code pay the cost.
+
+## Verify the claim before grilling
+
+Before any state refinement, triage checks the claim holds up: reproduce a reported bug from the reporter's steps, or for a PR check out the diff and run the relevant tests to confirm it does what it claims. The outcome — confirmed (with the code path), failed, or insufficient detail (a strong `needs-info` signal) — is reported, and a confirmed verification makes a materially stronger agent brief. Triage also runs two codebase checks during context-gathering: a **redundancy** search (is this already implemented? — by domain concept, not the request's wording; if so it's an already-implemented `wontfix`) and a **prior-rejection** check against `.out-of-scope/`. The verification step is what separates "an agent moved a label" from "an agent confirmed the work is real and specified."
+
 ## Sources
 
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/skills-repo/skills-engineering-triage-AGENT-BRIEF.md-5b16e7c5.md
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/skills-repo/skills-engineering-triage-OUT-OF-SCOPE.md-a52875a4.md
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/CLAUDE.md.md
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-burn-through-your-backlog-with-my-triag-5cd34996.md
+- `sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-triage-AGENT-BRIEF.md-5b16e7c5.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/AGENT-BRIEF.md
+- `sources/mattpocock/skills-repo/skills-engineering-triage-OUT-OF-SCOPE.md-a52875a4.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/OUT-OF-SCOPE.md
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/main/CLAUDE.md
+- `sources/mattpocock/aihero/https-www.aihero.dev-burn-through-your-backlog-with-my-triag-5cd34996.md` — origin: https://www.aihero.dev/burn-through-your-backlog-with-my-triage-skill

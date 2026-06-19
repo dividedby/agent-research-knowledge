@@ -56,6 +56,52 @@ priority — each note pointing at the escape hatch that covers the need today
 via `mounts`). The "why" behind these refusals is the harness design stance in
 [[thin-fail-fast-harness]].
 
+## The built-in set is curated; the public interface is where the long tail lives
+
+A second cluster of Sandcastle refusals share one move: *don't grow a curated
+built-in set on request — point at the exported seam instead.* It declines new
+built-in agent providers (beyond Claude Code, Codex, Cursor, OpenCode, Copilot,
+Pi), new built-in sandbox providers (beyond Docker, Podman, Vercel, Daytona,
+`noSandbox`), bespoke per-feature `docker()` options (custom context, port
+publishing, …), large bundled workflow templates (a "superpowers"/"freecc" pack),
+and a configurable `sandcastle` namespace prefix. The shared reasoning: **every
+built-in is permanent maintenance surface** — each agent CLI's stream format and
+auth, each sandbox's provisioning/exec semantics, each Docker flag, each bundled
+template's drift against its upstream must be tracked and tested forever, and these
+spaces are effectively unbounded, so pulling the tail in-tree grows the surface
+faster than it can be kept correct.
+
+The escape hatch is the design's whole point: `AgentProvider` and `SandboxProvider`
+are **public, exported interfaces** (re-exported from `src/index.ts`, alongside
+`createIsolatedSandboxProvider`/`createBindMountSandboxProvider`). A built-in is not
+required to use one — anyone can implement the interface in their own project, pass
+it as `agent`/`sandbox`, and version it on their own cadence rather than pinned to
+Sandcastle's releases. Routing an existing CLI at a different backend (Claude at
+Vertex/Bedrock) is likewise env/config plumbing behind that seam, not a new factory.
+For Docker's huge surface the hatch is `dockerCompose()` (the user's
+`docker-compose.yml` owns container config; Sandcastle injects only the per-run
+worktree mount, workdir, env) or a custom provider. The same logic refuses a
+configurable namespace prefix: collision-avoidance (timestamped names) and
+project isolation (per-repo `.sandcastle/`) are already handled, so the cosmetic
+gain doesn't justify threading a `namespace` through every entry point. This is the
+inversion-of-control stance ([[thin-fail-fast-harness]]) hardened into a triage
+rule — the curated set stays small *because* the seam carries the rest.
+
+## Only *rejected* enhancements belong here — never the already-built
+
+The knowledge base is for refusals, and a sharp boundary protects it: a feature
+closed `wontfix` because it is **already implemented** must *not* be written to
+`.out-of-scope/` — recording a built feature as a rejection would poison the
+dedup check with false negatives, surfacing "we said no to this" when the honest
+answer is "this already exists." That close instead points to where the feature
+lives. The same `wontfix` label thus splits three ways at triage: rejected
+enhancement → write to `.out-of-scope/`; rejected bug → polite close, no KB entry;
+already-implemented → close pointing at the existing code, no KB entry. The rule
+holds for PRs exactly as for issues — a rejected enhancement *PR* is recorded so
+the same request doesn't return as fresh code. And the reason written down must be
+**durable, not a deferral**: "we're too busy right now" is not a rejection and
+doesn't belong here.
+
 ## Why this is an artifact, not just a policy
 
 Writing refusals down — in-repo, versioned, with prior-request citations — turns
@@ -67,9 +113,15 @@ ships with a "here's what to do instead."
 
 ## Sources
 
+- `sources/mattpocock/skills-repo/skills-engineering-triage-OUT-OF-SCOPE.md-a52875a4.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/OUT-OF-SCOPE.md
 - `sources/mattpocock/skills-repo/.out-of-scope-mainstream-issue-trackers-only.md-0903b7c1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/.out-of-scope/mainstream-issue-trackers-only.md
 - `sources/mattpocock/skills-repo/.out-of-scope-question-limits.md-9a585ab5.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/.out-of-scope/question-limits.md
 - `sources/mattpocock/skills-repo/.out-of-scope-setup-skill-verify-mode.md-3a88b4b1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/.out-of-scope/setup-skill-verify-mode.md
 - `sources/mattpocock/sandcastle/.out-of-scope-custom-base-image-abstraction.md-27495145.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/.out-of-scope/custom-base-image-abstraction.md
 - `sources/mattpocock/sandcastle/.out-of-scope-provider-error-retry.md-19d09e74.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/.out-of-scope/provider-error-retry.md
 - `sources/mattpocock/sandcastle/.out-of-scope-multi-repo-sandbox.md-68d2d235.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/.out-of-scope/multi-repo-sandbox.md
+- `sources/mattpocock/sandcastle/.out-of-scope-built-in-agent-providers.md-c21076b0.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/built-in-agent-providers.md
+- `sources/mattpocock/sandcastle/.out-of-scope-built-in-sandbox-providers.md-fa6e2a1f.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/built-in-sandbox-providers.md
+- `sources/mattpocock/sandcastle/.out-of-scope-docker-provider-bespoke-options.md-09799f82.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/docker-provider-bespoke-options.md
+- `sources/mattpocock/sandcastle/.out-of-scope-bundled-workflow-templates.md-6ba92b6c.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/bundled-workflow-templates.md
+- `sources/mattpocock/sandcastle/.out-of-scope-configurable-namespace-prefix.md-0a766b11.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/configurable-namespace-prefix.md

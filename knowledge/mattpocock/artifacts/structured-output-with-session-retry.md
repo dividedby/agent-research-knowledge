@@ -72,7 +72,21 @@ workaround of scavenging the newest session file by mtime. And the framework dra
 the line there: "**Retry/feedback orchestration stays out of Sandcastle: the error
 exposes what's needed for recovery, and the loop lives in the consumer**" — which is
 exactly why the `run-with-retry`/`run-with-extraction` wrappers above live in the
-*workflows*, not the library. Resumability rests on two more decisions: `.resume()`
+*workflows*, not the library.
+
+That line moved, slightly and deliberately. Sandcastle later folded the *common*
+case of this loop back into the library as an opt-in `maxRetries` on
+`Output.object`/`Output.string` (default `0` — off, so the framework stays
+fail-fast unless asked). When set, `run()` itself resumes the failed session and
+"feeds back a token-efficient description of the error so the agent can re-emit a
+corrected tag," up to `maxRetries` extra attempts — the same resume-don't-redo move,
+now built in. It carries the resumability constraint on its face: `maxRetries > 0`
+against a non-resumable provider (`cursor`, `opencode`, `copilot`) **fails at entry**
+rather than silently degrading. The `runWithExtraction` workflow accordingly
+stopped hand-rolling the retry loop and now just forwards `maxRetries` (defaulting
+to `2`) into `Output`'s built-in retry. The principle holds — the agent's hardest
+work isn't redone, only the report — but the boilerplate is no longer the consumer's
+to write for the structured-output case. Resumability rests on two more decisions: `.resume()`
 is exactly one iteration (ADR 0011 — each iteration is its own session, so
 multi-step is the caller chaining calls) and providers own their session storage
 end-to-end (ADR 0012 — `supportsResume` is derived from whether a provider supplies
@@ -91,3 +105,5 @@ the harness.
 - `sources/mattpocock/sandcastle/.sandcastle-agent-workflows-shared-run-with-retry.ts-6076580a.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/.sandcastle/agent-workflows/shared/run-with-retry.ts
 - `sources/mattpocock/sandcastle/.sandcastle-agent-workflows-shared-run-with-extraction.ts-9695224e.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/.sandcastle/agent-workflows/shared/run-with-extraction.ts
 - `sources/mattpocock/sandcastle/.sandcastle-agent-workflows-shared-retry-feedback.ts-06891b84.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/.sandcastle/agent-workflows/shared/retry-feedback.ts
+- `sources/mattpocock/sandcastle/src-Output.ts-47a5853a.md` — origin: github.com/mattpocock/sandcastle (src/Output.ts)
+- `sources/mattpocock/sandcastle/CHANGELOG.md.md` — origin: github.com/mattpocock/sandcastle (CHANGELOG.md)

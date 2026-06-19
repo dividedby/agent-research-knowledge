@@ -28,6 +28,33 @@ that the path to the finish line is clear — at which point no more tickets are
 needed. (The "fog of war" leading word is reused across the collection as the name
 for deliberately-hidden lookahead.)
 
+## "Frontier" and "fog of war" are the leading words
+
+Matt promotes **frontier** and **fog of war** to named leading words for *all*
+planning with an agent, not just the skill: *"Don't plan past the fog of war.
+Let's resolve just the decisions at the frontier first."* The frontier is the
+first visible edge of the unknown — the decisions you can resolve right now,
+which once resolved reveal the next ones. Naming them gives a grilling session a
+shared vocabulary for *how far ahead to plan*: you stop when the immediate
+frontier is settled rather than trying to specify the whole tree, and the names
+make the clear/handoff/compact decisions "totally obvious." The map is the
+durable form of this, but the discipline works in a bare conversation too —
+which is why the decision-map artifact itself is *deliberately incomplete beyond
+the frontier* (above). There is no value in *visualising* the map (a mind-map
+MCP buys nothing) — the frontier discipline is about what you resolve next, not
+a picture.
+
+## Bootstrap with a short grilling session, then fan out
+
+The decision-map flow starts with a deliberately **short grilling session** —
+just long enough to *discover the frontier*, the first visible part of the fog of
+war, not to resolve it. From there you **fan out** to multiple parallel
+grilling / prototyping / research sessions, each pushing back one aspect of the
+fog as you go. Matt road-tests this kicking off an AFK agent on "an extremely
+ambitious feature" and reports never feeling "more confident that I'm aligned" —
+the payoff of resolving the frontier before committing is alignment confidence on
+a large autonomous build.
+
 ## Three ticket types route to the right tool
 
 Each open question is one of three kinds, and the kind chooses how it gets
@@ -60,3 +87,9 @@ straight to `/to-prd`.
 
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067965196618895564-c2d49f3d.md` — origin: https://x.com/mattpocockuk/status/2067965196618895564
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067602690725581067-eb6c35f9.md` — origin: https://x.com/mattpocockuk/status/2067602690725581067
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067682252742357292-b72bc2ce.md` — origin: https://x.com/mattpocockuk/status/2067682252742357292
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067682103030915278-5c57d5b4.md` — origin: https://x.com/mattpocockuk/status/2067682103030915278
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067710266230415567-f6fd1092.md` — origin: https://x.com/mattpocockuk/status/2067710266230415567
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721635470147856-3d1433b6.md` — origin: https://x.com/mattpocockuk/status/2067721635470147856

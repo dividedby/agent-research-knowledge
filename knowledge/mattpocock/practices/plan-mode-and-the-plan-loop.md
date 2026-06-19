@@ -27,6 +27,13 @@ especially in plan mode, where the agent rewrites your messy stream-of-
 consciousness into a plan anyway. The sloppy early prompts don't matter once
 they've been refined.
 
+The same preference shapes how he gives *feedback*: Matt gives it **via text**
+(dictated), not screenshots — he rates **dictation as fast and vision as
+disappointing**. Even where a visual workflow is the obvious move, he'd rather
+describe the problem in words than feed the agent an image, because the text
+channel is both quicker for him to produce and more reliable for the agent to act
+on than current vision is.
+
 ## Configure the planner for legibility
 
 Three small `AGENTS.md` rules make plans usable, and they recur verbatim across
@@ -42,3 +49,5 @@ into unfamiliar code rather than raw speed on familiar ground.
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-plan-mode-introduction-3aa9bfe5.md` — origin: https://www.aihero.dev/plan-mode-introduction
 - `sources/mattpocock/aihero/https-www.aihero.dev-my-agents-md-file-for-building-plans-yo-12a7f93d.md` — origin: https://www.aihero.dev/my-agents-md-file-for-building-plans-you-actually-read
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067936649904820322-d4f8f252.md` — origin: https://x.com/mattpocockuk/status/2067936649904820322
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067938767164338538-c7e28c82.md` — origin: https://x.com/mattpocockuk/status/2067938767164338538

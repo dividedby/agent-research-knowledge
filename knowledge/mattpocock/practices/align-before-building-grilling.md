@@ -44,6 +44,21 @@ interview*: stay active and steer, or the agent explodes the scope with hundreds
 of low-fidelity questions; but don't over-grill low-fidelity detail when you
 should be writing code.
 
+## Under-specification is the disease; a shared concept, not a PRD, is the cure
+
+Asked about an AFK agent that ran for two hours making wrong assumptions and
+needing constant steering, Matt diagnoses it as the **classic symptom of
+under-specification** — *"no-one knows exactly what they want"* (the Pragmatic
+Programmer line). The fix is *not* a heavyweight detailed PRD; that's "overkill."
+The fix is to **reach a shared design concept first** — "not necessarily an asset,
+but a shared *understanding*" — via the adversarial conversation of having the
+agent grill you before it builds. A plain conversation discussing the finer
+details ahead of building is enough; the deliverable is alignment, not a
+document. **The human, not the agent, decides when enough detail has been given**
+— the onus is on the person driving, and how long that takes scales with the size
+of the task. This is grilling's reason for existing, restated as a cure for the
+specific failure mode of long autonomous runs drifting off intent.
+
 ## Scope grilling to stay in the smart zone
 
 A grilling session accumulates tokens fast, and past the model's "dumb zone"
@@ -108,3 +123,6 @@ lives in a model-invoked primitive that other skills (and the model) can reach
 - `sources/mattpocock/aihero/https-www.aihero.dev-5-agent-skills-i-use-every-day-056774d5.md` — origin: https://www.aihero.dev/5-agent-skills-i-use-every-day
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-grill-me-8337a3c4.md` — origin: https://www.aihero.dev/skills-grill-me
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary (revision 2026-06-05, "Prototyping")
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067524579455578372-692b7037.md` — origin: https://x.com/mattpocockuk/status/2067524579455578372
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067536646459855215-ebf9adea.md` — origin: https://x.com/mattpocockuk/status/2067536646459855215
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067592457957650920-5ed8b7b0.md` — origin: https://x.com/mattpocockuk/status/2067592457957650920
