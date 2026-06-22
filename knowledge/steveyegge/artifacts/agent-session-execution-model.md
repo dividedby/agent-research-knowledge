@@ -120,7 +120,7 @@ When completing work, agents must:
 1. File follow-up issues for remaining work
 2. Run quality gates if code changes were made
 3. Update and close finished issues
-4. **Push all changes to remote** (mandatory)
+4. Handle git/sync **per the active context profile** (see below)
 5. Clean up git state
 6. Provide next-session prompt
 
@@ -129,11 +129,40 @@ When completing work, agents must:
 - Check linting: `golangci-lint run ./...`
 - File P0 issues if gates fail
 
-### Never Stop Before Push
-The session is NOT complete until `git push` succeeds. Unpushed work breaks coordination with other agents.
+### Agent Context Profiles — the managed block is subordinate, not sovereign
+The managed bd instruction block carries a version+profile marker
+(`v:1 profile:full hash:…`) and an explicit disclaimer: it is *task-tracking
+guidance, not permission to override repository, user, or orchestrator
+instructions*. The earlier unconditional "you MUST `git push`" mandate is now
+**gated by a context profile**, because a managed block injected into an arbitrary
+repo cannot assume it has authority to commit/push/sync:
+
+- **Conservative (default)** — use bd for tracking; **do not** run git commits,
+  pushes, or Dolt remote sync unless explicitly asked. At handoff, report changed
+  files, validation, and the proposed commands — then wait.
+- **Minimal** — instruction files stay pointers to `bd prime`; same conservative
+  git policy.
+- **Team-maintainer** — only when the repo explicitly opts in may the agent close
+  beads, run quality gates, commit, and push at session close. A live "do not
+  commit/push" instruction still wins.
+
+The precedence rule is absolute: explicit user/orchestrator instructions override
+the block, and a blocked sync/push is a **stop-and-report**, not a silent skip.
+This reframes the "land the plane" push mandate — once a universal imperative
+designed for a single dedicated repo — into a default-safe stance for a tracker
+meant to be embedded across many repos with differing authority.
+
+### Agent attribution: signed commits and comments
+Agent-prepared commits carry an `Agent-Signature:` trailer (alongside the
+`(bd-xxx)` issue-ID convention), falling back to `unknown-model` /
+`unknown-reasoning` when reliable runtime metadata is unavailable; agent-written
+GitHub comments and reviews are signed the same way. This extends the commit-ID
+convention from *which issue* a commit closes to *which agent identity* produced
+it — attribution that survives into the audit trail and the PR thread, so a fleet
+of agents stays accountable, not anonymous.
 
 **Sources:**
-- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (lines 247-304, session workflow)
-- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (lines 164-246, \"landing the plane\")
+- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (session workflow; "landing the plane"; `Agent-Signature:` commit/comment trailer, 2026-06-21 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md
+- `sources/steveyegge/beads/AGENTS.md.md` (Agent Context Profiles + instruction-precedence, profile-gated session-completion git policy, 2026-06-21 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENTS.md
 - `sources/steveyegge/beads/docs-MOLECULES.md-d06ec0d4.md` (lines 57-72, multi-day execution)
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd remember`/`bd recall`/`bd memories` — keyed memory, persistence across account rotations) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
