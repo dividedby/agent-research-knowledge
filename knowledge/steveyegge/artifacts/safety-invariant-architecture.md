@@ -26,6 +26,8 @@ When two disjoint candidate sources exist (local data + remote Dolt history) and
 
 `--force` (and its replacement `--reinit-local`) bypasses the **local** data-safety guard only. It never authorizes silent divergence of remote history. When origin advertises `refs/dolt/data`, `bd init --force` refuses unless `--discard-remote` is also passed.
 
+The guard generalizes beyond force-reinit: **any** local-source init refuses remote divergence. `bd init --from-jsonl` (local JSONL import) is held to the same rule — like `--reinit-local`, it refuses when origin has `refs/dolt/data` unless `--discard-remote` is passed. Exit code `ExitRemoteDivergenceRefused` (10) accordingly widened from "`--force` without `--discard-remote`" to the general "local-source init without `--discard-remote`": the invariant is about the *direction* of the operation (local seeds remote), not about which flag named it.
+
 ### Invariant 3: Central Chokepoint Pattern
 
 Every flag on `bd init` that can interact with remote history routes through `CheckRemoteSafety` in `cmd/bd/init_safety.go`. Adding a new flag requires extending the guard matrix test - if the table doesn't exhaustively cover `(dataSource × flagSet) → outcome`, the safety system has a gap.
@@ -57,7 +59,7 @@ New flags must extend this matrix or coverage is incomplete.
 Stable, grep-safe exit codes for automation:
 
 ```
-10   ExitRemoteDivergenceRefused   --force without --discard-remote
+10   ExitRemoteDivergenceRefused   local-source init without --discard-remote
 11   ExitLocalExistsRefused        existing local data, declined destroy  
 12   ExitDestroyTokenMissing       --discard-remote without valid token
 ```
@@ -69,6 +71,7 @@ bd init                         # mint, or auto-bootstrap if remote exists
 bd init --reinit-local          # local reinit; refuses remote divergence  
 bd init --reinit-local \        # local reinit, overwrite remote on push
     --discard-remote            # (requires interactive confirm or token)
+bd init --from-jsonl            # local JSONL import; refuses remote divergence
 bd bootstrap                    # adopt remote - signposted by init refusal
 ```
 
@@ -82,6 +85,7 @@ The centralized chokepoint pattern prevents this anti-pattern by ensuring all sa
 
 `.github/CODEOWNERS` points `cmd/bd/init*.go` at maintainers and references the safety ADR in review comments. Future reviewers are reminded to walk the guard matrix when new flags or data sources are added.
 
-**Sources:**
-- `sources/steveyegge/beads/docs-adr-0002-init-safety-invariants.md-fd3c98c2.md` (lines 4-168)
-- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (lines 33-68, testing isolation)
+## Sources
+
+- `sources/steveyegge/beads/docs-adr-0002-init-safety-invariants.md-fd3c98c2.md` (the five invariants; 2026-06-23 revision adds `--from-jsonl` to the flag surface and widens exit code 10 to "local-source init") — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/adr/0002-init-safety-invariants.md
+- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (test DB isolation via `BEADS_DB` / `t.TempDir()`) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md

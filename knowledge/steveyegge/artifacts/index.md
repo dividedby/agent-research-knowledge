@@ -19,3 +19,4 @@ One concept per file; this index lists them, one line each.
 - `human-in-the-loop-escalation.md` — A `human` label/queue turning "an agent needs a person" into trackable, answerable work
 - `operational-state-dimensions.md` — Event-sourced multi-dimensional operational state (patrol/mode/health) making a fleet of agents observable and steerable
 - `backlog-hygiene-tooling.md` — First-class lint/dedup/stale/status commands keeping an agent-written issue corpus from rotting
+- `contributor-pr-maintenance-discipline.md` — A read-only preflight gate making an agent check for (and build on, not clobber) human contributor PRs before it codes or merges

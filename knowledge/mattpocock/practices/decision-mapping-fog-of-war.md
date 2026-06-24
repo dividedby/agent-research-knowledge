@@ -65,8 +65,10 @@ resolved:
 - **Prototype** — runnable code to test a hypothesis or explore a design space;
   uses the `/prototype` skill, produces a prototype asset. Use when "how should it
   look / behave" is the question.
-- **Discuss** — conversation with the agent via `/grilling` and `/domain-modeling`;
-  the default.
+- **Grilling** — conversation with the agent via `/grilling` and
+  `/domain-modeling`, one question at a time; the default. (The type was first
+  named "Discuss" and renamed to "Grilling" — the resolution mechanism *is* a
+  grilling session, so the type points straight at the skill that runs it.)
 
 ## Bootstrap and resume; parallel-safe by construction
 
@@ -85,7 +87,7 @@ straight to `/to-prd`.
 
 ## Sources
 
-- `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md
+- `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling")
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067965196618895564-c2d49f3d.md` — origin: https://x.com/mattpocockuk/status/2067965196618895564
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067602690725581067-eb6c35f9.md` — origin: https://x.com/mattpocockuk/status/2067602690725581067
