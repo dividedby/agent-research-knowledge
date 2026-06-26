@@ -7,7 +7,11 @@ every other lever serves is **predictability** — the agent taking the same
 *process* every run, not producing the same *output* (a brainstorming skill should
 predictably *diverge*). Cost and maintainability are symptoms of predictability,
 not rivals to it. The skill ships its full definitions in a sibling `GLOSSARY.md`,
-itself a worked example of progressive disclosure.
+itself a worked example of progressive disclosure — whose terms are grouped by
+four axes so the taxonomy is explicit: **Invocation** (how a skill is reached),
+**Information Hierarchy** (how its content is arranged), **Steering** (how runtime
+behaviour is shaped), and **Pruning** (how it is kept lean), with each failure
+mode parked beside the lever that cures it.
 
 This is the matured, theory-backed successor to the looser
 `skill-anatomy-and-progressive-disclosure` notes — it names the levers precisely
@@ -94,8 +98,47 @@ truth**, check every line for **relevance** (does it still bear on the task?), t
 hunt no-ops *sentence by sentence* and delete whole sentences rather than trim
 words — "be aggressive."
 
+## The no-op is context-relative, and the deletion test is how you find it
+
+Matt's sharpest public framing of the no-op: agent-authored skills are *littered*
+with them — "Be thorough", "Make the commit message very detailed", "Make the
+implementation easy to read" — because **agents already do these by default**.
+Such a line pays load (tokens, attention) to say nothing the model wasn't already
+going to do, and it makes the skill harder to evaluate and maintain. The test is
+operational and blunt: **delete the line and re-run; if the output doesn't
+meaningfully change, it was a no-op.** This is also his answer to *how he keeps
+skills so short* — "just remove the no-ops, kill duplication, and take out
+anything irrelevant; you'll be surprised how little is left, and how effective it
+is" — and it has its own pass: `/writing-great-skills "Do a no-op pass on this
+skill"`.
+
+Crucially the no-op is **not** a canonical list of forbidden phrases. The same
+phrase can change behaviour in one skill and be inert in another — a "be rigorous"
+line is dead weight in a 100-line review skill that already *describes* a rigorous
+process, but live in a skill that doesn't. So the judgement is per-skill: *can you
+delete this line, in this context, with no meaningful change?* (He concedes the
+purist objection — every token participates in attention, so nothing is a *literal*
+no-op — but holds the practical claim: the phrase's marginal effect here is
+negligible, settle disputes by running it rather than debating the theory.)
+
+The flip side of pruning no-ops is **authoring by hand**. Matt's experience is that
+*the more of a skill he has handwritten, the better it is* — "paying attention to
+each word as you write it is unreasonably effective" — which is the same discipline
+the deletion test enforces after the fact, applied up front: every word earns its
+place. (He amplified @ankrgyl's "hand-writing prompts is dead; prompt engineering
+is not" while disagreeing with the headline — the endorsement is of prompt
+engineering's survival, not of abandoning the handwritten word.)
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-SKILL.md-b96ebc68.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/SKILL.md
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-GLOSSARY.md-1e43a906.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/GLOSSARY.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069784839474032896-7bd866f0.md` — origin: https://x.com/mattpocockuk/status/2069784839474032896
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069785124950945825-07710416.md` — origin: https://x.com/mattpocockuk/status/2069785124950945825
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069812144183324793-5fce97b8.md` — origin: https://x.com/mattpocockuk/status/2069812144183324793
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069866145931276592-782394b3.md` — origin: https://x.com/mattpocockuk/status/2069866145931276592
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069837651335614614-a73e48c8.md` — origin: https://x.com/mattpocockuk/status/2069837651335614614
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2070127727575748736-bbd2c0f1.md` — origin: https://x.com/mattpocockuk/status/2070127727575748736
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069836906674688083-576ccce4.md` — origin: https://x.com/mattpocockuk/status/2069836906674688083
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069463356700770816-a53b09ac.md` — origin: https://x.com/mattpocockuk/status/2069463356700770816
