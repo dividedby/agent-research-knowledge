@@ -3,8 +3,11 @@
 A recurring distinction in the workflow skills is HITL (human-in-the-loop) vs
 AFK (away-from-keyboard) work, and a bias toward AFK: `to-issues` prefers AFK
 slices over HITL "where possible", and `triage`'s whole job is to move issues to
-a `ready-for-agent` state where an agent can pick them up cold. Making work
-safely AFK-able requires writing specs a different way.
+a `ready-for-agent` state where an agent can pick them up cold. That bias is
+strong in practice — where Matt has the infrastructure set up (a repo with
+Sandcastle plus GitHub issues), he says he "pretty much always" delegates to AFK
+rather than driving the work himself. Making work safely AFK-able requires writing
+specs a different way.
 
 ## The spec is a contract that must outlive the codebase
 
@@ -93,3 +96,4 @@ triage doesn't re-suggest them.
 - `sources/mattpocock/skills-repo/skills-engineering-to-prd-SKILL.md-c9420806.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-prd/SKILL.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md` — origin: https://www.aihero.dev/tips-for-ai-coding-with-ralph-wiggum
 - `sources/mattpocock/aihero/https-www.aihero.dev-getting-started-with-ralph-7f6ee75f.md` — origin: https://www.aihero.dev/getting-started-with-ralph
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071202722762645577-9c4e2673.md` — origin: https://x.com/mattpocockuk/status/2071202722762645577

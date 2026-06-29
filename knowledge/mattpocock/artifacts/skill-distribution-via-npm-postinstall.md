@@ -14,8 +14,11 @@ its conventions once and every consuming repo picks them up at a pinned version.
 The symlink (rather than a copy) keeps the installed skills pointing back at the
 package, so an upgrade is a reinstall, not a manual re-vendor. The same symlink
 trick generalizes across agent harnesses: pointing `.claude/skills` at a shared
-`.agent/skills` directory lets one skill set serve multiple tools that each expect
-their own conventional path.
+`.agents/skills` directory lets one skill set serve multiple tools that each expect
+their own conventional path. In practice Matt treats `.agents/skills` as the
+canonical home — most harnesses already read from it, and the few with a bespoke
+layout get a symlink pointed back at it, so one authored skill set serves every
+tool without duplication.
 
 This is a sketch Matt floated ("any reason this wouldn't work?"), not yet a
 shipped artifact — but the shape is the transferable idea: lean on the team's
@@ -26,3 +29,4 @@ skills as code dependencies rather than as files to copy around.
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062129440558047545-df93babd.md` — origin: https://x.com/mattpocockuk/status/2062129440558047545
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062162143944827322-cf318feb.md` — origin: https://x.com/mattpocockuk/status/2062162143944827322
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071159019058647144-771bdb97.md` — origin: https://x.com/mattpocockuk/status/2071159019058647144

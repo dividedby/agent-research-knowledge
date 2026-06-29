@@ -54,7 +54,20 @@ context into a fresh focused session and leaves the current one pure. Handoff al
 powers a DIY sub-agent pattern: spend a *full* context window exploring or
 prototyping in a child session, compress the learnings into a handoff document,
 and pass only those back to the parent — and because it's a portable markdown file
-it works across tools (Claude Code → Codex, adversarial review, etc.).
+it works across tools (Claude Code → Codex, adversarial review, etc.). A worked
+chain Matt endorses: a `/grill-with-docs` question that needs answering →
+`/handoff` → `/prototype` → `/handoff` back to the original session.
+
+The sharper rule for *when* to reach for handoff: **handoff only makes sense when
+the work you're delegating to needs a human in the loop.** A background task that
+runs to completion without HITL doesn't want a handoff at all — it wants to be
+fired off and report back. Matt's worked example is a possible `/research` skill:
+run a research agent in the background, have it save results to a `.md` file, and
+have it resume its original activity (usually grilling) — *no* handoff, because
+research doesn't need HITL. (That he says this verbatim every time is itself his
+signal a skill is warranted — see the authoring heuristic in
+`writing-great-skills-vocabulary`.) So the compact/handoff/fire-and-forget choice
+keys on whether a human has to re-enter the loop.
 
 ## Set the auto-compact threshold deliberately
 
@@ -88,4 +101,7 @@ check it.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060403350332448950-8300a75e.md` — origin: https://x.com/mattpocockuk/status/2060403350332448950
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060426881535512807-c7b0c21c.md` — origin: https://x.com/mattpocockuk/status/2060426881535512807
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060652913442062670-48fea6c3.md` — origin: https://x.com/mattpocockuk/status/2060652913442062670
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2070926582043062696-c75a0ca3.md` — origin: https://x.com/mattpocockuk/status/2070926582043062696
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071153298950799868-33e370c2.md` — origin: https://x.com/mattpocockuk/status/2071153298950799868
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071158794508284093-49902b89.md` — origin: https://x.com/mattpocockuk/status/2071158794508284093
 - `sources/mattpocock/course-video-manager/.claude-settings.json-32bd95e6.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.claude/settings.json

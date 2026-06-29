@@ -15,3 +15,4 @@ one line each.
 - [Cognitive security concerns](cognitive-security-concerns.md) — The risks of outsourcing decision-making to frontier labs and the concentration of cognitive influence in few organizations
 - [Secure code generation principles](secure-code-generation-principles.md) — Building security into AI-generated codebases from first principles rather than relying on tool-based restrictions
 - [Hyper-personalized software and embedded factories](hyper-personalized-software-and-embedded-factories.md) — Applications as IDEs enabling real-time modification; return to rapid application development paradigm enhanced by AI
+- [Learn agents like a musical instrument](learn-agents-like-an-instrument.md) — Build competence through hands-on play and intuition for the failure surface, not manual-reading; the concrete habit behind the curiosity moat
