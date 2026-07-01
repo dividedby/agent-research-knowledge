@@ -62,6 +62,34 @@ batch orchestration loop — see [[sandcastle-plan-execute-merge-loop]] — and 
 hand the agent's results to deterministic steps via
 [[structured-output-with-session-retry]].
 
+## The review phase now installs and defers to the shared skill
+
+A later revision of `agent-review.yml` adds one step before the review runs:
+`npx --yes skills@latest add mattpocock/skills -g -s review -a claude-code -y --copy`,
+installing the `review` skill (see [[review-skill-two-axis-with-smell-baseline]])
+globally into `~/.claude/skills` — outside the git work tree, so the review
+agent's own commit step can never sweep the skill files into the PR. It's a
+**global**, not project, install: every run pulls the current version of the
+skill, and installing it globally rather than pinning a copy into the repo means
+the CI pipeline always exercises the skill's latest revision, not a stale
+snapshot frozen at whatever commit last vendored it.
+
+The matching change lands in `.sandcastle/review/prompt.md`: the review process
+step that used to be an inline six-point checklist (read the diff, verify
+against spec, stress-test edge cases, ...) is replaced with a single instruction
+to invoke the now-installed `review` skill and treat **its findings as the
+single source of truth** — "act only on what it reports, not on a separate
+ad-hoc pass of your own." The prompt still owns everything the skill doesn't:
+fixing the fixed point to `main` and the diff to `git diff main...HEAD` so the
+skill "does not run its own discovery and does not prompt or pause," passing the
+already-fetched linked issue as the spec, and translating the skill's report
+into concrete actions (fix correctness findings with a breaking test, apply
+quality findings, surface spec findings for a human rather than silently adding
+scope). The shape this reveals: when a shared, versioned skill exists, the
+consuming CI prompt shrinks to *plumbing the skill its inputs* and *acting on
+its output* — the review logic itself is deleted from the prompt and delegated
+to the skill it now installs at run time.
+
 ## The shipped stack: GitHub Actions + Sandcastle + Claude Code
 
 Matt's current "favourite stack" is exactly this topology productised:
@@ -76,6 +104,7 @@ bash cap (see `sandcastle-plan-execute-merge-loop`, `autonomous-loops-ralph`).
 ## Sources
 
 - `sources/mattpocock/course-video-manager/.github-workflows-agent-implement.yml-f2a00aec.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-implement.yml
-- `sources/mattpocock/course-video-manager/.github-workflows-agent-review.yml-ddaff44e.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-review.yml
+- `sources/mattpocock/course-video-manager/.github-workflows-agent-review.yml-ddaff44e.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-review.yml (revision 2026-06-30)
+- `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-06-30)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721938894500036-65f0fb11.md` — origin: https://x.com/mattpocockuk/status/2067721938894500036
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067919429216645366-e4027437.md` — origin: https://x.com/mattpocockuk/status/2067919429216645366

@@ -55,39 +55,84 @@ ambitious feature" and reports never feeling "more confident that I'm aligned" �
 the payoff of resolving the frontier before committing is alignment confidence on
 a large autonomous build.
 
-## Three ticket types route to the right tool
+## Four ticket types route to the right tool
 
-Each open question is one of three kinds, and the kind chooses how it gets
+Each open question is one of four kinds, and the kind chooses how it gets
 resolved:
 
 - **Research** — reading docs, third-party APIs, or knowledge bases; produces a
   markdown summary asset. Use when the answer lives outside the working directory.
-- **Prototype** — runnable code to test a hypothesis or explore a design space;
-  uses the `/prototype` skill, produces a prototype asset. Use when "how should it
-  look / behave" is the question.
+- **Prototype** — a cheap, rough, concrete artifact to react to (an outline, a
+  stub, or runnable UI/logic code via `/prototype`); produces the prototype as an
+  asset. The point isn't only code — raising the fidelity of the discussion with
+  *any* concrete draft counts, which is why the type broadened from "UI/logic
+  code" to "cheap concrete artifact" once the map started planning non-code
+  work too. Use when "how should it look / behave" is the question.
 - **Grilling** — conversation with the agent via `/grilling` and
   `/domain-modeling`, one question at a time; the default. (The type was first
   named "Discuss" and renamed to "Grilling" — the resolution mechanism *is* a
   grilling session, so the type points straight at the skill that runs it.)
+- **Task** — literal manual work with nothing to decide, prototype, or research:
+  moving data, signing up for a third-party service, provisioning access. The
+  agent automates what it can; otherwise it hands the human a precise checklist.
+  A Task resolves when the work is *done*, and its answer records what was done
+  plus any resulting facts (a credential's location, a new URL, a row count)
+  later tickets depend on — the same "record the fact, not the narrative" posture
+  as an ADR.
+
+## Tickets are slugs with status, not numbers
+
+Each ticket's canonical id is a short dash-case slug (`relational-db`,
+`auth-strategy`) rather than a sequence number — terse and stable enough to use
+in prose and in every `Blocked by:` edge. Each also carries an explicit
+`Status: open | in-progress | resolved`, and a ticket is **unblocked** only once
+every entry in its own `Blocked by:` list is `resolved`. A session **claims**
+its ticket by setting `Status: in-progress` and saving the map *before* doing
+any work — the write-before-work ordering is what makes concurrent sessions
+safe: a second session reading the map sees the claim and skips the ticket
+rather than racing on it.
+
+## Domain-agnostic: plans code, course content, or anything shaped the same
+
+The map's own framing has generalised past engineering: it now explicitly
+plans "course content, or anything else that fits the same shape," and an
+optional `## Notes` block declares the map's **domain**, any skills every
+session should `consult`, and freeform standing preferences the planning
+surfaces. This is the fog-of-war discipline decoupled from its original
+engineering use case — the shape (frontier, tickets, blocked-by edges) is
+domain-neutral; only the ticket content and the consulted skills vary.
 
 ## Bootstrap and resume; parallel-safe by construction
 
-The skill has two invocations. **Bootstrap**: from a loose idea, run grilling +
-domain-modeling to surface the decisions, write a mostly-fog map with the frontier
-identified and trivial entries resolved inline, then *stop* — map-building is one
-session's work, you don't also resolve tickets. **Resume**: given a map path and a
-ticket number, load the whole map, resolve that one ticket, record the answer, add
-newly-discovered tickets with correct `blocked_by` edges, and stop. Because
-tickets are resolved one at a time and the user may run several in parallel, every
-session expects other agents to have edited the map — and a resolution that
-invalidates other nodes updates or deletes them. Crucially, the skill knows when
-*not* to exist: if the initial grilling surfaces no fog (no multi-session
-decisions), it offers to **skip the map entirely** and implement directly or go
-straight to `/to-prd`.
+The skill has two invocations, and **every session — either branch — ends with
+a Handoff**, never resolving more than one ticket per session. **Create the
+map**: from a loose idea, run grilling + domain-modeling to surface the
+decisions, write a mostly-fog map with the frontier identified and trivial
+entries resolved inline, then hand off — map-building is one session's work,
+you don't also resolve tickets. **Work through the map**: given a map path and
+an *optional* ticket slug (without one, the agent picks the next open,
+unblocked ticket in document order rather than the user choosing), claim it,
+resolve it — invoking `/grilling` and `/domain-modeling` if in doubt, plus
+anything the `## Notes` block names to consult — record the answer, set
+`Status: resolved`, and add or invalidate other nodes as the resolution
+demands. Because tickets are resolved one at a time and the user may run
+several in parallel, every session expects other agents to be editing the map
+concurrently.
+
+The **Handoff** step is itself a fixed protocol: clear the context and open
+fresh sessions, closing with a copy-pasteable **Next steps** block. If open
+tickets remain, it lists the currently-unblocked ones and offers two paths —
+one bare command that lets the next session pick the ticket, and one pinned
+command per unblocked ticket for running them in parallel windows. If none
+remain, the fog is pushed back far enough that the finish line is clear — the
+map is done, and the skill recommends implementing directly or handing off to
+`/to-prd`. This is the same "skip the map when there's no fog" escape hatch as
+before, now folded into the same Handoff step rather than a separate check:
+the skill knows when *not* to exist.
 
 ## Sources
 
-- `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling")
+- `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067965196618895564-c2d49f3d.md` — origin: https://x.com/mattpocockuk/status/2067965196618895564
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067602690725581067-eb6c35f9.md` — origin: https://x.com/mattpocockuk/status/2067602690725581067
