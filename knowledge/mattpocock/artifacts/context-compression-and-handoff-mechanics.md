@@ -47,6 +47,25 @@ Documents are saved to the OS temporary directory as disposable working document
 
 Handoff creates a DIY sub-agent pattern: use a full context window for exploration, compress learnings into a handoff document, and pass insights back to the parent session. This enables complex exploration without bloating the main session's context.
 
+## `claude-handoff`: skip the "paste it into a new session" step
+
+`/handoff` still leaves a manual step: it writes the markdown file, but a
+*human* has to open a fresh session and reference it. The in-progress
+`claude-handoff` skill automates that last step for Claude Code specifically —
+it writes the same kind of handoff summary, then immediately launches the next
+session itself: `claude --bg --name "<descriptive name>" "<handoff summary>"`.
+The background job starts in the current working directory, returns
+immediately, and is managed afterward with `claude agents` — so the handoff
+document becomes the new session's *prompt* rather than a file waiting to be
+read. Two disciplines carry over unchanged from `/handoff`: reference existing
+artifacts (PRDs, plans, ADRs, issues, diffs) by path or URL instead of
+duplicating their content, and redact anything sensitive (API keys, passwords,
+PII) — doubly load-bearing here, since the summary is no longer just a
+document a human skims before continuing, it's text a fresh agent executes
+directly. A descriptive `--name` is mandatory, not cosmetic: it's the only
+label distinguishing the job in the list, the session picker, and the terminal
+title once several are running.
+
 ## Primary vs Secondary Source: the lossiness is structural
 
 Underneath every handoff and compaction is a single trade-off Matt names with two
@@ -84,3 +103,5 @@ own — you cite the code or transcript it produced, the primary, not the reason
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062876525553197221-2eed6697.md` — origin: https://x.com/mattpocockuk/status/2062876525553197221
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062876787881718069-873859ad.md` — origin: https://x.com/mattpocockuk/status/2062876787881718069
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062947848203751824-8686f659.md` — origin: https://x.com/mattpocockuk/status/2062947848203751824
+- `sources/mattpocock/skills-repo/skills-in-progress-claude-handoff-SKILL.md-f0e12f6d.md` — origin: https://github.com/mattpocock/skills/blob/efa058a349f5ce98b6115bf8b4e0d0ef9c310e0d/skills/in-progress/claude-handoff/SKILL.md
+- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/228dd71020d95f7f6c813e96e2098f6d2c712a69/skills/in-progress/README.md (revision 2026-07-03, `claude-handoff` listed)

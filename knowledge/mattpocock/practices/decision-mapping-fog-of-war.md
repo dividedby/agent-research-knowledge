@@ -1,22 +1,30 @@
-# Decision mapping: planning that spans more sessions than one context holds
+# Wayfinder (renamed from decision-mapping): planning that spans more sessions than one context holds
 
-`decision-mapping` targets the case the rest of the planning chain can't: a loose
-idea whose open questions take **more than one agent session** to resolve. Where
-`grill-with-docs → to-prd → to-issues` assumes the plan can be settled in one
-unbroken smart-zone window, decision-mapping is the escape hatch for when it
-can't — it externalises the plan's state into a file so investigation can stretch
-across many sessions without losing the thread.
+`wayfinder` — renamed from `decision-mapping` — targets the case the rest of the
+planning chain can't: a loose idea whose open questions take **more than one
+agent session** to resolve. Where `grill-with-docs → to-prd → to-issues` assumes
+the plan can be settled in one unbroken smart-zone window, wayfinder is the
+escape hatch for when it can't — it externalises the plan's state so
+investigation can stretch across many sessions without losing the thread.
 
-## The decision map is the durable, compact artifact
+## The map moved onto the issue tracker, joining the engineering skills' shared spine
 
-A single git-tracked Markdown file holds the whole plan as numbered **tickets**,
-each a section keyed by its number with a `Blocked by:` edge list, a `Type:`, a
-Question, and an Answer. The hard constraint: the **whole map is loaded as context
-into every session**, so it must stay compact — assets produced while resolving a
-ticket are *linked from* the map, never inlined. Each ticket is sized to roughly
-one 100K-token session. This is the same "state lives in a file the next fresh
-context reloads" pattern as `handoff` and the `teach` workspace, specialised for
-multi-session planning.
+The map was originally a single git-tracked Markdown file; it is now a single
+**issue** on whichever tracker `setup-matt-pocock-skills` already configured for
+the repo (GitHub, GitLab, or local Markdown), labelled `wayfinder:map`, with
+tickets as its **child issues**. This folds wayfinder into the same shared data
+spine `to-prd`/`to-issues`/`triage` already read and write (see
+`skills-compose-by-handoff`) instead of inventing a bespoke file format — the
+map now lives wherever the team already tracks work. The map itself stays an
+**index, not a store**: it holds Notes, a one-line gist-and-link per closed
+ticket under Decisions-so-far, and the Fog — never a ticket's full detail, which
+lives on the ticket issue itself. The hard constraint carries over unchanged:
+the whole map is loaded as context **once per session**, so it must stay
+compact, and each ticket is sized to roughly one 100K-token session. Where the
+map, its children, blocking, and the frontier query physically live is
+tracker-specific — a `docs/agents/issue-tracker.md` "Wayfinding operations"
+section spells out the concrete calls per backend; absent that doc, wayfinder
+defaults to the local-Markdown tracker.
 
 ## Fog of war: investigate only the frontier
 
@@ -80,17 +88,40 @@ resolved:
   later tickets depend on — the same "record the fact, not the narrative" posture
   as an ADR.
 
-## Tickets are slugs with status, not numbers
+## Tickets are tracker issues, blocked by the tracker's own dependency graph
 
-Each ticket's canonical id is a short dash-case slug (`relational-db`,
-`auth-strategy`) rather than a sequence number — terse and stable enough to use
-in prose and in every `Blocked by:` edge. Each also carries an explicit
-`Status: open | in-progress | resolved`, and a ticket is **unblocked** only once
-every entry in its own `Blocked by:` list is `resolved`. A session **claims**
-its ticket by setting `Status: in-progress` and saving the map *before* doing
-any work — the write-before-work ordering is what makes concurrent sessions
-safe: a second session reading the map sees the claim and skips the ticket
-rather than racing on it.
+A ticket's identity is now the tracker's own issue id, not a hand-picked slug.
+Two label families carry state: `wayfinder:<type>` names the ticket kind
+(below), and `wayfinder:claimed` is set by a session **before any work** —
+the same write-before-work safety as before, so a second session reading the
+map skips a claimed ticket rather than racing on it. Blocking now prefers each
+tracker's **native** dependency link over a plain-text field, because a native
+link renders the frontier *visually* in the tracker's own UI — the human sees
+what's takeable without opening the map at all:
+
+- **GitHub** — the native issue-dependencies API, added by posting the
+  blocker's numeric **database id** (`gh api .../issues/<n> --jq .id`) — not
+  its `#number` or its `node_id`, both easy to reach for by mistake and both
+  wrong for this call.
+- **GitLab** — the native `/blocked_by` quick action, but only on
+  Premium/Ultimate tiers; the free tier falls back to a `Blocked by: #n, #n`
+  line at the top of the ticket body.
+- **Local Markdown** — no native tracker to defer to, so it stays the
+  `Blocked by:` line, the original mechanism.
+
+A ticket is **unblocked** once every blocker — native link or fallback line —
+is closed; the **frontier** (open, unblocked, unclaimed children) is now a
+tracker query per backend instead of a scan over one file.
+
+## Refer by name, not by bare id
+
+Because every map and ticket is now a tracker issue, each carries a **title**
+— and the skill insists narration and the map's Decisions-so-far always cite
+that title, never a bare `#42`. A wall of `#42, #43, #44` is illegible; names
+read at a glance, with the id/URL riding *inside* the name as a link rather
+than standing in for it. It's a small but transferable lesson on its own: once
+an entity has both a durable identifier and a human label, prose should carry
+the label and let the identifier travel underneath it, not the reverse.
 
 ## Domain-agnostic: plans code, course content, or anything shaped the same
 
@@ -109,15 +140,15 @@ a Handoff**, never resolving more than one ticket per session. **Create the
 map**: from a loose idea, run grilling + domain-modeling to surface the
 decisions, write a mostly-fog map with the frontier identified and trivial
 entries resolved inline, then hand off — map-building is one session's work,
-you don't also resolve tickets. **Work through the map**: given a map path and
-an *optional* ticket slug (without one, the agent picks the next open,
-unblocked ticket in document order rather than the user choosing), claim it,
-resolve it — invoking `/grilling` and `/domain-modeling` if in doubt, plus
-anything the `## Notes` block names to consult — record the answer, set
-`Status: resolved`, and add or invalidate other nodes as the resolution
-demands. Because tickets are resolved one at a time and the user may run
-several in parallel, every session expects other agents to be editing the map
-concurrently.
+you don't also resolve tickets. **Work through the map**: given a map (issue
+URL or number) and an *optional* ticket (without one, the agent picks the
+first frontier ticket in tracker order rather than the user choosing), claim
+it, resolve it — invoking `/grilling` and `/domain-modeling` if in doubt, plus
+anything the `## Notes` block names to consult — post the answer as a
+resolution comment, close the ticket, and add or invalidate other tickets as
+the resolution demands. Because tickets are resolved one at a time and the
+user may run several in parallel, every session expects other agents to be
+editing the tracker concurrently.
 
 The **Handoff** step is itself a fixed protocol: clear the context and open
 fresh sessions, closing with a copy-pasteable **Next steps** block. If open
@@ -133,7 +164,11 @@ the skill knows when *not* to exist.
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
-- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17)
+- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/00b0f60a9f2cea78216bc7165684bd5610495f9e — `decision-mapping` renamed `wayfinder`)
+- `sources/mattpocock/skills-repo/skills-in-progress-wayfinder-SKILL.md-82165350.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/in-progress/wayfinder/SKILL.md (the rename, and the map moving onto the issue tracker; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/9ee274c8fecd74661dceee5ab4e314b8c58f9e47 — "refer by name" convention)
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/81825ae44edc49c71a526b58a5225fde82f340fa/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/263a2d27d54d82e44d4587e6bbabd5833410c06b — the native issue-dependencies database-id detail)
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/4dda53bfcb34d30f7d0a5024a07e0436fb9e5d79/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/00ea3ba0cb738a2d723bfe28bf7a75419e1961d2 — the Premium/Ultimate-tier native-blocking caveat)
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-lo-606b1b18.md` — origin: https://github.com/mattpocock/skills/blob/2f3267deb0afbb6f13294613a5f50e1b8df1156c/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md (revision 2026-07-02, the "Wayfinding operations" section added)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067965196618895564-c2d49f3d.md` — origin: https://x.com/mattpocockuk/status/2067965196618895564
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067602690725581067-eb6c35f9.md` — origin: https://x.com/mattpocockuk/status/2067602690725581067
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067682252742357292-b72bc2ce.md` — origin: https://x.com/mattpocockuk/status/2067682252742357292

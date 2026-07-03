@@ -61,13 +61,27 @@ chain Matt endorses: a `/grill-with-docs` question that needs answering →
 The sharper rule for *when* to reach for handoff: **handoff only makes sense when
 the work you're delegating to needs a human in the loop.** A background task that
 runs to completion without HITL doesn't want a handoff at all — it wants to be
-fired off and report back. Matt's worked example is a possible `/research` skill:
-run a research agent in the background, have it save results to a `.md` file, and
-have it resume its original activity (usually grilling) — *no* handoff, because
-research doesn't need HITL. (That he says this verbatim every time is itself his
-signal a skill is warranted — see the authoring heuristic in
+fired off and report back. Matt's worked example was a possible `/research`
+skill: run a research agent in the background, have it save results to a `.md`
+file, and have it resume its original activity (usually grilling) — *no*
+handoff, because research doesn't need HITL. (That he says this verbatim every
+time is itself his signal a skill is warranted — see the authoring heuristic in
 `writing-great-skills-vocabulary`.) So the compact/handoff/fire-and-forget choice
 keys on whether a human has to re-enter the loop.
+
+That prediction has since shipped as the `research` skill, unchanged in shape:
+a **background agent** does the reading so the calling session keeps working,
+and it works only from **primary sources** — official docs, source code,
+specs, first-party APIs — never a secondary write-up of them, saving one cited
+Markdown file wherever the repo already keeps such notes. Confining it to
+primary sources is the same anti-lossiness instinct as the primary/secondary
+distinction elsewhere in this collection (see
+`context-compression-and-handoff-mechanics`), applied to *evidence* rather
+than to *session state*: a claim traced to the source that owns it survives
+scrutiny; a claim traced to a summary of a summary doesn't. The file it
+produces feeds the *thinking* skills (`grill-with-docs`, `to-prd`) rather than
+sitting in the build chain itself — research is legwork you delegate, not
+thinking you outsource.
 
 ## Set the auto-compact threshold deliberately
 
@@ -105,3 +119,5 @@ check it.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071153298950799868-33e370c2.md` — origin: https://x.com/mattpocockuk/status/2071153298950799868
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071158794508284093-49902b89.md` — origin: https://x.com/mattpocockuk/status/2071158794508284093
 - `sources/mattpocock/course-video-manager/.claude-settings.json-32bd95e6.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.claude/settings.json
+- `sources/mattpocock/skills-repo/skills-engineering-research-SKILL.md-3753ea09.md` — origin: https://github.com/mattpocock/skills/blob/efa058a349f5ce98b6115bf8b4e0d0ef9c310e0d/skills/engineering/research/SKILL.md
+- `sources/mattpocock/skills-repo/docs-engineering-research.md-ac883965.md` — origin: https://github.com/mattpocock/skills/blob/efa058a349f5ce98b6115bf8b4e0d0ef9c310e0d/docs/engineering/research.md

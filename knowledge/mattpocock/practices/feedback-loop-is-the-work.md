@@ -86,6 +86,36 @@ The tracer-bullet principle propagates beyond testing: `to-issues` breaks plans
 into thin vertical slices that each cut through every layer end-to-end, for the
 same reason — a slice you can actually verify beats a layer you can't.
 
+## Tautological tests: a second, sharper failure mode than implementation-coupling
+
+`tdd` later names a failure mode distinct from testing implementation details:
+a **tautological** test, where the assertion recomputes the expected value the
+same way the code does — `expect(add(a, b)).toBe(a + b)`, a snapshot derived
+by hand the same way the code derives it, a constant asserted equal to itself.
+Such a test passes by construction and can never disagree with the code: break
+the implementation wrong and the assertion breaks wrong right alongside it,
+so it gives zero real confidence despite being green. The fix is the same
+discipline good tests already need — the expected value must come from an
+**independent source of truth** (a known-good literal, a worked example, the
+spec), never a figure computed the way the code computes it. Implementation-
+coupling and tautology are both ways a green suite lies, but by different
+mechanisms: one breaks on a harmless refactor, the other never breaks at all.
+
+## Seams are pre-agreed, and refactoring left the loop entirely
+
+`tdd` also formalised the vocabulary for *where* a test lives: a **seam** is
+the public boundary under test, and the rule is that **no test is written at
+an unconfirmed seam** — the seams under test are written down and confirmed
+with the user before the first test, not discovered test-by-test. This is the
+same instinct as "you can't test everything": agreeing the seams up front is
+what keeps testing effort on the critical paths instead of drifting to every
+edge case as it's noticed mid-loop. Refactoring was also removed from the
+red-green loop itself — it's now explicitly deferred to the **review** stage
+(`code-review`, run at the end of `implement`) rather than folded into the
+last step of every TDD cycle, so the loop stays exactly two states, red and
+green, and cleanup happens once, downstream, against the whole diff rather
+than piecemeal after each slice.
+
 ## Tracer bullets are the antidote to slop
 
 Matt's articles sharpen *why* the vertical slice matters with agents
@@ -135,7 +165,8 @@ frontend.
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-scripts-hitl-loop.template.sh-7d00841a.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/scripts/hitl-loop.template.sh
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-scripts-hitl-loop.templat-b79f1c8e.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh
-- `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md (revision 2026-06-17)
+- `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md (revision 2026-06-17; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/dc338028858adc73f624ebdb5cda1dd9f61c5c17 — tautological tests; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/5eea6114412fce36e27f3cbf19a9bf1e25b76fb4 — pre-agreed seams and refactoring moved out of the loop; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ffef7e3e24c271fc7f7ac6fc43a2556e6c9269d9 — the reference to `code-review` by its new name)
+- `sources/mattpocock/skills-repo/docs-engineering-tdd.md-54751a46.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/tdd.md
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-tracer-bullets-0575e91a.md` — origin: https://www.aihero.dev/tracer-bullets

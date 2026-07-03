@@ -78,6 +78,18 @@ Beads uses a two-layer architecture that enables distributed, Dolt-powered issue
 └─────────────────┘    └─────────────────┘
 ```
 
+## Upgrade Discipline: One Clone Owns the Migration
+
+Because the Dolt store is shared history, not just a binary each collaborator
+happens to run, "replace the `bd` binary" and "upgrade the database" are two
+separate steps. A release can carry a schema migration, and a database that
+syncs to a Dolt remote must be migrated by **exactly one designated clone** —
+every other collaborator pulls the already-migrated state instead of each
+independently re-running the migration against their own copy, which would
+fork the shared history the same way an uncoordinated multi-writer push would.
+Back up first (`bd export --all`) before migrating, since the migration is a
+write against shared state, not a local, reversible config change.
+
 **Sources:**
 - `sources/steveyegge/beads/docs-ARCHITECTURE.md-fd45feca.md` (lines 8-95)
-- `sources/steveyegge/beads/README.md.md` (lines 110-177, storage modes)
+- `sources/steveyegge/beads/README.md.md` (lines 110-177, storage modes; "Upgrading?" migration-ownership note, 2026-07-02 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/README.md

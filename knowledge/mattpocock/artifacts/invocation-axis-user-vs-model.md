@@ -11,7 +11,7 @@ the realised architecture, renamed and made load-bearing.
   the **orchestrators**: the top-level entry points a person reaches for
   deliberately (`grill-me`, `grill-with-docs`, `to-prd`, `to-issues`, `triage`,
   `improve-codebase-architecture`, `prototype`, `handoff`, `teach`, `ask-matt`,
-  `decision-mapping`).
+  `wayfinder` — renamed from `decision-mapping`).
 - **Model-invoked** (the default — omit the flag) — reachable by the model *or*
   the human, so the agent can auto-fire it and other skills can reach it. Its
   `description` keeps rich "Use when…" trigger phrasing and pays a permanent
@@ -49,10 +49,22 @@ its own cure. `ask-matt` is a **router skill**: a user-invoked skill whose only
 job is to name the other user-invoked skills and when to reach for each. It can
 only *hint*, never fire them (it has no way to reach a sibling user-invoked
 skill). It encodes a **main flow** (`grill-with-docs → [prototype detour via
-handoff] → to-prd → to-issues → implement`), **on-ramps** that merge onto it
-(`triage` for incoming issues), and standalone tools — turning the loose pile of
-slash-commands into a navigable map with explicit context-hygiene rules (keep the
-planning chain in one unbroken smart-zone window; start each `/implement` fresh).
+handoff] → to-prd → to-issues → implement → code-review`), **on-ramps** that merge
+onto it (`triage` for incoming issues, `diagnosing-bugs` for something broken),
+and standalone tools — turning the loose pile of slash-commands into a navigable
+map with explicit context-hygiene rules (keep the planning chain in one unbroken
+smart-zone window; start each `/implement` fresh). It has since grown past
+naming only the user-invoked set: it also points at the model-invoked
+primitives worth reaching for *by name* (`/tdd`, `/diagnosing-bugs`,
+`/prototype`, `/code-review`, and the two vocabulary references
+`/domain-modeling`/`/codebase-design`) — still only a pointer, since it still
+can't fire them itself. And the map is now a maintained artifact in its own
+right: `CLAUDE.md` obliges a re-read and update of `ask-matt`'s `SKILL.md`
+whenever a user-reachable skill is added, renamed, removed, or changes how it
+fits the flows — the same doc-rot discipline as the paired docs pages (see
+`docs-page-mirrors-promoted-skills`), because a router that names a skill that
+no longer exists, or omits one that now does, actively misleads instead of
+merely going stale.
 
 ## "Context load" is the cost being managed; continuous verbs name the model-invoked set
 
@@ -107,3 +119,6 @@ release as redundant (`caveman`, `zoom-out`), and `write-a-skill` was replaced b
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067536507653468380-59ce88dc.md` — origin: https://x.com/mattpocockuk/status/2067536507653468380
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067556399945589239-1ceb3ba7.md` — origin: https://x.com/mattpocockuk/status/2067556399945589239
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067966169860931606-a1f7c79f.md` — origin: https://x.com/mattpocockuk/status/2067966169860931606
+- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/8e9705356ea758e0bf375ccfa5efdd78a5a4fbff/skills/engineering/ask-matt/SKILL.md (revision 2026-07-02 — the "Vocabulary underneath" section and the `code-review` chain step; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ebee08eb332d93484b9afda9acaa84eb1e024640 — `/research` added to Standalone)
+- `sources/mattpocock/skills-repo/docs-engineering-ask-matt.md-cb27a380.md` — origin: https://github.com/mattpocock/skills/blob/1f39f6f24749f410d98d3c39cc3402e9446f9f9b/docs/engineering/ask-matt.md (revision 2026-07-02 — the same "Vocabulary underneath" pointer, on the docs page)
+- `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/754bff7aeec587bf80d31075fa64717aa915b241/CLAUDE.md (revision 2026-07-02 — `ask-matt`'s resync obligation)

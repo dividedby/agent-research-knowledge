@@ -90,6 +90,18 @@ consuming CI prompt shrinks to *plumbing the skill its inputs* and *acting on
 its output* — the review logic itself is deleted from the prompt and delegated
 to the skill it now installs at run time.
 
+A further revision renames the installed skill and every reference to it, in
+lockstep, from `review` to `code-review` — matching the skill's own graduation
+out of `in-progress` under that name (see
+[[review-skill-two-axis-with-smell-baseline]]). Both the CI install step
+(`-s code-review`) and the prompt's skill-invocation instructions update
+together, in the same commit shape as the earlier install-and-defer change.
+The mechanic this confirms: because the CI pipeline installs the shared skill
+by name at run time rather than vendoring a copy, a rename upstream is a
+one-line follow-up in the *consumer* — the coupling is a name, not a pinned
+snapshot, so keeping the two in sync is a search-and-replace, not a re-audit of
+frozen skill content.
+
 ## The shipped stack: GitHub Actions + Sandcastle + Claude Code
 
 Matt's current "favourite stack" is exactly this topology productised:
@@ -105,6 +117,8 @@ bash cap (see `sandcastle-plan-execute-merge-loop`, `autonomous-loops-ralph`).
 
 - `sources/mattpocock/course-video-manager/.github-workflows-agent-implement.yml-f2a00aec.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-implement.yml
 - `sources/mattpocock/course-video-manager/.github-workflows-agent-review.yml-ddaff44e.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-review.yml (revision 2026-06-30)
+- `sources/mattpocock/course-video-manager/.github-workflows-agent-review.yml-ddaff44e.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-review.yml (revision 2026-07-02)
 - `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-06-30)
+- `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-07-02)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721938894500036-65f0fb11.md` — origin: https://x.com/mattpocockuk/status/2067721938894500036
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067919429216645366-e4027437.md` — origin: https://x.com/mattpocockuk/status/2067919429216645366

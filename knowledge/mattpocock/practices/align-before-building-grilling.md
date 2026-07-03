@@ -80,6 +80,17 @@ the grilling session together with live glossary capture (see
 `shared-language-as-agent-fuel`). The rule is simple: codebase →
 `grill-with-docs`; no codebase → `grill-me`.
 
+The sharpest statement of *why* the docs-capturing variant beats the bare
+interview: a plain interview "sharpens your thinking and then evaporates when
+the session ends"; `grill-with-docs` instead captures each term the moment it
+resolves into `CONTEXT.md` and records the hard, one-way decisions as ADRs, so
+**the alignment survives the conversation instead of living only in your
+head.** That framing also supplies the choice between three related skills, not
+just two: want the interview with no lasting artifact → `grilling`; the plan is
+already clear and you just need to pin down or record terminology → the active
+discipline in `domain-modeling` (see `domain-modeling-active-discipline`); want
+both the interview and the docs, starting from scratch → `grill-with-docs`.
+
 Matt has since demoted `grill-me` further down his own stack. He now recommends
 starting codebase-aware planning with **`domain-model`** — the skill that checks a
 plan against the codebase's language, `CONTEXT.md`, and ADRs (the `grill-with-docs`
@@ -111,15 +122,27 @@ to grilling: the orchestrators a human types stay thin; the reusable competence
 lives in a model-invoked primitive that other skills (and the model) can reach
 (see `invocation-axis-user-vs-model`).
 
+## Don't enact until the shared understanding is confirmed
+
+A later revision adds one explicit gate to the primitive itself: *"Do not enact
+the plan until I confirm we have reached a shared understanding."* Without it,
+an interview that trails off (the human stops answering, or the agent judges the
+tree "resolved enough") could slide straight into building on an alignment that
+was never actually confirmed — silently reintroducing the exact misalignment
+failure mode the whole grilling technique exists to prevent. Naming the gate
+explicitly turns "we're aligned" from an inference the agent makes on its own
+into a fact only the human gets to assert.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/grill-me/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/grill-with-docs/SKILL.md (revision 2026-06-17)
-- `sources/mattpocock/skills-repo/skills-productivity-grilling-SKILL.md-84a3ca23.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/grilling/SKILL.md
+- `sources/mattpocock/skills-repo/skills-productivity-grilling-SKILL.md-84a3ca23.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/grilling/SKILL.md (revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/8fb15cf60fd1db0ed9b23abb9b87956ab2d63ffc — the "do not enact until confirmed" gate)
+- `sources/mattpocock/skills-repo/docs-productivity-grilling.md-f585c446.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/productivity/grilling.md (revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/34435929c02d4238a5390a4aab533ece2842535b — the same gate, on the docs page)
 - `sources/mattpocock/aihero/https-www.aihero.dev-things-people-get-wrong-with-grill-me-a-2cf46126.md` — origin: https://www.aihero.dev/things-people-get-wrong-with-grill-me-and-grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-my-grill-me-skill-has-gone-viral-2f0f061b.md` — origin: https://www.aihero.dev/my-grill-me-skill-has-gone-viral
-- `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs
+- `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — the "paper trail" framing and the three-way routing between `grilling`/`domain-modeling`/`grill-with-docs`)
 - `sources/mattpocock/aihero/https-www.aihero.dev-5-agent-skills-i-use-every-day-056774d5.md` — origin: https://www.aihero.dev/5-agent-skills-i-use-every-day
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-grill-me-8337a3c4.md` — origin: https://www.aihero.dev/skills-grill-me
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary (revision 2026-06-05, "Prototyping")

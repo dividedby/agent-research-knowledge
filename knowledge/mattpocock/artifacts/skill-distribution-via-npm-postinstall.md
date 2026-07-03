@@ -25,8 +25,17 @@ shipped artifact — but the shape is the transferable idea: lean on the team's
 existing package/version infrastructure to distribute agent context, treating
 skills as code dependencies rather than as files to copy around.
 
+The multi-harness symlink half of the sketch has since shipped, just via a
+plainer mechanism: the skills repo itself ships `scripts/link-skills.sh`,
+which (re)links every skill into both `~/.claude/skills` and `~/.agents/skills`
+from a single git clone — no npm package, no registry, just `git pull` plus a
+re-run of the script after adding, removing, or renaming a skill. It confirms
+the same core bet (one authored set, symlinked into every harness's expected
+path) without needing the npm-specific machinery this sketch proposed.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062129440558047545-df93babd.md` — origin: https://x.com/mattpocockuk/status/2062129440558047545
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062162143944827322-cf318feb.md` — origin: https://x.com/mattpocockuk/status/2062162143944827322
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071159019058647144-771bdb97.md` — origin: https://x.com/mattpocockuk/status/2071159019058647144
+- `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/31a854fc1d37464d373218be58588ea8691a01c3/CLAUDE.md (revision 2026-06-17, `scripts/link-skills.sh`)

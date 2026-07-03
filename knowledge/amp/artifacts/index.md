@@ -16,3 +16,4 @@ product-changelog/marketing stream is out of scope.
 - [make-it-feedback-loopable](./make-it-feedback-loopable.md) — shape the environment (playground, URL-encoded experiments, headless text CLI) so the agent can validate its own work.
 - [permission-system-design](./permission-system-design.md) — sequential allow/ask/reject/delegate rules over irreversible actions; never file-ignore lists.
 - [skills-and-task-queue-for-large-migration](./skills-and-task-queue-for-large-migration.md) — CLI-wrapper skills + semantic graph + task-queue handoff + hard definition-of-done gates to run a migration as a factory.
+- [dont-make-the-agent-guess](./dont-make-the-agent-guess.md) — idempotent bootstrap, on-demand docs, machine-readable state, and dev-only auth endpoints so a headless remote agent never has to guess or ask.

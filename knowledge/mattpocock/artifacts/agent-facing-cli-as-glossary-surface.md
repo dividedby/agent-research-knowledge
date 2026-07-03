@@ -32,6 +32,23 @@ move is picking a glossary-consumption point that matches how the agent
 already interacts with the tool, and then explicitly naming the sync
 obligation this creates (rather than letting the two copies drift silently).
 
+## Writes are added one noun at a time, and land immediately
+
+A later revision starts turning `cvm` from read-only into "read-mostly": one
+noun (`segment`) gains write verbs (`add`/`update`/`move`/`delete`) that author
+a Video's Segment plan by reusing the existing write service, while every
+other noun stays read-only — "more nouns may gain writes over time" frames
+this as a deliberate, incremental rollout rather than a one-shot flip. The
+writes themselves are **immediate**: no confirmation prompt, no dry-run mode.
+That follows from what the CLI is *for* — an agent invoking a command has
+already decided to act, and a tool built to be driven by an agent has no
+human on the other end of an interactive "are you sure?" to answer, so the
+only real safety lever is which nouns get write verbs at all, not a runtime
+guard on each call. The glossary obligation from above carries over
+unchanged: the new verbs' `--help` text still has to track `CONTEXT.md` by
+hand.
+
 ## Sources
 
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-06-30)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-02)

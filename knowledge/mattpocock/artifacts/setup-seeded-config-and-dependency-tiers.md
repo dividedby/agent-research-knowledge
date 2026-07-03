@@ -30,11 +30,14 @@ prompting every run.
 The skills depend on this config at two different strengths, and the repo
 encodes the difference explicitly rather than treating all consumers alike:
 
-- **Hard dependency** (`to-issues`, `to-prd`, `triage`) — cannot function
-  correctly without the config. They publish to a *specific* tracker and apply
+- **Hard dependency** (`to-issues`, `to-prd`, `triage`, and now `code-review`)
+  — cannot function correctly without the config. They publish to (or, for
+  `code-review`'s Spec axis, read from) a *specific* tracker and apply
   *specific* label strings; without the mapping the output is wrong, not just
   fuzzy. These carry an explicit one-liner: *"…should have been provided to you
-  — run `/setup-matt-pocock-skills` if not."*
+  — run `/setup-matt-pocock-skills` if not."* `code-review` joining this tier
+  when it graduated out of `in-progress` shows the tier is drawn by what a
+  skill *does* with the config, not by which bucket it ships in.
 - **Soft dependency** (`diagnose`, `tdd`, `improve-codebase-architecture`,
   `zoom-out`) — only *sharpen* their output with the config (use the glossary
   for naming, respect ADRs in the area). They degrade gracefully: missing docs
@@ -61,3 +64,4 @@ place rather than creating a competing file.
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-code-review-SKILL.md-ffd0e041.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/engineering/code-review/SKILL.md

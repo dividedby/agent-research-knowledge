@@ -66,6 +66,7 @@ Provides agents with project context and accumulated insights.
 ```bash
 bd remember \"insight\"               # Store project memory across sessions
 bd remember \"...\" --key dolt-phantoms  # Keyed, updates in place if re-stored
+bd remember dolt-phantoms            # Bare existing key: reads it (= bd recall)
 bd recall dolt-phantoms             # Retrieve full content by key
 bd memories \"race flag\"             # List / keyword-search stored memories
 ```
@@ -75,6 +76,11 @@ explicitly, **account rotations** (a new agent identity inherits the accumulated
 insights). Memories are auto-injected at prime time, so they reappear in every
 session without manual loading; a key makes a memory addressable and idempotent
 (re-`remember`ing the same key updates in place rather than duplicating).
+`bd remember` also collapses into `bd recall` when its positional argument is a
+bare string that names an existing memory key — one command serves both write
+and read, disambiguated by whether the key already exists, rather than forcing
+the agent to remember (and pick correctly between) two verbs for the same
+concept.
 
 ## Cross-Session Data Flow
 
@@ -165,4 +171,4 @@ of agents stays accountable, not anonymous.
 - `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (session workflow; "landing the plane"; `Agent-Signature:` commit/comment trailer, 2026-06-21 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md
 - `sources/steveyegge/beads/AGENTS.md.md` (Agent Context Profiles + instruction-precedence, profile-gated session-completion git policy, 2026-06-21 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENTS.md
 - `sources/steveyegge/beads/docs-MOLECULES.md-d06ec0d4.md` (lines 57-72, multi-day execution)
-- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd remember`/`bd recall`/`bd memories` — keyed memory, persistence across account rotations) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd remember`/`bd recall`/`bd memories` — keyed memory, persistence across account rotations; bare-existing-key-recalls-instead-of-stores overload, 2026-07-03 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

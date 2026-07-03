@@ -59,6 +59,11 @@ from the obvious path, invisible constraints, and non-obvious rejected
 alternatives. This is the exact bar this repo's own `CLAUDE.md` adopts for its
 ADRs.
 
+The gate is meant to bite hard in practice, not just in theory: "most sessions
+produce a sharper glossary and few or no ADRs, and that's the intended shape."
+A session that mints an ADR every time is a sign the gate isn't being applied —
+the glossary is the expected steady output, the ADR the rare exception.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-SKILL.md-afe6b5a2.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/SKILL.md
@@ -66,3 +71,4 @@ ADRs.
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-ADR-FORMAT.md-0fcfff53.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/ADR-FORMAT.md
 - `sources/mattpocock/skills-repo/docs-invocation.md-1ce78905.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/docs/invocation.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
+- `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — "most sessions produce a sharper glossary and few or no ADRs")
