@@ -66,6 +66,28 @@ directly. A descriptive `--name` is mandatory, not cosmetic: it's the only
 label distinguishing the job in the list, the session picker, and the terminal
 title once several are running.
 
+Two mechanics matter for what `--bg` does and doesn't give you for free.
+First, it does **not** carry the calling session's context forward on its own
+— asked directly, Matt confirms you still "pass a handoff prompt manually";
+`--bg` starts a genuinely fresh session, and the handoff document is what
+supplies continuity, not the flag. Second, that document isn't a fixed
+template filled in by hand each time: "the agent does it" — the calling
+session generates the handoff summary itself as part of running
+`claude-handoff`, the same generate-then-launch shape as the rest of the skill.
+
+## Scope boundary: fan-out orchestration is a harness task, not a skill task
+
+Asked whether `claude-handoff` should itself detect which of several next
+steps can run in parallel versus which must run in sequence — spawning and
+assigning agents as needed, stopping only when it hits a human-in-the-loop
+point — Matt draws a line: he already does exactly this by hand, calling
+`claude --bg --name "<name>" "<prompt>"` in a loop, once per step, but
+**"I think this is a harness task, not a skill task."** A slash-command skill
+is scoped to producing one good handoff; deciding a multi-step plan's
+dependency graph and driving several background sessions through it is
+orchestration logic that belongs one layer down, in the harness, not bolted
+onto a skill whose job is authoring a single prompt.
+
 ## Primary vs Secondary Source: the lossiness is structural
 
 Underneath every handoff and compaction is a single trade-off Matt names with two
@@ -105,3 +127,8 @@ own — you cite the code or transcript it produced, the primary, not the reason
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062947848203751824-8686f659.md` — origin: https://x.com/mattpocockuk/status/2062947848203751824
 - `sources/mattpocock/skills-repo/skills-in-progress-claude-handoff-SKILL.md-f0e12f6d.md` — origin: https://github.com/mattpocock/skills/blob/efa058a349f5ce98b6115bf8b4e0d0ef9c310e0d/skills/in-progress/claude-handoff/SKILL.md
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/228dd71020d95f7f6c813e96e2098f6d2c712a69/skills/in-progress/README.md (revision 2026-07-03, `claude-handoff` listed)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072792309150736800-386d1342.md` — origin: https://x.com/mattpocockuk/status/2072792309150736800
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072792311184949526-58f97b05.md` — origin: https://x.com/mattpocockuk/status/2072792311184949526
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072961646079729882-b157e148.md` — origin: https://x.com/mattpocockuk/status/2072961646079729882
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072974002235011469-b4c2fbc4.md` — origin: https://x.com/mattpocockuk/status/2072974002235011469
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072985928990138389-f6f53241.md` — origin: https://x.com/mattpocockuk/status/2072985928990138389

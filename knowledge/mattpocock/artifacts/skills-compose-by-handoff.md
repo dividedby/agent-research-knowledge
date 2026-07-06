@@ -50,6 +50,19 @@ the workflow is assembled by the *data* they pass rather than by a controlling
 orchestrator. This is why "what's the issue tracker?" is the first thing
 `setup-matt-pocock-skills` resolves.
 
+## Renaming the chain: `to-prd` → `to-spec`, `to-issues` → `to-tickets`
+
+Matt later renamed both hand-off skills — `/to-prd` to `/to-spec`, `/to-issues`
+to `/to-tickets` — "apologies for the churn, but I've been wanting to make this
+change for a while." The rename is cosmetic, not a behavior change: `/to-prd`
+already produced a spec document, and "tickets and issues are basically
+interchangeable" — the new names just say what the artifact already was. With
+the rename the full chain reads: `/wayfinder → /to-spec → /to-tickets →
+/implement → /code-review`, with `/grill-with-docs` feeding `/to-spec` once a
+shared understanding is reached — the same alignment gate
+`align-before-building-grilling` describes, now named as one step in a longer,
+explicitly-ordered pipeline rather than left as an implicit hand-off.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/SKILL.md
@@ -58,3 +71,7 @@ orchestrator. This is why "what's the issue tracker?" is the first thing
 - `sources/mattpocock/skills-repo/skills-productivity-handoff-SKILL.md-c846b3b5.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/handoff/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2059576485111808071-85921d94.md` — origin: https://x.com/mattpocockuk/status/2059576485111808071
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072623114219835733-97d6fcff.md` — origin: https://x.com/mattpocockuk/status/2072623114219835733
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072625252144730215-a927e57f.md` — origin: https://x.com/mattpocockuk/status/2072625252144730215
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072629917779439875-dff4a19f.md` — origin: https://x.com/mattpocockuk/status/2072629917779439875
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072638587267387803-25530ac9.md` — origin: https://x.com/mattpocockuk/status/2072638587267387803

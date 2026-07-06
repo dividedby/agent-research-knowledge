@@ -22,3 +22,4 @@ them, one line each.
 - [design-a-language-for-agents](./design-a-language-for-agents.md) — local reasoning, no LSP-split, effect markers, diff stability: designing a language agents read well.
 - [agent-driven-issue-triage](./agent-driven-issue-triage.md) — Pi's `.pi` `/is`+`prompt-url-widget`+`/wr` setup: feed issues to the agent but instruct it to distrust the issue.
 - [local-models-as-a-first-class-provider](./local-models-as-a-first-class-provider.md) — pick one model+stack and polish it end-to-end inside the harness; tool-param streaming is a product bug (pi-ds4).
+- [tool-schema-priors-lock-to-one-harness](./tool-schema-priors-lock-to-one-harness.md) — models RL-trained inside one harness develop a shape prior for its tool schema; a different schema fights back harder as models improve.

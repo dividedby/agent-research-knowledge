@@ -11,7 +11,10 @@ The layers, and the design tension they resolve:
 - **The two bad extremes.** Approving every file write and bash command (friction,
   and humans rubber-stamp) versus `--dangerously-skip-permissions` (no oversight at
   all). The system exists to give you a middle that is *both* safer and lower-
-  friction.
+  friction. An earlier, narrower rung between the two: `--permission-mode=dontAsk`
+  for sandboxed environments — it stops prompts from blocking a long-running task
+  without disabling oversight as completely as full bypass, and predates auto mode
+  as the fix for the same problem.
 - **Pre-approval lists.** Out of the box a small set of safe commands is approved;
   extend allow/block lists with `/permissions` (e.g. `"Bash(bun run *)"`,
   `"Edit(/docs/**)"`) and check them into the team's `settings.json`. This is the

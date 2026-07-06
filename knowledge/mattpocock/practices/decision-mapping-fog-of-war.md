@@ -7,6 +7,23 @@ the plan can be settled in one unbroken smart-zone window, wayfinder is the
 escape hatch for when it can't — it externalises the plan's state so
 investigation can stretch across many sessions without losing the thread.
 
+## Naming, live: a wayfinder takes you there, not there-and-back
+
+Talked through in public before the rename landed, Matt tried `/scout` first and
+rejected it on the word's own connotation: **"scouts go there and come back. A
+wayfinder takes you there."** The old name (`decision-mapping`) described the
+artifact; the candidates test whether the *word* matches the one-way trip the
+skill actually makes — you don't send it out to report back, you use it to
+navigate. Landing on `wayfinder` he immediately restates the skill's new place in
+the stack: it **replaces `grill-with-docs`** in his own workflow, not by doing
+grill-with-docs's job but by sitting **above** it as an **orchestrator** —
+"you'll find wayfinder intuitive, I promise, it's just a more organized and
+foolproof `grill-me`." Concretely, that orchestration means wayfinder is the one
+that needs `/grilling`, `/prototype`, and `/research` as sub-skills (matching the
+four ticket types above) and "operates on a level above, so it'll be responsible
+for organizing multiple grilling sessions" — the frontier fan-out described above,
+restated from the announcement itself rather than the SKILL.md.
+
 ## The map moved onto the issue tracker, joining the engineering skills' shared spine
 
 The map was originally a single git-tracked Markdown file; it is now a single
@@ -52,16 +69,48 @@ the frontier* (above). There is no value in *visualising* the map (a mind-map
 MCP buys nothing) — the frontier discipline is about what you resolve next, not
 a picture.
 
-## Bootstrap with a short grilling session, then fan out
+## Name the destination before mapping the frontier
 
-The decision-map flow starts with a deliberately **short grilling session** —
-just long enough to *discover the frontier*, the first visible part of the fog of
-war, not to resolve it. From there you **fan out** to multiple parallel
-grilling / prototyping / research sessions, each pushing back one aspect of the
-fog as you go. Matt road-tests this kicking off an AFK agent on "an extremely
-ambitious feature" and reports never feeling "more confident that I'm aligned" —
-the payoff of resolving the frontier before committing is alignment confidence on
-a large autonomous build.
+Charting now opens with a distinct first act: **naming the destination** — what
+reaching the end of this map looks like (a spec to hand off, a decision to lock
+before planning starts, a change made in place like a data-structure migration).
+A short `/grilling` + `/domain-modeling` session settles it, because the
+destination **fixes the scope** for every ticket the map will grow — you can't
+tell fog from noise until you know what you're navigating toward. Only after
+that does the second, deliberately **breadth-first** grilling pass run: fan out
+across the whole space rather than going deep on any one thread, surfacing the
+open decisions and the first steps takeable now. Two short passes, not one —
+because a single pass that both names the destination and maps the frontier
+conflates "what are we aiming at" with "what's the first move," and the first
+question is cheaper to get wrong quietly if it's never asked on its own.
+
+## Out of scope is a scope boundary, not fog
+
+Once the destination fixes scope, the map's "not yet known" section (renamed
+from Fog to **Not yet specified**) splits into two genuinely different things,
+and conflating them was the bug the rename fixes. **Not yet specified** is
+in-scope work too dim to ticket yet — it graduates into tickets as the frontier
+advances. **Out of scope** is work that sits *past* the destination entirely —
+it never graduates, because the frontier only ever advances *toward* the
+destination, never past it. The test is scope, not sharpness: a vague-but-
+in-scope idea is Not-yet-specified; a sharp, well-understood idea that simply
+isn't what this effort is for is Out of scope. When a ticket already exists but
+turns out to sit past the destination — mis-scoped while charting, or exposed
+mid-resolution — it's **closed** (never resolved) with one line logged under
+Out of scope: the gist and why, linking the closed ticket. That line stays out
+of Decisions-so-far, which records the route actually *walked* — ruling
+something out of scope is a boundary you draw, not a step you take. Because
+out-of-scope work never graduates, it returns only if the destination itself is
+redrawn — and then as a fresh effort, not a resumption of the old ticket.
+
+## Fan out once the frontier is visible
+
+From the frontier you **fan out** to multiple parallel grilling / prototyping /
+research sessions, each pushing back one aspect of the fog as you go. Matt
+road-tests this kicking off an AFK agent on "an extremely ambitious feature" and
+reports never feeling "more confident that I'm aligned" — the payoff of
+resolving the frontier before committing is alignment confidence on a large
+autonomous build.
 
 ## Four ticket types route to the right tool
 
@@ -90,11 +139,13 @@ resolved:
 
 ## Tickets are tracker issues, blocked by the tracker's own dependency graph
 
-A ticket's identity is now the tracker's own issue id, not a hand-picked slug.
-Two label families carry state: `wayfinder:<type>` names the ticket kind
-(below), and `wayfinder:claimed` is set by a session **before any work** —
-the same write-before-work safety as before, so a second session reading the
-map skips a claimed ticket rather than racing on it. Blocking now prefers each
+A ticket's identity is now the tracker's own issue id, not a hand-picked slug,
+and carries a `wayfinder:<type>` label naming its kind (below). Claiming moved
+from a second label to the tracker's **native assignee**: a session claims a
+ticket by assigning it to the driving dev, **before any work** — the same
+write-before-work safety as before, but now the assignee field *is* the claim
+(an open, unassigned ticket is unclaimed), so a second session reading the map
+skips it without a bespoke label to maintain. Blocking now prefers each
 tracker's **native** dependency link over a plain-text field, because a native
 link renders the frontier *visually* in the tracker's own UI — the human sees
 what's takeable without opening the map at all:
@@ -161,13 +212,28 @@ map is done, and the skill recommends implementing directly or handing off to
 before, now folded into the same Handoff step rather than a separate check:
 the skill knows when *not* to exist.
 
+## Field report: a hundred sessions feeding one map, and the map's shape in words
+
+Days into using it to plan an entire course, Matt reports "closing in on 100
+separate grilling/prototyping/research sessions" — a scale a single unbroken
+context could never have held — "all contributing back to a central map that
+grows as I learn more about the problem, shrinks as I find answers to the
+questions," and names the result plainly: "the next evolution of `/grill-me`."
+That grow/shrink pair is the fog-of-war and frontier-advance mechanics above,
+restated as lived experience rather than design intent. He confirms one placement
+detail directly, too: the map itself "sits in your issue tracker of choice" —
+the tracker-native home described above, not a bespoke store — and that a
+Prototype ticket resolves into exactly the kind of disposable artifact
+`prototype-answer-is-the-artifact` describes: a course-editing session produced
+"a modal I can open anywhere to edit the text of my courses with AI."
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/00b0f60a9f2cea78216bc7165684bd5610495f9e — `decision-mapping` renamed `wayfinder`)
-- `sources/mattpocock/skills-repo/skills-in-progress-wayfinder-SKILL.md-82165350.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/in-progress/wayfinder/SKILL.md (the rename, and the map moving onto the issue tracker; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/9ee274c8fecd74661dceee5ab4e314b8c58f9e47 — "refer by name" convention)
-- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/81825ae44edc49c71a526b58a5225fde82f340fa/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/263a2d27d54d82e44d4587e6bbabd5833410c06b — the native issue-dependencies database-id detail)
-- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/4dda53bfcb34d30f7d0a5024a07e0436fb9e5d79/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/00ea3ba0cb738a2d723bfe28bf7a75419e1961d2 — the Premium/Ultimate-tier native-blocking caveat)
+- `sources/mattpocock/skills-repo/skills-in-progress-wayfinder-SKILL.md-82165350.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/in-progress/wayfinder/SKILL.md (the rename, and the map moving onto the issue tracker; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/9ee274c8fecd74661dceee5ab4e314b8c58f9e47 — "refer by name" convention; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/8d45707bbe7c134eea25098b73085271a0c09370 — claiming moved from the `wayfinder:claimed` label to the tracker's native assignee; revision 2026-07-06, origin https://github.com/mattpocock/skills/blob/b70f59b0b2aa3a96dcc837adc3eacf238fedb556 — naming the destination as the first act of charting, the breadth-first frontier-mapping pass, and the map's `Not yet specified`/`Out of scope` split)
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/81825ae44edc49c71a526b58a5225fde82f340fa/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/263a2d27d54d82e44d4587e6bbabd5833410c06b — the native issue-dependencies database-id detail; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/b9589cd45933b54e917e1f57a29278c751c1b297 — claiming moved from the `wayfinder:claimed` label to `--add-assignee @me`)
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/4dda53bfcb34d30f7d0a5024a07e0436fb9e5d79/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/00ea3ba0cb738a2d723bfe28bf7a75419e1961d2 — the Premium/Ultimate-tier native-blocking caveat; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/e244acd60c9e370b1af0280a65be2b1ecc098f3e — claiming moved from the `wayfinder:claimed` label to `--assignee @me`)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-lo-606b1b18.md` — origin: https://github.com/mattpocock/skills/blob/2f3267deb0afbb6f13294613a5f50e1b8df1156c/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md (revision 2026-07-02, the "Wayfinding operations" section added)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067965196618895564-c2d49f3d.md` — origin: https://x.com/mattpocockuk/status/2067965196618895564
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067602690725581067-eb6c35f9.md` — origin: https://x.com/mattpocockuk/status/2067602690725581067
@@ -175,3 +241,12 @@ the skill knows when *not* to exist.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067682103030915278-5c57d5b4.md` — origin: https://x.com/mattpocockuk/status/2067682103030915278
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067710266230415567-f6fd1092.md` — origin: https://x.com/mattpocockuk/status/2067710266230415567
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721635470147856-3d1433b6.md` — origin: https://x.com/mattpocockuk/status/2067721635470147856
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072388731969917328-d800daf2.md` — origin: https://x.com/mattpocockuk/status/2072388731969917328
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072391000706662641-b62e70a4.md` — origin: https://x.com/mattpocockuk/status/2072391000706662641
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072599827540578664-e1d5953f.md` — origin: https://x.com/mattpocockuk/status/2072599827540578664
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072601303927160997-f1b597a4.md` — origin: https://x.com/mattpocockuk/status/2072601303927160997
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072657344949887340-5a5aa0d0.md` — origin: https://x.com/mattpocockuk/status/2072657344949887340
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072657439535624674-895959d4.md` — origin: https://x.com/mattpocockuk/status/2072657439535624674
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072716979195326905-75e80d6b.md` — origin: https://x.com/mattpocockuk/status/2072716979195326905
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072743476765012080-b2165807.md` — origin: https://x.com/mattpocockuk/status/2072743476765012080
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072988266253406568-7bd4036c.md` — origin: https://x.com/mattpocockuk/status/2072988266253406568

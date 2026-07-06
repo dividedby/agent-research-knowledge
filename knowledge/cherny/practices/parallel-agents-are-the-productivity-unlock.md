@@ -19,6 +19,16 @@ concept, not separate tips:
 - **Agent view (`claude agents`).** The productized control plane — "tmux built
   for CC" — that groups every session by *needs-your-input / working / done*. This
   is explicitly the productized version of the original manual-tabs pattern.
+- **The finest-grained rung: one request, not one session.** Append "use
+  subagents" to any single prompt to fan extra compute into that one request —
+  the same one-to-many move, scoped down to a task instead of a whole workflow.
+- **Ergonomics for telling sessions apart.** Once you're juggling several at
+  once, invest in visual distinction: a customized `/statusline` (context usage,
+  branch, at a glance), color-coded and named terminal tabs — one per
+  task/worktree — optionally grouped under tmux. The team's terminal of choice,
+  Ghostty, earns its place for exactly this: synchronized rendering, 24-bit
+  color, and proper unicode support are what make color and name cues actually
+  legible at a glance.
 
 The throughline: **the bottleneck is the human cycling between tabs, not the
 model.** Each step removes a manual coordination tax. Cherny: "The best way to

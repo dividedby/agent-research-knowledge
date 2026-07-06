@@ -15,7 +15,10 @@ mode parked beside the lever that cures it.
 
 This is the matured, theory-backed successor to the looser
 `skill-anatomy-and-progressive-disclosure` notes — it names the levers precisely
-and gives each an *avoid* list.
+and gives each an *avoid* list. Matt's own daily usage backs the claim: `/writing-great-skills`
+is, in his words, "quickly becoming my most often-invoked skill" — evidence that a
+skill about skill quality earns its keep by being reached for constantly, not
+written once and left.
 
 ## The two loads, and granularity as spending them
 
@@ -26,6 +29,17 @@ The central trade-off is two distinct costs a skill can impose:
 - **Cognitive load** — what a *user-invoked* skill costs the *human*: they are the
   index who must remember it exists. Not a cost to minimise — it is "the price of
   human agency."
+
+**Renaming a model-invoked skill pays this same cost, which is why Matt rejects
+symlinking old and new names side by side.** Asked why not keep the old skill
+name as a symlink to ease the transition, his answer is the context-load
+argument applied to migration: "symlinking a model-invoked skill would mean
+costing every user a non-zero amount of tokens every request" — a duplicate
+registration means a duplicate always-loaded `description`, charged on every
+turn to every user, indefinitely. **Better to just move it** — pay the one-time
+churn of a hard rename over the standing, compounding cost of a permanent
+duplicate. (An expiring redirect note is the milder alternative he didn't
+reject outright, but the default move is the clean break.)
 
 **Granularity** (how finely you divide skills) spends one load per cut. Two
 sanctioned cuts: **by invocation** (split off a model-invoked skill only when it
@@ -142,3 +156,5 @@ engineering's survival, not of abandoning the handwritten word.)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2070127727575748736-bbd2c0f1.md` — origin: https://x.com/mattpocockuk/status/2070127727575748736
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069836906674688083-576ccce4.md` — origin: https://x.com/mattpocockuk/status/2069836906674688083
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069463356700770816-a53b09ac.md` — origin: https://x.com/mattpocockuk/status/2069463356700770816
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071935238666617154-12915eea.md` — origin: https://x.com/mattpocockuk/status/2071935238666617154
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072774233453638136-c9e523de.md` — origin: https://x.com/mattpocockuk/status/2072774233453638136

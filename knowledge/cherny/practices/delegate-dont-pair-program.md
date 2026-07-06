@@ -26,6 +26,13 @@ It is also the post-plan-mode form of front-loading clarity — see
 [[plan-first-then-context-minimalism]]. And it only works because the agent can
 check itself; see [[verification-is-the-number-one-tip]].
 
+The earliest form of this trade is Cherny's own model default: he runs **Opus
+4.5 with thinking mode on for every task**, reasoning that "less steering +
+better tool use = faster overall results" even though a bigger model with
+thinking is slower per token. Spending more compute up front — a bigger model,
+more thinking, a fuller brief — buys back the steering cost later; the effort
+levels above are the same trade, made adjustable.
+
 A concrete delegation idiom Cherny endorses: instead of micromanaging *how*, hand
 over the *what* — "Go fix the failing CI tests," or paste a Slack bug thread and
 just say "fix." Make Claude your reviewer ("Grill me on these changes and don't

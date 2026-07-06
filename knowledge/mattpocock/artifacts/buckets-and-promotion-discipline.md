@@ -18,7 +18,10 @@ mechanically from its folder.
 
 This makes "ship it" and "shelve it" the same operation as "move the folder",
 and keeps the installable surface (`npx skills add mattpocock/skills`) honest —
-what's listed is exactly what's promoted.
+what's listed is exactly what's promoted. `npx skills update` closes the loop
+on the consumer side: an already-installed set re-syncs against whatever the
+promoted list currently is, so a bucket move on Matt's end reaches a consumer
+without a fresh `add`.
 
 ## README as a redundant index
 
@@ -34,3 +37,4 @@ every level.
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/CLAUDE.md
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
 - `sources/mattpocock/skills-repo/skills-engineering-README.md-1400dd55.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/README.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072680599802831258-4d6fbba7.md` — origin: https://x.com/mattpocockuk/status/2072680599802831258

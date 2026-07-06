@@ -18,3 +18,4 @@ each.
 - [where-is-the-knowledge](./where-is-the-knowledge.md) — agents succeed when task knowledge lives in prompt, codebase, or training data; gaps fail.
 - [code-is-cheap-now](./code-is-cheap-now.md) — one constant changed in a fundamental equation; agents aren't ChatGPT copy-paste.
 - [manage-attention-while-agents-run](./manage-attention-while-agents-run.md) — refuse the reflexive cmd-tab; steer or do your own work while the agent runs.
+- [agents-as-async-functions](./agents-as-async-functions.md) — ephemeral sandboxes make agents async function calls, not remote controls; end prompts with the whole loop and switch away.

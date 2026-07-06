@@ -18,7 +18,10 @@ What lives as committed config:
   repeated prompting into a named command.
 - **Custom agents** — `.md` files in `.claude/agents/`, each with a name, color,
   tool set, pre-allowed/disallowed tools, permission mode, and model; selected via
-  the `"agent"` field, `--agent`, or `/agents`.
+  the `"agent"` field, `--agent`, or `/agents`. Cherny's stated reason to build one:
+  think of a subagent as **an automation for a PR workflow you repeat** — review,
+  release, or migration steps that recur, given a name and a home in the repo
+  instead of being re-prompted from scratch each time.
 - **Skills** — created once and committed (`.claude/skills/` per-project,
   `~/.claude/skills/` global) so they reuse across every project. See
   [[skills-as-the-unit-of-reuse]].

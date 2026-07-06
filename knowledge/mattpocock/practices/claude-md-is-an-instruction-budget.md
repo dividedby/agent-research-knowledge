@@ -31,7 +31,27 @@ personal `CLAUDE.md` is six words — `you are on WSL on Windows` — there only
 because WSL's path resolution is something the agent genuinely can't infer. The
 "global" trap is the failure mode: the agent does something you dislike in a
 frontend session, you add a rule, and now that rule burns budget in every backend
-and docs session forever.
+and docs session forever. His global `AGENTS.md` (which travels across every
+repo, not just one project) holds to the same three-line ceiling: the execution
+environment (WSL), one line recording that he dislikes `AskUserQuestion` — "and
+that's it."
+
+## Scars are too broad a category; cap pointers at three
+
+Pushing back on a rival minimalism scheme built around "scars" (a line recording
+a past mistake), Matt calls the category itself too broad: **"scars is too broad
+and can lead to sediment. Devs will call a bruise a scar and immediately dump a
+correction in AGENTS.md."** Without a sharp definition of what counts, every
+annoyance gets misfiled as a permanent lesson, and the file accretes the exact
+sediment the rest of this discipline exists to prevent. He also softens his own
+"pointers only" rule with one carve-out: if part of the app is touched far more
+often than the directory structure would suggest, **a single pointer there earns
+its place** — the undiscoverable-and-global bar can be met by "which file matters
+most," not only by environment facts. But the carve-out is capped, not open-ended:
+"mostly just pointers to the top 3 (no more) most important docs will do the
+trick and save a ton of tokens" — a fixed budget on pointers themselves, so the
+progressive-disclosure escape hatch doesn't quietly regrow into the doc-dump it
+replaced.
 
 ## Progressive disclosure instead of one big file
 
@@ -89,3 +109,5 @@ When enforceable constraints can be encoded as PreToolUse hooks (that exit with 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061707663088529896-786519e4.md` — origin: https://x.com/mattpocockuk/status/2061707663088529896
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061712630071362011-02e73004.md` — origin: https://x.com/mattpocockuk/status/2061712630071362011
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062528961855287580-6a45a883.md` — origin: https://x.com/mattpocockuk/status/2062528961855287580
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072439606394462470-3adde750.md` — origin: https://x.com/mattpocockuk/status/2072439606394462470
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072439857935221124-7c642dea.md` — origin: https://x.com/mattpocockuk/status/2072439857935221124

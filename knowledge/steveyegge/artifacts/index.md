@@ -21,3 +21,4 @@ One concept per file; this index lists them, one line each.
 - `backlog-hygiene-tooling.md` — First-class lint/dedup/stale/status commands keeping an agent-written issue corpus from rotting
 - `rules-corpus-hygiene.md` — Jaccard-similarity audit/compaction of the agent's own `.claude/rules/` instruction corpus, the hygiene tooling pointed at standing rules instead of issues
 - `contributor-pr-maintenance-discipline.md` — A read-only preflight gate making an agent check for (and build on, not clobber) human contributor PRs before it codes or merges
+- `reference-aware-pruning.md` — Garbage collection over cited memory must scan for live references before deleting, not just age/status
