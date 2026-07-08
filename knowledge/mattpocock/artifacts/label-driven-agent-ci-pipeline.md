@@ -102,6 +102,27 @@ one-line follow-up in the *consumer* — the coupling is a name, not a pinned
 snapshot, so keeping the two in sync is a search-and-replace, not a re-audit of
 frozen skill content.
 
+## The upfront diff shrinks to a stat once the agent can pull the rest on demand
+
+A later pair of revisions makes the same edit independently to two sibling
+prompts: `.sandcastle/review/prompt.md` and `.sandcastle/implement-pr/prompt.md`
+both replace their injected `<diff-to-main>` block — previously the full
+`git diff main..HEAD` patch — with `git diff main..HEAD --stat`, a file-and-
+line-count summary instead of the patch body. The review prompt states the
+reasoning inline: "The full patch is deliberately omitted here because it can
+be very long. Go deeper on the files that matter — run
+`git diff main..HEAD -- <path>` on the changed files above to read the actual
+changes before reviewing." Both prompts already had a reason the full patch
+wasn't load-bearing up front: review delegates the actual diff analysis to the
+installed `code-review` skill, which does its own `main...HEAD` discovery (see
+above); implement-pr's work is driven by the PR-comments payload, not the raw
+diff. So the injected block was mostly for situational orientation, not the
+substance of either agent's task — trimming it to a stat, with an explicit
+per-file drill-down path, is [[keep-the-agent-in-the-smart-zone]]'s smart-zone
+budgeting applied to *prompt template design*: don't pay upfront-context cost
+for content the agent can fetch precisely, and only for the files that turn
+out to matter.
+
 ## The shipped stack: GitHub Actions + Sandcastle + Claude Code
 
 Matt's current "favourite stack" is exactly this topology productised:
@@ -120,5 +141,7 @@ bash cap (see `sandcastle-plan-execute-merge-loop`, `autonomous-loops-ralph`).
 - `sources/mattpocock/course-video-manager/.github-workflows-agent-review.yml-ddaff44e.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/agent-review.yml (revision 2026-07-02)
 - `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-06-30)
 - `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-07-02)
+- `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-07-07)
+- `sources/mattpocock/course-video-manager/.sandcastle-implement-pr-prompt.md-7ec7a8d7.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/implement-pr/prompt.md (revision 2026-07-08)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721938894500036-65f0fb11.md` — origin: https://x.com/mattpocockuk/status/2067721938894500036
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067919429216645366-e4027437.md` — origin: https://x.com/mattpocockuk/status/2067919429216645366

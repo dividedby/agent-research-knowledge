@@ -109,6 +109,12 @@ Issues with hash-based IDs can be recovered from Dolt history even after deletio
 ### Orphaned Work Detection
 The system can detect work that was committed to git but never closed in the issue tracker, surfacing incomplete agent sessions.
 
+### Claim Recovery
+If an agent crashes mid-work while holding a claim, `bd unclaim <id>` releases
+it back to the ready pool so another agent (or the restarted same one) can pick
+it up — the explicit escape hatch for the atomic-claim invariant when the
+claiming process itself is gone, not just its work state.
+
 ## Compound Workflow Traversal
 
 When agents encounter blocked work, they can:
@@ -152,6 +158,11 @@ repo cannot assume it has authority to commit/push/sync:
   beads, run quality gates, commit, and push at session close. A live "do not
   commit/push" instruction still wins.
 
+The profile is a selectable runtime setting, not just descriptive prose:
+`bd config set agent.profile team-maintainer` (or `BD_AGENT_PROFILE=team-maintainer`
+per-session, which takes precedence over the persisted config) actually switches
+which git/commit-authority wording the injected instruction block carries.
+
 The precedence rule is absolute: explicit user/orchestrator instructions override
 the block, and a blocked sync/push is a **stop-and-report**, not a silent skip.
 This reframes the "land the plane" push mandate — once a universal imperative
@@ -172,3 +183,5 @@ of agents stays accountable, not anonymous.
 - `sources/steveyegge/beads/AGENTS.md.md` (Agent Context Profiles + instruction-precedence, profile-gated session-completion git policy, 2026-06-21 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENTS.md
 - `sources/steveyegge/beads/docs-MOLECULES.md-d06ec0d4.md` (lines 57-72, multi-day execution)
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd remember`/`bd recall`/`bd memories` — keyed memory, persistence across account rotations; bare-existing-key-recalls-instead-of-stores overload, 2026-07-03 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd config set agent.profile` / `BD_AGENT_PROFILE` — explicit runtime selector for the conservative/minimal/team-maintainer profile, 2026-07-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/docs-QUICKSTART.md-ef67bedb.md` (`bd unclaim` — releasing a stuck claim after an agent crash, 2026-07-07 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/QUICKSTART.md

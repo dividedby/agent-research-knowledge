@@ -82,7 +82,29 @@ Domain vocabularies evolve as understanding deepens, and Matt tracks these chang
 
 This evolution tracking serves both historical context and operational clarity — agents can see not just what terms mean now, but how they've changed, preventing confusion when encountering older usage in code or documentation.
 
+## An ADR that retires an architecture forces a full glossary sweep, not one edit
+
+The largest course-video-manager revision to date shows vocabulary evolution
+triggered from outside the glossary entirely: an ADR (0018) retiring the
+project's git-repo backing in favor of a pure-database model. `CONTEXT.md`
+doesn't just reword the affected term — it removes the whole downstream
+subsection that depended on it. `CourseRepo` disappears outright; the entire
+"Ghost entities" cluster (Ghost Lesson, Ghost Section, Ghost Course,
+Materialize, Materialization Cascade) is deleted because the ghost/real split
+existed only to model *filesystem* presence, which no longer applies once
+every entity is a pure database record. Every other entry that referenced the
+retired concepts is swept in the same pass: "Lesson Authoring Status" drops
+its ghost/real biconditional invariant for a flat "every lesson has a
+status," "Dependency Group" changes "directory-backed grouping" to
+"order-backed grouping," and "Section Workbench" loses its Ghost-Section
+clause. The lesson generalises past this one glossary: when an ADR ([[adrs-as-agent-memory]])
+retires an architectural concept, the terms that depended on it are load-bearing
+liabilities, not just stale prose — leaving them in the glossary after the code
+changes underneath them is exactly the kind of drift the vocabulary discipline
+exists to prevent, so the sweep has to cover every entry the retired concept
+touched, not only the one that named it.
+
 ## Sources
 
 - `sources/mattpocock/sandcastle/CONTEXT.md.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/CONTEXT.md
-- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-07-08)

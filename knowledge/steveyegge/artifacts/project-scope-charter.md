@@ -42,6 +42,13 @@ Beads owns issue tracking primitives:
 
 **When storage interface is inadequate:** Widen the interface or route the issue to the driver instead of embedding storage-engine logic in core.
 
+**Mechanically enforced:** a `depguard` rule in `.golangci.yml` denies
+`github.com/dolthub/` imports outside `internal/storage/` and
+`internal/doltserver/` for non-test code, with the rule's exception list
+documenting (and justifying) the only sanctioned crossings. This turns the
+Storage Boundary from a review-time convention that depends on a maintainer
+noticing a drift into a build-time check that fails the same way every time.
+
 ## Schema Boundary
 
 **Stability principle:** The database schema is considered stable. Schema changes are allowed when there's a pressing product or correctness need, but they should not be the first answer to extension requests.
@@ -109,4 +116,5 @@ Beads owns issue tracking primitives:
 
 ## Sources
 
-- `sources/steveyegge/beads/docs-PROJECT_CHARTER.md-cd654e43.md` (lines 4-114)
+- `sources/steveyegge/beads/docs-PROJECT_CHARTER.md-cd654e43.md` (lines 4-114) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/PROJECT_CHARTER.md
+- `sources/steveyegge/beads/docs-PROJECT_CHARTER.md-cd654e43.md` (Storage Boundary — `depguard` mechanical enforcement, 2026-07-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/PROJECT_CHARTER.md

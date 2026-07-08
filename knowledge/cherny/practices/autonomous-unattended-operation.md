@@ -31,6 +31,27 @@ when done; you review the recap and the PR.* Mobile dispatch (Cowork Dispatch,
 the iOS app, session teleporting via `&` / `--teleport`) extends the same loop to
 "do work while away from a computer."
 
+**Which loop when.** The Claude Code team's own framing: a loop is *an agent
+repeating cycles of work until a stop condition is met* — everything from a
+single prompt to a cloud Routine fits that definition, differing only in what
+triggers it, what stops it, and how much of the loop you hand off to Claude:
+
+- **Turn-based** — you hand off the check (a skill or test suite tells Claude
+  *whether* an attempt worked; you still decide when to stop).
+- **Goal-based** — you hand off the stop condition (`/goal <predicate>`); Claude
+  re-checks the transcript against it every time it tries to stop, so it can't
+  quietly settle for "good enough."
+- **Time-based** — you hand off the trigger (`/loop` locally, `/schedule` in the
+  cloud); work starts without you prompting it.
+- **Proactive** — you hand off the prompt itself; a dynamic workflow runs
+  recurring, well-defined work with no human writing the next instruction.
+
+The four are a progression, not a menu: each step delegates one more piece of
+the loop, and "proactive" composed with parallel agents is what the autonomous
+fleet above actually is. Pick a loop by naming which piece — the check, the
+stop condition, or the trigger — is *your* current bottleneck, rather than
+reaching for the most autonomous option by default.
+
 This concept sits on top of the rest: it requires
 [[verification-is-the-number-one-tip]] (the agent must self-check to be trusted),
 [[context-hygiene]] (the window must not rot over hours), and

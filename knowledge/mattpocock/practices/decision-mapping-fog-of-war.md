@@ -112,30 +112,57 @@ reports never feeling "more confident that I'm aligned" — the payoff of
 resolving the frontier before committing is alignment confidence on a large
 autonomous build.
 
-## Four ticket types route to the right tool
+## Four ticket types route to the right tool, each tagged HITL or AFK
 
 Each open question is one of four kinds, and the kind chooses how it gets
-resolved:
+resolved. Every type now also carries an explicit **HITL** (human in the loop
+— resolved only through a live exchange the agent never stands in for) or
+**AFK** (agent-driven alone) tag:
 
-- **Research** — reading docs, third-party APIs, or knowledge bases; produces a
-  markdown summary asset. Use when the answer lives outside the working directory.
-- **Prototype** — a cheap, rough, concrete artifact to react to (an outline, a
-  stub, or runnable UI/logic code via `/prototype`); produces the prototype as an
-  asset. The point isn't only code — raising the fidelity of the discussion with
-  *any* concrete draft counts, which is why the type broadened from "UI/logic
-  code" to "cheap concrete artifact" once the map started planning non-code
-  work too. Use when "how should it look / behave" is the question.
-- **Grilling** — conversation with the agent via `/grilling` and
+- **Research** (AFK) — reading docs, third-party APIs, or knowledge bases;
+  produces a markdown summary asset. Use when the answer lives outside the
+  working directory.
+- **Prototype** (HITL) — a cheap, rough, concrete artifact to react to (an
+  outline, a stub, or runnable UI/logic code via `/prototype`); produces the
+  prototype as an asset. The point isn't only code — raising the fidelity of
+  the discussion with *any* concrete draft counts, which is why the type
+  broadened from "UI/logic code" to "cheap concrete artifact" once the map
+  started planning non-code work too. Use when "how should it look / behave"
+  is the question.
+- **Grilling** (HITL) — conversation with the agent via `/grilling` and
   `/domain-modeling`, one question at a time; the default. (The type was first
   named "Discuss" and renamed to "Grilling" — the resolution mechanism *is* a
   grilling session, so the type points straight at the skill that runs it.)
-- **Task** — literal manual work with nothing to decide, prototype, or research:
+- **Task** (HITL or AFK) — literal manual work with nothing to decide,
+  prototype, or research, but the discussion stays blocked until it's done:
   moving data, signing up for a third-party service, provisioning access. The
-  agent automates what it can; otherwise it hands the human a precise checklist.
-  A Task resolves when the work is *done*, and its answer records what was done
-  plus any resulting facts (a credential's location, a new URL, a row count)
-  later tickets depend on — the same "record the fact, not the narrative" posture
-  as an ADR.
+  agent drives it alone where it can (AFK); otherwise it hands the human a
+  precise checklist (HITL). A Task resolves when the work is *done*, and its
+  answer records what was done plus any resulting facts (a credential's
+  location, a new URL, a row count) later tickets depend on — the same
+  "record the fact, not the narrative" posture as an ADR.
+
+The HITL tag guards against a specific failure: a Grilling or Prototype ticket
+"resolved" by the agent quietly answering its own questions isn't resolved at
+all — the whole point of a HITL ticket is the human's side of the exchange,
+and the agent standing in for it silently reintroduces the misalignment the
+skill exists to catch. Task is the one type that *does* rather than decides,
+and earns its place on the map only because it unblocks a decision (provisioning
+access, moving data so its shape can be seen) rather than delivering the
+destination itself.
+
+## Plan, don't do
+
+Wayfinder defaults to **planning**, not doing: each ticket resolves a
+decision, and the map is done once nothing is left to decide before someone
+goes and executes. The pull to just do the work mid-session is treated as a
+signal, not a shortcut to take — reaching for "let's just build it" usually
+means you've hit the edge of the map and it's time to hand off, not to keep
+resolving tickets. An individual effort can override this in its `## Notes`
+block to carry execution into the map itself, but absent that override the
+default output is decisions, not deliverables — the line that keeps
+wayfinder's job distinct from `to-issues`'/`implement`'s further down the
+chain.
 
 ## Tickets are tracker issues, blocked by the tracker's own dependency graph
 
@@ -231,7 +258,7 @@ Prototype ticket resolves into exactly the kind of disposable artifact
 
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/00b0f60a9f2cea78216bc7165684bd5610495f9e — `decision-mapping` renamed `wayfinder`)
-- `sources/mattpocock/skills-repo/skills-in-progress-wayfinder-SKILL.md-82165350.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/in-progress/wayfinder/SKILL.md (the rename, and the map moving onto the issue tracker; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/9ee274c8fecd74661dceee5ab4e314b8c58f9e47 — "refer by name" convention; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/8d45707bbe7c134eea25098b73085271a0c09370 — claiming moved from the `wayfinder:claimed` label to the tracker's native assignee; revision 2026-07-06, origin https://github.com/mattpocock/skills/blob/b70f59b0b2aa3a96dcc837adc3eacf238fedb556 — naming the destination as the first act of charting, the breadth-first frontier-mapping pass, and the map's `Not yet specified`/`Out of scope` split)
+- `sources/mattpocock/skills-repo/skills-in-progress-wayfinder-SKILL.md-82165350.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/in-progress/wayfinder/SKILL.md (the rename, and the map moving onto the issue tracker; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/9ee274c8fecd74661dceee5ab4e314b8c58f9e47 — "refer by name" convention; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/8d45707bbe7c134eea25098b73085271a0c09370 — claiming moved from the `wayfinder:claimed` label to the tracker's native assignee; revision 2026-07-06, origin https://github.com/mattpocock/skills/blob/b70f59b0b2aa3a96dcc837adc3eacf238fedb556 — naming the destination as the first act of charting, the breadth-first frontier-mapping pass, and the map's `Not yet specified`/`Out of scope` split; revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/2d3fffb7620883f23f0c0e9d47c87f7f9e173066 — the "Plan, don't do" framing and the HITL/AFK tag per ticket type)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/81825ae44edc49c71a526b58a5225fde82f340fa/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/263a2d27d54d82e44d4587e6bbabd5833410c06b — the native issue-dependencies database-id detail; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/b9589cd45933b54e917e1f57a29278c751c1b297 — claiming moved from the `wayfinder:claimed` label to `--add-assignee @me`)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/4dda53bfcb34d30f7d0a5024a07e0436fb9e5d79/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/00ea3ba0cb738a2d723bfe28bf7a75419e1961d2 — the Premium/Ultimate-tier native-blocking caveat; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/e244acd60c9e370b1af0280a65be2b1ecc098f3e — claiming moved from the `wayfinder:claimed` label to `--assignee @me`)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-lo-606b1b18.md` — origin: https://github.com/mattpocock/skills/blob/2f3267deb0afbb6f13294613a5f50e1b8df1156c/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md (revision 2026-07-02, the "Wayfinding operations" section added)

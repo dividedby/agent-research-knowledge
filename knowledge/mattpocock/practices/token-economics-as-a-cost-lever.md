@@ -16,6 +16,35 @@ accumulated history is re-billed on *every* turn, which is the same pressure tha
 makes [[claude-md-is-an-instruction-budget]] and [[keep-the-agent-in-the-smart-zone]]
 matter for cost as well as for reasoning.
 
+## Measure the payload before you trim it
+
+The input side is invisible by default — you never see the tool definitions and
+system-prompt scaffolding riding along with every message, only your own text.
+So the fix starts with instrumentation, not guessing. Claude Code's `/context`
+command breaks the window down by category (system prompt, system tools, MCP
+tools, memory, messages), but it reports tools as one aggregate figure, not a
+ranking; to find which *specific* tool or bundled skill is the expensive one,
+put a transparent logging proxy between the CLI and the API — it forwards every
+request unmodified and just records what passed through, so the CLI never
+notices — and read its size-ranked output. Only once you know which line item
+is large is trimming a targeted cut instead of a guess.
+
+## Two levers, coarse then fine
+
+Trimming then works top-down. A `disable*` setting (`disableBundledSkills`,
+`disableWorkflows`, etc.) removes an entire feature and everything it bundles
+in one flag — the first, coarsest pass, for a whole feature that isn't earning
+its place. `permissions.deny` with a **bare tool name** then picks off
+individual tools the flags don't reach. The distinction that makes or breaks
+this lever: a scoped deny rule (`"Bash(rm *)"`, `"Skill(dataviz)"`) blocks the
+matching call but leaves the tool's full definition — and its token cost — in
+every request; only a bare name (`"NotebookEdit"`) strips the definition
+itself. The goal isn't "stop the tool from running," it's "stop paying to
+describe it on every turn," so a scoped rule silently fails to save anything.
+Re-run `/context` afterward to confirm the number actually moved — measurement
+brackets the change on both ends rather than trusting that the settings did
+what they were supposed to.
+
 ## Output is the expensive half, and it's the half you steer
 
 Input and output tokens are billed at different rates, and output is the dearer
@@ -53,6 +82,7 @@ sharper and cheaper to run.
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-what-are-tokens-61b05ccd.md` — origin: https://www.aihero.dev/what-are-tokens
+- `sources/mattpocock/aihero/https-www.aihero.dev-how-to-kill-the-bloat-in-claude-codes-s-6eff38d4.md` — origin: https://www.aihero.dev/how-to-kill-the-bloat-in-claude-codes-system-prompt
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061888307231945005-94786110.md` — origin: https://x.com/mattpocockuk/status/2061888307231945005
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061888451700486547-e7f2ccaf.md` — origin: https://x.com/mattpocockuk/status/2061888451700486547

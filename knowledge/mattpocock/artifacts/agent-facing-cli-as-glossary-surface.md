@@ -48,7 +48,19 @@ guard on each call. The glossary obligation from above carries over
 unchanged: the new verbs' `--help` text still has to track `CONTEXT.md` by
 hand.
 
+The write-capable noun itself isn't pinned to a name, either: the very next
+revision renames it from `segment` to `beat` (`beat add/update/move/delete`),
+in lockstep with the same domain-vocabulary rename in `CONTEXT.md`
+([[enforced-vocabulary-as-agent-alignment]]). Nothing about the write
+mechanics changes — same four verbs, same immediate-write posture, same
+manual-sync obligation — only the noun the CLI exposes. Because the CLI's
+help text is defined as tracking `CONTEXT.md` by hand rather than generated
+from it, a rename in the domain glossary has to be replayed as a matching
+edit in `app/cli/commands/*.ts`, the same manual-sync cost paid every time
+the two artifacts drift, not a one-off migration.
+
 ## Sources
 
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-06-30)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-02)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-07)

@@ -14,9 +14,16 @@ scratch.
 - **One question at a time, wait for the answer.** No question dumps. The next
   question depends on the last answer, so batching them produces a shallow
   interview.
-- **Prefer the codebase over the human.** "If a question can be answered by
-  exploring the codebase, explore the codebase instead." The human's attention
-  is the scarce resource; spend it only on what the code can't tell you.
+- **Prefer the codebase over the human — but only for facts.** "If a question
+  can be answered by exploring the codebase, explore the codebase instead."
+  The human's attention is the scarce resource; spend it only on what the code
+  can't tell you. The rule later sharpens from "question" to an explicit
+  fact/decision split: *"If a fact can be found by exploring the codebase,
+  look it up rather than asking me. The decisions, though, are mine — put
+  each one to me and wait for my answer."* Exploring the codebase to spare the
+  human's attention is license to skip *verifiable* facts only — never license
+  to infer a decision from what the code already happens to do and treat that
+  as the human's answer.
 
 This is positioned as the thing to run *every time you make a change*, not an
 occasional ceremony — it is Matt's most-used pair of skills. A third line was
@@ -138,7 +145,7 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/grill-me/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/grill-with-docs/SKILL.md (revision 2026-06-17)
-- `sources/mattpocock/skills-repo/skills-productivity-grilling-SKILL.md-84a3ca23.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/grilling/SKILL.md (revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/8fb15cf60fd1db0ed9b23abb9b87956ab2d63ffc — the "do not enact until confirmed" gate)
+- `sources/mattpocock/skills-repo/skills-productivity-grilling-SKILL.md-84a3ca23.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/grilling/SKILL.md (revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/8fb15cf60fd1db0ed9b23abb9b87956ab2d63ffc — the "do not enact until confirmed" gate; revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/8b33f408156c94ffaafac979e4be1f6f96b3d6a3 — the fact/decision split on the "prefer the codebase" rule)
 - `sources/mattpocock/skills-repo/docs-productivity-grilling.md-f585c446.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/productivity/grilling.md (revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/34435929c02d4238a5390a4aab533ece2842535b — the same gate, on the docs page)
 - `sources/mattpocock/aihero/https-www.aihero.dev-things-people-get-wrong-with-grill-me-a-2cf46126.md` — origin: https://www.aihero.dev/things-people-get-wrong-with-grill-me-and-grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-my-grill-me-skill-has-gone-viral-2f0f061b.md` — origin: https://www.aihero.dev/my-grill-me-skill-has-gone-viral

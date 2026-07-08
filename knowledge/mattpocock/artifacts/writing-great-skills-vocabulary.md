@@ -106,6 +106,16 @@ with a test:
   relative (settle disputes by running the skill, not debating), and is also how
   you grade whether a leading word is earning its repetitions (a leading word too
   weak to beat the default is a no-op; the fix is a stronger word).
+- **Negation** — steering by *prohibition* backfires: "don't think of an
+  elephant" names the elephant and makes it *more* available, not less; "never
+  write verbose comments" drags verbosity into the frame it's meant to forbid.
+  The weakly-worded ban half-reads as an instruction to do the forbidden thing,
+  because the strongly-activated concept it names overruns the negation
+  modifying it. The cure is to prompt the **positive** — describe the target
+  behaviour ("write one-line comments") so the banned one is never spoken at
+  all. A prohibition earns its place only as a hard guardrail on behaviour you
+  genuinely can't phrase positively, and even then pair it with the positive
+  target so attention lands on what to do, not just what to avoid.
 
 Pruning is the discipline against these: keep each meaning in a **single source of
 truth**, check every line for **relevance** (does it still bear on the task?), then
@@ -145,8 +155,8 @@ engineering's survival, not of abandoning the handwritten word.)
 
 ## Sources
 
-- `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-SKILL.md-b96ebc68.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/SKILL.md
-- `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-GLOSSARY.md-1e43a906.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/GLOSSARY.md
+- `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-SKILL.md-b96ebc68.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/SKILL.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/ce24f42a242b70cbdda304f3422545a3e452285a — the Negation failure mode)
+- `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-GLOSSARY.md-1e43a906.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/GLOSSARY.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/82ecc586f26c5a31062113faa3cef08e6e394116 — the same Negation term added to the Steering axis)
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069784839474032896-7bd866f0.md` — origin: https://x.com/mattpocockuk/status/2069784839474032896
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069785124950945825-07710416.md` — origin: https://x.com/mattpocockuk/status/2069785124950945825
