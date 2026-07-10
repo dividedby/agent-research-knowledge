@@ -57,11 +57,53 @@ finds (GitHub remote → propose GitHub), walks the user through the three
 decisions one at a time, and edits the *existing* `CLAUDE.md`/`AGENTS.md` in
 place rather than creating a competing file.
 
+## Explore harder so the interview asks less
+
+A later revision pushes the explore step to do more inferring, so the confirm
+step asks less: it now also checks whether the `triage` skill is installed and
+scans for monorepo signals (`pnpm-workspace.yaml`, a `workspaces` field, a
+populated `packages/*`) *before* presenting anything. Two sections become
+conditional on what exploration already settled — the triage-label question is
+skipped outright when `triage` isn't installed (an uninstalled skill needs no
+labels), and the multi-context domain-doc option is only offered when monorepo
+signals are actually present, defaulting straight to single-context otherwise.
+Every remaining section leads with a recommended answer the user can accept in
+a word, rather than an open question. The principle: every fact exploration can
+already establish is a question the interview shouldn't ask twice — a config
+wizard's job is to shrink to exactly the decisions still open, not to walk a
+fixed script regardless of what it already knows.
+
+## The local-markdown tracker adopts the tracker-native shape
+
+The local-markdown template for `to-tickets`' output changed from a single
+`tickets.md` file to one file per ticket under `.scratch/<feature>/issues/`,
+numbered from `01` and worked blockers-first — mirroring the per-issue,
+native-blocking shape a real tracker already has (see the `wayfinder` local
+template, which uses the same one-file-per-ticket layout for its map's child
+tickets). Bringing the local fallback's file shape closer to the tracker-native
+one keeps the two mediums structurally parallel, so a skill's logic for
+"the next unblocked ticket" reads the same way regardless of backend.
+
+## An indirection is only as safe as every consumer resolving it the same way
+
+A later fix (#472) is a reminder of why the hard-dependency pointer above
+matters: `wayfinder` had pinned the literal path `docs/agents/issue-tracker.md`
+instead of resolving it through the `### Issue tracker` block this skill
+writes into `CLAUDE.md`/`AGENTS.md` — so in a repo that keeps its agent docs
+elsewhere, it silently fell back to the local-markdown tracker even when
+`CLAUDE.md` clearly declared GitHub Issues. One skill hard-coding the path
+breaks the indirection for everyone, silently and without an error — the fix
+was making `wayfinder` resolve the doc via the same pointer every other
+consumer already used, restoring one true resolution path across the suite.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/docs-adr-0001-explicit-setup-pointer-only-for-hard-dependenc-071cb663.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/docs/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md
-- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-SKILL.md-5dba7935.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-SKILL.md-5dba7935.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/SKILL.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/557a22040d64b8c03c725361637e6b10f2c64b73/skills/engineering/setup-matt-pocock-skills/SKILL.md; revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/b93c987ac95a97bab83f4fd0263c5fb34a355ff1/skills/engineering/setup-matt-pocock-skills/SKILL.md — recommended-answer defaults and skipping settled/moot sections)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md
+- `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-lo-606b1b18.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md (revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/31dee0dfed958b42867d02168e4d300c452f86eb/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md — one-file-per-ticket local layout for `to-tickets`)
+- `sources/mattpocock/skills-repo/docs-engineering-setup-matt-pocock-skills.md-ed003b6b.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/setup-matt-pocock-skills.md (revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/29d7de66c30064a7a9df76ab428edf4c6bec6507/docs/engineering/setup-matt-pocock-skills.md)
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-code-review-SKILL.md-ffd0e041.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/engineering/code-review/SKILL.md
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/9c306665c63db13e3cd9cf6df8871f7792051eab/CHANGELOG.md (revision 2026-07-09 — the `wayfinder` issue-tracker-path hardcoding fix, #472)

@@ -98,9 +98,12 @@ merge — a break that is silent and unrecoverable, not one that surfaces as an
 ordinary conflict. `--force` (or `BD_ALLOW_REMOTE_MIGRATE=1` for scripted/CI
 use) is the explicit override for the one clone confirming it is the
 designated migrator, who is then expected to `bd dolt push` the migrated
-schema so every other clone just pulls the already-migrated state.
+schema so every other clone just pulls the already-migrated state. Concretely,
+every non-designated clone's catch-up path is a single command — install the
+new binary and run `bd bootstrap` — rather than independently invoking
+`bd migrate` against its own copy.
 
 **Sources:**
 - `sources/steveyegge/beads/docs-ARCHITECTURE.md-fd45feca.md` (lines 8-95)
-- `sources/steveyegge/beads/README.md.md` (lines 110-177, storage modes; "Upgrading?" migration-ownership note, 2026-07-02 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/README.md
+- `sources/steveyegge/beads/README.md.md` (lines 110-177, storage modes; "Upgrading?" migration-ownership note, 2026-07-02 revision; non-migrator clones catch up via `bd bootstrap`, 2026-07-10 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/README.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (remote-migrate refusal gate, `--force`/`BD_ALLOW_REMOTE_MIGRATE`, 2026-07-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

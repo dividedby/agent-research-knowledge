@@ -254,10 +254,35 @@ Prototype ticket resolves into exactly the kind of disposable artifact
 `prototype-answer-is-the-artifact` describes: a course-editing session produced
 "a modal I can open anywhere to edit the text of my courses with AI."
 
+## Graduated: an on-ramp, not the new front door
+
+Wayfinder shipped in v1.1.0 out of `in-progress/` and into `engineering/` — a
+plugin entry, top-level and Engineering README listings under User-invoked, a
+docs page, and a route in `ask-matt`. Landing there settles the question the
+"Naming, live" announcement above left open — whether wayfinder *replaces*
+`grill-with-docs` as the new default front door. It doesn't: `ask-matt`'s main
+flow still opens on `grill-with-docs`, and wayfinder is named as a concrete
+**on-ramp** — for "a greenfield project or a huge feature build, too big for
+one session" — that **merges back onto** the main flow at `/to-spec` once the
+fog clears (or straight to `/implement` if the effort turns out small enough).
+Crowning wayfinder the default spine is named explicitly as "a v2-sized move,
+not a 1.1" — the grill-led idea→ship chain stays the front door for
+ordinary-sized work, and the two grill front doors (`grill-me`,
+`grill-with-docs`) now signpost *up* to wayfinder only for effort too big to
+hold in one session. The lesson: an ambitious new capability can graduate to
+full status without displacing the thing most work still goes through —
+scoping it as a situational on-ramp, discoverable from where a reader already
+starts, is itself a design decision distinct from shipping the skill at all.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
-- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/00b0f60a9f2cea78216bc7165684bd5610495f9e — `decision-mapping` renamed `wayfinder`)
+- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/00b0f60a9f2cea78216bc7165684bd5610495f9e — `decision-mapping` renamed `wayfinder`; revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/c150c7074b3523328da2c980d22c84b8c21a2308 — `wayfinder` graduates out of the in-progress list entirely)
+- `sources/mattpocock/skills-repo/skills-engineering-README.md-1400dd55.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/README.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/f02469bf3e8c183fd269565808c7b613ec6011c5 — `wayfinder` lands under User-invoked)
+- `sources/mattpocock/skills-repo/skills-engineering-wayfinder-SKILL.md-fda0505b.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/skills/engineering/wayfinder/SKILL.md
+- `sources/mattpocock/skills-repo/docs-engineering-wayfinder.md-0bd8ad79.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/docs/engineering/wayfinder.md
+- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/7d8d0ee43f671178d8cb2519c82fc68cf03335b3/skills/engineering/ask-matt/SKILL.md (revision 2026-07-09 — wayfinder named as an on-ramp with concrete triggers; revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/5f875d9214ce6570476cb32ad31c8a71415fc497 — unchanged wayfinder framing, carried through the `to-tickets` local-file rename)
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/9c306665c63db13e3cd9cf6df8871f7792051eab/CHANGELOG.md (revision 2026-07-09, PR #464 — "Settle wayfinder's place in the docs as a situational on-ramp, not the new main entry flow")
 - `sources/mattpocock/skills-repo/skills-in-progress-wayfinder-SKILL.md-82165350.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/in-progress/wayfinder/SKILL.md (the rename, and the map moving onto the issue tracker; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/9ee274c8fecd74661dceee5ab4e314b8c58f9e47 — "refer by name" convention; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/8d45707bbe7c134eea25098b73085271a0c09370 — claiming moved from the `wayfinder:claimed` label to the tracker's native assignee; revision 2026-07-06, origin https://github.com/mattpocock/skills/blob/b70f59b0b2aa3a96dcc837adc3eacf238fedb556 — naming the destination as the first act of charting, the breadth-first frontier-mapping pass, and the map's `Not yet specified`/`Out of scope` split; revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/2d3fffb7620883f23f0c0e9d47c87f7f9e173066 — the "Plan, don't do" framing and the HITL/AFK tag per ticket type)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/81825ae44edc49c71a526b58a5225fde82f340fa/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/263a2d27d54d82e44d4587e6bbabd5833410c06b — the native issue-dependencies database-id detail; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/b9589cd45933b54e917e1f57a29278c751c1b297 — claiming moved from the `wayfinder:claimed` label to `--add-assignee @me`)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/4dda53bfcb34d30f7d0a5024a07e0436fb9e5d79/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/00ea3ba0cb738a2d723bfe28bf7a75419e1961d2 — the Premium/Ultimate-tier native-blocking caveat; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/e244acd60c9e370b1af0280a65be2b1ecc098f3e — claiming moved from the `wayfinder:claimed` label to `--assignee @me`)

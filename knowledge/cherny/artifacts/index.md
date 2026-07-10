@@ -11,3 +11,4 @@ concept per file; this index lists them, one line each.
 - [skills-as-the-unit-of-reuse](./skills-as-the-unit-of-reuse.md) — skills package reusable agent knowledge; the 9 production-tested types and progressive disclosure.
 - [dynamic-workflows](./dynamic-workflows.md) — the agent writes its own JS harness (parallel/pipeline + nested subagents) for tasks too big for one window.
 - [layered-permission-system](./layered-permission-system.md) — safety as defense-in-depth (allowlists, sandbox, classifier auto mode), where the human is the weakest routine layer.
+- [safe-maintenance-audits](./safe-maintenance-audits.md) — `/checkup` audits your whole setup for drift but proposes a plan and waits, never mutating silently.

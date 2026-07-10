@@ -50,8 +50,10 @@ job is to name the other user-invoked skills and when to reach for each. It can
 only *hint*, never fire them (it has no way to reach a sibling user-invoked
 skill). It encodes a **main flow** (`grill-with-docs → [prototype detour via
 handoff] → to-prd → to-issues → implement → code-review`), **on-ramps** that merge
-onto it (`triage` for incoming issues, `diagnosing-bugs` for something broken),
-and standalone tools — turning the loose pile of slash-commands into a navigable
+onto it (`triage` for incoming issues, `diagnosing-bugs` for something broken,
+and — once `wayfinder` graduated out of `in-progress/` — `wayfinder` itself for
+a foggy, multi-session effort, rejoining the main flow at `to-spec`; see
+`decision-mapping-fog-of-war`), and standalone tools — turning the loose pile of slash-commands into a navigable
 map with explicit context-hygiene rules (keep the planning chain in one unbroken
 smart-zone window; start each `/implement` fresh). It has since grown past
 naming only the user-invoked set: it also points at the model-invoked
@@ -119,6 +121,6 @@ release as redundant (`caveman`, `zoom-out`), and `write-a-skill` was replaced b
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067536507653468380-59ce88dc.md` — origin: https://x.com/mattpocockuk/status/2067536507653468380
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067556399945589239-1ceb3ba7.md` — origin: https://x.com/mattpocockuk/status/2067556399945589239
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067966169860931606-a1f7c79f.md` — origin: https://x.com/mattpocockuk/status/2067966169860931606
-- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/8e9705356ea758e0bf375ccfa5efdd78a5a4fbff/skills/engineering/ask-matt/SKILL.md (revision 2026-07-02 — the "Vocabulary underneath" section and the `code-review` chain step; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ebee08eb332d93484b9afda9acaa84eb1e024640 — `/research` added to Standalone)
+- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/8e9705356ea758e0bf375ccfa5efdd78a5a4fbff/skills/engineering/ask-matt/SKILL.md (revision 2026-07-02 — the "Vocabulary underneath" section and the `code-review` chain step; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ebee08eb332d93484b9afda9acaa84eb1e024640 — `/research` added to Standalone; revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/7d8d0ee43f671178d8cb2519c82fc68cf03335b3 — `wayfinder` added as a named on-ramp)
 - `sources/mattpocock/skills-repo/docs-engineering-ask-matt.md-cb27a380.md` — origin: https://github.com/mattpocock/skills/blob/1f39f6f24749f410d98d3c39cc3402e9446f9f9b/docs/engineering/ask-matt.md (revision 2026-07-02 — the same "Vocabulary underneath" pointer, on the docs page)
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/754bff7aeec587bf80d31075fa64717aa915b241/CLAUDE.md (revision 2026-07-02 — `ask-matt`'s resync obligation)

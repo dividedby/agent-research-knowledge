@@ -116,6 +116,19 @@ with a test:
   all. A prohibition earns its place only as a hard guardrail on behaviour you
   genuinely can't phrase positively, and even then pair it with the positive
   target so attention lands on what to do, not just what to avoid.
+- **Negative Space** — the adjacent, opposite-direction blind spot: steering
+  done by what a skill *leaves out*, not what it says. Every decision a skill's
+  author declines to make on the page — a branch left unaddressed, a case never
+  mentioned — isn't neutral; it's silently delegated to the agent's priors,
+  which fill the gap with whatever's most probable rather than what the author
+  actually wanted. Negation is a misfire in something written; Negative Space is
+  the failure of never having written anything there at all. The cure is to
+  read a draft specifically for its silences and decide each omission on
+  purpose — either fill it with an explicit instruction, or leave it open as a
+  deliberate, named **branch** the agent is meant to choose on its own. Carried
+  as a full failure mode alongside Negation, not folded into it, because the
+  two need different diagnostics: one is caught by reading what's on the page,
+  the other only by asking what isn't.
 
 Pruning is the discipline against these: keep each meaning in a **single source of
 truth**, check every line for **relevance** (does it still bear on the task?), then
@@ -157,7 +170,7 @@ engineering's survival, not of abandoning the handwritten word.)
 
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-SKILL.md-b96ebc68.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/SKILL.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/ce24f42a242b70cbdda304f3422545a3e452285a — the Negation failure mode)
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-GLOSSARY.md-1e43a906.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/GLOSSARY.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/82ecc586f26c5a31062113faa3cef08e6e394116 — the same Negation term added to the Steering axis)
-- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md (revision 2026-07-09, PR #463, origin https://github.com/mattpocock/skills/blob/af6d6922c3e2b5288eef155346cbe319e4ed3bd0 — the Negative Space failure mode)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069784839474032896-7bd866f0.md` — origin: https://x.com/mattpocockuk/status/2069784839474032896
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069785124950945825-07710416.md` — origin: https://x.com/mattpocockuk/status/2069785124950945825
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069812144183324793-5fce97b8.md` — origin: https://x.com/mattpocockuk/status/2069812144183324793
