@@ -113,7 +113,11 @@ The system can detect work that was committed to git but never closed in the iss
 If an agent crashes mid-work while holding a claim, `bd unclaim <id>` releases
 it back to the ready pool so another agent (or the restarted same one) can pick
 it up — the explicit escape hatch for the atomic-claim invariant when the
-claiming process itself is gone, not just its work state.
+claiming process itself is gone, not just its work state. Plain `bd unclaim`
+covers self-recovery; releasing a claim held by a *different* actor needs
+`--force`, scoped to admin/reaper use — so an orchestrator sweeping stuck
+claims across a fleet has an explicit, named override rather than being able
+to silently steal another agent's in-flight work.
 
 ## Compound Workflow Traversal
 
@@ -185,3 +189,4 @@ of agents stays accountable, not anonymous.
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd remember`/`bd recall`/`bd memories` — keyed memory, persistence across account rotations; bare-existing-key-recalls-instead-of-stores overload, 2026-07-03 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd config set agent.profile` / `BD_AGENT_PROFILE` — explicit runtime selector for the conservative/minimal/team-maintainer profile, 2026-07-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/docs-QUICKSTART.md-ef67bedb.md` (`bd unclaim` — releasing a stuck claim after an agent crash, 2026-07-07 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/QUICKSTART.md
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd unclaim --force` — admin/reaper override to release another actor's claim, 2026-07-13 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

@@ -5,7 +5,7 @@ model, dependency/gate system, and how it decomposes and sequences agent work.
 One concept per file; this index lists them, one line each.
 
 - `hash-based-collision-prevention.md` — Content-based hashing for distributed ID generation preventing merge collisions
-- `two-layer-data-architecture.md` — CLI + Dolt database architecture enabling distributed issue tracking  
+- `two-layer-data-architecture.md` — CLI + pluggable-database (Dolt default) architecture enabling distributed issue tracking, plus its structural-vs-opt-in audit history
 - `dependency-aware-work-sequencing.md` — Blocking relationships and ready work detection for agent execution control
 - `molecular-work-decomposition.md` — Chemistry metaphor for structuring complex workflows into executable graphs
 - `agent-session-execution-model.md` — Patterns for agent work pickup, execution, and cross-session coordination

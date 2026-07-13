@@ -17,3 +17,4 @@ product-changelog/marketing stream is out of scope.
 - [permission-system-design](./permission-system-design.md) — sequential allow/ask/reject/delegate rules over irreversible actions; never file-ignore lists.
 - [skills-and-task-queue-for-large-migration](./skills-and-task-queue-for-large-migration.md) — CLI-wrapper skills + semantic graph + task-queue handoff + hard definition-of-done gates to run a migration as a factory.
 - [dont-make-the-agent-guess](./dont-make-the-agent-guess.md) — idempotent bootstrap, on-demand docs, machine-readable state, and dev-only auth endpoints so a headless remote agent never has to guess or ask.
+- [mode-dial-not-model-selector](./mode-dial-not-model-selector.md) — expose agent modes as a "how hard is this task" difficulty dial, not a model picker; Amp wires the model/prompt/tools/effort behind each mode and can rewire it as models improve.

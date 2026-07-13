@@ -121,7 +121,11 @@ resolved. Every type now also carries an explicit **HITL** (human in the loop
 
 - **Research** (AFK) — reading docs, third-party APIs, or knowledge bases;
   produces a markdown summary asset. Use when the answer lives outside the
-  working directory.
+  working directory. It's the one type exempted from the one-ticket-per-session
+  rule below: because it's AFK, a session doesn't stop and read a research
+  ticket itself — it fires a `/research` **subagent** to burn it down in
+  parallel, on a throwaway `research/<name>` branch, so the frontier keeps
+  moving while the reading happens in the background.
 - **Prototype** (HITL) — a cheap, rough, concrete artifact to react to (an
   outline, a stub, or runnable UI/logic code via `/prototype`); produces the
   prototype as an asset. The point isn't only code — raising the fidelity of
@@ -165,6 +169,14 @@ wayfinder's job distinct from `to-issues`'/`implement`'s further down the
 chain.
 
 ## Tickets are tracker issues, blocked by the tracker's own dependency graph
+
+The repo's own `CONTEXT.md` glossary now names the ticket type formally as a
+**Decision ticket** — a child Issue of a `wayfinder:map` holding a question
+whose resolution is a decision, not a slice of a build to execute. The
+qualifier is what keeps it distinct from an ordinary implementation ticket
+elsewhere in the tracker; `wayfinder`'s own docs introduce the full term once
+and then say "ticket" throughout, the same abbreviate-after-first-use
+discipline `shared-language-as-agent-fuel` describes for any glossary term.
 
 A ticket's identity is now the tracker's own issue id, not a hand-picked slug,
 and carries a `wayfinder:<type>` label naming its kind (below). Claiming moved
@@ -214,11 +226,14 @@ domain-neutral; only the ticket content and the consulted skills vary.
 ## Bootstrap and resume; parallel-safe by construction
 
 The skill has two invocations, and **every session — either branch — ends with
-a Handoff**, never resolving more than one ticket per session. **Create the
-map**: from a loose idea, run grilling + domain-modeling to surface the
-decisions, write a mostly-fog map with the frontier identified and trivial
-entries resolved inline, then hand off — map-building is one session's work,
-you don't also resolve tickets. **Work through the map**: given a map (issue
+a Handoff**, never resolving more than one ticket per session — **except
+research tickets**, which fire in parallel as their own subagents rather than
+occupying the main session's one-ticket budget (see the Research bullet
+above). **Create the map**: from a loose idea, run grilling + domain-modeling
+to surface the decisions, write a mostly-fog map with the frontier identified
+and trivial entries resolved inline, fire a `/research` subagent for every
+research ticket just created, then hand off — map-building is one session's
+work, you don't also hand-resolve tickets. **Work through the map**: given a map (issue
 URL or number) and an *optional* ticket (without one, the agent picks the
 first frontier ticket in tracker order rather than the user choosing), claim
 it, resolve it — invoking `/grilling` and `/domain-modeling` if in doubt, plus
@@ -279,9 +294,10 @@ starts, is itself a design decision distinct from shipping the skill at all.
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/00b0f60a9f2cea78216bc7165684bd5610495f9e — `decision-mapping` renamed `wayfinder`; revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/c150c7074b3523328da2c980d22c84b8c21a2308 — `wayfinder` graduates out of the in-progress list entirely)
 - `sources/mattpocock/skills-repo/skills-engineering-README.md-1400dd55.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/README.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/f02469bf3e8c183fd269565808c7b613ec6011c5 — `wayfinder` lands under User-invoked)
-- `sources/mattpocock/skills-repo/skills-engineering-wayfinder-SKILL.md-fda0505b.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/skills/engineering/wayfinder/SKILL.md
-- `sources/mattpocock/skills-repo/docs-engineering-wayfinder.md-0bd8ad79.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/docs/engineering/wayfinder.md
-- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/7d8d0ee43f671178d8cb2519c82fc68cf03335b3/skills/engineering/ask-matt/SKILL.md (revision 2026-07-09 — wayfinder named as an on-ramp with concrete triggers; revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/5f875d9214ce6570476cb32ad31c8a71415fc497 — unchanged wayfinder framing, carried through the `to-tickets` local-file rename)
+- `sources/mattpocock/skills-repo/skills-engineering-wayfinder-SKILL.md-fda0505b.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/skills/engineering/wayfinder/SKILL.md (revision 2026-07-13, origin https://github.com/mattpocock/skills/blob/4423a0e31350dd221684c611a15fe2809db905e3 — research tickets resolved by a parallel `/research` subagent, exempted from the one-ticket-per-session limit)
+- `sources/mattpocock/skills-repo/docs-engineering-wayfinder.md-0bd8ad79.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/docs/engineering/wayfinder.md (revision 2026-07-13, origin https://github.com/mattpocock/skills/blob/997495d878ee7e65bb24cd65ef1be93b44c23a0d — same research-subagent update)
+- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/7d8d0ee43f671178d8cb2519c82fc68cf03335b3/skills/engineering/ask-matt/SKILL.md (revision 2026-07-09 — wayfinder named as an on-ramp with concrete triggers; revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/5f875d9214ce6570476cb32ad31c8a71415fc497 — unchanged wayfinder framing, carried through the `to-tickets` local-file rename; revision 2026-07-13, origin https://github.com/mattpocock/skills/blob/4c4d55411089c69a300cf889223cdbff2475137f — "decision tickets" terminology, the `/to-spec` collapse-the-map handoff spelled out)
+- `sources/mattpocock/skills-repo/CONTEXT.md.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/CONTEXT.md (revision 2026-07-13, origin https://github.com/mattpocock/skills/blob/372a1064863fa79a33fd415bef0faf4e8ae15e39 — "Decision ticket" formalised as a glossary term)
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/9c306665c63db13e3cd9cf6df8871f7792051eab/CHANGELOG.md (revision 2026-07-09, PR #464 — "Settle wayfinder's place in the docs as a situational on-ramp, not the new main entry flow")
 - `sources/mattpocock/skills-repo/skills-in-progress-wayfinder-SKILL.md-82165350.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/in-progress/wayfinder/SKILL.md (the rename, and the map moving onto the issue tracker; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/9ee274c8fecd74661dceee5ab4e314b8c58f9e47 — "refer by name" convention; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/8d45707bbe7c134eea25098b73085271a0c09370 — claiming moved from the `wayfinder:claimed` label to the tracker's native assignee; revision 2026-07-06, origin https://github.com/mattpocock/skills/blob/b70f59b0b2aa3a96dcc837adc3eacf238fedb556 — naming the destination as the first act of charting, the breadth-first frontier-mapping pass, and the map's `Not yet specified`/`Out of scope` split; revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/2d3fffb7620883f23f0c0e9d47c87f7f9e173066 — the "Plan, don't do" framing and the HITL/AFK tag per ticket type)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/81825ae44edc49c71a526b58a5225fde82f340fa/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md (revision 2026-07-02, the "Wayfinding operations" section added; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/263a2d27d54d82e44d4587e6bbabd5833410c06b — the native issue-dependencies database-id detail; revision 2026-07-04, origin https://github.com/mattpocock/skills/blob/b9589cd45933b54e917e1f57a29278c751c1b297 — claiming moved from the `wayfinder:claimed` label to `--add-assignee @me`)

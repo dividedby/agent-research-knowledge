@@ -34,6 +34,25 @@ minor miracle." The next big leap in coding agents is whatever lets them retain 
 theory across runs — weight updates, or contexts long enough to hold weeks of work
 in one run.
 
+**A *partial* theory is still a legitimate theory, not a failure state.** Naur
+goes further than the retention point above: he argues an incomplete theory can't
+be reconstructed from code or documentation at all, so an abandoned system should
+be scrapped and rebuilt from scratch rather than re-understood. Goedecke rejects
+this — large systems can't actually be rebuilt (too many accreted edge cases even
+for a team that knows the system cold), and abandoned codebases get revived
+constantly by engineers who build a new partial theory by tracing one flow at a
+time. In sufficiently large codebases *everyone* operates on a merely
+partially-correct theory; the skill is acting on your best-current model with
+confidence rather than waiting for someone with total understanding. This reframes
+where LLMs fit: they aren't uniquely bad for impeding theory-building, they're one
+tradeoff among many an engineer already accepts (a colleague's changes, a
+dependency upgrade, a legally-mandated feature also erode total understanding).
+The distinctive shape of the LLM tradeoff is that it cuts both ways in the same
+motion — it degrades the fidelity of the theory you'd otherwise build by hand, but
+it lets you build a partial theory faster and lets you act on that partial theory
+more effectively, which is a different bargain than a plain net loss.
+
 ## Sources
 
 - `sources/seangoedecke/blog/https-seangoedecke.com-programming-with-ai-agents-as-theory--34e4468e.md` — origin: https://seangoedecke.com/programming-with-ai-agents-as-theory-building/
+- `sources/seangoedecke/blog/https-seangoedecke.com-in-defense-of-not-understanding-your--908849a2.md` — origin: https://seangoedecke.com/in-defense-of-not-understanding-your-codebase/

@@ -26,15 +26,27 @@ prototyping." This isn't corner-cutting; it's the point. An artifact whose only
 job is to answer one question fast and then disappear gets nothing from being
 made durable — durability is effort spent on the wrong deliverable.
 
-## Keep the answer, delete the scaffolding
+## Keep the answer — and now, keep the scaffolding too
 
-The code is disposable; the *verdict* is the only thing worth keeping. Once a
-prototype settles its question, the answer gets captured somewhere durable — a
-commit message, an ADR, an issue, a `NOTES.md` next to it — paired with the
-question it answered. Only then does the code get deleted or absorbed. "A
-prototype left rotting in the repo has outlived its purpose": the failure mode
-this guards against is treating the scaffolding as the deliverable when the
-deliverable was always the decision.
+The code is disposable *from main*; the *verdict* is the only thing worth
+keeping there. Once a prototype settles its question, the answer gets captured
+somewhere durable — a commit message, an ADR, an issue — paired with the
+question it answered, and any validated decision is folded into the real code.
+"A prototype left rotting in the repo has outlived its purpose": the failure
+mode this guards against is treating the scaffolding as the deliverable when
+the deliverable was always the decision.
+
+The rule for the scaffolding itself changed from *delete* to *demote and keep*.
+Earlier revisions deleted or absorbed the prototype once its question was
+answered; now the prototype is captured as a **primary source** — the runnable
+evidence the answer came from — on a throwaway branch, out of main, never
+merged, with a context pointer to that branch left on the implementation
+issue. Main stays clean (no tests, no error handling to maintain), but the raw
+exploration stays one click away for anyone who wants to re-run it rather than
+re-derive it from a paraphrase. The UI branch spells out the same split
+concretely: fold the winning variant into the real page, but move the losing
+variants and the switcher to the throwaway branch, not the bin — "the full set
+of variants is the primary source."
 
 ## Where it sits: an anytime escape hatch, not a pipeline stage
 
@@ -51,3 +63,7 @@ architectural decision worth recording via `domain-modeling`.
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-prototype-43e38695.md` — origin: https://www.aihero.dev/skills-prototype
+- `sources/mattpocock/skills-repo/docs-engineering-prototype.md-ccedcc07.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/docs/engineering/prototype.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/57f045c45f4805c112985f8f54372cd39d264c55 — prototype kept as a primary source on a throwaway branch instead of deleted)
+- `sources/mattpocock/skills-repo/skills-engineering-prototype-SKILL.md-aae38256.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/prototype/SKILL.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/1cdd5933be58639a9b9e60fbb6ea32668d000466 — "capture it when done" replaces "delete or absorb")
+- `sources/mattpocock/skills-repo/skills-engineering-prototype-LOGIC.md-48cd948d.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/prototype/LOGIC.md (revision 2026-07-11 — the TUI shell rides to the throwaway branch, the validated reducer/machine lifts into the real module)
+- `sources/mattpocock/skills-repo/skills-engineering-prototype-UI.md-0de0c866.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/prototype/UI.md (revision 2026-07-11 — losing variants and the switcher move to the throwaway branch, not the bin)

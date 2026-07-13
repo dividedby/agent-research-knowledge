@@ -23,6 +23,18 @@ endpoint). But if it's in neither, *you* have to put it in the prompt. This is t
 same insight that underlies his paint-by-numbers practice — supplying the missing
 "statements" — viewed as a routing question rather than a hand-coding one.
 
+The "put it in the prompt" branch has an upstream precondition: **you can only put
+knowledge in the prompt if you possess it yourself.** Watching his 9-year-old edit
+video in iMovie, directed only by "cut out the part where you see my hand," Ball
+realized she'd never be able to ask an agent for a J-cut or a jump cut — she's seen
+those effects on screen a hundred times but doesn't know the words for them. No
+increase in agent capability closes that gap; only the person's own vocabulary can.
+The same ceiling applies to software: sometimes you can't describe a bug or a
+feature crisply not because the codebase or training data lacks the answer, but
+because you haven't yet learned the domain's vocabulary yourself — which makes
+"where is the knowledge?" a question to ask of yourself first, before the agent.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-80-065f0c03.md` — *Joy & Curiosity #80* intro: "Do you know how it should work? Does the agent? Or does the codebase?"; the prompt/codebase/training-data theory and the knowledge gap (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-80)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-91-055a0420.md` — *Joy & Curiosity #91* intro: the iMovie anecdote — his daughter can't ask an agent for a J-cut or jump cut because she doesn't know the vocabulary, though she's seen the effect; "that, of course, made me think about software engineering" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-91)

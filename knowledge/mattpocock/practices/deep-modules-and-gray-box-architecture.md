@@ -48,7 +48,34 @@ This provides **progressive disclosure of complexity** — the interface explain
 
 Some languages make enforcing module boundaries easier than others. In TypeScript, boundaries are hard to enforce naturally. Matt increasingly uses Effect.ts because it makes modularizing codebases simple through its service-oriented architecture.
 
+A shipped counter-example shows the boundary enforced anyway, without Effect's
+service model: in `course-video-manager`, each package under `app/packages/` is
+treated as a deep module — importable only through its entry points (the
+package's root files), with everything under `lib/`/`tests/` private — and the
+convention is backed by a `lint:boundaries` check that runs in pre-commit
+alongside typecheck. The rule stops being a norm the agent might drift from and
+becomes a gate a violating import can't get past, the same "prefer a
+deterministic check over a hoped-for convention" instinct as
+`deterministic-hooks-over-prose-rules`, applied at the architecture level instead
+of the command-safety level.
+
+That one-off repo convention has since been generalised into a shippable
+skill, `setup-ts-deep-modules`: it wires [dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
+into any TypeScript repo with four `error`-level rules — outsiders may import
+only a package's root files, a package's own files import each other freely,
+tests may cross into any package's entry points but never subfolder internals
+(not even their own), and no dependency cycles — so *any* subfolder is
+private, not just a hardcoded `lib/`, and a new folder never needs a config
+change. Its completion criterion is the tell: **"prove the rules bite"** —
+temporarily add a deep import, run the lint, confirm it *fails*, revert, confirm
+it passes again. A boundary config that has never been observed to fail on a
+violation is unverified, not enforced; this closes the same gap `feedback-loop-is-the-work`
+names for tests — a check that has never gone red hasn't proven it can.
+
 ## Sources
 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-how-to-make-codebases-ai-agents-love-1ba6d0b5.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-ways-ai-coding-has-rewired-my-brain-dc20954e.md
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-11, "Deep-module packages")
+- `sources/mattpocock/skills-repo/skills-in-progress-setup-ts-deep-modules-SKILL.md-818cdfcd.md` — origin: https://github.com/mattpocock/skills/blob/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/in-progress/setup-ts-deep-modules/SKILL.md
+- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/85804e72bbb83120b3becba0edd22b91abf3aa52 — `setup-ts-deep-modules` listed)
