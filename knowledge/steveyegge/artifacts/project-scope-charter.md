@@ -49,6 +49,14 @@ documenting (and justifying) the only sanctioned crossings. This turns the
 Storage Boundary from a review-time convention that depends on a maintainer
 noticing a drift into a build-time check that fails the same way every time.
 
+**The boundary also disciplines rollout pace, not just import graphs:** `bd
+doctor` support for embedded mode is being enabled one subcommand at a time,
+each change human-vetted, rather than lifting the embedded-mode gate in
+`cmd/bd/doctor.go` wholesale — database-layer checks and fixes stay
+server-gated until the driver interface actually covers them. A boundary that
+constrains *what* can cross it turns out to constrain *how fast* new surface
+area crosses it too.
+
 ## Schema Boundary
 
 **Stability principle:** The database schema is considered stable. Schema changes are allowed when there's a pressing product or correctness need, but they should not be the first answer to extension requests.
@@ -118,3 +126,4 @@ noticing a drift into a build-time check that fails the same way every time.
 
 - `sources/steveyegge/beads/docs-PROJECT_CHARTER.md-cd654e43.md` (lines 4-114) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/PROJECT_CHARTER.md
 - `sources/steveyegge/beads/docs-PROJECT_CHARTER.md-cd654e43.md` (Storage Boundary — `depguard` mechanical enforcement, 2026-07-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/PROJECT_CHARTER.md
+- `sources/steveyegge/beads/AGENTS.md.md` (Storage Boundary — `bd doctor` embedded-mode gate lifted one subcommand at a time, human-vetted, 2026-07-15 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENTS.md

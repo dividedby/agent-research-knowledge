@@ -22,8 +22,8 @@ with `Esc`, context preserved, and redirect — tight feedback loops beat hoping
 first attempt lands; or just say `"undo that"` to have it revert changes);
 **rewind** (`Esc Esc` / `/rewind`) to a prior conversation/code checkpoint to try
 a risky approach and undo it if it fails — checkpoints are auto-snapshotted before
-each change and *persist across sessions*, so you can close the terminal and still
-rewind later; and **steer compaction** with `/compact <instructions>` (e.g.
+each change and saved with the conversation, so you can close the terminal,
+resume the session later, and still rewind; and **steer compaction** with `/compact <instructions>` (e.g.
 `/compact Focus on the API changes`) or a standing CLAUDE.md rule, so the summary
 keeps the modified-files list, test commands, and key decisions you care about.
 Rewind also offers *partial* compaction: select a checkpoint and **summarize from

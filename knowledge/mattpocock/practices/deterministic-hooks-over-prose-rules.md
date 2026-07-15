@@ -37,7 +37,21 @@ This is the same instinct as the pre-commit feedback loop (see
 merely encouraged, prefer an automated, deterministic gate over trusting the
 model's judgement.
 
+## The pattern generalizes past `PreToolUse`
+
+The guardrail doesn't have to live in `.claude/settings.json` — any deterministic
+gate that fires before the wrong thing lands does the same job. Matt's
+`course-video-manager` `CODING_STANDARDS.md` states an ESM convention in prose
+("use `import.meta.dirname`/`import.meta.filename`, never the CJS
+`__dirname`/`__filename`") and then backs it with a `check:no-dirname` pre-commit
+hook that scans staged files for the banned globals. The prose still carries the
+*why*; the hook is what makes the *never* actually true, at the point (commit,
+not just tool-call) where this particular mistake is cheapest to catch. A coding
+standard that only lives in a doc an agent might not reread is exactly the kind
+of rule this pattern converts into something that can't drift.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-how-to-use-claude-code-hooks-to-enforce-c827626c.md` — origin: https://www.aihero.dev/how-to-use-claude-code-hooks-to-enforce-the-right-cli
 - `sources/mattpocock/aihero/https-www.aihero.dev-this-hook-stops-claude-code-running-dan-bcfc7d9c.md` — origin: https://www.aihero.dev/this-hook-stops-claude-code-running-dangerous-git-commands
+- `sources/mattpocock/course-video-manager/.sandcastle-CODING_STANDARDS.md-7b893b74.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/CODING_STANDARDS.md

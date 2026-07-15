@@ -86,14 +86,19 @@ thinking you outsource.
 ## Set the auto-compact threshold deliberately
 
 Smart-zone discipline isn't only manual `/compact` and `/handoff` — the harness
-itself has a lever, and Matt tunes it. His `course-video-manager` project pins
-`"autoCompactWindow": 180000` in `.claude/settings.json`: the token threshold at
-which Claude Code automatically compacts the session. Setting it explicitly (here,
-180k tokens) is the same instinct as the status line — treat the point at which
-context gets pulled back toward the smart zone as a configurable, per-project
-decision rather than a vendor default to live with. It's the deterministic-config
-counterpart to the manual budget habits: where the status line tells *you* when to
-act, `autoCompactWindow` makes the harness act for you at a chosen line.
+itself has a lever, and Matt tunes it. His `course-video-manager` project briefly
+pinned `"autoCompactWindow": 180000` in `.claude/settings.json`: the token
+threshold at which Claude Code automatically compacts the session. Setting it
+explicitly (here, 180k tokens) is the same instinct as the status line — treat the
+point at which context gets pulled back toward the smart zone as a configurable,
+per-project decision rather than a vendor default to live with. It's the
+deterministic-config counterpart to the manual budget habits: where the status
+line tells *you* when to act, `autoCompactWindow` makes the harness act for you at
+a chosen line. He later reverted the setting back to the vendor default — the
+override was a live experiment, not a settled preference, which is itself a data
+point: even someone who treats context budgeting as a first-class concern doesn't
+assume a pinned number stays right forever, and reverts one deliberate default
+back to another rather than leaving a stale override in place.
 
 ## Make the budget visible
 

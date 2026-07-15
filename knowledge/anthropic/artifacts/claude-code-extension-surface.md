@@ -34,7 +34,9 @@ deterministic, in-context-vs-out, and manual-vs-automatic.
   `--help`. Plugins bundle skills/hooks/subagents/MCP into one installable unit.
 
 The harness also scales **horizontally** beyond one human/one conversation:
-non-interactive `claude -p` for CI/hooks/pipelines (with parseable JSON output);
+non-interactive `claude -p` for CI/hooks/pipelines (with parseable JSON output)
+— the run still creates a resumable session by default, so a scripted `-p` call
+is not throwaway state; pass `--no-session-persistence` to opt out;
 parallel sessions via git worktrees (isolated checkouts so edits don't collide),
 the desktop app, web VMs, or coordinated agent teams; and **fan-out** across many
 files for large migrations (have the agent generate the file list, then distribute

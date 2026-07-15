@@ -62,6 +62,15 @@ bd prime  # Loads workflow context and persistent memories
 
 Provides agents with project context and accumulated insights.
 
+A project can drop a `.beads/PRIME.md` to override the *workflow-text* portion
+of `bd prime`'s output, but persistent memories are still appended on top of a
+custom template — a project-specific priming doc can't accidentally silence
+memory injection. Two flags tune how much of that output an agent actually
+wants in context: `--memories-only` returns just the memories section (for
+hook contexts that only need that), and `--no-memories` omits it (for when
+accumulated memories have grown large enough to threaten the context budget);
+`--memories-only` wins if both are set.
+
 ### Memory Persistence
 ```bash
 bd remember \"insight\"               # Store project memory across sessions
@@ -190,3 +199,4 @@ of agents stays accountable, not anonymous.
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd config set agent.profile` / `BD_AGENT_PROFILE` — explicit runtime selector for the conservative/minimal/team-maintainer profile, 2026-07-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/docs-QUICKSTART.md-ef67bedb.md` (`bd unclaim` — releasing a stuck claim after an agent crash, 2026-07-07 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/QUICKSTART.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd unclaim --force` — admin/reaper override to release another actor's claim, 2026-07-13 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd prime --no-memories`/`--memories-only` and the PRIME.md-override-keeps-memories clarification, 2026-07-14 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

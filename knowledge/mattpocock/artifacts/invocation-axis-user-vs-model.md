@@ -11,7 +11,12 @@ the realised architecture, renamed and made load-bearing.
   the **orchestrators**: the top-level entry points a person reaches for
   deliberately (`grill-me`, `grill-with-docs`, `to-prd`, `to-issues`, `triage`,
   `improve-codebase-architecture`, `prototype`, `handoff`, `teach`, `ask-matt`,
-  `wayfinder` — renamed from `decision-mapping`).
+  `wayfinder` — renamed from `decision-mapping`). The marker is now per-harness,
+  not just per-repo: for Codex, the same user-invoked skill also sets
+  `policy.allow_implicit_invocation: false` in `agents/openai.yaml`, so a skill
+  that's typed-only in Claude Code can't be auto-fired by a different harness
+  reading the same repo — the axis is enforced once per skill but declared once
+  per agent it targets.
 - **Model-invoked** (the default — omit the flag) — reachable by the model *or*
   the human, so the agent can auto-fire it and other skills can reach it. Its
   `description` keeps rich "Use when…" trigger phrasing and pays a permanent
@@ -106,6 +111,7 @@ release as redundant (`caveman`, `zoom-out`), and `write-a-skill` was replaced b
 
 ## Sources
 
+- `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/66898f60e8c744e269f8ce06c2b2b99ce7660d5f/AGENTS.md (the Codex `policy.allow_implicit_invocation: false` pairing)
 - `sources/mattpocock/skills-repo/docs-invocation.md-1ce78905.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/docs/invocation.md
 - `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/ask-matt/SKILL.md
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/CLAUDE.md (revision 2026-06-17)

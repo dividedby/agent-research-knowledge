@@ -20,3 +20,4 @@ One concept per file; this index lists them, one line each.
 - [slop-loops-and-agent-psychosis](./slop-loops-and-agent-psychosis.md) — the dopamine loop produces slop and dependence the moment you turn off your brain.
 - [the-harness-level-loop](./the-harness-level-loop.md) — the loop outside the agent loop: where the harness decides "done" works for disposable output, costs comprehension for lasting code.
 - [you-are-the-bottleneck](./you-are-the-bottleneck.md) — review and accountability are the irreducible bottleneck; you were the bottleneck all along.
+- [agents-erode-team-coordination-silently](./agents-erode-team-coordination-silently.md) — agents remove the friction that used to force shared understanding; the tower keeps rising with no failure signal.

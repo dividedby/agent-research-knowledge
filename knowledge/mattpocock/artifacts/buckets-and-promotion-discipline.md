@@ -8,13 +8,17 @@ lives in is a promotion state, and promotion carries a hard publication rule.
 
 ## The publication invariant
 
-Only the three *public* buckets — `engineering/`, `productivity/`, `misc/` —
-are advertised. Every skill in those buckets **must** appear in both the
-top-level `README.md` and `.claude-plugin/plugin.json`, with the README link
-pointing at the skill's `SKILL.md`. Every skill in `personal/`, `in-progress/`,
-and `deprecated/` **must not** appear in either. There is no middle state: a
+Only the **promoted** buckets are advertised. This started as the three
+buckets `engineering/`, `productivity/`, `misc/`; a later revision narrowed it
+to just `engineering/` and `productivity/`, demoting `misc/` out of the
+advertised set to join `personal/`, `in-progress/`, and `deprecated/` as
+unpromoted. Every skill in a promoted bucket **must** appear in both the
+top-level `README.md` and `.claude-plugin/plugin.json`'s `skills` array, with
+the README link pointing at the skill's `SKILL.md`. Every skill in an
+unpromoted bucket **must not** appear in either. There is no middle state: a
 skill is either fully advertised or fully hidden, and which it is follows
-mechanically from its folder.
+mechanically from its folder — the boundary moved, but the mechanism (folder
+decides visibility) didn't.
 
 This makes "ship it" and "shelve it" the same operation as "move the folder",
 and keeps the installable surface (`npx skills add mattpocock/skills`) honest —
@@ -44,7 +48,8 @@ every level.
 
 ## Sources
 
-- `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/CLAUDE.md
+- `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/CLAUDE.md (revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/44868f473c65fe0172090224551c8b40bf5b16de/CLAUDE.md — `misc/` demoted out of the promoted set, leaving only `engineering/`+`productivity/`)
+- `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/66898f60e8c744e269f8ce06c2b2b99ce7660d5f/AGENTS.md
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
 - `sources/mattpocock/skills-repo/skills-engineering-README.md-1400dd55.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/README.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/f02469bf3e8c183fd269565808c7b613ec6011c5 — `wayfinder` added under User-invoked)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/c150c7074b3523328da2c980d22c84b8c21a2308 — `wayfinder` dropped from the in-progress listing)

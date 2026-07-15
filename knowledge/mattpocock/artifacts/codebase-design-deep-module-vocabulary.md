@@ -67,8 +67,23 @@ consistently. This is the same fan-out-then-compare structure used elsewhere in
 the repo (the `review` skill's two-axis parallel sub-agents), applied to interface
 design.
 
+## Enforcing the boundary mechanically, not just by convention
+
+An in-progress `setup-ts-deep-modules` skill takes the vocabulary a step
+further than description and review: it wires `dependency-cruiser` into a
+TypeScript repo so each package's deep-module boundary is a **linted rule**,
+not a convention an agent (or reviewer) has to remember to check. A package's
+implementation lives hidden in subfolders, reachable only through its
+entry-point files, and tests exercise it only through those entry points —
+the same "don't expose internal seams through the interface" rule above, now
+enforced structurally instead of relying on the agent reading the vocabulary
+correctly every time. Where `codebase-design`'s testability rules teach an
+agent to *design* a deep module, this is the complementary move of making a
+violation *fail the build* rather than pass silent review.
+
 ## Sources
 
+- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/85804e72bbb83120b3becba0edd22b91abf3aa52/skills/in-progress/README.md — `setup-ts-deep-modules` listed)
 - `sources/mattpocock/skills-repo/skills-engineering-codebase-design-SKILL.md-533bf87d.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/codebase-design/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-codebase-design-DEEPENING.md-6d2223b2.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/codebase-design/DEEPENING.md
 - `sources/mattpocock/skills-repo/skills-engineering-codebase-design-DESIGN-IT-TWICE.md-7e0e561e.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/codebase-design/DESIGN-IT-TWICE.md
