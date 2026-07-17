@@ -79,7 +79,7 @@ Gates bridge external conditions into the dependency graph:
 | `gh:pr` | PR merged | `gh pr view` returns MERGED |
 | `gh:run` | CI passes | `gh run view` returns completed + success |
 | `timer` | Time elapsed | Current time exceeds timeout |
-| `bead` | Cross-rig issue closed | Remote bead status checked |
+| `bead` | Same-rig bead closed | Bead status checked in this rig's DB |
 | `human` | Manual approval | `bd gate resolve <id>` |
 
 Gates are wired into dependencies like any other issue, allowing agents to wait for external systems naturally.
@@ -92,3 +92,4 @@ Gates are wired into dependencies like any other issue, allowing agents to wait 
 - `sources/steveyegge/beads/docs-DEPENDENCIES.md-ccda48ce.md` (lines 4-330)
 - `sources/steveyegge/beads/docs-MOLECULES.md-d06ec0d4.md` (lines 16-72)
 - `sources/steveyegge/beads/README.md.md` (lines 62-73, essential commands)
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd gate` — multi-rig routing removed, `bead` gates now same-rig only, 2026-07-17 revision; see `async-coordination-gates.md` for the full removal note) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

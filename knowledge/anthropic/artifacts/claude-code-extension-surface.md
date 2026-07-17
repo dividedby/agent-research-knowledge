@@ -14,7 +14,14 @@ deterministic, in-context-vs-out, and manual-vs-automatic.
   from the code, standard conventions, frequently-changing info, and detailed API
   docs (link instead). It composes across scopes (home, project root, parents for
   monorepos, on-demand child dirs) and supports `@path` imports. `/init` analyzes
-  the codebase to scaffold a first draft you then refine.
+  the codebase to scaffold a first draft you then refine. Two symptoms diagnose a
+  broken file: if the agent keeps violating a rule you already wrote, the file is
+  too long and that rule is getting lost in the noise; if it asks a question
+  `CLAUDE.md` already answers, the phrasing is ambiguous. Treat it like code —
+  review it when things go wrong, prune it regularly, verify a change by observing
+  whether behavior actually shifts — and check it into git so it compounds in
+  value across the team. Emphasis markers (`IMPORTANT`, `YOU MUST`) measurably
+  improve adherence to a given rule.
 - **Hooks** — scripts run automatically at workflow points. Unlike `CLAUDE.md`
   instructions, hooks are **deterministic**: they guarantee the action happens
   (run eslint after every edit; block writes to a protected folder). Convert a
@@ -40,10 +47,15 @@ is not throwaway state; pass `--no-session-persistence` to opt out;
 parallel sessions via git worktrees (isolated checkouts so edits don't collide),
 the desktop app, web VMs, or coordinated agent teams; and **fan-out** across many
 files for large migrations (have the agent generate the file list, then distribute
-the work). Permission friction is reduced three ways — allowlists for known-safe
-tools, OS-level sandboxing, or auto mode (a classifier vets commands) — each
-trading safety against convenience. (Auto mode self-limits under `-p`: with no
-human to fall back to, it aborts if the classifier repeatedly blocks actions.)
+the work — restrict its tool access with `--allowedTools` since there's no human
+backstop once it's running unattended, and keep `--verbose` for developing the
+prompt but drop it once you're running at scale). Approval-per-action is safe by
+default but has its own failure mode — after the tenth prompt you're no longer
+reviewing, you're clicking through — so permission friction is reduced three ways:
+allowlists for known-safe tools, OS-level sandboxing, or auto mode (a classifier
+vets commands), each trading safety against convenience. (Auto mode self-limits
+under `-p`: with no human to fall back to, it aborts if the classifier repeatedly
+blocks actions.)
 
 ## Sources
 - `sources/anthropic/engineering/https-www.anthropic.com-engineering-claude-code-best-practic-4d249e2a.md` — https://www.anthropic.com/engineering/claude-code-best-practices

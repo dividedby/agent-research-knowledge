@@ -18,7 +18,19 @@ deliberate progression from manual to fully automated:
 | `timer` | A timeout elapses | auto: `now > created_at + timeout` |
 | `gh:run` | A GitHub Actions run completes successfully | poll `gh run view` |
 | `gh:pr` | A PR is merged | poll `gh pr view`, state=MERGED |
-| `bead` | A bead in another repo/rig closes | poll cross-rig bead status |
+| `bead` | A bead in the same rig closes | poll same-rig bead status |
+
+`bead` gates originally could target `<rig>:<bead-id>` to await a bead in a
+*different* repository, but multi-rig routing has since been removed from
+beads — that cross-rig form can no longer be evaluated. A gate created before
+the removal, or one mistakenly given a cross-rig `await_id`, simply stays
+pending forever until a human resolves it manually (`bd gate resolve`); it
+does not error at creation time. New `bead` gates must target an ID already in
+the local rig's database. The lesson: a coordination primitive that spans
+process boundaries (here, separate repos) is a bigger commitment than it looks
+— removing the routing layer it depended on silently strands any gate built on
+it, so the failure mode of a removed cross-cutting capability is "wedged
+forever," not "loud error."
 
 Gates are created automatically when a workflow-formula step declares a `gate`
 field, or ad-hoc via `bd gate create --blocks <id>`. The same command surface
@@ -64,3 +76,4 @@ closes."
 ## Sources
 
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (lines 610-807, `bd gate`; lines 948-1036, `bd merge-slot`) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd gate` — multi-rig routing removed, `bead` gates now same-rig only, historical cross-rig `await_id` stays pending, 2026-07-17 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

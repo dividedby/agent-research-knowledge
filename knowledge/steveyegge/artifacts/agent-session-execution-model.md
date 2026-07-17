@@ -126,7 +126,25 @@ claiming process itself is gone, not just its work state. Plain `bd unclaim`
 covers self-recovery; releasing a claim held by a *different* actor needs
 `--force`, scoped to admin/reaper use — so an orchestrator sweeping stuck
 claims across a fleet has an explicit, named override rather than being able
-to silently steal another agent's in-flight work.
+to silently steal another agent's in-flight work. Even with `--force`
+available, the documented etiquette is to coordinate with the holder first —
+an issue can look idle while its claim is still live — and to prefer letting
+lease expiry (`bd reclaim`) recover genuinely abandoned work over an admin
+force-release, since expiry is a mechanical, no-judgment-call signal that the
+holder is actually gone.
+
+### Claim Pools: Dispatching to a Pseudo-Assignee
+A dispatcher can pre-assign issues to a pool alias (e.g. `fable-crew`) instead
+of a specific agent, then list that alias in the `claim.pools` config
+(`bd config set claim.pools "fable-crew,night-crew"`). Any actor can then take
+a pool-assigned issue with `--claim` — the anti-steal protection that normally
+guards an issue assigned to a *real* actor (or to an alias not in the list) is
+deliberately waived for listed pool aliases, since the point of a pool is
+first-come-first-served pickup, not reservation. The pool identity doesn't
+travel with the claim, though: if a pool take's lease expires, `bd reclaim`
+returns the issue to the general unassigned pool, not back to the pool alias
+it was originally dispatched to — so a stalled pool item re-enters ordinary
+triage instead of silently re-queuing into the same pool unattended.
 
 ## Compound Workflow Traversal
 
@@ -200,3 +218,4 @@ of agents stays accountable, not anonymous.
 - `sources/steveyegge/beads/docs-QUICKSTART.md-ef67bedb.md` (`bd unclaim` — releasing a stuck claim after an agent crash, 2026-07-07 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/QUICKSTART.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd unclaim --force` — admin/reaper override to release another actor's claim, 2026-07-13 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd prime --no-memories`/`--memories-only` and the PRIME.md-override-keeps-memories clarification, 2026-07-14 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd unclaim` — coordinate-with-holder etiquette and prefer-lease-expiry guidance; `bd config` — `claim.pools` pool-aware claiming, anti-steal waiver, `bd reclaim` returns expired pool takes to the unassigned pool, 2026-07-17 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

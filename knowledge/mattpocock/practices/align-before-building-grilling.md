@@ -107,6 +107,30 @@ about a plan for when you don't yet need the full domain-model workflow — befo
 PRD, before implementing a feature, before committing to a data model or API shape,
 or whenever you want the agent to push back instead of agree.
 
+## grill-me vs batch-grill-me: one question or the whole frontier at once
+
+`batch-grill-me` keeps grilling's design-tree/interview shape but breaks its
+first rule on purpose: instead of one question at a time, it asks the whole
+**frontier** in a single round — every decision whose prerequisites are already
+settled — numbering each question with a recommended answer, then waits for the
+user's answers before recomputing the frontier for the next round. A question
+whose answer still depends on another open question stays out of the current
+round; it only enters once its prerequisite resolves and pushes the frontier
+outward. This borrows the frontier vocabulary wayfinder coined for planning
+across sessions (see `decision-mapping-fog-of-war`) and applies it *within* a
+single live interview: batching is safe precisely because "frontier" already
+means "the questions answerable right now without guessing," so a round never
+dumps a question the user isn't yet equipped to answer. The trade this makes
+explicit: `grill-me`'s one-at-a-time pacing protects interview depth (each
+question can build on the last answer); `batch-grill-me`'s round pacing trades
+that depth for throughput — useful when the tree is wide (many independent
+branches) rather than deep. It restates the fact/decision split as a non-blocking
+rule: a frontier question needing a fact is dispatched to a sub-agent rather
+than asked, and only the questions *downstream* of that lookup wait — the rest
+of the round's questions still go to the user immediately. As with grilling, the
+session isn't over until the user confirms a shared understanding; an empty
+frontier ends the interview, but it still doesn't authorize acting on it alone.
+
 ## Grilling is a reusable primitive — now literally extracted into one
 
 Grilling is not a one-off skill; it's a sub-routine other skills drop into.
@@ -156,3 +180,4 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067524579455578372-692b7037.md` — origin: https://x.com/mattpocockuk/status/2067524579455578372
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067536646459855215-ebf9adea.md` — origin: https://x.com/mattpocockuk/status/2067536646459855215
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067592457957650920-5ed8b7b0.md` — origin: https://x.com/mattpocockuk/status/2067592457957650920
+- `sources/mattpocock/skills-repo/skills-in-progress-batch-grill-me-SKILL.md-51100ca0.md` — origin: https://github.com/mattpocock/skills/blob/9603c1cc8118d08bc1b3bf34cf714f62178dea3b/skills/in-progress/batch-grill-me/SKILL.md

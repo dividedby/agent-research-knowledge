@@ -4,7 +4,9 @@ Letting an agent jump straight to coding produces code that solves the wrong
 problem. Separate exploration from execution: have the agent read files and
 answer questions (plan mode — no changes), then produce a detailed implementation
 plan you can edit directly, then switch to coding and let it implement against
-that plan. The plan is a cheap, reviewable artifact at the point where a wrong
+that plan, then — once it checks out — have the agent commit with a descriptive
+message and open the PR, closing the loop in the same session instead of a manual
+handoff. The plan is a cheap, reviewable artifact at the point where a wrong
 turn is still free to correct.
 
 Planning is overhead, so spend it where it pays. It earns its cost when the

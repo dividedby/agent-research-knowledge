@@ -109,6 +109,24 @@ driver interface was kept narrow enough on purpose that swapping the backend
 underneath the CLI layer didn't require touching beads' core logic, only
 widening the interface at the boundary.
 
+## Auto-Backup Defaults Track Deployment Topology, Not a Global Switch
+
+`bd backup` is Dolt-native database backup (distinct from `bd export`'s JSONL
+interop dump) — but whether it runs *automatically* isn't a single on/off
+default: when `backup.enabled` is unset, auto-backup turns on in Embedded Mode
+if a git remote exists, and stays off in Server Mode's shared-server variant.
+The reason is topology, not caution for its own sake: in shared-server mode
+many `bd` clients point at one Dolt server, so if each independently registered
+a backup remote under the same name pointing at its own local dir, every
+client's backup would try to full-sync the *entire shared* database — a
+self-amplifying storm, not redundancy. Backing up a shared server instead
+requires an explicit `bd backup` (or `backup.enabled=true` with coordinated
+destinations), and `bd config get backup.enabled` shows the effective value
+and which layer set it. The general lesson: a safe-looking default (auto-backup
+on) can become actively harmful once the same binary is deployed with multiple
+writers behind it — the default has to be a function of the deployment shape,
+not a fixed value baked into the feature.
+
 ## Upgrade Discipline: One Clone Owns the Migration
 
 Because the Dolt store is shared history, not just a binary each collaborator
@@ -138,3 +156,4 @@ new binary and run `bd bootstrap` — rather than independently invoking
 - `sources/steveyegge/beads/docs-ARCHITECTURE.md-fd45feca.md` (lines 8-95)
 - `sources/steveyegge/beads/README.md.md` (lines 110-177, storage modes; "Upgrading?" migration-ownership note, 2026-07-02 revision; non-migrator clones catch up via `bd bootstrap`, 2026-07-10 revision; "Prefer a different database?" storage-backends teaser, 2026-07-11 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/README.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (remote-migrate refusal gate, `--force`/`BD_ALLOW_REMOTE_MIGRATE`, 2026-07-08 revision; `--backend=<postgres|mysql|sqlite>` and connection flags, Dolt-only-versioned framing, `bd audit`/`bd history --events` two-tier history, 2026-07-11 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd backup` — auto-backup default conditioned on embedded-vs-shared-server topology, self-amplifying-storm rationale, 2026-07-16 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md

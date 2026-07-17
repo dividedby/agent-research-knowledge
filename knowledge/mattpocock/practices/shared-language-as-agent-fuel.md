@@ -65,6 +65,8 @@ Each revision tightens definitions rather than expanding them — "smart zone" b
 
 A later revision shows the sharpening move from a different angle: the 62 entries are now grouped into seven thematic sections — The Model; Sessions, Context Windows & Turns; Tools & Environment; Failure Modes; Handoffs; Memory and Steering; Patterns of Work — and many definitions are stated *relationally*, by their counterpart. Parametric knowledge is defined against contextual knowledge, stateless against stateful, input tokens against output tokens, and "attention relationship / budget / degradation" form a deliberate family. Precision comes not just from a tight one-liner per term but from contrast: a term is pinned by what it is *not* and by the neighbour it trades off against, which is exactly the discriminating signal an agent needs to keep two adjacent concepts from collapsing into one.
 
+The refinement isn't monotonically toward brevity, though. A 2026-07-17 revision (69 entries) reverses the tightening trend: most definitions roughly double in length, trading the one-liner for causal explanation and a concrete anchor — Model now names "Claude Opus 4.x" and "GPT-5.x" as examples, Harness contrasts "Claude Code" against "Claude.ai" running the same underlying model. The discipline was never really "stay short" — it's "say only what earns its place"; when a one-liner proved too thin to actually discriminate a term from its neighbours or explain why it matters, the fix was more words, not fewer.
+
 ## The glossary drives the questions
 
 In a real session the documented terms aren't passive — they generate the
