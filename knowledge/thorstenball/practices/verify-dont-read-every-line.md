@@ -30,7 +30,20 @@ correctly, you may need *less* feedback, not just faster feedback — "why put
 training wheels on someone who never wobbles?" The verification stays, but its
 shape keeps changing.
 
+When the field's "should you still read every line an agent writes" debate flared
+up again, Ball placed himself explicitly: he endorses Salvatore Sanfilippo's
+framing — "control the ideas, not the code" — as matching how he already works; he
+spot-checks and mostly doesn't care about individual functions unless blast radius
+is huge or the code is critical. He adds his own argument for *why* the
+review-every-line bar is wrong: nobody actually holds humans to it. In any
+engineering org with more than one team, you already don't review every line a
+colleague on another team writes — so demanding it of agent-written code is a
+standard nobody applies to human-written code. In his view, people who still insist
+on reading every line either haven't used a model released in 2026, or haven't
+worked inside a multi-team org where that standard was never real to begin with.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-71-9d01a5bf.md` — *Joy & Curiosity #71* intro: "do you have to know every line?"; testing in every sense; code becomes less important once tested against the mental model; blast radius (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-71)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-87-9c595687.md` — *Joy & Curiosity #87*: feedback loops are changing; "why put training wheels on someone who never wobbles?" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-87)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-92-1574a563.md` — *Joy & Curiosity #92* intro: endorsing antirez's "control the ideas, not the code"; the multi-team-org double-standard argument for why review-every-line is the wrong bar (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-92)

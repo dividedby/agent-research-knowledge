@@ -269,6 +269,59 @@ Prototype ticket resolves into exactly the kind of disposable artifact
 `prototype-answer-is-the-artifact` describes: a course-editing session produced
 "a modal I can open anywhere to edit the text of my courses with AI."
 
+## Escalate mid-session when scope turns out too big, not just up front
+
+The on-ramp isn't only a deliberate up-front choice for a known-large
+greenfield effort — it's also a recovery move for an effort that only reveals
+its true size once you're inside it. A field-tested flow: start narrow with
+`/grill-with-docs <issue>`; when the session reveals "oh damn, this is way
+bigger than I expected," escalate with `/wayfinder make a map of this` and
+continue from there. Matt calls the switch itself "a nice escape route" — the
+signal to reach for wayfinder isn't always visible before you start, so the
+on-ramp has to work as a mid-session bailout too, not only as a starting
+choice.
+
+## Wayfinder solves grilling's continuity problem
+
+A recurring complaint about the plain grilling chain: the full plan context
+gets lost the moment a discussion turns into an MVP, forcing you to
+reconstruct the original reasoning from scratch afterward. Matt's answer is
+that this is exactly wayfinder's job — "it saves state as it goes." The map,
+not any one session's context window, is the durable record of a discussion,
+so nothing needs reconstructing after the fact; a session can also query it
+read-only (`/wayfinder tell me about this map`) to reorient after time away,
+a third invocation alongside the create/work-through pair above for when you
+just need the current state, not to claim or resolve a ticket.
+
+## A Grilling ticket can hand off to a Prototype ticket mid-session
+
+Asked for a `/grill-me-with-prototypes` variant — spawn a subagent to
+generate a real prototype at any point mid-grilling-session, to react to a
+concrete artifact instead of talking through a decision — Matt's answer is
+that wayfinder already does this: a decision that turns out to need a
+concrete artifact rather than more conversation can hand off from a Grilling
+ticket to a Prototype ticket without leaving the wayfinder flow, the same
+"grill → prototype → grill again" escape hatch in `align-before-building-grilling`,
+now routed through the map's own ticket types rather than run ad hoc.
+
+## Community example: wayfinder as orchestrator of custom, third-party skills
+
+Will Ness (`@WillNessAI`) built a custom frontend-prototyping variant on top
+of `/grilling` and `/prototype` — build five deliberately different variants
+with a live picker, collect feedback each round, and walk down the design
+tree branch by branch toward the favorite — then wired it into his own
+wayfinder map: whenever a new map surfaces novel frontend work, a ticket is
+created that specifically references his custom skill. Matt amplified the
+idea and singled out the orchestration move on its own: "I love the idea of
+wayfinder as an orchestrator of other skills, banger." The point that
+generalizes: a map's ticket routing isn't limited to the four built-in types
+above — the `## Notes` "consult" mechanism lets a ticket hand off to *any*
+custom skill a user has authored, demonstrated end-to-end by a third party
+rather than only described in the skill's own docs. (The prototyping
+technique itself — five variants, live picker, branch-by-branch zoom — is
+Will Ness's, credited here as endorsement Matt amplified, not a workflow
+Matt runs himself.)
+
 ## Graduated: an on-ramp, not the new front door
 
 Wayfinder shipped in v1.1.0 out of `in-progress/` and into `engineering/` — a
@@ -318,3 +371,11 @@ starts, is itself a design decision distinct from shipping the skill at all.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072716979195326905-75e80d6b.md` — origin: https://x.com/mattpocockuk/status/2072716979195326905
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072743476765012080-b2165807.md` — origin: https://x.com/mattpocockuk/status/2072743476765012080
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072988266253406568-7bd4036c.md` — origin: https://x.com/mattpocockuk/status/2072988266253406568
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078031590337245518-56308d1a.md` — origin: https://x.com/mattpocockuk/status/2078031590337245518
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078034327451869655-ccc77198.md` — origin: https://x.com/mattpocockuk/status/2078034327451869655
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078199986139898173-90c578d5.md` — origin: https://x.com/mattpocockuk/status/2078199986139898173
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078046983151845751-a28acd25.md` — origin: https://x.com/mattpocockuk/status/2078046983151845751
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078521426827428295-325c3daa.md` — origin: https://x.com/mattpocockuk/status/2078521426827428295
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743181886591321-2286db03.md` — origin: https://x.com/mattpocockuk/status/2077743181886591321
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743410065113370-ee76984c.md` — origin: https://x.com/mattpocockuk/status/2077743410065113370
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743625639714850-589ee612.md` — origin: https://x.com/mattpocockuk/status/2077743625639714850 (repost/quote-tweet: technique credited to Will Ness/@WillNessAI, amplified by Matt)

@@ -131,6 +131,44 @@ of the round's questions still go to the user immediately. As with grilling, the
 session isn't over until the user confirms a shared understanding; an empty
 frontier ends the interview, but it still doesn't authorize acting on it alone.
 
+A field report quantifies the throughput trade: a plan that would have taken
+13 questions across 13 one-at-a-time rounds resolved in 3 rounds under
+`batch-grill-me`'s frontier batching — each round dumping every question
+whose prerequisites were already settled. The fact/decision split holds under
+batching too: a frontier question needing a lookup is scheduled as a
+background research sub-agent rather than asked, so the round doesn't stall
+waiting on it.
+
+## Update: grill-me and grill-with-docs adopt rounds too (v1.2)
+
+The rounds model didn't stay confined to `batch-grill-me`. In v1.2, the
+front-door skills themselves drop grilling's original "one question at a
+time" rule in favor of the same round-based batching: "faster, less token
+spend, but still keeps dependencies between questions clear." Dependency
+tracking survives the switch — asked directly whether a previously-answered
+question still shapes the next one, Matt confirms it does. Nor does the
+interaction mechanism change: `AskUserQuestion` still presents each round: the
+round model is a batching change to the interview's shape, not a new UI. This
+narrows the distinction the "grill-me vs batch-grill-me" section above draws —
+depth-preferring one-at-a-time pacing was, for a time, `grill-me`'s
+differentiator from the round-batching in-progress variant; as of v1.2 that
+differentiator is gone from the front door itself.
+
+## When not to automate the decision to prototype
+
+Fidelity misjudgment cuts the other way too: asked about a workflow where
+prototype tickets get auto-spawned as subtickets and sometimes over-trigger,
+Matt's answer draws a line around *who* decides to prototype, not just *when*
+prototyping is the right move. Recognizing you're at the wrong fidelity for a
+discussion is itself a hard call, and prototypes are expensive to build but
+critical when actually needed — so taking that decision out of the user's
+hands is "probably not the right call." He floats making it a human-checked
+step rather than something the map decides unilaterally. The fidelity split
+this doc already draws (grillable vs. needs-a-prototype) is a judgment call;
+this sharpens it further — whether to *trigger* a prototype automatically is
+itself a decision worth keeping in the human's hands, not just the underlying
+fidelity question.
+
 ## Grilling is a reusable primitive — now literally extracted into one
 
 Grilling is not a one-off skill; it's a sub-routine other skills drop into.
@@ -181,3 +219,9 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067536646459855215-ebf9adea.md` — origin: https://x.com/mattpocockuk/status/2067536646459855215
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067592457957650920-5ed8b7b0.md` — origin: https://x.com/mattpocockuk/status/2067592457957650920
 - `sources/mattpocock/skills-repo/skills-in-progress-batch-grill-me-SKILL.md-51100ca0.md` — origin: https://github.com/mattpocock/skills/blob/9603c1cc8118d08bc1b3bf34cf714f62178dea3b/skills/in-progress/batch-grill-me/SKILL.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077715572788224003-a371807c.md` — origin: https://x.com/mattpocockuk/status/2077715572788224003
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077720474344174039-798b5e1c.md` — origin: https://x.com/mattpocockuk/status/2077720474344174039
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078077849785815465-ef541a6b.md` — origin: https://x.com/mattpocockuk/status/2078077849785815465
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078080679070339222-b2fe8d2d.md` — origin: https://x.com/mattpocockuk/status/2078080679070339222
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078812658141180341-28ab1112.md` — origin: https://x.com/mattpocockuk/status/2078812658141180341
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078052653993447522-9db27eb3.md` — origin: https://x.com/mattpocockuk/status/2078052653993447522

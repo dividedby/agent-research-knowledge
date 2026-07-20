@@ -17,8 +17,22 @@ a capability update, not a depth recommendation: nested subagents are now a tool
 worth reaching for, with the manager-vs-worker framing as the test for when an
 extra layer earns its keep.
 
+## The dictionary still states the default as one level deep
+
+Matt's own AI Coding Dictionary defines Subagent plainly: "an agent spawned by
+another agent via a tool call. Runs in its own session, reports a single tool
+result. Cannot spawn further subagents." That's a live tension with the
+capability update above, not a contradiction to resolve away — the dictionary
+names the *default* harness behavior (most harnesses stop nesting at one level,
+which is why watching one recurse further reads as remarkable), while the
+Twitter thread is Matt reporting a specific, capable harness clearing that
+default. Read the two together: assume one level of subagent nesting unless
+you've verified your harness supports more, and treat deeper nesting as an
+opt-in capability to confirm, not a baseline to build on.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065372560578003013-2736f0c6.md` — origin: https://x.com/mattpocockuk/status/2065372560578003013
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065374016328675609-b01859b6.md` — origin: https://x.com/mattpocockuk/status/2065374016328675609
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065376397862818212-a4512f4b.md` — origin: https://x.com/mattpocockuk/status/2065376397862818212
+- `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary

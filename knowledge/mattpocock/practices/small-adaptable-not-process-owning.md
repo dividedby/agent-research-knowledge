@@ -44,6 +44,20 @@ This philosophy explains several recurring shapes in the repo:
 The throughline: the skills supply discipline and leave judgement — and the
 steering wheel — with the human.
 
+## Named directly: "Superpowers gives the agent superpowers. My skills give you superpowers"
+
+Matt draws the same control-vs-autonomy line against a specific rival skill
+set, not just the process-owning frameworks above: "My skills vs superpowers:
+Superpowers gives the agent superpowers. My skills give you superpowers."
+Pressed on why he prefers his own shape, the reason restates the control
+throughline in resource terms — "I prefer mine because I prefer to be in
+control, and lower the load on the agents' context." He's explicit this is a
+taste call, not a correctness one: "superpowers is an extremely useful skill
+set. It's just not for me." Naming the comparison as taste rather than
+defect keeps it honest — the objection isn't that Superpowers is worse, it's
+that it optimizes for agent autonomy where Matt optimizes for user control
+and a light, human-legible context footprint.
+
 ## The skills are stages of one pipeline, not a framework
 
 Matt is explicit that this composes into a repeatable seven-phase flow — idea →
@@ -68,3 +82,6 @@ and then removed, because kept too long they go stale and steer the agent wrong
 - `sources/mattpocock/aihero/https-www.aihero.dev-my-7-phases-of-ai-development-8d95cfb2.md` — origin: https://www.aihero.dev/my-7-phases-of-ai-development
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065422956298207639-2adff3b7.md` — origin: https://x.com/mattpocockuk/status/2065422956298207639
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065421652532302220-2e43149e.md` — origin: https://x.com/mattpocockuk/status/2065421652532302220
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789613691699629-e340ff06.md` — origin: https://x.com/mattpocockuk/status/2077789613691699629
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789806831030741-16eb2d2a.md` — origin: https://x.com/mattpocockuk/status/2077789806831030741
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789970509463657-20b91d5b.md` — origin: https://x.com/mattpocockuk/status/2077789970509463657

@@ -14,7 +14,11 @@ deterministic, in-context-vs-out, and manual-vs-automatic.
   from the code, standard conventions, frequently-changing info, and detailed API
   docs (link instead). It composes across scopes (home, project root, parents for
   monorepos, on-demand child dirs) and supports `@path` imports. `/init` analyzes
-  the codebase to scaffold a first draft you then refine. Two symptoms diagnose a
+  the codebase to scaffold a first draft you then refine. Verify what actually
+  loaded with `/context` rather than assuming it did — and since the whole file is
+  paid for on every turn, route anything only *sometimes* relevant (domain
+  knowledge, situational workflows) into a Skill instead, which loads on demand
+  rather than bloating every conversation. Two symptoms diagnose a
   broken file: if the agent keeps violating a rule you already wrote, the file is
   too long and that rule is getting lost in the noise; if it asks a question
   `CLAUDE.md` already answers, the phrasing is ambiguous. Treat it like code —
@@ -41,7 +45,11 @@ deterministic, in-context-vs-out, and manual-vs-automatic.
   `--help`. Plugins bundle skills/hooks/subagents/MCP into one installable unit.
 
 The harness also scales **horizontally** beyond one human/one conversation:
-non-interactive `claude -p` for CI/hooks/pipelines (with parseable JSON output)
+non-interactive `claude -p` for CI/hooks/pipelines, with a choice of output shape
+for the consuming script: plain text, a single `json` object carrying a `result`
+field (read it once the process exits), or `stream-json` — one JSON object per
+line, starting with an init event, for a caller that wants to consume progress
+as it happens rather than wait for the final object
 — the run still creates a resumable session by default, so a scripted `-p` call
 is not throwaway state; pass `--no-session-persistence` to opt out;
 parallel sessions via git worktrees (isolated checkouts so edits don't collide),

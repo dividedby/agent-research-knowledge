@@ -39,8 +39,20 @@ The recommended way to actually internalize this: throw problems of many sizes a
 types at the models, in many environments, with *open eyes* — you won't get a fair
 look if you don't push them hard in every direction.
 
+A further corollary Ball draws out explicitly: cheap code creates a category of
+**invisible software** — apps built entirely for yourself that never ship, because
+the cost of generalizing a personal tool (packaging it, documenting it, supporting
+it) now exceeds the cost of building it in the first place. He had Amp write him
+"many hundreds of lines" of a personal tool he has no plan to publish — not because
+it isn't useful, but because nobody will ever see that code unless he chooses to
+show it. And released software isn't safe from the same math either: if a small
+paid app took an hour or six to build, a hundred competitors can rebuild it in
+thirty minutes, so cloneability — not scarcity — sets the price, and prices for
+anything that easily replicable trend toward zero.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-72-67188f9a.md` — *Joy & Curiosity #72* intro: the disconnect between people who "get it" and those who don't; agent-vs-ChatGPT, frontier models, prompting, AGENTS.md, judging code by human standards, taking hands off the wheel (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-72)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-73-e7187f0c.md` — *Joy & Curiosity #73* intro: optimize for agents over humans even at the cost of developer experience (the UUIDs anecdote) (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-73)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-78-d865b504.md` — *Joy & Curiosity #78* intro: the rainwater-into-oil analogy; "all of it was built on the assumption that code is expensive" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-78)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-75-32551187.md` — *Joy & Curiosity #75* intro: "invisible software" — personal Amp-built tools too costly to generalize to ever release; cloneability crashing prices for small paid apps (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-75)

@@ -33,6 +33,16 @@ backstop for that easy-to-forget step, the same pattern as any invariant that
 can't be enforced by the folder structure alone: pair the manual obligation
 with a command that catches the human forgetting it.
 
+## The fork path stays maintainable: `npx skills update`
+
+Forking doesn't have to mean the copy quietly rots. `npx skills update` is
+the one command that pulls the fork path's copy back to current — including
+removing skills that have since been retired — so "customize and diverge"
+still has a maintained path back to what's current, invoked on demand rather
+than automatically. That's the deliberate difference from the plugin path:
+subscribing gets the pull done *for* you on every release; forking gets the
+same pull available *to* you, at a time of your choosing.
+
 ## The plugin path is Claude-only for now, by explicit deferral
 
 Codex and other Agent-Skills-standard harnesses are already served today —
@@ -49,3 +59,5 @@ install path put the skills there.
 - `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/66898f60e8c744e269f8ce06c2b2b99ce7660d5f/AGENTS.md
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/CLAUDE.md (revision 2026-07-14, origin https://github.com/mattpocock/skills/blob/254f520acbddff5cbf5d1203015c553f6f0ac1ca/CLAUDE.md)
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md (revision 2026-07-14, origin https://github.com/mattpocock/skills/blob/8fcce1075ee773494f6d08ac88b82709107cb15a/README.md — the "Install as a Claude Code plugin" section)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078096614044946565-687d88b7.md` — origin: https://x.com/mattpocockuk/status/2078096614044946565
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078234654293774540-9b392145.md` — origin: https://x.com/mattpocockuk/status/2078234654293774540
