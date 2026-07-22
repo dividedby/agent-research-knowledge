@@ -63,6 +63,22 @@ shared understanding is reached — the same alignment gate
 `align-before-building-grilling` describes, now named as one step in a longer,
 explicitly-ordered pipeline rather than left as an implicit hand-off.
 
+## A hand-off pointer is dead weight once the sequence becomes structural
+
+A skill's closing "now call skill X" instruction earns its place only as long
+as the pipeline order isn't yet established elsewhere; once it is, restating it
+burns instruction budget for no new information. `to-tickets` originally closed
+by pointing at the next skill explicitly — *"Work the frontier one ticket at a
+time with `/implement`, clearing context between tickets"* — naming both which
+skill runs next and how (per-ticket, fresh context). A later revision drops
+that closing sentence, keeping only the frontier-selection rule ("any ticket
+whose blockers are all done"). By then the pipeline was already a fixed,
+separately-documented sequence (`/wayfinder → /to-spec → /to-tickets →
+/implement → /code-review`, above), so the in-skill pointer to `/implement` had
+become pure duplication — the same instruction-economy discipline this repo
+applies to root config files (see `claude-md-is-an-instruction-budget`), here
+aimed at trimming one individual skill's own closing line.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/triage/SKILL.md
@@ -75,3 +91,4 @@ explicitly-ordered pipeline rather than left as an implicit hand-off.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072625252144730215-a927e57f.md` — origin: https://x.com/mattpocockuk/status/2072625252144730215
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072629917779439875-dff4a19f.md` — origin: https://x.com/mattpocockuk/status/2072629917779439875
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072638587267387803-25530ac9.md` — origin: https://x.com/mattpocockuk/status/2072638587267387803
+- `sources/mattpocock/skills-repo/skills-engineering-to-tickets-SKILL.md-d6e52aba.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/skills/engineering/to-tickets/SKILL.md (revision 2026-07-22, origin https://github.com/mattpocock/skills/blob/57a5add86bfc5e9058dd94c512c4012b3c014336 — drops the closing "one ticket at a time with `/implement`, clearing context between tickets" pointer, leaving only the frontier-selection rule)

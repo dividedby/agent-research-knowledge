@@ -100,6 +100,39 @@ point: even someone who treats context budgeting as a first-class concern doesn'
 assume a pinned number stays right forever, and reverts one deliberate default
 back to another rather than leaving a stale override in place.
 
+## The line moved to 150K, it's vibes not measurement, and phases can still blow it
+
+Matt has since revised the number he gives out loud: rather than the ~120k he
+floated earlier, his rule of thumb is "you might be better off sticking to only
+the first 150K tokens" even against a 1M-token window — a 1M context is "a nice
+gimmick" precisely because more available headroom isn't more usable headroom.
+Pressed on why the number moved from 100k to 150k, and whether there's a metric
+behind it, he's blunt: "No, just personal vibes." The graph he uses to illustrate
+smart-zone decay is "illustrative, not based on real data" — the shape (quality
+holds, then degrades) is the claim; the exact curve isn't. That the boundary is
+vibes-calibrated rather than measured doesn't weaken the underlying constraint
+(see "The dumb zone is inevitable" above) — it just means the specific number is
+a working heuristic to revise on feel, not a benchmarked threshold to defend.
+
+The 150k line is also not a hard per-session ceiling: "some phases spiral out of
+control and end up needing 300K tokens." The target is to compact **after a
+milestone**, not mid-phase — "autocompacting can be disastrous when it happens
+mid-phase," so the trigger is finishing a coherent unit of work, wherever that
+lands token-wise, not a fixed number hit blindly.
+
+## The dumb zone isn't always wrong to use
+
+Working in the dumb zone costs more than the smart zone even beyond the quality
+hit — "cached input tokens still cost money," so re-exploring a codebase from a
+dumb-zone state burns real spend on top of worse decisions; the fix, when you
+need to keep exploring, is to compact first rather than push forward staler.
+But Matt doesn't treat the dumb zone as universally off-limits: for tail-end,
+low-difficulty work he's "not scared of the dumb zone, it's fine sometimes" —
+consistent with the smart/dumb split being about *matching* effort to task
+difficulty (see `evaluating-models-past-tier-labels`), not avoiding the dumb zone
+categorically. The discipline is knowing which kind of work you're doing when you
+let context run past the line, not refusing to ever cross it.
+
 ## Make the budget visible
 
 Because the smart zone is invisible by default, Matt surfaces it: his Claude Code
@@ -126,3 +159,10 @@ check it.
 - `sources/mattpocock/course-video-manager/.claude-settings.json-32bd95e6.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.claude/settings.json
 - `sources/mattpocock/skills-repo/skills-engineering-research-SKILL.md-3753ea09.md` — origin: https://github.com/mattpocock/skills/blob/efa058a349f5ce98b6115bf8b4e0d0ef9c310e0d/skills/engineering/research/SKILL.md
 - `sources/mattpocock/skills-repo/docs-engineering-research.md-ac883965.md` — origin: https://github.com/mattpocock/skills/blob/efa058a349f5ce98b6115bf8b4e0d0ef9c310e0d/docs/engineering/research.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079150593524772864-a1f183e8.md` — origin: https://x.com/mattpocockuk/status/2079150593524772864
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079151499393876479-209f0f4a.md` — origin: https://x.com/mattpocockuk/status/2079151499393876479
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079152236035281316-a926dd98.md` — origin: https://x.com/mattpocockuk/status/2079152236035281316
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079161882154348637-3465d019.md` — origin: https://x.com/mattpocockuk/status/2079161882154348637
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079167754830012452-368a6c39.md` — origin: https://x.com/mattpocockuk/status/2079167754830012452
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079175586971304297-c653c35e.md` — origin: https://x.com/mattpocockuk/status/2079175586971304297
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079317125638783180-f0e3ded2.md` — origin: https://x.com/mattpocockuk/status/2079317125638783180

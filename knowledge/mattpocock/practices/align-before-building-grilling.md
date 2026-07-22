@@ -49,7 +49,10 @@ talk can't resolve a decision, stop talking and make something to talk about.
 Grilling is also a *conversation, not an
 interview*: stay active and steer, or the agent explodes the scope with hundreds
 of low-fidelity questions; but don't over-grill low-fidelity detail when you
-should be writing code.
+should be writing code. Recording the failure at a concrete scale: filming a
+`/grill-me` course lesson, the skill fired **46 questions** at him in one
+session — his own reaction, "Dude, chill, you're scaring the noobs," is the
+runaway-interview failure mode caught live, not just described in the abstract.
 
 ## Under-specification is the disease; a shared concept, not a PRD, is the cure
 
@@ -223,5 +226,6 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077720474344174039-798b5e1c.md` — origin: https://x.com/mattpocockuk/status/2077720474344174039
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078077849785815465-ef541a6b.md` — origin: https://x.com/mattpocockuk/status/2078077849785815465
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078080679070339222-b2fe8d2d.md` — origin: https://x.com/mattpocockuk/status/2078080679070339222
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079534578285371544-7a3fa317.md` — origin: https://x.com/mattpocockuk/status/2079534578285371544
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078812658141180341-28ab1112.md` — origin: https://x.com/mattpocockuk/status/2078812658141180341
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078052653993447522-9db27eb3.md` — origin: https://x.com/mattpocockuk/status/2078052653993447522

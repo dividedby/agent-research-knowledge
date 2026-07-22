@@ -26,6 +26,23 @@ docs are all *AX investments*. Where DX and AX diverge — an agent doesn't need
 pretty error message but does need a machine-checkable one — design for the agent
 explicitly rather than assuming good human ergonomics transfer.
 
+## Codebase size and required context window are a false dichotomy
+
+Asked whether a larger codebase forces a larger working context window, Matt
+rejects the premise outright: **"larger code bases don't require more context
+window. You just need to structure your codebase in a way that the agent can
+navigate it easily."** Size and navigability are independent variables that get
+conflated because an *unstructured* large codebase does force the agent to hold
+more in its head at once — but the fix is Architecture, not a bigger window.
+The concrete levers he names are the AX architecture lever made specific:
+**smaller files**, a **more descriptive file system**, and **better context
+pointers in `AGENTS.md` files** — each one lets the agent find and load only the
+relevant slice on demand instead of front-loading the whole codebase's shape into
+context. Treating "big codebase, therefore big context budget" as inevitable
+skips the actual fix and pays for it in tokens and smart-zone budget instead (see
+`keep-the-agent-in-the-smart-zone`).
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079154519556944281-3a12ac20.md` — origin: https://x.com/mattpocockuk/status/2079154519556944281

@@ -59,7 +59,25 @@ property tests) that turn a not-yet-trivial task into a trivial one. This is the
 bridge from the hypothesis to his advocacy for specification (see
 `specification-is-the-future-of-programming.md`).
 
+## Corollary: shrink the domain, not just the oracle
+
+There's a second lever besides building an oracle: shrinking the amount of
+long-horizon, low-feedback territory the surrounding system hands the agent in
+the first place. Brooker's example is database operations — multi-region
+failover, capacity, consistency incidents — the kind of task with delayed,
+ambiguous feedback the hypothesis predicts is hard, distinct from the
+building/coding work agents are already good at ("agents are great at
+building, but not (yet?) so great at long-horizon tasks like database
+operations"). A well-disaggregated, operationally-simple piece of
+infrastructure doesn't make the agent smarter at ops; it removes the ops task
+from the agent's plate. So the lever isn't only "build the oracle so the agent
+can get feedback" — it's also "choose or design infrastructure that minimizes
+the surface of hard-for-agents, low-feedback work a builder is exposed to,"
+which is why he expects the benefit of simple, self-operating infrastructure to
+be "magnified for agentic builders."
+
 ## Sources
 
 - `sources/marcbrooker/blog/http-brooker.co.za-blog-2026-05-20-hypothesis.html-eb755504.md` — origin: https://brooker.co.za/blog/2026/05/20/hypothesis.html
 - `sources/marcbrooker/blog/http-brooker.co.za-blog-2026-05-18-whats-easy-whats-hard.htm-6446687f.md` — origin: https://brooker.co.za/blog/2026/05/18/whats-easy-whats-hard.html
+- `sources/marcbrooker/blog/http-brooker.co.za-blog-2026-07-19-dsql-paper.html-0230c0f2.md` — origin: http://brooker.co.za/blog/2026/07/19/dsql-paper.html
