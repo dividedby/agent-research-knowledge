@@ -53,6 +53,12 @@ should be writing code. Recording the failure at a concrete scale: filming a
 `/grill-me` course lesson, the skill fired **46 questions** at him in one
 session — his own reaction, "Dude, chill, you're scaring the noobs," is the
 runaway-interview failure mode caught live, not just described in the abstract.
+Pressed later on whether 46 questions was something to brag about, Matt
+qualifies the scale: they landed "over four rounds," which softens the number
+once you read it against the round-batching model (see "Update: grill-me and
+grill-with-docs adopt rounds too (v1.2)" below) — 46 questions sounds like a
+runaway interview one-at-a-time, but is a more modest ~11-per-round average
+under batching.
 
 ## Under-specification is the disease; a shared concept, not a PRD, is the cure
 
@@ -229,3 +235,4 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079534578285371544-7a3fa317.md` — origin: https://x.com/mattpocockuk/status/2079534578285371544
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078812658141180341-28ab1112.md` — origin: https://x.com/mattpocockuk/status/2078812658141180341
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078052653993447522-9db27eb3.md` — origin: https://x.com/mattpocockuk/status/2078052653993447522
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079845268707516835-ae522041.md` — origin: https://x.com/mattpocockuk/status/2079845268707516835

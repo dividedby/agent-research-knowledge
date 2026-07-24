@@ -12,3 +12,4 @@ file; this index lists them, one line each.
 (see `docs/subjects.md`); synthesize only the coding-agent material.
 
 - [agent-instruction-files](./agent-instruction-files.md) — the markdown driver file that runs an unattended agent: a rules block + a self-maintained WIP log re-read after every context compaction.
+- [strong-examples-as-guardrails-for-extrapolation](./strong-examples-as-guardrails-for-extrapolation.md) — two well-built examples of a pattern let a coding agent infer and implement a third almost automatically; exemplar quality beats defensive full coverage.

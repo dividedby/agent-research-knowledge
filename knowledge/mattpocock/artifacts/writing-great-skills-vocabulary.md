@@ -166,6 +166,20 @@ place. (He amplified @ankrgyl's "hand-writing prompts is dead; prompt engineerin
 is not" while disagreeing with the headline — the endorsement is of prompt
 engineering's survival, not of abandoning the handwritten word.)
 
+## The skill's own domain may widen past skills specifically
+
+Matt has floated broadening `writing-great-skills` beyond skill authoring to
+cover **any writing aimed at an agent** — docs, `AGENTS.md`, and skills alike,
+under a candidate name like `/writing-for-agents`. The reasoning behind the
+widen: the levers this doc collects (predictability, the two loads, the
+information hierarchy, no-ops, negation) aren't actually skill-specific — they
+apply to any text a human writes for an agent to read, and a `SKILL.md` is
+just one instance of that genre. The rename is still undecided ("no idea what
+to name it" at time of writing), but the scoping question itself is the
+transferable point: a skill's charter can outgrow its original artifact type
+once its underlying levers turn out to be genre-general rather than
+format-specific.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-SKILL.md-b96ebc68.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/SKILL.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/ce24f42a242b70cbdda304f3422545a3e452285a — the Negation failure mode)
@@ -181,3 +195,4 @@ engineering's survival, not of abandoning the handwritten word.)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069463356700770816-a53b09ac.md` — origin: https://x.com/mattpocockuk/status/2069463356700770816
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071935238666617154-12915eea.md` — origin: https://x.com/mattpocockuk/status/2071935238666617154
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072774233453638136-c9e523de.md` — origin: https://x.com/mattpocockuk/status/2072774233453638136
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080279667479585173-5e5fa538.md` — origin: https://x.com/mattpocockuk/status/2080279667479585173

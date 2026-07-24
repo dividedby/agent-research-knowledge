@@ -16,3 +16,4 @@ one line each.
 - [Secure code generation principles](secure-code-generation-principles.md) — Building security into AI-generated codebases from first principles rather than relying on tool-based restrictions
 - [Hyper-personalized software and embedded factories](hyper-personalized-software-and-embedded-factories.md) — Applications as IDEs enabling real-time modification; return to rapid application development paradigm enhanced by AI
 - [Learn agents like a musical instrument](learn-agents-like-an-instrument.md) — Build competence through hands-on play and intuition for the failure surface, not manual-reading; the concrete habit behind the curiosity moat
+- [Verification as the new bottleneck](verification-as-the-new-bottleneck.md) — As code generation becomes near-free, formal verification and deterministic system testing (plus adversarial LLM review and pre-commit analyzers) become the discipline that makes reliable software achievable at scale

@@ -115,6 +115,21 @@ the truth right now" — it's an account of a past state, not a stale mirror of 
 present one. (One subtlety: raw model reasoning is rarely a usable source on its
 own — you cite the code or transcript it produced, the primary, not the reasoning.)
 
+## Starting context as "coordinates" — why the first-loaded material matters most
+
+Endorsing a framing another practitioner proposed, Matt names what a session's
+initial context actually buys you: "'Where you are in the environment' is
+good — means the agent doesn't need to re-explore the landscape." Treating the
+first-loaded material as **coordinates** rather than just "some context"
+sharpens why a handoff document, a primed plan-mode session, or a loaded
+`CONTEXT.md` all pay off the same way — they place the agent at a known point
+in the codebase's landscape instead of leaving it to reconstruct that point
+through exploration it's already paid for once. It's the practical stakes
+behind "it really matters what gets loaded into the beginning of the context
+window," restated as a reason rather than only an assertion: good starting
+coordinates are what a handoff, a primed plan, or a glossary read are all
+buying, whichever mechanism supplies them.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-handoff-2afa3dc0.md` — origin: https://www.aihero.dev/skills/handoff
@@ -132,3 +147,4 @@ own — you cite the code or transcript it produced, the primary, not the reason
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072961646079729882-b157e148.md` — origin: https://x.com/mattpocockuk/status/2072961646079729882
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072974002235011469-b4c2fbc4.md` — origin: https://x.com/mattpocockuk/status/2072974002235011469
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072985928990138389-f6f53241.md` — origin: https://x.com/mattpocockuk/status/2072985928990138389
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080286071741460739-ce766514.md` — origin: https://x.com/mattpocockuk/status/2080286071741460739

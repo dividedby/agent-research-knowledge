@@ -168,6 +168,15 @@ default output is decisions, not deliverables — the line that keeps
 wayfinder's job distinct from `to-issues`'/`implement`'s further down the
 chain.
 
+Users have converged on wayfinder both ways in practice — some run it purely
+as a planner, finishing the map and then handing off to `/to-spec`; others use
+it as the implementer itself, since a well-built map's tickets and its
+`map.md` already read like a spec, and its own field reports confirm both
+shapes work. Matt confirms which side of that split he personally lands on:
+"I use it as a planner" — consistent with "Plan, don't do" above, even though
+the override exists precisely because he's observed other users successfully
+doing the opposite.
+
 ## Tickets are tracker issues, blocked by the tracker's own dependency graph
 
 The repo's own `CONTEXT.md` glossary now names the ticket type formally as a
@@ -379,3 +388,4 @@ starts, is itself a design decision distinct from shipping the skill at all.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743181886591321-2286db03.md` — origin: https://x.com/mattpocockuk/status/2077743181886591321
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743410065113370-ee76984c.md` — origin: https://x.com/mattpocockuk/status/2077743410065113370
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743625639714850-589ee612.md` — origin: https://x.com/mattpocockuk/status/2077743625639714850 (repost/quote-tweet: technique credited to Will Ness/@WillNessAI, amplified by Matt)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079942782295093317-de469cf9.md` — origin: https://x.com/mattpocockuk/status/2079942782295093317

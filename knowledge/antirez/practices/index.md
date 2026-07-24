@@ -23,3 +23,4 @@ inert, captured-but-unsynthesized noise.
 - [agents-build-organically-not-by-uncompressing](./agents-build-organically-not-by-uncompressing.md) — agents assemble new code incrementally; the "uncompressed copy" fear is false, and steering changes everything.
 - [control-the-ideas-not-the-code](./control-the-ideas-not-the-code.md) — once you trust the model, line-by-line review is often pointless; spend the freed time on QA, next-ideas, and a DESIGN.md instead.
 - [junior-programmers-need-fundamentals](./junior-programmers-need-fundamentals.md) — the "control the ideas" advice is for people who already have a mental model; juniors should build small systems from scratch, not review LLM output.
+- [repos-as-templates-not-finished-products](./repos-as-templates-not-finished-products.md) — since your users have coding agents too, ship templates and live experimental branches, not just one polished release; write docs for agent readers as well as humans.
