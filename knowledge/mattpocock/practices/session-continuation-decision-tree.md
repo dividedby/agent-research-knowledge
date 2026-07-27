@@ -33,6 +33,17 @@ smart-zone number, Matt pairs it with "you could compact early and probably
 should — though only when you've reached a phase boundary." Compacting early
 is fine; compacting mid-phase isn't.
 
+This is also his objection to the harness's context-load-triggered autocompact as
+a substitute for the deliberate call: asked whether setting the compaction
+threshold in Claude Code settings solves the problem, he judges that option
+"really dangerous" — he's tried it, but "mid-task compacts are brutal," and
+setting a token threshold doesn't fix the underlying issue because "it's still
+random when it hits." A threshold fires wherever the token count happens to
+land, with no notion of whether that point is a phase boundary or the middle of
+one — so it trades a known failure mode (forgetting to compact) for an
+unpredictable one (compacting at the worst possible moment). The fix is still the
+deliberate, phase-boundary-aware call above, not a fire-and-forget setting.
+
 ## `/clear` vs `/compact`: different mechanisms, not synonyms
 
 The two are often conflated but do different things:
@@ -48,6 +59,18 @@ The two are often conflated but do different things:
   is still relevant: you get continuity without keeping the actual accumulated
   tokens (see `context-compression-and-handoff-mechanics` for the primary/
   secondary-source trade-off this involves).
+
+## Say what comes next, not just "compact"
+
+Asked whether he uses Claude Code's built-in `/compact` bare or pairs it with his
+own instructions, Matt's answer is the latter: he passes "instructions saying
+what I'm going to do next" alongside the compact call. A bare compact only tells
+the summariser to condense what already happened; naming the *next* step steers
+the summary itself toward what the following phase will actually need, rather
+than leaving the compaction to guess which details of the finished phase are
+worth keeping. It's a small habit with the same shape as the rest of this
+tree: compacting isn't a single mechanical button-press, it's a moment for a
+deliberate, human-supplied signal about where the session is headed next.
 
 ## Exceptions and adjacent decisions
 
@@ -85,3 +108,6 @@ The two are often conflated but do different things:
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080191683279360079-346ffcca.md` — origin: https://x.com/mattpocockuk/status/2080191683279360079
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080274002967204310-64aada10.md` — origin: https://x.com/mattpocockuk/status/2080274002967204310
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080274176359768263-455a24e2.md` — origin: https://x.com/mattpocockuk/status/2080274176359768263
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080549567288795412-6ac7ed7d.md` — origin: https://x.com/mattpocockuk/status/2080549567288795412
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080678109804741043-8b6a6f64.md` — origin: https://x.com/mattpocockuk/status/2080678109804741043
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080678376562475416-061956d5.md` — origin: https://x.com/mattpocockuk/status/2080678376562475416

@@ -16,6 +16,7 @@ so most captures are pre-2024 Redis/C/systems posts that are *out of scope* — 
 inert, captured-but-unsynthesized noise.
 
 - [automatic-programming](./automatic-programming.md) — the named method: AI-assisted production where the human owns the vision; code is automatic, vision is not.
+- [become-the-orchestrator-not-the-implementer](./become-the-orchestrator-not-the-implementer.md) — the Linus-Torvalds analogy: lead parallel agents like subsystem maintainers by directing, not reviewing every line — a learned skill, not a free lunch.
 - [large-context-and-braindump](./large-context-and-braindump.md) — steer by loading a big context plus a braindump of bad/good solutions and goals; "think what a human would need."
 - [spec-first-development](./spec-first-development.md) — hand-write the design spec first; it's what you steer with and what makes line-by-line review possible.
 - [verification-loop-and-the-human-edge](./verification-loop-and-the-human-edge.md) — only use the model where you can verify it; the human supplies the out-of-the-box creative leap.

@@ -43,6 +43,18 @@ finds the `/goal` command "incredibly dumb-zone hungry… it needs tuning to com
 earlier for it to be of any use." A feature that fills context fast is a quality
 *and* cost regression until it learns to compact sooner.
 
+The fix he wants for `/goal` names the missing feature precisely: let him pass in
+a batch of tasks, have the agent `/compact` *between* tasks, and keep going until
+each one is done — "that would fix all my issues with `/goal` - too much time
+spent in the dumb zone." The gap isn't the model, it's that the command currently
+runs one long undifferentiated session instead of chunking itself into
+compact-sized units of work. A related shape he's open to for the same reason:
+a top-level `/goal` that orchestrates several `/goal`'ed subagents rather than
+doing the work directly — "this might end up being fine" — because nesting the
+work into subagent sessions means fewer total compactions bleed into the parent's
+context, the same fresh-context-per-unit logic that makes the Ralph bash loop work
+above.
+
 ## Move context deliberately: compact vs handoff
 
 When a single thread must run long, `/compact` summarises the conversation to drop
@@ -142,6 +154,14 @@ hand off ("around 60% is probably where I want to stop"). The point generalises:
 keep the load-bearing signal in front of you rather than spending an agent turn to
 check it.
 
+The status line only gets him a *visual* readout, though, and he agrees the next
+gap is a *programmatic* one: "the missing piece is an easy way to get the current
+token usage programmatically so we can build on top of it and decide for
+ourselves when it's time to compact/handoff" — turning "check the percentage,
+then decide" into logic that can act on the number directly, rather than a human
+reading a UI and deciding by feel every time. Or, more tersely: "a bowl is most
+useful when it is empty" — same for your context window.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-why-the-anthropic-ralph-plugin-sucks-60344c9c.md` — origin: https://www.aihero.dev/why-the-anthropic-ralph-plugin-sucks
@@ -166,3 +186,7 @@ check it.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079167754830012452-368a6c39.md` — origin: https://x.com/mattpocockuk/status/2079167754830012452
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079175586971304297-c653c35e.md` — origin: https://x.com/mattpocockuk/status/2079175586971304297
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079317125638783180-f0e3ded2.md` — origin: https://x.com/mattpocockuk/status/2079317125638783180
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080675075397685300-2202f7f0.md` — origin: https://x.com/mattpocockuk/status/2080675075397685300
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080678327086465028-b2bc1dc9.md` — origin: https://x.com/mattpocockuk/status/2080678327086465028
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080913962137215470-0d85cb36.md` — origin: https://x.com/mattpocockuk/status/2080913962137215470
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081105631591698694-01d43731.md` — origin: https://x.com/mattpocockuk/status/2081105631591698694

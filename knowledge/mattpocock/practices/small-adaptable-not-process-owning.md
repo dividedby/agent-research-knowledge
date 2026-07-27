@@ -17,7 +17,13 @@ This philosophy explains several recurring shapes in the repo:
   *run it unchanged on the other harness*. "I would not do that — instead, I'd run
   the skill as is on Codex." The markdown is the artifact; a capable harness
   should execute it directly rather than have an agent re-author a variant of
-  unknown fidelity.
+  unknown fidelity. The same posture is what makes a model *release* a non-event
+  rather than a scramble to re-tune everything: reacting to Opus 5, Matt's only
+  take was "if you've designed your harness/environment well, and not
+  over-optimised around a specific model, today should feel like any other
+  day... with a slightly lower failure rate." A harness built to model-specific
+  quirks has to be re-tuned every release; one built model-agnostic just gets a
+  free quality bump.
 - **Checkpoints over autonomy.** The heavy skills keep handing control back:
   `grill` waits for an answer per question; `to-issues` and `to-prd` get user
   approval on the module/slice breakdown before publishing; `diagnose` shows its
@@ -85,3 +91,4 @@ and then removed, because kept too long they go stale and steer the agent wrong
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789613691699629-e340ff06.md` — origin: https://x.com/mattpocockuk/status/2077789613691699629
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789806831030741-16eb2d2a.md` — origin: https://x.com/mattpocockuk/status/2077789806831030741
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789970509463657-20b91d5b.md` — origin: https://x.com/mattpocockuk/status/2077789970509463657
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080748648120439249-8110d7c3.md` — origin: https://x.com/mattpocockuk/status/2080748648120439249

@@ -37,6 +37,21 @@ GitHub issues specifically: there, clearing or starting a new thread before
 benefits from a clean context rather than one still carrying the spec-writing
 conversation.
 
+## `/to-spec` doesn't interview — grilling already happened upstream
+
+Its predecessor `/to-prd` carried an interview step it would run if no prior
+grilling had happened. The renamed `/to-spec` drops that step deliberately:
+"Crucially, it does *not* interview you. The grilling already happened, so
+`/to-spec` just synthesizes what's already in the conversation." Its workflow
+shrank to three steps — explore the repo to ground the spec in the current
+code, sketch the seams the feature will be tested at and check they match
+expectations, then write the spec from a template — because reaching alignment
+is now `grill-with-docs`'s or `wayfinder`'s job (see
+`align-before-building-grilling`), not something the spec-writer re-does as a
+fallback. Splitting "reach alignment" from "write it down" keeps each skill
+doing exactly one job instead of one skill quietly absorbing the other's work
+whenever the human skipped a step.
+
 ## Why this pairs naturally with AFK agents
 
 The `/to-spec` / `/to-tickets` split "plugs into an AFK agent beautifully":
@@ -48,6 +63,7 @@ side.
 
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-5-agent-skills-i-use-every-day-056774d5.md` — origin: https://www.aihero.dev/5-agent-skills-i-use-every-day (revision 2026-07-26 — the `/to-prd`→`/to-spec`, `/to-issues`→`/to-tickets` rename and the "does not interview" workflow change)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079926515257520400-ce5571da.md` — origin: https://x.com/mattpocockuk/status/2079926515257520400
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079926855788855524-9cb40b6e.md` — origin: https://x.com/mattpocockuk/status/2079926855788855524
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079926961313345825-47140eae.md` — origin: https://x.com/mattpocockuk/status/2079926961313345825

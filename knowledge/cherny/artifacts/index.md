@@ -12,3 +12,4 @@ concept per file; this index lists them, one line each.
 - [dynamic-workflows](./dynamic-workflows.md) — the agent writes its own JS harness (parallel/pipeline + nested subagents) for tasks too big for one window.
 - [layered-permission-system](./layered-permission-system.md) — safety as defense-in-depth (allowlists, sandbox, classifier auto mode), where the human is the weakest routine layer.
 - [safe-maintenance-audits](./safe-maintenance-audits.md) — `/checkup` audits your whole setup for drift but proposes a plan and waits, never mutating silently.
+- [context-engineering-judgement-over-rules](./context-engineering-judgement-over-rules.md) — the harness's own system prompt shed 80% of its rules for model judgement; the same shift applies to tool examples and just-in-time loading.

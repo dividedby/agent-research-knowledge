@@ -38,6 +38,31 @@ hoped-for future model; the leverage is available now, gated only by what you ca
 do. This is the motivating worldview behind his `/teach` skill — its whole pitch
 is closing the junior-to-senior strategic-skills gap that AI has *not* eaten.
 
+## "We are all engineering managers now" — and that role still reads the code
+
+Matt names the tactical/strategic split with a job-title analogy: "we are all
+engineering managers now. Strategists, not tacticians." Pressed on what that
+concretely obligates you to do — a correspondent's gloss was "you should be
+able to understand the code that is written, you should be inspecting critical
+sections, AIs are wrong at times, it's a tool" — Matt affirms it and turns the
+claim back on the objector: "what do you think an engineering manager does?"
+An EM doesn't write every line, but they still read the code their reports
+ship and are accountable for it; the analogy is doing real work here, not just
+decoration — it's naming the *specific* obligation (inspect, understand,
+catch what's wrong) that "strategist, not tactician" leaves implicit.
+
+That's also why Matt "strongly disagrees" with the more sweeping claim that
+"the specification is permanent, the implementation is disposable... dev is so
+cheap now, because it is disposable." His own practice does treat *some* code
+as disposable — prototypes are explicitly throwaway (see
+[[small-adaptable-not-process-owning]]) — but that's a narrow, deliberate
+exception scoped to code built solely to answer one design question, not a
+general claim that shipped implementation no longer needs to be understood or
+maintained. Read together with the engineering-manager framing, the objection
+is the same one: if the human's job is to inspect and understand what ships,
+implementation can't be fully disposable — someone still has to be able to
+read it.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065500685362237868-fec632ae.md` — origin: https://x.com/mattpocockuk/status/2065500685362237868
@@ -49,3 +74,6 @@ is closing the junior-to-senior strategic-skills gap that AI has *not* eaten.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065063650797277665-999504f4.md` — origin: https://x.com/mattpocockuk/status/2065063650797277665
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065501043685802385-2493e51e.md` — origin: https://x.com/mattpocockuk/status/2065501043685802385
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2064663221718425660-cdf72b78.md` — origin: https://x.com/mattpocockuk/status/2064663221718425660
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080995054043193661-7b3eaca4.md` — origin: https://x.com/mattpocockuk/status/2080995054043193661
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081103551141499289-e670b4d8.md` — origin: https://x.com/mattpocockuk/status/2081103551141499289
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081103647702724772-78154770.md` — origin: https://x.com/mattpocockuk/status/2081103647702724772

@@ -71,6 +71,29 @@ explicit "documented standard overrides baseline" rule gives useful signal on
 day one of a project with zero conventions written down, while never
 fighting a repo that's made a deliberate, documented, different choice.
 
+## Why a generic review skill is hard — and why a bare prompt isn't enough
+
+Matt names the structural limit of any *shared, generic* review skill directly:
+"writing a generic 'review' skill is really, really hard — mostly because it
+really needs a custom set of curated standards for that project. And once
+you've done that, you might as well just run your own review agent." The
+Fowler baseline above is exactly the fallback for the gap this creates — it's
+what a generic skill can offer *before* a project has curated its own
+standards — but the real value, in his own account, comes from the
+project-specific Standards axis, not the portable one: "my `/code-review`
+does a bit of generic review (mostly through Fowlerite 'Refactoring'
+heuristics) but mostly it delegates to your own coding standards + spec
+compliance." A generic skill's ceiling is deliberately low; the curated,
+project-specific layer is where the useful signal lives.
+
+That's also why he pushes back on review-by-prompt as a substitute for this
+structure: told "decent CLAUDE.md + 'review last commits' is all you need,"
+he disagrees — "it's actually not that simple." A one-line ad-hoc prompt has
+neither of the two things that make `/code-review` work: a separated Spec
+axis checked against the originating issue/PRD, and a Standards axis anchored
+to a portable smell baseline *plus* curated project conventions. Skipping
+straight to a prompt collapses both axes back into vibes.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-in-progress-review-SKILL.md-f60ae53b.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/review/SKILL.md (revision 2026-06-30)
@@ -79,3 +102,6 @@ fighting a repo that's made a deliberate, documented, different choice.
 - `sources/mattpocock/skills-repo/docs-engineering-code-review.md-ff6105b1.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/docs/engineering/code-review.md
 - `sources/mattpocock/skills-repo/docs-engineering-tdd.md-54751a46.md` — origin: https://github.com/mattpocock/skills/blob/94e6208c841d34df742015be950c3a4ccff3297b/docs/engineering/tdd.md (revision 2026-07-02, the main chain gains the `→ code-review` tail)
 - `sources/mattpocock/skills-repo/skills-engineering-README.md-1400dd55.md` — origin: https://github.com/mattpocock/skills/blob/4d49c0fc99c3a732f7acb87a0fa00a32440a603d/skills/engineering/README.md (revision 2026-07-02, `code-review` listed under Model-invoked)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080760177494577332-0afcef76.md` — origin: https://x.com/mattpocockuk/status/2080760177494577332
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080760324945301917-ebf81aaf.md` — origin: https://x.com/mattpocockuk/status/2080760324945301917
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080905425449308448-6725b6a4.md` — origin: https://x.com/mattpocockuk/status/2080905425449308448

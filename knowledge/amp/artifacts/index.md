@@ -11,6 +11,7 @@ concept decide. One concept per file; this index lists them, one line each.
 Scope: synthesize the Chronicle's practitioner-guide notes only; the `/news/*`
 product-changelog/marketing stream is out of scope.
 
+- [an-agent-is-llm-loop-tools](./an-agent-is-llm-loop-tools.md) — an agent is an LLM, a loop, and tools defined as plain-text contracts; three tools (read/list/edit) are enough for the model to compose its own plan.
 - [subagents-as-context-isolated-tools](./subagents-as-context-isolated-tools.md) — subagents are agents-as-tools with their own context window; generic mini-Amps beat specialized ones, gated by what the model wants.
 - [codebase-by-an-agent-for-an-agent](./codebase-by-an-agent-for-an-agent.md) — let the agent pick names and layout (the statistically probable ones) and it navigates the codebase far faster.
 - [make-it-feedback-loopable](./make-it-feedback-loopable.md) — shape the environment (playground, URL-encoded experiments, headless text CLI) so the agent can validate its own work.

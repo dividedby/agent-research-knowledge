@@ -40,6 +40,20 @@ clearing the label:
 Acting only when preconditions hold — and explaining the refusal in-thread — is
 what lets a label-trigger be fire-and-forget.
 
+## PRD sub-issues are linked natively, and creation logs its own progress
+
+`to-issues-prd.ts` is what actually produces the sub-issues the refusal guard
+above detects. A `runWithRetry` pass drafts an ordered list of slices (title,
+what-to-build, acceptance criteria) from the PRD; the *script*, not the agent,
+then turns each slice into a real GitHub sub-issue: `gh issue create`, followed
+by `gh api -X POST repos/{repo}/issues/{prdNumber}/sub_issues` to link it to the
+parent through GitHub's native sub-issue relationship — not just a "Parent PRD:
+#N" text reference in the body, which `agent-implement.yml`'s "has sub-issues"
+check couldn't detect. The creation loop logs which sub-issues it already made
+before re-throwing on a failed create, so a partial batch failure surfaces as
+"created so far: #12, #13" rather than silently vanishing — the same
+never-leave-a-crash-unexplained instinct as the failure-reason comments below.
+
 ## The CI-specific sharp edges
 
 Two non-obvious mechanics make label-chaining actually work on GitHub:
@@ -143,5 +157,6 @@ bash cap (see `sandcastle-plan-execute-merge-loop`, `autonomous-loops-ralph`).
 - `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-07-02)
 - `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-07-07)
 - `sources/mattpocock/course-video-manager/.sandcastle-implement-pr-prompt.md-7ec7a8d7.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/implement-pr/prompt.md (revision 2026-07-08)
+- `sources/mattpocock/course-video-manager/.sandcastle-to-issues-prd-to-issues-prd.ts-d8d5feb8.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/to-issues-prd/to-issues-prd.ts (revision 2026-07-25)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721938894500036-65f0fb11.md` — origin: https://x.com/mattpocockuk/status/2067721938894500036
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067919429216645366-e4027437.md` — origin: https://x.com/mattpocockuk/status/2067919429216645366

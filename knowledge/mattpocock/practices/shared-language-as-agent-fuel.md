@@ -36,6 +36,22 @@ diverge on even part of the language, a shared external glossary starts lying to
 one of them, and per-repo `CONTEXT.md` files (with a context map above them) are
 the safer shape.
 
+## For a team, the answer is still "in the codebase" — with one caveat
+
+Asked how to share `grill-with-docs`/`wayfinder` output across a team rather
+than solo ("lots of teams using them with success," Matt notes), a correspondent
+proposed splitting shareable docs into three tiers: domain/ubiquitous language,
+ADRs, and permanent high-level architecture notes. Matt's answer keeps all three
+in the same place he already puts them for a solo workflow: "1 and 2 belong in
+the codebase, probably 3 too." Team sharing doesn't need a separate wiki or
+external tool — checking these into git is itself the sharing mechanism, the
+same way `CONTEXT.md` and `docs/adr/` already work for a single practitioner.
+The one caveat is the third tier: "with 3, you pay to keep it in sync" — a
+permanent architecture doc is a secondary source (see
+[[context-compression-and-handoff-mechanics]]) that drifts the moment the
+codebase changes under it, unlike a glossary term or an ADR, which are captured
+once and don't need to track a moving implementation.
+
 ## Where the glossary came from: ubiquitous language
 
 The practice traces to **ubiquitous language** from domain-driven design — one
@@ -127,3 +143,5 @@ the decision — not as a log of everything that happened.
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-changelog-ubiquitous-language-gr-ec926d6c.md` — origin: https://www.aihero.dev/skills-changelog-ubiquitous-language-grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065470273160097977-1e6995c1.md` — origin: https://x.com/mattpocockuk/status/2065470273160097977
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080763436783259992-7051d8a0.md` — origin: https://x.com/mattpocockuk/status/2080763436783259992
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080901797376307563-a130aac9.md` — origin: https://x.com/mattpocockuk/status/2080901797376307563

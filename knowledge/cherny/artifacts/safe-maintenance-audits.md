@@ -28,6 +28,11 @@ and the committed-config surface it's auditing
 ([[customization-checked-into-git]]). It's the maintenance half of "keep your
 setup lean," turned from a habit you have to remember into a command you run.
 
+A sibling command, `/doctor`, is the context-engineering twin of `/checkup`:
+it rightsizes your skills and CLAUDE.md automatically, applying the same
+split-don't-hoard discipline the harness's own system-prompt redesign follows
+([[context-engineering-judgement-over-rules]]).
+
 ## Sources
 
 - `sources/cherny/howborisusesclaudecode/https-howborisusesclaudecode.com-a4e56975.md` — origin: https://howborisusesclaudecode.com

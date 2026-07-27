@@ -18,3 +18,4 @@ concept per file; this index lists them, one line each.
 - [generate-skills-after-solving-not-before](./generate-skills-after-solving-not-before.md) — ask the agent to write the skill after it solves the problem the hard way, so it distills hard-won knowledge instead of baking in wrong assumptions.
 - [prompts-are-technical-debt](./prompts-are-technical-debt.md) — prompts decay silently per model release; stay as unconfigured as possible, keep AGENTS.md to concrete facts.
 - [you-cant-eyeball-prompt-quality](./you-cant-eyeball-prompt-quality.md) — an elaborate prompt rides on a model already good at the task; build a benchmark, don't ask the model to grade itself.
+- [domain-expertise-is-the-prompting-skill](./domain-expertise-is-the-prompting-skill.md) — the real prompting skill is domain expertise, not technique; expertise is what lets you push a model hard instead of just cling to it.
