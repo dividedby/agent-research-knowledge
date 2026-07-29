@@ -37,6 +37,27 @@ GitHub issues specifically: there, clearing or starting a new thread before
 benefits from a clean context rather than one still carrying the spec-writing
 conversation.
 
+## Documents are for the model, not the human
+
+Pressed on why the spec/tickets split exists at all — isn't it just Jira with
+extra steps? — Matt's answer reframes the whole vocabulary: **"Every 'document'
+I use is designed for the constraints of models, not for humans… I'm using the
+terms 'spec' and 'tickets' because they are familiar to devs — not because I am
+trying to mimic Jira."** Each document earns its place by what it does for the
+model, not by resembling a human process:
+
+- **The spec exists to define the destination in a checkable artifact** — one
+  `/code-review` can later verify the build against.
+- **Tickets exist to split work into smart-zone-shaped sizes** — the same
+  session-sized chunking `wayfinder` applies to open-ended planning
+  (`decision-mapping-fog-of-war`), here applied to already-settled work.
+
+This is explicitly an **AFK-only optimization**: Matt reports experimenting with
+skipping tickets entirely — just a spec plus `/goal` — and getting worse
+results, because an AFK agent without pre-scoped chunks doesn't reliably stay
+in the smart zone on its own. The split isn't process for its own sake; it's a
+chunking mechanism sized to a constraint the model has and a human doesn't.
+
 ## `/to-spec` doesn't interview — grilling already happened upstream
 
 Its predecessor `/to-prd` carried an interview step it would run if no prior
@@ -72,3 +93,4 @@ side.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080000544102375889-1d1b71fa.md` — origin: https://x.com/mattpocockuk/status/2080000544102375889
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080001909486682311-76073172.md` — origin: https://x.com/mattpocockuk/status/2080001909486682311
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080183646254752194-41f4e9ad.md` — origin: https://x.com/mattpocockuk/status/2080183646254752194
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081655893427450117-c3eb72e3.md` — origin: https://x.com/mattpocockuk/status/2081655893427450117

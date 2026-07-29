@@ -132,6 +132,19 @@ you have to be explicit in the prompt to force it small. The discipline isn't ne
 humans": context-window limits make it non-negotiable, and **the rate you can get
 feedback is your speed limit — never outrun your headlights.**
 
+## RGR: the named answer to unnecessary agent "fixes"
+
+Asked how to stop an agent from "fixing" things that never actually failed —
+without forcing a failing test every single time — Matt's answer is a
+three-letter compression of the whole discipline above: **"Yeah I use RGR"**
+(red-green-refactor). The abbreviation names the same forcing function `tdd`
+already encodes structurally (write the failing test, watch it fail for the
+right reason, then make it pass) as the practical answer to a specific
+symptom: an agent that "fixes" untested, unbroken code is an agent that
+skipped red. He confirms this discipline lives in the `/tdd` skill itself, not
+a system-prompt instruction — steering here is a reusable, model-invoked
+procedure the agent runs, not a standing rule repeated in every prompt.
+
 ## Minimize test seams for agent effectiveness
 
 Agents perform significantly better with fewer **test seams** — boundaries where
@@ -174,3 +187,5 @@ frontend.
 - `sources/mattpocock/aihero/https-www.aihero.dev-ways-ai-coding-has-rewired-my-brain-dc20954e.md` — origin: https://www.aihero.dev/ways-ai-coding-has-rewired-my-brain
 - `sources/mattpocock/aihero/https-www.aihero.dev-skill-test-driven-development-claude-co-70281ace.md` — origin: https://www.aihero.dev/skill-test-driven-development-claude-code
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2059955079067713960-179ae319.md` — origin: https://x.com/mattpocockuk/status/2059955079067713960
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082087683757629538-73357efb.md` — origin: https://x.com/mattpocockuk/status/2082087683757629538
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082092243360293212-4ec6cd9c.md` — origin: https://x.com/mattpocockuk/status/2082092243360293212

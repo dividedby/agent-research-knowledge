@@ -61,6 +61,17 @@ and the result of a real trade-off with genuine alternatives. ADRs are agent
 memory precisely *because* they're rationed; a log of everything that happened
 would bury the few decisions that actually keep agents from going wrong.
 
+## "ADRs are good, plans are deadwood"
+
+Pressed on whether plans (not just design docs) are worth keeping around as
+future context, Matt draws the same line as his design-doc stance above but
+names plans specifically: **"ADR's are good, plans are deadwood."** A plan is a
+route to a destination that's already been walked — once the work lands, it has
+nothing left to teach a future agent that the ADR (the *why*) and the code (the
+*what*) don't already cover better. Keeping it around risks the exact failure
+the constructive half of this doc warns against: a stale artifact an agent
+might read as still-current guidance.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2060454199838544079-01e5ad70.md` — origin: https://x.com/mattpocockuk/status/2060454199838544079
@@ -72,3 +83,4 @@ would bury the few decisions that actually keep agents from going wrong.
 - `sources/mattpocock/sandcastle/docs-adr-0008-inline-prompts-skip-processing.md-5f56cccd.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0008-inline-prompts-skip-processing.md
 - `sources/mattpocock/sandcastle/docs-adr-0020-prompt-expansion-fails-fast.md-20cdf35e.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0020-prompt-expansion-fails-fast.md
 - `sources/mattpocock/sandcastle/docs-adr-0010-structured-output.md-df5103e4.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0010-structured-output.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082080647166722356-c2503722.md` — origin: https://x.com/mattpocockuk/status/2082080647166722356

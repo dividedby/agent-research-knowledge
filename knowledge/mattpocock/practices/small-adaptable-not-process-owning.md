@@ -64,6 +64,26 @@ defect keeps it honest — the objection isn't that Superpowers is worse, it's
 that it optimizes for agent autonomy where Matt optimizes for user control
 and a light, human-legible context footprint.
 
+## Plan → build → review isn't going away: the communication-barrier argument
+
+Debating a correspondent (Daniel Miessler) who argued plan/implement/review
+might just be an artifact of current model limits — that better models could
+collapse the phases into "one motion, articulation of ideal state all the way
+down" — Matt holds the split is structural, not a temporary scaffold: **"human
+-> AI interaction is a communication barrier, just like human -> human
+interaction. The communication barrier is baked in, you can't dodge it. So it
+doesn't feel like plan/implement/review is going away."** He backs this by
+pointing at where the field has actually converged: **"Everyone's basically
+landing on the same primitives… a relatively minimal 'plan, then build, then
+review.'"** Pressed on whether his skills could unify further into a single
+shared state document, he draws the same control line as the Superpowers
+comparison above: **"I see my skills as empowering people to use agents to
+build better apps, not empowering agents to own more of the process."**
+Unifying the phases into one document is a move toward more-autonomous agents
+— not the axis he's optimizing. The skills stay split into a small number of
+pieces (five core ones, by his own count) because splitting them is what keeps
+the human, not the process, doing the deciding.
+
 ## The skills are stages of one pipeline, not a framework
 
 Matt is explicit that this composes into a repeatable seven-phase flow — idea →
@@ -92,3 +112,6 @@ and then removed, because kept too long they go stale and steer the agent wrong
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789806831030741-16eb2d2a.md` — origin: https://x.com/mattpocockuk/status/2077789806831030741
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077789970509463657-20b91d5b.md` — origin: https://x.com/mattpocockuk/status/2077789970509463657
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080748648120439249-8110d7c3.md` — origin: https://x.com/mattpocockuk/status/2080748648120439249
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081802193271705612-a4aac1b6.md` — origin: https://x.com/mattpocockuk/status/2081802193271705612
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081806240255037516-6bc10c47.md` — origin: https://x.com/mattpocockuk/status/2081806240255037516
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081826481160761376-99399a8a.md` — origin: https://x.com/mattpocockuk/status/2081826481160761376

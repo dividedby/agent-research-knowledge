@@ -94,6 +94,16 @@ The agent's context window divides into flexible and hardwired phases. The **sys
 
 This creates a **globality problem**: every instruction applies to every session regardless of relevance. A React pattern rule added after a frontend session burns budget in all subsequent backend, docs, and database sessions. The natural feedback loop of "agent does something wrong → add rule to file" creates growing files that hurt performance through irrelevant context.
 
+## Pruning AGENTS.md is deeper work than it looks
+
+Matt underestimated his own topic while building the course version of this
+material: he added a section on "pruning an AGENTS.md file" expecting "a
+short, simple video," and it turned out to be "the longest and most in-depth
+in the whole course." The discipline above reads like a short checklist, but
+applying it — deciding line by line what's undiscoverable-and-global versus
+what's sediment — is evidently harder in practice than the rules make it
+sound.
+
 ## Deterministic enforcement over prose rules
 
 When enforceable constraints can be encoded as PreToolUse hooks (that exit with code 2 to block actions), they should become hooks rather than prose instructions. A hook that blocks `npm` and requires `pnpm` is both deterministic and costs zero instruction budget, while a prose rule only lowers the odds and consumes budget on every session.
@@ -111,3 +121,4 @@ When enforceable constraints can be encoded as PreToolUse hooks (that exit with 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062528961855287580-6a45a883.md` — origin: https://x.com/mattpocockuk/status/2062528961855287580
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072439606394462470-3adde750.md` — origin: https://x.com/mattpocockuk/status/2072439606394462470
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072439857935221124-7c642dea.md` — origin: https://x.com/mattpocockuk/status/2072439857935221124
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082060853319213481-07a7c588.md` — origin: https://x.com/mattpocockuk/status/2082060853319213481

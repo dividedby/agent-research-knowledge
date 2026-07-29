@@ -166,6 +166,20 @@ place. (He amplified @ankrgyl's "hand-writing prompts is dead; prompt engineerin
 is not" while disagreeing with the headline — the endorsement is of prompt
 engineering's survival, not of abandoning the handwritten word.)
 
+## No-op passes are recurring maintenance, not a one-time cleanup
+
+Responding to a critic worried his skills would keep growing heavier over
+time, Matt frames the no-op pass as a standing release discipline rather than a
+one-off fix: "I often do a no-op pass on my skills to check for things the
+models now do out of the box" — every release re-checks the same lines
+against the *current* model, because a line that earned its place a few
+models ago can quietly become a no-op as the model improves. The payoff
+compounds: smaller skills are "easier to maintain, audit, and survive model
+changes better," and he ties this to a live prompting trend he's watching —
+recent guidance says to simply "say less to the model, and it does better,"
+which is the no-op test applied at the level of a whole prompt rather than one
+line at a time.
+
 ## The skill's own domain may widen past skills specifically
 
 Matt has floated broadening `writing-great-skills` beyond skill authoring to
@@ -196,3 +210,4 @@ format-specific.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071935238666617154-12915eea.md` — origin: https://x.com/mattpocockuk/status/2071935238666617154
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072774233453638136-c9e523de.md` — origin: https://x.com/mattpocockuk/status/2072774233453638136
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080279667479585173-5e5fa538.md` — origin: https://x.com/mattpocockuk/status/2080279667479585173
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081655893427450117-c3eb72e3.md` — origin: https://x.com/mattpocockuk/status/2081655893427450117

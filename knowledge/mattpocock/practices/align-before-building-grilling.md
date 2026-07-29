@@ -33,6 +33,26 @@ answer"* — so the human reacts to a concrete proposal and can often just say
 "explore the codebase" line and it runs grilling sessions for non-code decisions
 (someone used it to write a eulogy).
 
+## Skip it and pay later: the aphorisms and a live example
+
+Matt compresses the whole argument for grilling into repeatable one-liners:
+**"Get grilled before you build"** and **"Talk shop before you slop"** are the
+imperative form of the discipline above — interview first, write code second,
+never the reverse. The cost asymmetry is why: **"If you only align after you've
+built something then it's much more expensive to alter. It's like sending back a
+dish once a waiter has already brought it out."** Whatever questions a grilling
+session would have surfaced don't disappear if you skip it — **"those questions
+can either be answered before building or after… they are faster and cheaper to
+answer before."**
+
+He's caught himself skipping it, too: firing off `/prototype` straight on a new
+feature (a teleprompter view for his video editor) without grilling first, he
+calls the result "shite" and names the fix in the same breath — "Should have run
+`/grill-with-docs` first." The failure mode the whole discipline exists to
+prevent isn't hypothetical or reserved for other people's workflows — its own
+author reaches for the shortcut occasionally too, and pays the
+under-specification tax when he does.
+
 ## Only grill the grillable
 
 Not every question can be answered in a chat. Matt splits them by **fidelity**:
@@ -153,7 +173,9 @@ waiting on it.
 The rounds model didn't stay confined to `batch-grill-me`. In v1.2, the
 front-door skills themselves drop grilling's original "one question at a
 time" rule in favor of the same round-based batching: "faster, less token
-spend, but still keeps dependencies between questions clear." Dependency
+spend, but still keeps dependencies between questions clear." Matt confirmed
+the timing directly when asked: "Yep, batching is coming to all grillings in
+1.2." Dependency
 tracking survives the switch — asked directly whether a previously-answered
 question still shapes the next one, Matt confirms it does. Nor does the
 interaction mechanism change: `AskUserQuestion` still presents each round: the
@@ -236,3 +258,9 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078812658141180341-28ab1112.md` — origin: https://x.com/mattpocockuk/status/2078812658141180341
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2078052653993447522-9db27eb3.md` — origin: https://x.com/mattpocockuk/status/2078052653993447522
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079845268707516835-ae522041.md` — origin: https://x.com/mattpocockuk/status/2079845268707516835
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081473558698492060-fd2be5af.md` — origin: https://x.com/mattpocockuk/status/2081473558698492060
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081474728913510855-5733c6f9.md` — origin: https://x.com/mattpocockuk/status/2081474728913510855
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081475376383979929-41fd71d7.md` — origin: https://x.com/mattpocockuk/status/2081475376383979929
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081475524128383293-5caf67ca.md` — origin: https://x.com/mattpocockuk/status/2081475524128383293
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081482446566998172-40e60dfb.md` — origin: https://x.com/mattpocockuk/status/2081482446566998172
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081739847912378406-e06245b2.md` — origin: https://x.com/mattpocockuk/status/2081739847912378406

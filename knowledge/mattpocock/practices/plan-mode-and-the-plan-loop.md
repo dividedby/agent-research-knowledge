@@ -45,9 +45,36 @@ honest caveat: on a codebase you know cold, plan mode can be slower right now �
 Matt uses it anyway, optimising for compounding skill, lower fatigue, and reach
 into unfamiliar code rather than raw speed on familiar ground.
 
+## The rush-to-asset critique, and grill-me as the fix
+
+Matt's harshest read on plan mode isn't about the priming mechanics above — it's
+that the mode rushes. Asked what he'd build into his own harness, his answer
+names the exact failure: **"The issue with plan mode is the rush towards a plan
+— the rush to create an asset."** Shown the destination too early, the agent
+races to produce the deliverable rather than sit in the slower work of
+alignment: **"showing the agent the final state too quickly leads to it
+rushing… a sycophantic rush to create an asset means the real value, alignment,
+gets skipped."** The plan document isn't the point; the shared understanding
+behind it is — racing to the document is the same sycophancy failure mode he
+diagnoses in agent behavior generally.
+
+The concrete symptom is under-interviewing: **"I find it frustrating that
+[plan mode] doesn't actually plan enough. It doesn't ask enough clarifying
+questions. It jumps to conclusions. Then it presents you with a too-large plan
+that most folks don't read."** His fix isn't a better plan-mode prompt but a
+different tool — **"Better to just have a conversation with the agent, like you
+would with a human. `/grill-me` can help there."** — routing the actual
+alignment work to the grilling primitive (`align-before-building-grilling`) and
+treating plan mode's document as, at best, the context-priming side-effect
+credited above, not the mechanism that gets you aligned.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-plan-mode-introduction-3aa9bfe5.md` — origin: https://www.aihero.dev/plan-mode-introduction
 - `sources/mattpocock/aihero/https-www.aihero.dev-my-agents-md-file-for-building-plans-yo-12a7f93d.md` — origin: https://www.aihero.dev/my-agents-md-file-for-building-plans-you-actually-read
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067936649904820322-d4f8f252.md` — origin: https://x.com/mattpocockuk/status/2067936649904820322
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067938767164338538-c7e28c82.md` — origin: https://x.com/mattpocockuk/status/2067938767164338538
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081672829016084727-b2e5829c.md` — origin: https://x.com/mattpocockuk/status/2081672829016084727
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081676095368085646-d0d3ae60.md` — origin: https://x.com/mattpocockuk/status/2081676095368085646
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081796528260198766-5aaa1c0d.md` — origin: https://x.com/mattpocockuk/status/2081796528260198766
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082076477018005644-1a7de231.md` — origin: https://x.com/mattpocockuk/status/2082076477018005644
