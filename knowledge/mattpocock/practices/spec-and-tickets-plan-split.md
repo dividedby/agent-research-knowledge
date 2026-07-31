@@ -37,6 +37,21 @@ GitHub issues specifically: there, clearing or starting a new thread before
 benefits from a clean context rather than one still carrying the spec-writing
 conversation.
 
+## Specs are disposable, not a living SDD document
+
+Matt deletes every spec once the work it describes is done — and is explicit
+that this isn't spec-driven development in the sense the term is usually meant:
+**"I delete all specs once completed. That ain't SDD."** SDD as commonly
+practiced treats the spec as a durable, living artifact that keeps describing
+the system after the work lands; Matt's spec is scaffolding for *getting to* the
+implementation, not documentation *of* it. Pressed on whether a human needs to
+review the spec, his answer draws the same line from the other side: **"Just an
+agent doc"** — it exists to give the implementing agent (and `/code-review`) a
+checkable target, not to serve as a human-facing artifact that needs sign-off or
+long-term upkeep. Once the build matches the spec, the spec has done its job and
+gets thrown away rather than maintained — the code, not the spec, is the record
+that survives.
+
 ## Documents are for the model, not the human
 
 Pressed on why the spec/tickets split exists at all — isn't it just Jira with
@@ -94,3 +109,7 @@ side.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080001909486682311-76073172.md` — origin: https://x.com/mattpocockuk/status/2080001909486682311
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080183646254752194-41f4e9ad.md` — origin: https://x.com/mattpocockuk/status/2080183646254752194
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081655893427450117-c3eb72e3.md` — origin: https://x.com/mattpocockuk/status/2081655893427450117
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082527279511450028-e4f6dc2f.md` — origin: https://x.com/mattpocockuk/status/2082527279511450028
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082537296964792734-55952a54.md` — origin: https://x.com/mattpocockuk/status/2082537296964792734
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082716789557928007-49de553a.md` — origin: https://x.com/mattpocockuk/status/2082716789557928007
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082746319873913337-939eef47.md` — origin: https://x.com/mattpocockuk/status/2082746319873913337

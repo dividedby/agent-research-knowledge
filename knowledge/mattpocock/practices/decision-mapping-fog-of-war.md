@@ -103,6 +103,34 @@ something out of scope is a boundary you draw, not a step you take. Because
 out-of-scope work never graduates, it returns only if the destination itself is
 redrawn — and then as a fresh effort, not a resumption of the old ticket.
 
+Asked how the map handles scope creep once the frontier shifts mid-project,
+Matt generalizes the mechanism into a standing rule about who gets to make the
+call: the out-of-scope section is something the skill *monitors and adds
+things to*, but **"it is on the developer to figure out exactly the scope of
+the thing they're building. Scope decisions are decisions that you need a
+human for."** Wayfinder surfaces candidates for the boundary; it doesn't get to
+draw it.
+
+## Aggressive prototyping is the point, not just one of four ticket types
+
+Asked directly what wayfinder is *for*, Matt's answer collapses to one line:
+**"Aggressively prototype, that's what wayfinder is supposed to do."** That
+reframes the Prototype ticket type above from one option among four into the
+mechanism the whole skill is built to drive you toward. The goal it serves is
+explicit: **"The hope is that you flush out all uncertainty before
+implementation starts. The way you do that is by prototyping extremely
+aggressively. That way when you come to implementation, it's just a job of
+organizing and plugging together all the prototypes you've made."**
+Prototyping-first is also the answer to *why* wayfinder counts as planning
+rather than waterfall in disguise: **"We can think of waterfall as just
+'planning at the wrong fidelity.' Whereas agile is planning at the right
+fidelity — with actual working code, adjusting your sails as you go. Wayfinder
+should feel more like the latter."** The prototypes are what make that
+adjustment cheap — a route can still change *while* it's a rough, disposable
+artifact, which is exactly why aggressive prototyping has to happen before the
+expensive, load-bearing parts of the build start depending on the route being
+fixed.
+
 ## Fan out once the frontier is visible
 
 From the frontier you **fan out** to multiple parallel grilling / prototyping /
@@ -252,8 +280,13 @@ the resolution demands. Because tickets are resolved one at a time and the
 user may run several in parallel, every session expects other agents to be
 editing the tracker concurrently.
 
-The **Handoff** step is itself a fixed protocol: clear the context and open
-fresh sessions, closing with a copy-pasteable **Next steps** block. If open
+The **Handoff** step is itself a fixed protocol, invocable directly as
+`/handoff` rather than only firing automatically at the end of a wayfinder
+session — asked for a bespoke `/side-quest` skill to record a tangential thread
+without derailing the main map, Matt's answer is simply "Use `/handoff`,"
+treating the existing protocol as already covering the need rather than adding
+a new skill next to it: clear the context and open fresh sessions, closing with
+a copy-pasteable **Next steps** block. If open
 tickets remain, it lists the currently-unblocked ones and offers two paths —
 one bare command that lets the next session pick the ticket, and one pinned
 command per unblocked ticket for running them in parallel windows. If none
@@ -289,6 +322,20 @@ continue from there. Matt calls the switch itself "a nice escape route" — the
 signal to reach for wayfinder isn't always visible before you start, so the
 on-ramp has to work as a mid-session bailout too, not only as a starting
 choice.
+
+The choice between the two isn't decided by whether the codebase is greenfield
+or legacy, either — it's decided purely by how many sessions the *task* needs.
+Pressed on whether wayfinder is only for starting a big project from scratch
+with no prior docs or code, Matt corrects the framing: **"even on legacy
+projects there are often small tasks that only need one session"** — those
+still route to `/grill-with-docs`, not wayfinder. The rule that falls out,
+repeated the same way across several separate exchanges: **`/grill-with-docs`
+for single-session planning, `/wayfinder` for multi-session planning** — and
+wayfinder "doesn't replace" grill-with-docs, it sits above it for the cases
+single-session planning can't cover. Wayfinder is also positioned as a *pre-spec*
+alternative in this same chain — usable ahead of `/to-spec` rather than instead
+of it, folding it into the spec/tickets pipeline described in
+`spec-and-tickets-plan-split` rather than replacing that pipeline's front door.
 
 ## Wayfinder solves grilling's continuity problem
 
@@ -389,3 +436,15 @@ starts, is itself a design decision distinct from shipping the skill at all.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743410065113370-ee76984c.md` — origin: https://x.com/mattpocockuk/status/2077743410065113370
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2077743625639714850-589ee612.md` — origin: https://x.com/mattpocockuk/status/2077743625639714850 (repost/quote-tweet: technique credited to Will Ness/@WillNessAI, amplified by Matt)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079942782295093317-de469cf9.md` — origin: https://x.com/mattpocockuk/status/2079942782295093317
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082527109914775955-303de015.md` — origin: https://x.com/mattpocockuk/status/2082527109914775955
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082546094861373541-3a8d114d.md` — origin: https://x.com/mattpocockuk/status/2082546094861373541
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082546347622674752-65649f14.md` — origin: https://x.com/mattpocockuk/status/2082546347622674752
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082774006189449355-84c306cb.md` — origin: https://x.com/mattpocockuk/status/2082774006189449355
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082775680249376914-60eb72c8.md` — origin: https://x.com/mattpocockuk/status/2082775680249376914
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082776493311029373-7566c7af.md` — origin: https://x.com/mattpocockuk/status/2082776493311029373
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082784059978133809-53e657e5.md` — origin: https://x.com/mattpocockuk/status/2082784059978133809
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082791646719066564-ac65e5c1.md` — origin: https://x.com/mattpocockuk/status/2082791646719066564
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082792609810976962-2523f82c.md` — origin: https://x.com/mattpocockuk/status/2082792609810976962
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082808572870578552-bef95bce.md` — origin: https://x.com/mattpocockuk/status/2082808572870578552
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082822718928384352-1c78b6d6.md` — origin: https://x.com/mattpocockuk/status/2082822718928384352
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082827466943439128-1dcfbe98.md` — origin: https://x.com/mattpocockuk/status/2082827466943439128

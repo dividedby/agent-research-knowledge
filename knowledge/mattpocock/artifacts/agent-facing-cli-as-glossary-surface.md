@@ -59,8 +59,16 @@ from it, a rename in the domain glossary has to be replayed as a matching
 edit in `app/cli/commands/*.ts`, the same manual-sync cost paid every time
 the two artifacts drift, not a one-off migration.
 
+## The rollout continues: seven write-capable nouns, and the vocabulary certifies agent writes as first-class
+
+Three revisions later, "more nouns may gain writes over time" reads as a track record rather than a hedge: `beat` is joined by `lesson` (create/update/move), `video` (create/move/update), `file` (add/delete), `pitch` (create/update), `deliverable` (create/update/archive), and `course` (publish) — six more nouns, each still reusing its own operations service's write methods, still immediate, still with no confirmation or dry-run. The write surface now spans most of the domain rather than one entity, but the posture set by the first write-capable noun hasn't moved: incremental, noun-at-a-time rollout, proven out at scale instead of abandoned once the surface grew past a single case.
+
+The domain glossary backs this up in its own terms, not just in the CLI's behavior: **Deliverable Status** is defined as "manual" meaning *underived* — never computed from linked entities — explicitly **not** *hand-typed*, because "the app and an agent (`cvm deliverable`) author it the same way" (ADR 0022). The vocabulary is deliberate that a write arriving from an agent through the CLI isn't a lesser or special-cased instance of a "manual" field; it's the identical write path a human uses clicking a button. That's the same alignment the noun-by-noun rollout demonstrates mechanically (reusing the existing write service), restated instead as a vocabulary guarantee an agent reading `CONTEXT.md` can rely on directly.
+
 ## Sources
 
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-06-30)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-02)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-07)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-30, write-capable nouns expand to beat/lesson/video/file/pitch/deliverable/course)
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-07-30, **Deliverable Status** entry adds the "manual means underived, not hand-typed" ADR 0022 clause)

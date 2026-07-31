@@ -156,6 +156,25 @@ that the whole system works together. While some apps resist single-seam testing
 (requiring extensive service mocking), the principle holds: fewer seams mean
 better agent outcomes.
 
+## Agreeing the seam is a planning-stage step, enforced downstream
+
+Deciding *where* the seams are isn't left to whichever skill happens to write a
+test — it's built into every stage of the planning chain, each with a different
+job against the same agreed seam: `/to-spec` is where the seam gets agreed in
+the first place; `/tdd` is told to only write tests at the seam already agreed,
+not to invent new ones mid-implementation; `/code-review` checks after the fact
+that only the agreed-upon seam was actually used; and `/improve-codebase-architecture`
+is the escape hatch when the *codebase itself* makes good seams hard to reach —
+it refactors specifically to make test seams better. The chain matters because
+the failure it targets is specific: pushed by a user asking for a testing
+policy to stop GPT writing "junk unit tests," Matt notes that a model left to
+its own devices defaults to multi-seam testing — many small unit tests, mocks
+included — where "mere humans" would default to fewer, higher-level tests
+covering multiple behaviors. Agreeing the seam upstream and enforcing it at two
+more points downstream is what makes the single-seam preference stick against
+that default, rather than relying on a prompted preference the model quietly
+drifts away from.
+
 ## A feedback loop is a stack you build into the repo
 
 For everyday building (not just debugging), the loop is concrete infrastructure
@@ -189,3 +208,4 @@ frontend.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2059955079067713960-179ae319.md` — origin: https://x.com/mattpocockuk/status/2059955079067713960
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082087683757629538-73357efb.md` — origin: https://x.com/mattpocockuk/status/2082087683757629538
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082092243360293212-4ec6cd9c.md` — origin: https://x.com/mattpocockuk/status/2082092243360293212
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082470683712360592-a931f9fa.md` — origin: https://x.com/mattpocockuk/status/2082470683712360592

@@ -72,6 +72,21 @@ test seam, tangled callers, hidden coupling), hands off to
 `improve-codebase-architecture` *with specifics*. Crucially the recommendation
 comes **after** the fix — when you know the most — not as upfront speculation.
 
+## Endorsement: you can't tell an agent to be clean, you have to measure it
+
+Matt amplified a point from Robert "Uncle Bob" Martin (`@unclebobmartin`) that
+restates his own thesis from the outside, in response to Martin noting that
+skyrocketing agent adoption seemed to be undercutting sales of his own *Clean
+Code*-adjacent writing: **"You can't tell an agent to be clean. You have to
+measure the cleanliness that they produce and have them correct failures of
+cleanliness… Without such constraints agents are more than happy to build big
+balls of mud that they can't maintain."** This is Martin's framing, credited to
+him — Matt's own addition is a one-line aside about book sales for *A
+Philosophy of Software Design* — but it converges exactly with "the codebase
+out-votes the prompt" above: a prose instruction to be clean doesn't survive
+contact with an agent that has no taste for architecture; what has to exist
+instead is a measurable gate the agent is held to.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
@@ -83,3 +98,4 @@ comes **after** the fix — when you know the most — not as upfront speculatio
 - `sources/mattpocock/aihero/https-www.aihero.dev-how-to-make-codebases-ai-agents-love-1ba6d0b5.md` — origin: https://www.aihero.dev/how-to-make-codebases-ai-agents-love
 - `sources/mattpocock/aihero/https-www.aihero.dev-ways-ai-coding-has-rewired-my-brain-dc20954e.md` — origin: https://www.aihero.dev/ways-ai-coding-has-rewired-my-brain
 - `sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md` — origin: https://www.aihero.dev/tips-for-ai-coding-with-ralph-wiggum
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082528210319745433-082a8d65.md` — origin: https://x.com/mattpocockuk/status/2082528210319745433 (repost/quote-tweet: point credited to Robert "Uncle Bob" Martin/@unclebobmartin, amplified by Matt)
