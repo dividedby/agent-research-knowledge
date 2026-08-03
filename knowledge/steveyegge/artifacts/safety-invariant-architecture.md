@@ -85,7 +85,11 @@ The centralized chokepoint pattern prevents this anti-pattern by ensuring all sa
 
 `.github/CODEOWNERS` points `cmd/bd/init*.go` at maintainers and references the safety ADR in review comments. Future reviewers are reminded to walk the guard matrix when new flags or data sources are added.
 
+## Env-Var Redirection Is Partial, Not Full, Isolation
+
+A data-path env var only isolates the field it names — it does not isolate every side effect an invocation performs. `BEADS_DB` redirects which database file `bd` reads and writes, but `bd init` also does workspace-level setup (hooks, agent config) outside that path; pointing `BEADS_DB` at a temp file while still running `bd init` from a real working directory still leaves that setup touching production-adjacent state. The fix is structural, not a smarter env var: run the whole manual-testing invocation — `init` and every experiment after it — inside a disposable directory (`mktemp -d`), passing `--skip-hooks --skip-agents` when only the data behavior is under test, then `rm -rf` the directory when done. Before trusting an env-var override as your test-isolation boundary, verify it covers every side effect of the operation, not just the field whose name matches the override.
+
 ## Sources
 
 - `sources/steveyegge/beads/docs-adr-0002-init-safety-invariants.md-fd3c98c2.md` (the five invariants; 2026-06-23 revision adds `--from-jsonl` to the flag surface and widens exit code 10 to "local-source init") — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/adr/0002-init-safety-invariants.md
-- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (test DB isolation via `BEADS_DB` / `t.TempDir()`) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md
+- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (2026-08-02 revision: `BEADS_DB` alone does not redirect `bd init` workspace setup — manual testing must run inside a disposable `mktemp -d` directory with `--skip-hooks --skip-agents`) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md

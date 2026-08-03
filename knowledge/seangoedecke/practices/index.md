@@ -19,3 +19,4 @@ concept per file; this index lists them, one line each.
 - [prompts-are-technical-debt](./prompts-are-technical-debt.md) — prompts decay silently per model release; stay as unconfigured as possible, keep AGENTS.md to concrete facts.
 - [you-cant-eyeball-prompt-quality](./you-cant-eyeball-prompt-quality.md) — an elaborate prompt rides on a model already good at the task; build a benchmark, don't ask the model to grade itself.
 - [domain-expertise-is-the-prompting-skill](./domain-expertise-is-the-prompting-skill.md) — the real prompting skill is domain expertise, not technique; expertise is what lets you push a model hard instead of just cling to it.
+- [models-dont-believe-they-can-do-hard-things](./models-dont-believe-they-can-do-hard-things.md) — refusal on hard tasks is a confidence gap, not a capability ceiling; be persistent and reassure the model instead of accepting an easier substitute.

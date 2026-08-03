@@ -183,7 +183,9 @@ round model is a batching change to the interview's shape, not a new UI. This
 narrows the distinction the "grill-me vs batch-grill-me" section above draws —
 depth-preferring one-at-a-time pacing was, for a time, `grill-me`'s
 differentiator from the round-batching in-progress variant; as of v1.2 that
-differentiator is gone from the front door itself.
+differentiator is gone from the front door itself. Fielding a user's own
+recommendation for round-based batching, Matt confirms it's already landed:
+"In 1.2, grilling asks questions in rounds — agree with your rec here."
 
 ## When not to automate the decision to prototype
 
@@ -220,7 +222,9 @@ the codebase variant also fires the active glossary-building discipline (see
 `domain-modeling-active-discipline`). This is the invocation-axis refactor applied
 to grilling: the orchestrators a human types stay thin; the reusable competence
 lives in a model-invoked primitive that other skills (and the model) can reach
-(see `invocation-axis-user-vs-model`).
+(see `invocation-axis-user-vs-model`). Matt states the composition just as
+tersely when asked directly: "Yeah, `/grill-with-docs` just runs
+`/domain-modeling` + `/grilling`."
 
 ## Don't enact until the shared understanding is confirmed
 
@@ -264,3 +268,5 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081475524128383293-5caf67ca.md` — origin: https://x.com/mattpocockuk/status/2081475524128383293
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081482446566998172-40e60dfb.md` — origin: https://x.com/mattpocockuk/status/2081482446566998172
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081739847912378406-e06245b2.md` — origin: https://x.com/mattpocockuk/status/2081739847912378406
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083247554985169028-f1445fd6.md` — origin: https://x.com/mattpocockuk/status/2083247554985169028
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083195552703943148-3657e44d.md` — origin: https://x.com/mattpocockuk/status/2083195552703943148

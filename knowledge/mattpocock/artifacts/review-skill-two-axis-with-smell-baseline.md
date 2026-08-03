@@ -20,7 +20,11 @@ now `grill-with-docs → to-prd → to-issues → implement → code-review`:
 by running this skill as its own final gate before committing. Refactoring
 itself moved with it — `tdd`'s red-green loop explicitly excludes refactoring
 now, deferring it to this review stage instead (see
-`feedback-loop-is-the-work`).
+`feedback-loop-is-the-work`). Matt confirms this chain directly when asked
+whether a skill can act as post-generation critique: "Yeah, my `/implement`
+skill calls `/code-review`" — the review isn't something a user has to
+remember to invoke separately, it's wired into the end of implementation
+itself.
 
 ## Spec discovery is a fallback chain, and the tracker dependency is now hard
 
@@ -105,3 +109,4 @@ straight to a prompt collapses both axes back into vibes.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080760177494577332-0afcef76.md` — origin: https://x.com/mattpocockuk/status/2080760177494577332
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080760324945301917-ebf81aaf.md` — origin: https://x.com/mattpocockuk/status/2080760324945301917
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080905425449308448-6725b6a4.md` — origin: https://x.com/mattpocockuk/status/2080905425449308448
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082885965798920502-f603b3e0.md` — origin: https://x.com/mattpocockuk/status/2082885965798920502

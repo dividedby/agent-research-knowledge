@@ -132,6 +132,37 @@ milestone**, not mid-phase — "autocompacting can be disastrous when it happens
 mid-phase," so the trigger is finishing a coherent unit of work, wherever that
 lands token-wise, not a fixed number hit blindly.
 
+## A crowded-room metaphor, and why extended-context tricks don't fix it
+
+Asked how a context-extension technique (RoPE) gets around "the rule that LLMs
+just get dumber past 100k tokens," Matt's answer treats the smart/dumb split as
+orthogonal to how far a position-encoding scheme can stretch: "I imagine
+attention degradation will be just as bad. I.e. each token is shouting for
+attention in a crowded room. Will increasing the size of the room help?
+Probably not." A bigger room doesn't make any one voice easier to hear — it's
+the same claim as "a huge advertised context window doesn't mean 1M usable
+tokens" above, restated as a physical picture rather than a number. Pressed
+directly on whether RoPE specifically fixes it, he's equally unconvinced:
+"AFAIK folks have been using it for a while so I assume it doesn't" — extending
+*how far* a model can attend isn't the same lever as fixing *how well* it
+attends once the room is full.
+
+## Rewind past a context-blowing tool result instead of spawning a subagent
+
+A single tool result can blow the budget on its own — Matt's worked example is
+a web search whose results are so large they "one-shot" the context limit in
+one turn. Asked for a workflow that isolates a search's raw output the way a
+subagent would, without the overhead of actually spawning one, his answer
+reaches for a different lever entirely: "Rewind to the message before and
+summarise." Rather than forking a child session to do the search and report
+back, roll the current session back to just before the offending tool call,
+then have the model summarize what it found — a manual, in-place prune of the
+one message that caused the spike, cheaper than a subagent hop for a one-off
+blowup. The move works because "rewind" is a Claude Code feature you can reach
+for directly ("it's a CC feature you can copy"), not a bespoke pattern to build
+— the same instinct as `/compact`/`/handoff` above, aimed at a single
+oversized turn rather than a whole session's accumulated drift.
+
 ## The dumb zone isn't always wrong to use
 
 Working in the dumb zone costs more than the smart zone even beyond the quality
@@ -190,3 +221,7 @@ useful when it is empty" — same for your context window.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080678327086465028-b2bc1dc9.md` — origin: https://x.com/mattpocockuk/status/2080678327086465028
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080913962137215470-0d85cb36.md` — origin: https://x.com/mattpocockuk/status/2080913962137215470
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081105631591698694-01d43731.md` — origin: https://x.com/mattpocockuk/status/2081105631591698694
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083560886505963832-d5a27c26.md` — origin: https://x.com/mattpocockuk/status/2083560886505963832
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083563721998193063-6f4d2903.md` — origin: https://x.com/mattpocockuk/status/2083563721998193063
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083470789471261040-3a90c48e.md` — origin: https://x.com/mattpocockuk/status/2083470789471261040
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083481026018328802-35c244ab.md` — origin: https://x.com/mattpocockuk/status/2083481026018328802

@@ -398,6 +398,63 @@ full status without displacing the thing most work still goes through —
 scoping it as a situational on-ramp, discoverable from where a reader already
 starts, is itself a design decision distinct from shipping the skill at all.
 
+## A template change adapts to what it finds, it doesn't need a migration
+
+Asked how updating wayfinder mid-project — changing its template or format —
+affects issues and state files the older version already created, Matt's
+answer is that this usually isn't a problem at all: "Usually it's not an
+issue, it adapts to what it sees." Because the map and its tickets are read
+back by the same skill that wrote them, a newer version encountering an
+older-shaped map/ticket just works from what's actually on the tracker rather
+than requiring a one-time migration pass — the map's issue-tracker-native
+shape (above) is forgiving of drift between the version that created it and
+the version reading it later.
+
+## Handing an existing conversation off to wayfinder
+
+A plan already underway in a single long conversation doesn't need to be
+re-started to get wayfinder's benefit: Matt's answer to "can I hand off this
+conversation's planning to wayfinder?" is simply to say so — "just say 'hand
+off to /wayfinder'" — the same natural-language entry point as any other
+handoff, rather than a distinct bootstrapping procedure for continuing
+in-flight work.
+
+## Teams: the shared tracker is what makes delegation work, and maps can nest
+
+Asked how wayfinder scales from solo use to a team, Matt reports it's already
+working that way for other users, and names the mechanism: "the fact it uses a
+shared issue tracker means you can delegate tickets within the team." Because
+tickets are ordinary tracker issues rather than a bespoke local artifact,
+divvying up a map's frontier across multiple developers is just assigning
+issues, the same as any other team workflow on that tracker. He also flags a
+usage pattern he didn't design for but calls "genius": teams using **wayfinder
+maps as tickets of other wayfinder maps** — nesting one map's decision ticket
+as the destination-naming step of a child map — which is itself a further way
+of divvying up work between developers, each owning a sub-map rather than a
+single flat ticket list.
+
+## The issue tracker is a default, not a requirement
+
+Pushed on why a wayfinder map needs an issue tracker at all — would a
+structured inbox on a plain Markdown vault work instead? — Matt confirms the
+tracker isn't load-bearing: "you can roll your own issue tracker if you like."
+The map's shape (frontier, tickets, blocked-by edges) is what matters; GitHub,
+GitLab, and local Markdown are the shipped backends (see
+`setup-seeded-config-and-dependency-tiers`), not an exhaustive list of what the
+skill can be pointed at.
+
+## Domain fit: a poor match for game development
+
+Asked directly about using wayfinder for game dev, Matt is blunt: "Don't use
+wayfinder for gme dev. It's an absolute token burner with abysmal results."
+He's explicit this is a gap in his own experience rather than a measured
+verdict — "I've not tested AI in game dev myself" — but ties the caution to a
+structural reason wayfinder's fidelity-driven, prototype-heavy loop may not
+transfer: so much of game dev is about "feel" and state-based interaction,
+which "feels really fucking hard for AI to do well" precisely because it's
+hard to build a fast, legible feedback loop around subjective feel the way
+`feedback-loop-is-the-work` describes for code.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
@@ -448,3 +505,8 @@ starts, is itself a design decision distinct from shipping the skill at all.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082808572870578552-bef95bce.md` — origin: https://x.com/mattpocockuk/status/2082808572870578552
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082822718928384352-1c78b6d6.md` — origin: https://x.com/mattpocockuk/status/2082822718928384352
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082827466943439128-1dcfbe98.md` — origin: https://x.com/mattpocockuk/status/2082827466943439128
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082851323771326681-a39b8886.md` — origin: https://x.com/mattpocockuk/status/2082851323771326681
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082918166078865618-502b37b8.md` — origin: https://x.com/mattpocockuk/status/2082918166078865618
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082918384606314949-a2e7de2c.md` — origin: https://x.com/mattpocockuk/status/2082918384606314949
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082918470103048413-af51bc05.md` — origin: https://x.com/mattpocockuk/status/2082918470103048413
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082886831750688808-9b27df46.md` — origin: https://x.com/mattpocockuk/status/2082886831750688808

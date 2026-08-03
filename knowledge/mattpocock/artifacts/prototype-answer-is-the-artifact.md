@@ -48,6 +48,33 @@ concretely: fold the winning variant into the real page, but move the losing
 variants and the switcher to the throwaway branch, not the bin — "the full set
 of variants is the primary source."
 
+## The test for whether a prototype earned its keep
+
+Pushed back on by a user who found wayfinder's prototype tickets "mostly noise"
+during a big planning effort, Matt doesn't defend the prototype step
+unconditionally — he names the question that decides whether one was worth
+building: "Did the prototypes help you answer any particular question? If
+raising the fidelity of the conversation is not useful, then you probably have
+to be in charge of saying 'I don't need this prototype.'" The prototype's job
+is narrowly to raise the fidelity of a stalled conversation (see
+`align-before-building-grilling`'s fidelity split) — not to exist by default —
+and he concedes the weakness the critique surfaced rather than dismissing it:
+a prototype that doesn't clarify anything is noise, and the user, not the
+skill, is the one who has to notice and opt out.
+
+## A mismatched target stack is a known failure mode
+
+A prototype answers questions fastest in the stack it's *written in* — but
+Matt's default skews toward web/JS regardless of what the real target is:
+asked why AI-built game-dev prototypes diverge so sharply from the shipped
+result, a correspondent observed that "for whatever reason it uses JavaScript
+to create sims... That's why the end results differ from the prototypes so
+much." Matt agrees the mismatch is a real gap and names the fix as a rule the
+skill should carry explicitly: "use the same language as the target" —
+prototyping in a different stack than the one you'll actually ship in isn't a
+neutral shortcut, it quietly answers a different question than the one that
+was asked.
+
 ## Where it sits: an anytime escape hatch, not a pipeline stage
 
 `/prototype` is a reach-for-it-anytime standalone rather than a fixed step in
@@ -67,3 +94,6 @@ architectural decision worth recording via `domain-modeling`.
 - `sources/mattpocock/skills-repo/skills-engineering-prototype-SKILL.md-aae38256.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/prototype/SKILL.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/1cdd5933be58639a9b9e60fbb6ea32668d000466 — "capture it when done" replaces "delete or absorb")
 - `sources/mattpocock/skills-repo/skills-engineering-prototype-LOGIC.md-48cd948d.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/prototype/LOGIC.md (revision 2026-07-11 — the TUI shell rides to the throwaway branch, the validated reducer/machine lifts into the real module)
 - `sources/mattpocock/skills-repo/skills-engineering-prototype-UI.md-0de0c866.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/prototype/UI.md (revision 2026-07-11 — losing variants and the switcher move to the throwaway branch, not the bin)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083290662544285858-8839d197.md` — origin: https://x.com/mattpocockuk/status/2083290662544285858
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083541121980932301-d0bf9e56.md` — origin: https://x.com/mattpocockuk/status/2083541121980932301
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083530330565226635-84dcba9a.md` — origin: https://x.com/mattpocockuk/status/2083530330565226635

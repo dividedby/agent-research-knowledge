@@ -52,6 +52,32 @@ long-term upkeep. Once the build matches the spec, the spec has done its job and
 gets thrown away rather than maintained — the code, not the spec, is the record
 that survives.
 
+## It isn't spec-driven development — it needs its own name
+
+Matt pushes back explicitly on the label people keep reaching for: "Everyone
+always confuses my skills with spec-driven-development. It really annoys me.
+The specs my skills create are intended to be deleted immediately — not kept
+around, or treated as source code... They're just a projection of the
+decisions made during grilling." Even Birgitta Boeckeler's narrower
+"spec-first" framing (in a guest piece on Martin Fowler's site, which Matt
+amplifies as a recommended read) still groups his approach under the SDD
+umbrella, and he disagrees with that grouping too — floating "grill-driven
+development" instead, half-seriously, precisely because SDD as a term implies
+the spec is the thing that matters, when for him it's the grilling that
+mattered and the spec is just what fell out of it.
+
+## Why specs go stale: they're a cache, not a source
+
+The reasoning behind deleting specs rather than archiving them as living docs:
+"Specs are a cached representation of the code. As soon as a new commit
+arrives, the cache will likely go stale. Agents reading that stale cache will
+take it for ground truth. So, archive your specs." A spec is a snapshot of a
+decision at the moment it was made; the codebase keeps moving after that
+moment, and nothing re-derives the spec when it does. An agent that treats an
+un-refreshed spec as authoritative is reading a cache invalidated by every
+commit since — which is the concrete failure mode "specs are disposable" (above)
+exists to prevent, restated as a caching argument rather than a process one.
+
 ## Documents are for the model, not the human
 
 Pressed on why the spec/tickets split exists at all — isn't it just Jira with
@@ -113,3 +139,6 @@ side.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082537296964792734-55952a54.md` — origin: https://x.com/mattpocockuk/status/2082537296964792734
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082716789557928007-49de553a.md` — origin: https://x.com/mattpocockuk/status/2082716789557928007
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082746319873913337-939eef47.md` — origin: https://x.com/mattpocockuk/status/2082746319873913337
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083563195671667176-12baec39.md` — origin: https://x.com/mattpocockuk/status/2083563195671667176
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083563358180012470-9d929ea2.md` — origin: https://x.com/mattpocockuk/status/2083563358180012470 (repost/endorsement: Birgitta Boeckeler's "spec-first" article on martinfowler.com, amplified by Matt as a recommended read, not his own claim)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083565169313980721-edb22ad9.md` — origin: https://x.com/mattpocockuk/status/2083565169313980721

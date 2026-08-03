@@ -48,6 +48,15 @@ The reasoning is token economy and honesty: the loud setup pointer is reserved
 for places where it is genuinely load-bearing, so it isn't cargo-culted into
 skills that work fine without it.
 
+## Running setup mid-project needs no special procedure
+
+Asked how to bring the skills into a project that's already mid-development,
+with no setup run yet, Matt's answer is that there's no separate on-ramp to
+learn: "Just run `/setup-matt-pocock-skills` and you're good." The setup
+skill's explore-first design (below) is what makes this safe to run at any
+point rather than only at project start — it reads whatever the repo already
+has and proposes from that, so arriving late costs nothing extra.
+
 ## Setup is prompt-driven, not scripted
 
 The setup skill is itself an example of the explore → present → confirm → write
@@ -107,3 +116,4 @@ consumer already used, restoring one true resolution path across the suite.
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-code-review-SKILL.md-ffd0e041.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/engineering/code-review/SKILL.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/9c306665c63db13e3cd9cf6df8871f7792051eab/CHANGELOG.md (revision 2026-07-09 — the `wayfinder` issue-tracker-path hardcoding fix, #472)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083115194268438833-ac7df7d2.md` — origin: https://x.com/mattpocockuk/status/2083115194268438833

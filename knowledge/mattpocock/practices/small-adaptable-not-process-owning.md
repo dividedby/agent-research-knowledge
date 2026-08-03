@@ -64,6 +64,20 @@ defect keeps it honest — the objection isn't that Superpowers is worse, it's
 that it optimizes for agent autonomy where Matt optimizes for user control
 and a light, human-legible context footprint.
 
+## Meet people where they are, rather than sell a whole installed harness
+
+Pitched on releasing a full, opinionated harness — "philosophy, system prompt,
+skills, hooks, docs, etc." with a unified installer, so his design taste
+threads through every layer at once — Matt declines the shape on adoption-cost
+grounds: "IMO this is a harder sell to folks who have already bought into
+subscriptions, so I prefer a lighter approach where I meet them where they
+are." A bundled, all-or-nothing harness asks a user to replace whatever
+they've already invested in; small, composable skills instead slot into
+whatever setup someone already has. This is the adoption-side argument for the
+same design the rest of this file describes on the control side — small and
+adaptable isn't only about keeping the human in charge of the workflow, it's
+also what keeps the barrier to trying any one piece low.
+
 ## Plan → build → review isn't going away: the communication-barrier argument
 
 Debating a correspondent (Daniel Miessler) who argued plan/implement/review
@@ -115,3 +129,4 @@ and then removed, because kept too long they go stale and steer the agent wrong
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081802193271705612-a4aac1b6.md` — origin: https://x.com/mattpocockuk/status/2081802193271705612
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081806240255037516-6bc10c47.md` — origin: https://x.com/mattpocockuk/status/2081806240255037516
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081826481160761376-99399a8a.md` — origin: https://x.com/mattpocockuk/status/2081826481160761376
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083102438022656140-6feccf1f.md` — origin: https://x.com/mattpocockuk/status/2083102438022656140

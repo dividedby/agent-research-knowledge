@@ -34,7 +34,19 @@ feature crisply not because the codebase or training data lacks the answer, but
 because you haven't yet learned the domain's vocabulary yourself — which makes
 "where is the knowledge?" a question to ask of yourself first, before the agent.
 
+A named framework primitive is one of the few external fixes to that ceiling.
+Watching a Laravel demo built almost entirely by an agent, Ball caught himself
+questioning whether a framework's helpers (a debounce utility, an image-display
+shortcut) still earn their keep once an agent can one-shot the equivalent code —
+and concluded they do, for exactly the case the iMovie anecdote describes: the
+helper's value isn't the code it saves, it's the name it puts in front of you.
+You can only ask an agent for debouncing if you already know debouncing is a
+thing to ask for; a framework primitive is what teaches you the concept exists,
+closing the gap the training data and the agent's capability can't close on
+their own.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-80-065f0c03.md` — *Joy & Curiosity #80* intro: "Do you know how it should work? Does the agent? Or does the codebase?"; the prompt/codebase/training-data theory and the knowledge gap (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-80)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-91-055a0420.md` — *Joy & Curiosity #91* intro: the iMovie anecdote — his daughter can't ask an agent for a J-cut or jump cut because she doesn't know the vocabulary, though she's seen the effect; "that, of course, made me think about software engineering" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-91)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-93-80e2eea2.md` — *Joy & Curiosity #93* intro: the Laracon/Laravel live-demo anecdote — whether framework primitives (debounce helper, image-display helper) still earn their keep when an agent can one-shot the equivalent, and why the named primitive survives as a discoverability aid (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-93)

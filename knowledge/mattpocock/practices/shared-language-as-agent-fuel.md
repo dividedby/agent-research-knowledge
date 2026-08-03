@@ -109,6 +109,23 @@ decoration; they're what lets the agent (and a reviewer) catch drift the moment 
 generated name reaches for a banned word, the same enforcement posture as the
 structural vocabulary in [[enforced-architecture-vocabulary]].
 
+## A shared vocabulary is the cure for model jargon drift
+
+A newer model can move the jargon baseline out from under you: Matt notes Opus
+5 "does feel significantly more 'jargon-y' than 4.8," reaching for phrases like
+"dead parameter" or "monotonic funnel" — and names `/grill-with-docs` as "the
+cure for this BS." The mechanism is the same one this whole file describes,
+applied to a new failure mode: a model with its own house jargon is really just
+an un-negotiated vocabulary problem, and the fix isn't correcting the model's
+word choice after the fact but reaching agreement on terms *before* it talks.
+Pressed on how `grill-with-docs` actually solves this (it doesn't dictate
+phrasing), Matt's answer is that the fix isn't rules about words, it's shared
+reference: "a shared agreed-upon language cuts down verbosity AND increases
+alignment," and that shared vocabulary "builds up... over time" through
+repeated sessions rather than being imposed once. When a conversation drifts
+into jargon anyway, his go-to move is simply to name the confusion and ask the
+model to reset scope: "'zoom out' is my go-to."
+
 ## Endorsement signal: the shared-vocabulary move travels
 
 The practice resonates outside Matt's own repos. He amplifies a practitioner
@@ -145,3 +162,7 @@ the decision — not as a log of everything that happened.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065470273160097977-1e6995c1.md` — origin: https://x.com/mattpocockuk/status/2065470273160097977
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080763436783259992-7051d8a0.md` — origin: https://x.com/mattpocockuk/status/2080763436783259992
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080901797376307563-a130aac9.md` — origin: https://x.com/mattpocockuk/status/2080901797376307563
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083111661225820497-cc53e010.md` — origin: https://x.com/mattpocockuk/status/2083111661225820497
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083133631862624283-3a5be8a0.md` — origin: https://x.com/mattpocockuk/status/2083133631862624283
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083146971506745662-72bf40d6.md` — origin: https://x.com/mattpocockuk/status/2083146971506745662
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083192182517748214-b64e128c.md` — origin: https://x.com/mattpocockuk/status/2083192182517748214
