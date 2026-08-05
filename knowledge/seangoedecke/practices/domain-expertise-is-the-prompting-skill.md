@@ -40,6 +40,15 @@ of an LLM — that's not nothing — but domain knowledge is what lets you wring
 far more value from the identical model. Most real work is a mix: expertise in
 some areas, none in others, and the prompting leverage tracks which is which.
 
+Pushback on this claim usually points to counterexamples where an inexpert
+prompt still produced an expert-grade result — e.g. OpenAI's own
+mathematical-discovery prompts weren't written by mathematicians. That doesn't
+refute the claim; it relocates the expertise. OpenAI still had a team of expert
+mathematicians checking and filtering the model's proposed discoveries before
+anything shipped, and that review step isn't currently skippable. When the
+prompt itself looks inexpert, look downstream: the domain expertise cost didn't
+disappear, it moved to verifying and filtering the output.
+
 ## Sources
 
 - `sources/seangoedecke/blog/https-seangoedecke.com-llms-reward-expertise-c0260885.md` — origin: https://seangoedecke.com/llms-reward-expertise/

@@ -54,10 +54,12 @@ as it happens rather than wait for the final object
 is not throwaway state; pass `--no-session-persistence` to opt out;
 parallel sessions via git worktrees (isolated checkouts so edits don't collide),
 the desktop app, web VMs, or coordinated agent teams; and **fan-out** across many
-files for large migrations (have the agent generate the file list, then distribute
-the work — restrict its tool access with `--allowedTools` since there's no human
-backstop once it's running unattended, and keep `--verbose` for developing the
-prompt but drop it once you're running at scale). Approval-per-action is safe by
+files for large migrations (have the agent write the file list to disk, e.g.
+`files.txt`, rather than just enumerate it in the transcript — a loop script in
+the next step needs a durable list to read, not conversation text — then
+distribute the work across it: restrict tool access with `--allowedTools` since
+there's no human backstop once it's running unattended, and keep `--verbose` for
+developing the prompt but drop it once you're running at scale). Approval-per-action is safe by
 default but has its own failure mode — after the tenth prompt you're no longer
 reviewing, you're clicking through — so permission friction is reduced three ways:
 allowlists for known-safe tools, OS-level sandboxing, or auto mode (a classifier

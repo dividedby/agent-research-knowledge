@@ -28,8 +28,18 @@ This reframes the human's role: high-level validation and feedback (review the
 *results*, craft the vision) while the agent does the work and validates to your
 specification. You verify the outcome; the test suite verifies the code.
 
+Not every definition of done is a test suite. For work a type-checker can't
+assert — visual, behavioral, "does this actually work end to end" — ask
+explicitly for proof in whatever form fits: a screenshot, a table of
+before/after screenshots, a demo video, a full matrix of test cases run and
+shown, not just claimed. The proof format changes; the principle doesn't — you
+still review evidence, not raw diffs, which is what makes it tractable to let an
+agent run long and unsupervised (many minutes, hundreds of lines) without
+babysitting it.
+
 ## Sources
 
 - `sources/amp/chronicle/https-ampcode.com-notes-permissions-b6eba13f.md` — origin: https://ampcode.com/notes/permissions
 - `sources/amp/chronicle/https-ampcode.com-notes-how-to-pair-with-an-agent-450a7fb3.md` — origin: https://ampcode.com/notes/how-to-pair-with-an-agent
 - `sources/amp/chronicle/https-ampcode.com-notes-feedback-loopable-a35615e9.md` — origin: https://ampcode.com/notes/feedback-loopable
+- `sources/amp/chronicle/https-ampcode.com-notes-what-i-want-to-tell-you-about-orbs-dc428f37.md` — origin: https://ampcode.com/notes/what-i-want-to-tell-you-about-orbs

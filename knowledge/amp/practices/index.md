@@ -17,3 +17,4 @@ product-changelog/marketing stream is out of scope.
 - [version-control-as-the-safety-net](./version-control-as-the-safety-net.md) — git/staging is the safety net, not edit-by-edit approval gates that trap the agentic loop.
 - [git-history-as-context-source](./git-history-as-context-source.md) — point the agent at commits and `git diff` to mine context, review, and locate code.
 - [ship-constantly-own-what-you-merge](./ship-constantly-own-what-you-merge.md) — Amp's team principles: optimize for speed, ship weekly, you-merge-it-you-own-it.
+- [disposable-environments-unlock-parallel-agents](./disposable-environments-unlock-parallel-agents.md) — removing checkout/port friction via ephemeral sandboxes is what actually unlocks running many agents at once and letting them run long.

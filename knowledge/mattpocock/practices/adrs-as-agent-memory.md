@@ -61,6 +61,17 @@ and the result of a real trade-off with genuine alternatives. ADRs are agent
 memory precisely *because* they're rationed; a log of everything that happened
 would bury the few decisions that actually keep agents from going wrong.
 
+## ADRs go stale less often than specs, but the ones that do still get deleted
+
+Distinguishing ADRs from the disposable specs in `spec-and-tickets-plan-split`,
+Matt notes ADRs are structurally more durable — "they are less likely to go
+stale than specs" — but the discipline isn't "never delete an ADR": "I delete
+those that do go stale." An ADR records a decision's reasoning, which usually
+outlives the code around it, but if the decision itself gets reversed or
+superseded, the record stops being agent memory and becomes agent
+misdirection — the same staleness risk that governs the rest of this doc, not
+a special exemption ADRs get because they're the "good" doc type.
+
 ## "ADRs are good, plans are deadwood"
 
 Pressed on whether plans (not just design docs) are worth keeping around as
@@ -84,3 +95,4 @@ might read as still-current guidance.
 - `sources/mattpocock/sandcastle/docs-adr-0020-prompt-expansion-fails-fast.md-20cdf35e.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0020-prompt-expansion-fails-fast.md
 - `sources/mattpocock/sandcastle/docs-adr-0010-structured-output.md-df5103e4.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/docs/adr/0010-structured-output.md
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082080647166722356-c2503722.md` — origin: https://x.com/mattpocockuk/status/2082080647166722356
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083657196307460495-4845bef9.md` — origin: https://x.com/mattpocockuk/status/2083657196307460495

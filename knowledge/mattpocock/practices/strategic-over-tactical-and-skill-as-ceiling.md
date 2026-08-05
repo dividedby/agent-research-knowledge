@@ -38,6 +38,30 @@ hoped-for future model; the leverage is available now, gated only by what you ca
 do. This is the motivating worldview behind his `/teach` skill — its whole pitch
 is closing the junior-to-senior strategic-skills gap that AI has *not* eaten.
 
+## Get good at the thing, not just at coding
+
+The ceiling claim generalizes past software specifically: "If you want to get
+good at using AI, GET GOOD AT THE THING YOU'RE USING IT FOR." The skill that
+bounds output quality is domain skill in whatever you're building, not
+narrowly "programming ability" — the same logic that makes a strategic
+engineer's judgement the constraint applies to any subject matter an agent is
+pointed at. Matt names an explicit, achievable bar rather than mastery:
+"learn enough to be dangerous" — "good enough to be dangerous" is offered
+directly to someone worried they're only "mediocre at 50 different things,"
+reframing breadth-without-depth as still clearing the bar that matters,
+because the bar isn't expertise, it's enough working knowledge to judge and
+steer the agent's output.
+
+That bar has a behavioral corollary: don't dumb down your input to the level
+you imagine a novice would use. Asked whether he should simplify his prompts
+to something a less-experienced person could write, Matt's answer is
+"Definitely not, treat it as a subject matter expert" — the fix for feeling
+under-qualified isn't writing vaguer prompts, it's building the domain
+knowledge that lets you talk to the model as one expert to another. His
+`/teach` skill (see `stateful-teaching-workspace`) is the concrete mechanism
+he points people at when asked how to build that "get good at the thing"
+knowledge deliberately rather than by accident.
+
 ## "We are all engineering managers now" — and that role still reads the code
 
 Matt names the tactical/strategic split with a job-title analogy: "we are all
@@ -77,3 +101,8 @@ read it.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080995054043193661-7b3eaca4.md` — origin: https://x.com/mattpocockuk/status/2080995054043193661
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081103551141499289-e670b4d8.md` — origin: https://x.com/mattpocockuk/status/2081103551141499289
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081103647702724772-78154770.md` — origin: https://x.com/mattpocockuk/status/2081103647702724772
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083853702696231097-a8b1e896.md` — origin: https://x.com/mattpocockuk/status/2083853702696231097
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083855409958302147-281b2be3.md` — origin: https://x.com/mattpocockuk/status/2083855409958302147
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083883100702949626-236c94ad.md` — origin: https://x.com/mattpocockuk/status/2083883100702949626
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083933709971988567-8b631fa9.md` — origin: https://x.com/mattpocockuk/status/2083933709971988567
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083934253440549174-0a655ccf.md` — origin: https://x.com/mattpocockuk/status/2083934253440549174

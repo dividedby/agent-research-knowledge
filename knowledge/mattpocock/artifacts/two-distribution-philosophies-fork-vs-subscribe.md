@@ -34,6 +34,16 @@ bucket set (`engineering/` + `productivity/` — see
 advertised elsewhere, because both draw from the same folder-driven
 promotion gate rather than a separately-maintained list.
 
+## The install commands themselves are a single source of truth
+
+The exact install commands shown in `README.md`, `AGENTS.md`, and `CLAUDE.md`
+are copied verbatim from one file, `.agents/install-block.md`, rather than
+hand-maintained separately in each. This is the same discipline the collection
+applies to skill authoring turned on the repo's own docs: a fact repeated in
+several places is a duplication liability the moment one copy is updated and
+the others aren't, so the commands live in exactly one authored place and every
+surface that shows them quotes it rather than re-typing it.
+
 ## Version sync is a manual obligation with a mechanical check
 
 `plugin.json`'s `version` field must be bumped in lockstep with
@@ -101,3 +111,4 @@ install path put the skills there.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082028549125624164-d2bef758.md` — origin: https://x.com/mattpocockuk/status/2082028549125624164
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082043744736485442-85538ba5.md` — origin: https://x.com/mattpocockuk/status/2082043744736485442
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082043793704960236-d93966f8.md` — origin: https://x.com/mattpocockuk/status/2082043793704960236
+- `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/66898f60e8c744e269f8ce06c2b2b99ce7660d5f/AGENTS.md (revision 2026-08-05 — install commands copied verbatim from `.agents/install-block.md`)

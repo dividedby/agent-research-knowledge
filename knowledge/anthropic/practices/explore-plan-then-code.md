@@ -7,7 +7,11 @@ plan you can edit directly, then switch to coding and let it implement against
 that plan, then — once it checks out — have the agent commit with a descriptive
 message and open the PR, closing the loop in the same session instead of a manual
 handoff. The plan is a cheap, reviewable artifact at the point where a wrong
-turn is still free to correct.
+turn is still free to correct. Toggle plan mode itself with `Shift+Tab` (the
+status bar confirms with `⏸ plan mode on`) or start the session already in it
+via `claude --permission-mode plan`; leave it the same way — approve the plan or
+press `Shift+Tab` again — to hand off into execution, so the phase you're in is
+always a visible, reversible mode rather than an implicit assumption.
 
 Planning is overhead, so spend it where it pays. It earns its cost when the
 approach is uncertain, when the change spans multiple files, or when you're

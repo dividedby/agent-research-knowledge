@@ -80,6 +80,18 @@ grill-with-docs adopt rounds too (v1.2)" below) — 46 questions sounds like a
 runaway interview one-at-a-time, but is a more modest ~11-per-round average
 under batching.
 
+## Smarter models don't shrink the need for grilling
+
+A recurring objection is that as models get smarter, they'll infer intent from
+existing code and general software-development principles well enough that
+grilling can be scaled back. Matt rejects the premise directly: "However good a
+model is, it's always going to have a communication barrier. It can't infer
+things from your brain without you communicating them, just like your wife
+can't read your mind." Model capability bears on how well the agent can use
+what you tell it — not on whether you still have to tell it. This is the same
+under-specification failure mode below, restated as a standing rebuttal to the
+argument that grilling is a temporary crutch for weaker models.
+
 ## Under-specification is the disease; a shared concept, not a PRD, is the cure
 
 Asked about an AFK agent that ran for two hours making wrong assumptions and
@@ -226,6 +238,16 @@ lives in a model-invoked primitive that other skills (and the model) can reach
 tersely when asked directly: "Yeah, `/grill-with-docs` just runs
 `/domain-modeling` + `/grilling`."
 
+## Rounds are the default, but the old rhythm stays one config line away
+
+Batching became the default in v1.2 (above), but the skill ships an explicit
+escape hatch back to the original one-at-a-time pacing for anyone who preferred
+it: adding `When grilling, ask one question at a time.` to a global `CLAUDE.md`
+reverts the rhythm. Naming the override in the skill's own docs — rather than
+leaving it to be discovered as an unsupported workaround — treats the batching
+change as a default worth making reversible, not a one-way migration everyone
+is pushed through regardless of how they actually work.
+
 ## Don't enact until the shared understanding is confirmed
 
 A later revision adds one explicit gate to the primitive itself: *"Do not enact
@@ -270,3 +292,5 @@ into a fact only the human gets to assert.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081739847912378406-e06245b2.md` — origin: https://x.com/mattpocockuk/status/2081739847912378406
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083247554985169028-f1445fd6.md` — origin: https://x.com/mattpocockuk/status/2083247554985169028
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083195552703943148-3657e44d.md` — origin: https://x.com/mattpocockuk/status/2083195552703943148
+- `sources/mattpocock/skills-repo/docs-productivity-grilling.md-f585c446.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/docs/productivity/grilling.md (revision 2026-08-05 — the `CLAUDE.md` override back to one-question-at-a-time)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083968515388678255-2f82dfbb.md` — origin: https://x.com/mattpocockuk/status/2083968515388678255

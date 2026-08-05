@@ -72,6 +72,27 @@ worth keeping. It's a small habit with the same shape as the rest of this
 tree: compacting isn't a single mechanical button-press, it's a moment for a
 deliberate, human-supplied signal about where the session is headed next.
 
+## Shipped as an ordered tree, with the subagent branch's missing criterion filled in
+
+The five-option decision this doc describes from Matt's own tweets has since
+been codified as a real skill reference, `ask-matt`'s `PHASE-BOUNDARIES.md` —
+not just restated, but turned into an explicit ranked tree you work top to
+bottom, first-yes-wins: can you continue (either the next phase needs this one
+as a **primary source**, or enough smart zone remains)? Is the context
+irrelevant to what's next (`/clear`)? Do you need portability (`/handoff`)?
+Can the task run unattended? Otherwise, `/compact` — the default sitting at
+the bottom because the questions above it are all cheaper or more precise to
+answer first.
+
+That fourth question fills a gap this doc leaves open above: the subagent
+branch previously had no stated criterion of its own beyond "answered
+inversely" to the compact/clear choice. The shipped tree gives it one — is the
+task scoped tightly enough to run **AFK, with no steering**? Automated review
+is the standard case: the agent reads the diff and reports, and the human
+isn't needed while it does. A task that still needs a human's judgment
+mid-stream isn't subagent-shaped, whatever else is true of the phase boundary
+it's sitting at.
+
 ## Exceptions and adjacent decisions
 
 - **Teeny changes don't need ceremony.** For a change too small to bother
@@ -111,3 +132,5 @@ deliberate, human-supplied signal about where the session is headed next.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080549567288795412-6ac7ed7d.md` — origin: https://x.com/mattpocockuk/status/2080549567288795412
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080678109804741043-8b6a6f64.md` — origin: https://x.com/mattpocockuk/status/2080678109804741043
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080678376562475416-061956d5.md` — origin: https://x.com/mattpocockuk/status/2080678376562475416
+- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-PHASE-BOUNDARIES.md-34f86ec4.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/skills/engineering/ask-matt/PHASE-BOUNDARIES.md
+- `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/skills/engineering/ask-matt/SKILL.md (revision 2026-08-05 — the Phase boundaries section pointing at PHASE-BOUNDARIES.md)

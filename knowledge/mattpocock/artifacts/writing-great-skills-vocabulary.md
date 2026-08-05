@@ -1,6 +1,7 @@
 # Writing great skills: predictability and its levers
 
-`writing-great-skills` (which replaced `write-a-skill`) is a reference skill whose
+`writing-great-skills` (which replaced `write-a-skill`, and has itself since been
+renamed `writing-for-agents` — see the final section) is a reference skill whose
 whole domain model is "what makes a skill great." Its root claim is sharp: **a
 skill exists to wrangle determinism out of a stochastic system**, and the virtue
 every other lever serves is **predictability** — the agent taking the same
@@ -48,6 +49,34 @@ context load for the new always-loaded description) and **by sequence** (split a
 run of steps when the *post-completion steps* still in view tempt the agent to
 rush the current one). A **router skill** cures piled-up cognitive load when
 user-invoked skills multiply (this is exactly what `ask-matt` is).
+
+Model-invocation is *additive*, never restrictive: a description only ever adds
+agent discovery on top of the human's own reach — you can still type a
+model-invoked skill's name by hand, so choosing it never takes anything away
+from a user-invoked skill's guarantees, it only spends the extra context load
+for the description. That makes an all-reference model-invoked skill (no steps,
+just definitions) a natural home for reference two or more skills share: because
+other skills can invoke it, the shared material lives in one place rather than
+being duplicated into each skill that needs it — whereas two user-invoked
+skills can't hand reference to each other this way, since neither carries a
+description the other could reach through.
+
+## A context pointer's wording does two jobs
+
+A **context pointer** — a description, an `AGENTS.md` line, any reference held
+in context that names out-of-context material — earns its keep on two axes at
+once: it states what the material *is*, and it lists the **branches** that
+should trigger reaching it (a branch being a distinct case the document
+handles). Because an always-loaded pointer pays its cost on every turn whether
+or not it fires, its wording earns harder pruning than the body it points to:
+**front-load the leading word** so the pointer does its triggering work
+immediately; keep **one trigger per branch** — synonyms that rename a single
+branch are one branch written twice, so collapse them and keep only genuinely
+distinct branches; and **cut identity the body already carries**, since
+restating what the target *is* a second time inside the pointer is
+duplication with extra steps. A must-have target behind a weakly worded
+pointer is a variance bug, and the fix is to sharpen the wording first —
+inlining the material is the fallback only when sharpening fails.
 
 ## The information hierarchy and co-location
 
@@ -133,7 +162,14 @@ with a test:
 Pruning is the discipline against these: keep each meaning in a **single source of
 truth**, check every line for **relevance** (does it still bear on the task?), then
 hunt no-ops *sentence by sentence* and delete whole sentences rather than trim
-words — "be aggressive."
+words — "be aggressive." Single source of truth reaches past the skill file
+itself into the **environment**: `package.json` scripts, config files, the
+directory layout, `--help` output are sources of truth too, and a skill that
+restates one is a **cache** — a copy of a lookup that only earns its keep when
+the lookup is genuinely expensive. The rule this yields is sharp: cache what
+the agent *can't* find by looking (an unwritten convention, the reason behind a
+choice, a gotcha no config confesses), and leave one-file, one-command lookups
+to the environment, where they cannot go stale the way a restated copy will.
 
 ## The no-op is context-relative, and the deletion test is how you find it
 
@@ -180,19 +216,26 @@ recent guidance says to simply "say less to the model, and it does better,"
 which is the no-op test applied at the level of a whole prompt rather than one
 line at a time.
 
-## The skill's own domain may widen past skills specifically
+## The widen happened: `writing-for-agents`, split by what's universal
 
-Matt has floated broadening `writing-great-skills` beyond skill authoring to
-cover **any writing aimed at an agent** — docs, `AGENTS.md`, and skills alike,
-under a candidate name like `/writing-for-agents`. The reasoning behind the
-widen: the levers this doc collects (predictability, the two loads, the
-information hierarchy, no-ops, negation) aren't actually skill-specific — they
-apply to any text a human writes for an agent to read, and a `SKILL.md` is
-just one instance of that genre. The rename is still undecided ("no idea what
-to name it" at time of writing), but the scoping question itself is the
-transferable point: a skill's charter can outgrow its original artifact type
-once its underlying levers turn out to be genre-general rather than
-format-specific.
+The floated broadening landed: `writing-great-skills` is now `writing-for-agents`,
+the reference you write *any* agent-facing document against — a skill, an
+`AGENTS.md`/`CLAUDE.md`, or any doc reached by a pointer. The packaging differs
+across those artifact types; the writing doesn't — the same levers (context
+pointers, the two loads, the information hierarchy, completion criteria,
+leading words, pruning) make each one predictable, the agent taking the same
+*process* every run rather than producing the same output. The rename resolves
+the earlier open question by confirming the underlying claim: almost none of
+the original reference was actually skill-specific.
+
+The skill executes that claim as its own structure, not just as a stated
+principle: the universal core stays in `SKILL.md`, and the genuinely
+skill-only mechanics — frontmatter, the model- vs user-invoked choice, router
+skills — are pushed to a linked `SKILL-MECHANICS.md`, read only when the
+document being written happens to be a skill. That's progressive disclosure
+applied reflexively — a reference about the information hierarchy uses the
+information hierarchy to organise itself, disclosing the one branch (skill
+mechanics) that most documents it teaches you to write will never need.
 
 ## Sources
 
@@ -211,3 +254,7 @@ format-specific.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072774233453638136-c9e523de.md` — origin: https://x.com/mattpocockuk/status/2072774233453638136
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080279667479585173-5e5fa538.md` — origin: https://x.com/mattpocockuk/status/2080279667479585173
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081655893427450117-c3eb72e3.md` — origin: https://x.com/mattpocockuk/status/2081655893427450117
+- `sources/mattpocock/skills-repo/skills-productivity-writing-for-agents-SKILL.md-88b3238b.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/skills/productivity/writing-for-agents/SKILL.md (the rename from `writing-great-skills`, context-pointer wording rules, and the environment-as-cache extension of single source of truth)
+- `sources/mattpocock/skills-repo/skills-productivity-writing-for-agents-SKILL-MECHANICS.md-09cd255e.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/skills/productivity/writing-for-agents/SKILL-MECHANICS.md (the universal/skill-specific split, and model-invocation as additive not restrictive)
+- `sources/mattpocock/skills-repo/docs-productivity-writing-for-agents.md-549325ae.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/docs/productivity/writing-for-agents.md
+- `sources/mattpocock/skills-repo/skills-productivity-README.md-8510d914.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/README.md (revision 2026-08-05 — `writing-for-agents` listed as the renamed, user-invoked skill)

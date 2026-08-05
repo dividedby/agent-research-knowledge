@@ -64,6 +64,16 @@ produce a sharper glossary and few or no ADRs, and that's the intended shape."
 A session that mints an ADR every time is a sign the gate isn't being applied —
 the glossary is the expected steady output, the ADR the rare exception.
 
+## Not deprecated — absorbed and expanded
+
+Asked whether the standalone `ubiquitous-language` skill had been dropped,
+Matt corrects the framing: "Opposite - moved into `/domain-modelling`,
+integrated more deeply with every part of the process." The skill didn't
+disappear when it was folded in (see `shared-language-as-agent-fuel`); it
+became a discipline other skills invoke rather than a thing you run on its
+own — going from one narrow entry point to something woven through the whole
+`grill-with-docs`/`wayfinder` chain is a promotion, not a removal.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-SKILL.md-afe6b5a2.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/SKILL.md
@@ -72,3 +82,4 @@ the glossary is the expected steady output, the ADR the rare exception.
 - `sources/mattpocock/skills-repo/docs-invocation.md-1ce78905.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/docs/invocation.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — "most sessions produce a sharper glossary and few or no ADRs")
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084255866543390766-29f40882.md` — origin: https://x.com/mattpocockuk/status/2084255866543390766

@@ -337,6 +337,26 @@ alternative in this same chain — usable ahead of `/to-spec` rather than instea
 of it, folding it into the spec/tickets pipeline described in
 `spec-and-tickets-plan-split` rather than replacing that pipeline's front door.
 
+## The term escapes the skill: "wayfinding" as ordinary vocabulary
+
+The name has started working as a common noun in Matt's own speech, not just a
+slash-command: describing prep work on an unrelated feature, he says "I've
+done all the wayfinding, I just haven't built it" — meaning the preparatory
+investigation is finished and only execution remains — and adds "'Wayfinding'
+- I like it" on catching himself using it that way. That a skill's name
+becomes the everyday word for the phase of work it automates is a small
+signal that the frontier/fog-of-war vocabulary above has actually stuck,
+beyond the skill's own docs.
+
+## The terse version of the routing rule
+
+Asked point-blank how to choose between the two front doors, Matt collapses
+the "single-session vs. multi-session" rule from below into one line:
+"`/grilling` when you're doing a task where the planning will take a single
+session; `/wayfinder` when it's likely to be more." Same rule as the fuller
+statement further down this doc, just compressed to the two-command form
+people actually ask for.
+
 ## Wayfinder solves grilling's continuity problem
 
 A recurring complaint about the plain grilling chain: the full plan context
@@ -510,3 +530,5 @@ hard to build a fast, legible feedback loop around subjective feel the way
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082918384606314949-a2e7de2c.md` — origin: https://x.com/mattpocockuk/status/2082918384606314949
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082918470103048413-af51bc05.md` — origin: https://x.com/mattpocockuk/status/2082918470103048413
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082886831750688808-9b27df46.md` — origin: https://x.com/mattpocockuk/status/2082886831750688808
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083891713932755390-8ed2d491.md` — origin: https://x.com/mattpocockuk/status/2083891713932755390
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084189192821559654-a78f702b.md` — origin: https://x.com/mattpocockuk/status/2084189192821559654

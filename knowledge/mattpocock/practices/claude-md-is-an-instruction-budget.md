@@ -88,6 +88,21 @@ In the same spirit Matt keeps a `CODING_STANDARDS.md` *separate* from the root
 file: standards are relevant only to sessions that write code, so they live in
 their own pulled-in doc rather than burning budget on every session.
 
+## Against vanilla AGENTS.md with no skills at all
+
+Pressed on a rival minimalism further downstream — skip skills entirely, keep
+a "super vanilla" `AGENTS.md`, on the theory that most configuration just makes
+agents behave worse — Matt agrees with most of the objection's premises but
+draws a different conclusion: "Agree with 1, 3 but not 2. Skills are really
+all you need, especially tiny user-invoked ones." The instruction-budget
+argument above is against *stuffing the root file*, not against structured
+context generally — a tiny, user-invoked skill is deliberately narrow (fires
+only when explicitly called, costs nothing on unrelated sessions) in exactly
+the way a growing `AGENTS.md` line is not. Skills are the progressive-
+disclosure escape hatch this doc already argues for; the fix for
+configuration bloat is routing it through skills, not eliminating structured
+context in favor of a bare file.
+
 ## Context window phases and hardwired constraints
 
 The agent's context window divides into flexible and hardwired phases. The **system prompt** (containing `CLAUDE.md`) is hardwired at startup, while exploration, implementation, and testing are flexible — a simple task needs little exploration, bug-free code needs little testing. But everything in `CLAUDE.md` inflates the hardwired portion, leaving less room for actual work and increasing costs.
@@ -122,3 +137,4 @@ When enforceable constraints can be encoded as PreToolUse hooks (that exit with 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072439606394462470-3adde750.md` — origin: https://x.com/mattpocockuk/status/2072439606394462470
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072439857935221124-7c642dea.md` — origin: https://x.com/mattpocockuk/status/2072439857935221124
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082060853319213481-07a7c588.md` — origin: https://x.com/mattpocockuk/status/2082060853319213481
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083971013063086308-f11609ff.md` — origin: https://x.com/mattpocockuk/status/2083971013063086308

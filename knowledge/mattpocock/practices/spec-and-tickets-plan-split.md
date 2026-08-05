@@ -64,7 +64,11 @@ amplifies as a recommended read) still groups his approach under the SDD
 umbrella, and he disagrees with that grouping too — floating "grill-driven
 development" instead, half-seriously, precisely because SDD as a term implies
 the spec is the thing that matters, when for him it's the grilling that
-mattered and the spec is just what fell out of it.
+mattered and the spec is just what fell out of it. Pressed on whether this
+pushback is a knock against SDD itself, he draws the line explicitly: "I'm not
+disparaging it, I'm just saying that my approach isn't SDD" — the objection is
+to the label being applied to his workflow, not to spec-driven development as
+a legitimate approach for people who actually want a durable spec.
 
 ## Why specs go stale: they're a cache, not a source
 
@@ -98,6 +102,54 @@ skipping tickets entirely — just a spec plus `/goal` — and getting worse
 results, because an AFK agent without pre-scoped chunks doesn't reliably stay
 in the smart zone on its own. The split isn't process for its own sake; it's a
 chunking mechanism sized to a constraint the model has and a human doesn't.
+
+## Archive, don't delete: the concrete mechanic
+
+A later exchange sharpens "specs are disposable" into something more precise
+than outright deletion: **"hence why I say 'archive', not delete."** Closed
+GitHub issues are, in Matt's words, "just right for this" — the spec stays
+retrievable but is no longer live. The concrete three-step mechanic: put the
+code in a PR, mark the PR as `closes #X` against the issue holding the spec,
+and the spec is auto-archived the moment the PR merges — no separate cleanup
+step. The spec itself lives in the GitHub issue, not as a version-controlled
+file that gets stripped from the repo by automation on merge; asked directly
+whether it's version-controlled in-repo during the PR and stripped out
+afterward, Matt's answer is simply "No, the spec is in a GitHub issue." Some
+practitioners prefer storing archived specs somewhere the agent can find them
+via grep — i.e. in the repo itself — which Matt agrees is fine as a variant,
+so long as it's still an archive, not a live document.
+
+The archive earns its keep as a review aid, not just a paper trail: reviewing
+a merged PR usually means reviewing "the literal commits that implemented the
+spec," and having the original spec sitting in the closed issue makes that an
+"essential tool" — `/code-review` reviews the build against exactly this
+archived target. This is also why Matt is unmoved by the argument that an
+agent needs to keep reading a cached representation of the code to stay
+effective: "I am happy with the agent itself being a seam, no need for it to
+read a cached representation to make it effective" — the agent re-exploring
+the live code is a better source of truth than an aging document, which is the
+same "cache, not source" reasoning as the section above.
+
+**Even an archived spec still drifts before it's archived.** The danger isn't
+only post-merge staleness — often a spec is already out of date *before*
+release, because QA surfaces edge cases that push the implementation away from
+what was written down: "the spec was wrong to begin with." Archiving preserves
+a historical snapshot, not a guarantee the snapshot was ever fully accurate.
+
+**Regulated work is the explicit exception to "keep it thin."** For teams that
+answer to compliance, an extremely detailed, implementation-exposing spec —
+closer to a changelog than a design doc — is "well worth the time and tokens
+to produce... if it's to meet regulations." Matt's blanket "specs are
+disposable, keep them thin" advice assumes no external audit requirement;
+where one exists, "it's a whole different kettle of fish" and the thin-spec
+default doesn't apply.
+
+**Archiving isn't a promise to keep everything forever, either.** Asked what
+to do with old archived specs that have accumulated, Matt's answer keeps the
+same "does this still say something" test as anywhere else in the discipline:
+"delete the ones that no longer say anything of value." Archive first so the
+spec survives long enough to be useful during review; prune later, once it
+genuinely isn't.
 
 ## `/to-spec` doesn't interview — grilling already happened upstream
 
@@ -142,3 +194,16 @@ side.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083563195671667176-12baec39.md` — origin: https://x.com/mattpocockuk/status/2083563195671667176
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083563358180012470-9d929ea2.md` — origin: https://x.com/mattpocockuk/status/2083563358180012470 (repost/endorsement: Birgitta Boeckeler's "spec-first" article on martinfowler.com, amplified by Matt as a recommended read, not his own claim)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083565169313980721-edb22ad9.md` — origin: https://x.com/mattpocockuk/status/2083565169313980721
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083580395291898351-fd95d407.md` — origin: https://x.com/mattpocockuk/status/2083580395291898351
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083586712291229754-8d4a76eb.md` — origin: https://x.com/mattpocockuk/status/2083586712291229754
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083600889281995187-3c39f827.md` — origin: https://x.com/mattpocockuk/status/2083600889281995187
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083601222464848256-e006bb1c.md` — origin: https://x.com/mattpocockuk/status/2083601222464848256
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083602954024587381-1e696e99.md` — origin: https://x.com/mattpocockuk/status/2083602954024587381
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083603074594033907-0a17ca86.md` — origin: https://x.com/mattpocockuk/status/2083603074594033907
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083604826231836675-3881e6c8.md` — origin: https://x.com/mattpocockuk/status/2083604826231836675
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083607411319833069-9127d586.md` — origin: https://x.com/mattpocockuk/status/2083607411319833069
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083607591762931728-8b34010c.md` — origin: https://x.com/mattpocockuk/status/2083607591762931728
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083650552936669328-5a67257a.md` — origin: https://x.com/mattpocockuk/status/2083650552936669328
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083842093630324743-fde70b59.md` — origin: https://x.com/mattpocockuk/status/2083842093630324743
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083842523772957132-cf5db06d.md` — origin: https://x.com/mattpocockuk/status/2083842523772957132
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083862208795050365-882e642f.md` — origin: https://x.com/mattpocockuk/status/2083862208795050365
