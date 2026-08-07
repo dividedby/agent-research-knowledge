@@ -99,6 +99,22 @@ cognitive load for the user, makes no sense." The user-invoked mechanism
 context load for a skill the model shouldn't fire, nor offloading filing onto the
 human.
 
+## Dual-harness instructions can't name the tool, only the action
+
+The dual-harness commitment reaches past frontmatter flags into the prose of a
+skill's steps. `code-review`, `codebase-design`, and `improve-codebase-architecture`
+all instruct the agent to spawn parallel sub-agents, and a later patch strips
+Claude Code's own tool and agent-type names out of those instructions — the
+step now just says "spawn 3+ sub-agents in parallel" rather than naming a
+specific tool call, so the same instruction is followable on Codex and other
+harnesses instead of silently stalling wherever the named tool doesn't exist.
+The lesson generalises past this one fix: a `SKILL.md` that ships Codex
+metadata alongside its Claude Code frontmatter (see above) has to hold that
+harness-neutrality at the instruction level too, not just the invocation
+level — naming a capability's own harness-specific tool inside a step is the
+same mistake as hardcoding a path, just one layer further from the surface
+where the dual-harness intent is declared.
+
 ## How the buckets express it
 
 The convention is enforced structurally: `CLAUDE.md` mandates that every
@@ -130,3 +146,7 @@ release as redundant (`caveman`, `zoom-out`), and `write-a-skill` was replaced b
 - `sources/mattpocock/skills-repo/skills-engineering-ask-matt-SKILL.md-f5c205a8.md` — origin: https://github.com/mattpocock/skills/blob/8e9705356ea758e0bf375ccfa5efdd78a5a4fbff/skills/engineering/ask-matt/SKILL.md (revision 2026-07-02 — the "Vocabulary underneath" section and the `code-review` chain step; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ebee08eb332d93484b9afda9acaa84eb1e024640 — `/research` added to Standalone; revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/7d8d0ee43f671178d8cb2519c82fc68cf03335b3 — `wayfinder` added as a named on-ramp)
 - `sources/mattpocock/skills-repo/docs-engineering-ask-matt.md-cb27a380.md` — origin: https://github.com/mattpocock/skills/blob/1f39f6f24749f410d98d3c39cc3402e9446f9f9b/docs/engineering/ask-matt.md (revision 2026-07-02 — the same "Vocabulary underneath" pointer, on the docs page)
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/754bff7aeec587bf80d31075fa64717aa915b241/CLAUDE.md (revision 2026-07-02 — `ask-matt`'s resync obligation)
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/14bfbbd8654a8d2910299e1a004c19c1979687d8/CHANGELOG.md (revision 2026-08-07, PR #781 — dropping Claude Code's tool/agent-type names from `code-review`, `codebase-design`, and `improve-codebase-architecture`'s subagent-dispatch instructions)
+- `sources/mattpocock/skills-repo/skills-engineering-code-review-SKILL.md-ffd0e041.md` — origin: https://github.com/mattpocock/skills/blob/a114b4ed92b2fd21fe5513e24abdd56706fb72b0/skills/engineering/code-review/SKILL.md (revision 2026-08-07 — harness-neutral "spawn both sub-agents in parallel" wording)
+- `sources/mattpocock/skills-repo/skills-engineering-codebase-design-DESIGN-IT-TWICE.md-7e0e561e.md` — origin: https://github.com/mattpocock/skills/blob/6b841ef61002fbc717f94fe80f18e0c814565b76/skills/engineering/codebase-design/DESIGN-IT-TWICE.md (revision 2026-08-07 — same harness-neutral wording)
+- `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/8b13390845f9f5e60ae623f52dbe8733f4329538/skills/engineering/improve-codebase-architecture/SKILL.md (revision 2026-08-07 — same harness-neutral wording)

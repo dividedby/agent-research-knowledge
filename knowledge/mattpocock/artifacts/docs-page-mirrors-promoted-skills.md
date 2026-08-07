@@ -39,6 +39,22 @@ supervising agent) can catch the skill quietly drifting off its own discipline
 before trusting whatever it produced, the same failure the docs page's other
 sections exist to head off before the skill is even invoked.
 
+## The template settled on four fixed sections, not three-plus-a-recurring-one
+
+`CLAUDE.md` later names the shape explicitly rather than leaving it to be
+inferred from example: a finished docs page carries exactly four sections —
+**What it does**, **When to reach for it**, **Common questions**, and **It's
+working if** — with a dedicated `.agents/writing-docs.md` holding the
+template, the section order, and where to mine the questions from. **Common
+questions** is the section this later pass adds: an FAQ answering the
+objections and edge cases a reader actually raises against the skill —
+`prototype`'s docs page, for instance, fields "isn't the prototype supposed to
+be deleted?" and "isn't this the fastest possible way to burn tokens?" head
+on, each with a real answer rather than a restatement of "What it does." Naming
+the section (and where its content comes from) turns what used to read as an
+optional flourish into a required, checkable part of every promoted skill's
+sync obligation.
+
 ## The pairing is a maintenance obligation, not a one-time export
 
 `CLAUDE.md` states the sync explicitly: when a promoted skill is added,
@@ -75,3 +91,5 @@ the underlying set isn't mirrored into it in the same commit.
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/754bff7aeec587bf80d31075fa64717aa915b241/CLAUDE.md (revision 2026-07-02 — `ask-matt`'s resync obligation)
 - `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — the "It's working if" self-check section)
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-tdd-48650cc0.md` — origin: https://www.aihero.dev/skills-tdd (revision 2026-07-02 — the same "It's working if" section)
+- `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/29de6f3f3088823b95ca741eeaff8c79116722ad/AGENTS.md (revision 2026-08-06 — the four-section template naming "Common questions")
+- `sources/mattpocock/skills-repo/docs-engineering-prototype.md-ccedcc07.md` — origin: https://github.com/mattpocock/skills/blob/72f8eb0ff1b18ad2306a4b9c114a727bf113f7fe/docs/engineering/prototype.md (revision 2026-08-06 — a worked "Common questions" section)

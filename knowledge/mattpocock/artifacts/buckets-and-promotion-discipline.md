@@ -1,10 +1,22 @@
 # Buckets and promotion discipline
 
-The repo sorts skills into six bucket folders by *lifecycle and intent*, not by
+The repo sorts skills into bucket folders by *lifecycle and intent*, not by
 topic: `engineering/` (daily code work), `productivity/` (daily non-code
-workflow), `misc/` (kept but rarely used), `personal/` (tied to Matt's own
-setup), `in-progress/` (drafts), and `deprecated/` (retired). The bucket a skill
-lives in is a promotion state, and promotion carries a hard publication rule.
+workflow), `misc/` (kept but rarely used), `in-progress/`, and `deprecated/`
+(retired). The bucket a skill lives in is a promotion state, and promotion
+carries a hard publication rule.
+
+A sixth bucket, `personal/` (tied to Matt's own setup), was later removed
+outright rather than left empty: its two skills were deleted with it — one
+hardcoded a path to his own Obsidian vault, the other was tied to his own
+machine — because neither was ever meant for another user, unlike a demoted
+skill that still has a home in `misc/` or `deprecated/`. `in-progress/` was
+redefined in the same pass, from "drafts not yet ready to ship" to a **beta
+channel**: skills there are public on purpose, installable one at a time
+through `skills.sh`, and wanted for feedback — not held back, just not yet in
+the plugin's promoted set. The distinction matters for what "in-progress"
+promises a user: not "unfinished and hidden," but "finished enough to try,
+not yet finished enough to bundle."
 
 ## The publication invariant
 
@@ -54,3 +66,5 @@ every level.
 - `sources/mattpocock/skills-repo/skills-engineering-README.md-1400dd55.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/README.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/f02469bf3e8c183fd269565808c7b613ec6011c5 — `wayfinder` added under User-invoked)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/c150c7074b3523328da2c980d22c84b8c21a2308 — `wayfinder` dropped from the in-progress listing)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072680599802831258-4d6fbba7.md` — origin: https://x.com/mattpocockuk/status/2072680599802831258
+- `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/29de6f3f3088823b95ca741eeaff8c79116722ad/AGENTS.md (revision 2026-08-06 — `personal/` removed, `in-progress/` redefined as a beta channel)
+- `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/c66bdeeee002d81e3f8b21403c07f9a0d7bea6da/CHANGELOG.md (revision 2026-08-06, PR #752 — `edit-article` and `obsidian-vault` deleted along with the `personal/` bucket)

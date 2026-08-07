@@ -65,6 +65,23 @@ the problem randomly" — the human still does the clicking/testing, but the
 structured for the agent to reason about systematically. Even when automation
 hits a wall, the loop discipline persists.
 
+## Redact before you show the agent anything
+
+The feedback loop `diagnosing-bugs` builds runs on commands, outputs, and
+captured artifacts — and all three routinely carry secrets (auth headers,
+tokens, credentials). A later revision makes **redaction the first move**,
+ahead of Phase 1: write `<REDACTED>` in a secret's place, build loops against
+env vars so the credential stays in the environment rather than in anything
+shown to the agent, and when a captured artifact carries auth headers, quote
+only the lines that carry the diagnostic signal rather than pasting it whole.
+The Phase 1 completion criterion changed to match — "paste the invocation and
+its output" now reads "show it redacted" — and the same rule extends to the
+last-resort HITL escape hatch: when no loop can be built, the artifact the
+skill asks the user for is a *redacted* capture, not a raw one. This is the
+same "loop as a product" discipline turned toward safety rather than speed: a
+tight feedback loop that leaks a credential into the agent's context isn't a
+loop worth tightening, it's a loop worth fixing first.
+
 ## Red-green, one vertical slice at a time
 
 `tdd` applies the same "signal first" stance to building, and its sharpest
@@ -196,7 +213,8 @@ frontend.
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-SKILL.md-82a24dd7.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-scripts-hitl-loop.template.sh-7d00841a.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/scripts/hitl-loop.template.sh
-- `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-scripts-hitl-loop.templat-b79f1c8e.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh
+- `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-scripts-hitl-loop.templat-b79f1c8e.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh (revision 2026-08-07, origin https://github.com/mattpocock/skills/blob/efce423018fc6468a3239621f1c1bcaacc723801 — noting `capture` echoes its value to the terminal)
+- `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/efce423018fc6468a3239621f1c1bcaacc723801/skills/engineering/diagnosing-bugs/SKILL.md (revision 2026-08-07 — the Redact section and the redacted Phase 1 completion criterion)
 - `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md (revision 2026-06-17; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/dc338028858adc73f624ebdb5cda1dd9f61c5c17 — tautological tests; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/5eea6114412fce36e27f3cbf19a9bf1e25b76fb4 — pre-agreed seams and refactoring moved out of the loop; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ffef7e3e24c271fc7f7ac6fc43a2556e6c9269d9 — the reference to `code-review` by its new name)
 - `sources/mattpocock/skills-repo/docs-engineering-tdd.md-54751a46.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/tdd.md
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md

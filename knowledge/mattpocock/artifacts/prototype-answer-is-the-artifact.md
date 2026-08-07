@@ -83,6 +83,40 @@ prototyping in a different stack than the one you'll actually ship in isn't a
 neutral shortcut, it quietly answers a different question than the one that
 was asked.
 
+## Two named failure modes, once the skill had enough users to surface them
+
+A later revision's "Common questions" section names two ways `/prototype` gets
+reached for or scoped wrong, each traced to a specific cause rather than left
+as generic advice:
+
+- **Recommended when the design was already settled.** `prototype` is a
+  generic, appealing word, so a flow-unaware agent reads it as "the obvious
+  next step" once tickets exist and recommends it by name even when
+  conversation already resolved the design. The fix isn't a rule against the
+  word — it's routing: if you already know what to build, the next step is
+  `/implement` per ticket; reach for a prototype only when a specific design
+  question is genuinely unresolved and talking won't resolve it.
+- **Scoped to the whole application instead of one question.** Asked to
+  prototype an entire app (e.g. to demo to prospects) rather than one design
+  question, the skill calls this a different artifact wearing its name: "what
+  is the whole app?" isn't a question, so a full-app prototype has no natural
+  stopping point and becomes the production app by momentum — the cleanup pass
+  never happens, and code written under prototype rules (no tests, no error
+  handling) ends up in front of users. A sales demo should be built
+  deliberately as a demo, explicitly not production; a real design question
+  should be cut down to just that question before prototyping it.
+
+## Now a decision-ticket type wayfinder's map can spawn directly
+
+`prototype` is also machinery another skill runs on: it's one of the four
+**decision ticket** types `wayfinder` can generate on its map (alongside
+research, grilling, and task), used when the blocking question is "how should
+this look" or "how should it behave" and no amount of discussion resolves it.
+Wayfinder raises the fidelity of a foggy discussion by making something
+concrete to react to, `prototype` is how that concrete thing gets built, and
+the finished prototype is linked back from the map as an asset once the
+ticket resolves.
+
 ## Where it sits: an anytime escape hatch, not a pipeline stage
 
 `/prototype` is a reach-for-it-anytime standalone rather than a fixed step in
@@ -115,3 +149,4 @@ prototype.
 - `sources/mattpocock/skills-repo/skills-engineering-prototype-SKILL.md-aae38256.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/skills/engineering/prototype/SKILL.md (revision 2026-08-05)
 - `sources/mattpocock/skills-repo/docs-engineering-prototype.md-ccedcc07.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/docs/engineering/prototype.md (revision 2026-08-05)
 - `sources/mattpocock/skills-repo/skills-engineering-to-spec-SKILL.md-d870747a.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/skills/engineering/to-spec/SKILL.md (revision 2026-08-05 — the spec template's exception for prototype-derived snippets)
+- `sources/mattpocock/skills-repo/docs-engineering-prototype.md-ccedcc07.md` — origin: https://github.com/mattpocock/skills/blob/72f8eb0ff1b18ad2306a4b9c114a727bf113f7fe/docs/engineering/prototype.md (revision 2026-08-06 — the two Common-questions failure modes and prototype as a wayfinder decision-ticket type)

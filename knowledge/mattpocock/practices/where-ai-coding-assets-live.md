@@ -46,6 +46,18 @@ the repo. A related preference falls out of it — for most workflows Matt keeps
 agent's "brain" / knowledge store **stateless**, rather than building a persistent
 personal memory the agent carries between tasks.
 
+## Remote, shareable state is the bar for a tracker
+
+Asked for his stance on Beads (steveyegge's dependency-aware issue tracker)
+as an alternative to GitHub issues, Matt names the exact criterion this
+doc's GitHub-issues preference already implies: "I prefer my issue tracker
+state to be remote so I can easily share it." A local-only tracker fails
+that bar the same way a local plan file does — it isn't durable or shareable
+the way a remote store is (see the merge-conflict argument above). Learning
+that Beads can also persist its state directly to GitHub was enough to
+satisfy him — "In that case, great!" — confirming the requirement is about
+*where the state lives*, not brand loyalty to a specific tool.
+
 ## Stateless by choice, not by default
 
 Matt states the stateless preference more sharply elsewhere: **"I also hate
@@ -72,3 +84,5 @@ distrusted until demonstrated, not a solved problem to defer to.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080048263667831027-d81dc7d0.md` — origin: https://x.com/mattpocockuk/status/2080048263667831027
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079949437254705436-14e0aa6c.md` — origin: https://x.com/mattpocockuk/status/2079949437254705436
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079925132001194205-0e6f0200.md` — origin: https://x.com/mattpocockuk/status/2079925132001194205
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085024586706321637-f43187cf.md` — origin: https://x.com/mattpocockuk/status/2085024586706321637
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085025125582184894-3f6ba0ac.md` — origin: https://x.com/mattpocockuk/status/2085025125582184894
