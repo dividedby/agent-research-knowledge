@@ -24,3 +24,4 @@ One concept per file; this index lists them, one line each.
 - `reference-aware-pruning.md` — Garbage collection over cited memory must scan for live references before deleting, not just age/status
 - `worktree-sync-decoupled-from-git-refs.md` — Storing sync state in a git-tracked-but-never-checked-out ref namespace avoids worktree/branch checkout collisions
 - `schema-version-guard.md` — Detecting schema-ahead-of-binary version skew at open time with a named diagnosis instead of a cryptic downstream SQL error
+- `privacy-scoped-opt-out-telemetry.md` — Minimal-payload usage metrics with layered, composable opt-outs (command toggle, env var, DO_NOT_TRACK) for a CLI agents invoke unattended

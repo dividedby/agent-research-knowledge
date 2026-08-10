@@ -52,6 +52,14 @@ motion — it degrades the fidelity of the theory you'd otherwise build by hand,
 it lets you build a partial theory faster and lets you act on that partial theory
 more effectively, which is a different bargain than a plain net loss.
 
+One objection is that theory-understanding can't really be "traded off" against
+other engineering values, because those other values just become part of the
+theory itself. Goedecke's rebuttal: "keep the theory of the program simple" is
+itself a coherent, spendable value — you pay it out every time you accept added
+complexity to satisfy a customer request, a dependency upgrade, or an agent's
+contribution. The trade-off framing survives the objection because there's no
+value-free theory sitting underneath to protect in the first place.
+
 ## Sources
 
 - `sources/seangoedecke/blog/https-seangoedecke.com-programming-with-ai-agents-as-theory--34e4468e.md` — origin: https://seangoedecke.com/programming-with-ai-agents-as-theory-building/

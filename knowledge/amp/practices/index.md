@@ -18,3 +18,4 @@ product-changelog/marketing stream is out of scope.
 - [git-history-as-context-source](./git-history-as-context-source.md) — point the agent at commits and `git diff` to mine context, review, and locate code.
 - [ship-constantly-own-what-you-merge](./ship-constantly-own-what-you-merge.md) — Amp's team principles: optimize for speed, ship weekly, you-merge-it-you-own-it.
 - [disposable-environments-unlock-parallel-agents](./disposable-environments-unlock-parallel-agents.md) — removing checkout/port friction via ephemeral sandboxes is what actually unlocks running many agents at once and letting them run long.
+- [sdlc-is-the-bottleneck-not-the-model](./sdlc-is-the-bottleneck-not-the-model.md) — token-cost complaints signal a process mismatch, not overpriced intelligence; redesign the SDLC around cheap-to-reverse mistakes instead of waiting for a faster model.

@@ -26,6 +26,14 @@ agent while it finishes. Parallelism here isn't babysitting several terminals;
 it's dispatching several self-completing async calls and coming back only once
 each is actually done.
 
+The shift generalizes past any one person's habit. When Ball's whole team met up
+and had to wipe their laptops beforehand, at least five people forgot to port
+their dotfiles over — not because anything was lost, but because they'd
+stopped touching a local dev environment at all, working entirely in
+ephemeral sandboxes. That's the async-function reframe holding at team scale,
+not just as one person's workflow trick.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-90-ac057f6a.md` — *Joy & Curiosity #90* intro: "Agents in Orbs" — remote agents in ephemeral sandboxes reframed as async functions rather than remote-controlled machines; the "run all the tests, fix all the bugs, then push" prompting habit (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-90)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-94-d80affdd.md` — *Joy & Curiosity #94* intro: the Amp team wiping laptops before a meetup and forgetting to port dotfiles because they only work in orbs now (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-94)

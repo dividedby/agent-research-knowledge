@@ -159,17 +159,34 @@ When agents encounter blocked work, they can:
 ## Session Boundary Practices
 
 ### Land the Plane Protocol
-When completing work, agents must:
+The protocol is anchored to a specific trigger phrase — **"let's land the
+plane"** — rather than left to the agent's judgment of when a session is
+"done": a named phrase gives both the user and the agent an unambiguous signal
+to run the *full* mandatory sequence instead of a partial wrap-up (e.g. filing
+issues but forgetting to push, or pushing without cleanup). When completing
+work, agents must:
 1. File follow-up issues for remaining work
 2. Run quality gates if code changes were made
 3. Update and close finished issues
-4. Handle git/sync **per the active context profile** (see below)
-5. Clean up git state
-6. Provide next-session prompt
+4. Handle git/sync **per the active context profile** (see below) — pull
+   `--rebase`, push, then verify with `git status` that the branch is up to
+   date; unpushed work is explicitly called out as breaking multi-agent
+   coordination, so "ready to push when you are" is a documented failure mode,
+   not just a style nit
+5. Clean up git state: `git stash clear` (remove old stashes), `git remote
+   prune origin` (drop dead remote-tracking branches)
+6. Hand off with a copy-pasteable next-session prompt in a fixed format:
+   *"Continue work on bd-X: [issue title]. [Brief context about what's been
+   done and what's next]"* — so the next session (the same agent or a
+   different one) starts primed instead of re-discovering state
 
 ### Quality Gates
-- Run tests: `make test`
-- Check linting: `golangci-lint run ./...`
+- Run tests: `make test` (canonical command selection later moved to a
+  dedicated testing guide as the test surface grew)
+- Check linting: `make ci-pr-lint` — a required, zero-finding wrapper that
+  superseded the earlier advisory `golangci-lint run ./...` direct call, so
+  "lint clean" became a single pass/fail gate rather than a warnings list the
+  agent had to judge
 - File P0 issues if gates fail
 
 ### Agent Context Profiles — the managed block is subordinate, not sovereign
@@ -219,3 +236,5 @@ of agents stays accountable, not anonymous.
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd unclaim --force` — admin/reaper override to release another actor's claim, 2026-07-13 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd prime --no-memories`/`--memories-only` and the PRIME.md-override-keeps-memories clarification, 2026-07-14 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd unclaim` — coordinate-with-holder etiquette and prefer-lease-expiry guidance; `bd config` — `claim.pools` pool-aware claiming, anti-steal waiver, `bd reclaim` returns expired pool takes to the unassigned pool, 2026-07-17 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
+- `sources/steveyegge/beads/AGENTS.md.md` ("let's land the plane" trigger phrase, quality-gate/cleanup/hand-off detail, 2026-07-09 revision; `make ci-pr-lint` required-lint-gate rename, 2026-08-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENTS.md
+- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` ("Landing the Plane" — same trigger-phrase protocol, example session, 2026-07-09 revision; `make ci-pr-lint` required-lint-gate rename, 2026-08-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md

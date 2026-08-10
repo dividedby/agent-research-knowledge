@@ -68,6 +68,20 @@ alignment work to the grilling primitive (`align-before-building-grilling`) and
 treating plan mode's document as, at best, the context-priming side-effect
 credited above, not the mechanism that gets you aligned.
 
+## Opus 5: code quality held, but planning conversation got worse
+
+A new model can move the two halves of this workflow in opposite directions.
+Asked whether he can even use Opus 5, Matt's answer splits the model's
+performance along exactly the seam this doc already draws between code output
+and planning conversation: "It is pretty good at writing code, just very bad
+at talking." He sharpens the same split later, unprompted: "One underrated
+part of Opus 5 is that the code it produces is good actually. My AFK runs have
+absolutely not degraded, just the HITL planning has become a nuisance." So the
+rush-to-asset critique above isn't only a skill-design problem to fix with
+`grill-me` — a specific model can make the human-in-the-loop planning
+conversation itself worse to sit through, independent of whether its eventual
+code is any weaker.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-plan-mode-introduction-3aa9bfe5.md` — origin: https://www.aihero.dev/plan-mode-introduction
@@ -78,3 +92,5 @@ credited above, not the mechanism that gets you aligned.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081676095368085646-d0d3ae60.md` — origin: https://x.com/mattpocockuk/status/2081676095368085646
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2081796528260198766-5aaa1c0d.md` — origin: https://x.com/mattpocockuk/status/2081796528260198766
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082076477018005644-1a7de231.md` — origin: https://x.com/mattpocockuk/status/2082076477018005644
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085682292421185570-5356f355.md` — origin: https://x.com/mattpocockuk/status/2085682292421185570
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086082988631007374-33a7f57a.md` — origin: https://x.com/mattpocockuk/status/2086082988631007374

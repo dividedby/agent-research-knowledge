@@ -45,8 +45,18 @@ thing to ask for; a framework primitive is what teaches you the concept exists,
 closing the gap the training data and the agent's capability can't close on
 their own.
 
+Ball later flagged, with a plain "Agree," Sean Goedecke's framing of the same
+ceiling from the demand side: human domain expertise stays valuable even as
+models get stronger, because for many tasks the human — not the model — is the
+bottleneck. The answer is typically already "in the model," but pulling it out
+takes someone who can communicate exactly what solution they want. Read against
+Ball's own prompt/codebase/training-data theory, it's the same diagnosis in
+different words — the knowledge can be sitting in the training data and still
+be unreachable if you can't yet articulate the request.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-80-065f0c03.md` — *Joy & Curiosity #80* intro: "Do you know how it should work? Does the agent? Or does the codebase?"; the prompt/codebase/training-data theory and the knowledge gap (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-80)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-91-055a0420.md` — *Joy & Curiosity #91* intro: the iMovie anecdote — his daughter can't ask an agent for a J-cut or jump cut because she doesn't know the vocabulary, though she's seen the effect; "that, of course, made me think about software engineering" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-91)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-93-80e2eea2.md` — *Joy & Curiosity #93* intro: the Laracon/Laravel live-demo anecdote — whether framework primitives (debounce helper, image-display helper) still earn their keep when an agent can one-shot the equivalent, and why the named primitive survives as a discoverability aid (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-93)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-94-d80affdd.md` — *Joy & Curiosity #94* intro: endorsing Sean Goedecke's "the usefulness of domain knowledge suggests human expertise will continue to be useful... the human is the bottleneck, not the model" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-94)

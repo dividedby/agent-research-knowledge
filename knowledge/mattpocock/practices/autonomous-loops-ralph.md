@@ -45,6 +45,21 @@ need to babysit.
   in-project guardrails in `deterministic-hooks-over-prose-rules`). Trade-off: it
   won't load your global config or user skills.
 
+## The "happy hour" prompt: a deliberate exception to explicit scope
+
+The scoped, converge-on-a-PRD discipline above is Matt's default, but he
+carves out one recurring exception on purpose. At the end of each working day
+he runs a "happy hour" prompt with none of Ralph's guardrails: "Fuck the
+rules, I'm about to finish for the day, just make me something cool." He
+checks the result the next morning and either merges it or throws it away —
+one example produced an auto-zoom feature for his video editor that he kept.
+The move only works *because* it inverts the usual stakes: with the loop's
+scope-and-stop-condition discipline reserved for AFK work that has to land
+safely unattended, a low-cost, easily-discarded slot is where he can afford to
+drop that discipline entirely and let the agent free-associate — the same
+autonomy that would be reckless mid-project is fine when the downside is
+"delete the branch."
+
 ## The loop generalises past features
 
 Anything expressible as "look at the repo, improve one thing, commit" fits the
@@ -60,3 +75,4 @@ PRs rather than commits to main, which turns Ralph into a backlog-triaging engin
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-getting-started-with-ralph-7f6ee75f.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-why-the-anthropic-ralph-plugin-sucks-60344c9c.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-heres-how-to-stream-claude-code-with-af-8595552d.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086206733521695001-dc80f9af.md` — origin: https://x.com/mattpocockuk/status/2086206733521695001

@@ -192,6 +192,32 @@ more points downstream is what makes the single-seam preference stick against
 that default, rather than relying on a prompted preference the model quietly
 drifts away from.
 
+## Don't trust a review with no findings, and don't try to nail it in one pass
+
+The RGR discipline above targets an agent "fixing" code that never broke;
+a companion habit targets the human's *expectations* going into the review
+step. Asked how to get AFK runs that don't surface multiple `/code-review`
+findings, Matt rejects the goal itself: "I consider code review part of the
+run. I.e. I don't consider findings during code review to be a bad thing." He
+states the inverse just as plainly — "I don't trust reviews with no findings.
+I never expect the code to be better than 80% after first coding pass" — a
+clean review is a warning sign about the *review*, not evidence the
+implementation pass was unusually good. Pushed on whether it's worth trying
+harder to get everything right on the first run, his answer is that the
+attempt backfires: "what's the point of trying? You'll just overload the first
+run and lower quality" — piling more correctness pressure onto the
+implementation pass degrades it rather than improving it, because it's
+competing for the same context and attention the pass already needs.
+
+The reasoning he gives for keeping the two passes separate is architectural,
+not just habitual: "different circuits fire for impl vs verify. No need to
+overload them." This is red-green-refactor's rationale one level up — RGR
+already keeps writing code and verifying it as distinct steps within a slice;
+this same split scales to the whole AFK run, where implementation is one pass
+and `/code-review` (with its own separated Standards/Spec axes — see
+`review-skill-two-axis-with-smell-baseline`) is the second, deliberately
+different pass that's expected to find the ~20% the first pass didn't get to.
+
 ## A feedback loop is a stack you build into the repo
 
 For everyday building (not just debugging), the loop is concrete infrastructure
@@ -227,3 +253,6 @@ frontend.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082087683757629538-73357efb.md` — origin: https://x.com/mattpocockuk/status/2082087683757629538
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082092243360293212-4ec6cd9c.md` — origin: https://x.com/mattpocockuk/status/2082092243360293212
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082470683712360592-a931f9fa.md` — origin: https://x.com/mattpocockuk/status/2082470683712360592
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086089056711036949-a7b4b448.md` — origin: https://x.com/mattpocockuk/status/2086089056711036949
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086093679677034920-85117314.md` — origin: https://x.com/mattpocockuk/status/2086093679677034920
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086110209961828833-589d231b.md` — origin: https://x.com/mattpocockuk/status/2086110209961828833

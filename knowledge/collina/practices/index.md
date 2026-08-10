@@ -24,3 +24,4 @@ lists them, one line each.
 - [human-accountability-for-ai-generated-code](./human-accountability-for-ai-generated-code.md) — DCO-style provenance rules don't need to change for AI code; they were always about who answers for it, not how it was written.
 - [review-before-commit-not-after-push](./review-before-commit-not-after-push.md) — move the review checkpoint earlier, to before commit, because by PR time the agent's approach is already locked in.
 - [personal-skills-encode-preferences-to-cut-ai-slop](./personal-skills-encode-preferences-to-cut-ai-slop.md) — a repeated correction is a signal to write the preference once into a loadable skill instead of re-arguing it every session.
+- [adversarial-agent-pairing-for-triage](./adversarial-agent-pairing-for-triage.md) — when incoming claims are cheap to generate and outpace human review, force the agent to argue against its own first read before acting on it.

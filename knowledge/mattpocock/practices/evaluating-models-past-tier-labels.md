@@ -29,6 +29,16 @@ and of each other:
   entirely, so "which model" and "what effort" are now two separate decisions
   that both need setting, not one bucket choice.
 
+## Lower effort is usually the better trade, not just the cheaper one
+
+Because reasoning effort is now a separate dial from model choice, it's worth
+evaluating on its own terms rather than defaulting to the highest setting for
+safety. Matt's stated preference, pressed on where he actually lands: "You
+definitely get more bang for your buck from lower effort levels" — the
+marginal quality a higher effort setting buys usually doesn't justify its extra
+token spend, so the default worth reaching for is lower, not higher, unless the
+specific task demonstrably needs the extra reasoning.
+
 ## The practical corollary
 
 Because tier-by-name no longer predicts capability or cost, the only honest
@@ -44,3 +54,4 @@ old shorthand no longer does the job it used to.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072996604018143557-01bc560b.md` — origin: https://x.com/mattpocockuk/status/2072996604018143557
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072999535068983359-502d9cb9.md` — origin: https://x.com/mattpocockuk/status/2072999535068983359
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072999606749720606-bfad223b.md` — origin: https://x.com/mattpocockuk/status/2072999606749720606
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085534652580712956-ac8e4c9b.md` — origin: https://x.com/mattpocockuk/status/2085534652580712956

@@ -64,6 +64,18 @@ produce a sharper glossary and few or no ADRs, and that's the intended shape."
 A session that mints an ADR every time is a sign the gate isn't being applied —
 the glossary is the expected steady output, the ADR the rare exception.
 
+## When the glossary itself has drifted, re-run the discipline on it
+
+The five moves above assume a live interview building the glossary forward.
+Matt also names the fix for the opposite problem — a glossary that's already
+been written but has since become confusing to its own owner. Told by a user
+that they were "having a hard time even understand[ing] my own glossary now,"
+his answer treats it as the same discipline applied retroactively rather than
+a new tool: "go back through it and use the domain-modeling skill to make sure
+it's aligned with what you want." A `CONTEXT.md` isn't a write-once artifact —
+if it stops being legible, the fix is to re-run the same challenge-and-sharpen
+moves against the existing file, not to abandon it or start a fresh one.
+
 ## Not deprecated — absorbed and expanded
 
 Asked whether the standalone `ubiquitous-language` skill had been dropped,
@@ -83,3 +95,4 @@ own — going from one narrow entry point to something woven through the whole
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — "most sessions produce a sharper glossary and few or no ADRs")
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084255866543390766-29f40882.md` — origin: https://x.com/mattpocockuk/status/2084255866543390766
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085674908051275993-c3c44927.md` — origin: https://x.com/mattpocockuk/status/2085674908051275993
