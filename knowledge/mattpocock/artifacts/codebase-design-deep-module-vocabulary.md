@@ -81,8 +81,30 @@ correctly every time. Where `codebase-design`'s testability rules teach an
 agent to *design* a deep module, this is the complementary move of making a
 violation *fail the build* rather than pass silent review.
 
+## A reference with no process gets mistaken for a driver
+
+Because `codebase-design` is a **reference** — a glossary and four principles,
+no loop, no artifact, no checkpoint that asks a question — pointing a fresh
+session at it as the thing to *do* is a known failure mode, not a hypothetical
+one. Told to "resume in `/codebase-design` and drive the open decisions", an
+agent reached for the most action-shaped content it could find (the parallel
+sub-agents in `DESIGN-IT-TWICE.md`), re-explored code a previous session had
+already mapped, and burned roughly 100k tokens redesigning things nobody had
+asked about before asking a single question. None of the guardrails a driver
+skill carries — checkpoints, one question at a time, no auto-advance — exist
+here, because a reference has none to give. The fix is routing, not a rewrite:
+name a driver skill (`grill-with-docs`, `improve-codebase-architecture`, or
+`tdd`) and let `codebase-design` sit underneath it as the vocabulary those
+skills borrow, rather than pointing an agent at the reference directly and
+expecting it to also supply a process. The general lesson travels past this
+one skill: any all-reference, no-loop document is a plausible target for the
+same misreading, and the cheap tell that it's happening is the agent starting
+to read files and propose refactors off the reference alone, with nothing in
+the reference itself having told it to.
+
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-codebase-design-7ba554d7.md` — origin: https://www.aihero.dev/skills-codebase-design
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/85804e72bbb83120b3becba0edd22b91abf3aa52/skills/in-progress/README.md — `setup-ts-deep-modules` listed)
 - `sources/mattpocock/skills-repo/skills-engineering-codebase-design-SKILL.md-533bf87d.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/codebase-design/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-codebase-design-DEEPENING.md-6d2223b2.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/codebase-design/DEEPENING.md

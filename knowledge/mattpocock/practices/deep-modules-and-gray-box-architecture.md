@@ -59,6 +59,18 @@ deterministic check over a hoped-for convention" instinct as
 `deterministic-hooks-over-prose-rules`, applied at the architecture level instead
 of the command-safety level.
 
+The same `lint:boundaries` check was later widened to enforce a second,
+related boundary rather than a copy of the first: once the repo split into a
+Turborepo monorepo (a local app, a deployed API, and a shared domain-database
+package), the check also verifies that the domain package has **no
+filesystem access, no `child_process`, and no git coupling** — anything that
+needs a machine is injected in from the app that has one. That's the same
+"deep module, enforced at the border, not by convention" instinct as the
+package-entry-point rule above, aimed at a different property: not just "can
+you reach into my internals," but "am I portable to a place that has no
+filesystem at all." One check, two boundaries, because both are the same kind
+of leak if left to convention.
+
 That one-off repo convention has since been generalised into a shippable
 skill, `setup-ts-deep-modules`: it wires [dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
 into any TypeScript repo with four `error`-level rules — outsiders may import
@@ -76,6 +88,7 @@ names for tests — a check that has never gone red hasn't proven it can.
 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-how-to-make-codebases-ai-agents-love-1ba6d0b5.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-ways-ai-coding-has-rewired-my-brain-dc20954e.md
-- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-11, "Deep-module packages")
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-11, "Deep-module packages"; revision 2026-08-11, `lint:boundaries` widened to also enforce that `packages/core` stays filesystem-free)
+- `sources/mattpocock/course-video-manager/README.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/README.md (revision 2026-08-11, "Repository layout": `apps/local`, `apps/remote`, `packages/core` split)
 - `sources/mattpocock/skills-repo/skills-in-progress-setup-ts-deep-modules-SKILL.md-818cdfcd.md` — origin: https://github.com/mattpocock/skills/blob/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/in-progress/setup-ts-deep-modules/SKILL.md
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/85804e72bbb83120b3becba0edd22b91abf3aa52 — `setup-ts-deep-modules` listed)

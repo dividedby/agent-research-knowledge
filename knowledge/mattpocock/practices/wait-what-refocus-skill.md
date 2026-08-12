@@ -54,8 +54,27 @@ wrapper existed" — the same refocus-into-plain-language move that clarifies a
 confusing agent reply works just as well pointed at confusing code the agent
 didn't even write.
 
+## The name is the mechanism: naming the listener beats naming the output
+
+`/wait-what`'s three-line body works because its leading word targets the
+*listener's* state, not the *output's* shape. "Be concise" is an instruction
+about what the agent produces, and a model that obeys it literally clips words
+and loses the reader further — the popular fixes for verbosity all make this
+mistake: `/tldr`, `/no-fluff`, `/talk-normal` each name the output, and the
+model over-corrects into a shorter, no-clearer, caveman register. "Wait" names
+something else: comprehension failed *here*. An agent that hears "be brief"
+writes telegrams; an agent that hears "wait, you lost me" backs up and
+re-explains, adding the missing premise rather than deleting words to hit a
+length target. Naming the listener asks for both halves of a good re-pitch at
+once — fewer words *and* the context that was missing — where naming the
+output only ever buys the first half. The skill also declines to specify how
+far back to re-pitch ("that", not "that last message"), on the reasoning that
+what lost the reader is usually bigger than one paragraph and the agent is
+better placed to judge the span than a fixed rule would be.
+
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-wait-what-b17c16fd.md` — origin: https://www.aihero.dev/skills-wait-what
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084941367659168064-78315c94.md` — origin: https://x.com/mattpocockuk/status/2084941367659168064
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084985277102031137-a06755bf.md` — origin: https://x.com/mattpocockuk/status/2084985277102031137
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085283315896979793-8eca86c8.md` — origin: https://x.com/mattpocockuk/status/2085283315896979793

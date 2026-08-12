@@ -115,6 +115,23 @@ level — naming a capability's own harness-specific tool inside a step is the
 same mistake as hardcoding a path, just one layer further from the surface
 where the dual-harness intent is declared.
 
+## Concrete numbers: the whole main-flow chain costs ~600 tokens
+
+Pressed by a user hesitant to install the skills because they "seem to be all
+or nothing" and might clutter context, Matt gave the actual cost of the main
+flow — `/grill-me` → `/to-spec`/`/to-tickets` → `/implement`/`/code-review` —
+as roughly **50-100 tokens of context load per skill, ~600 for the whole
+chain**, and only `/code-review` is model-invocable, "because it needs to be
+invocable by /implement." He frames his own tolerance for the trade-off as
+the same worry the asker had, just resolved the other way: "Basically I have
+the same paranoia you have, so I max out on user-invoked skills and keep
+model-invocable skills to a minimum" — the axis above restated as a personal
+budget he holds himself to, not just a rule imposed on the collection. A
+related reply extends the same caution to running two skill libraries side by
+side: "you definitely don't want two competing skill sets in your context
+window" — the context-load argument for minimising model-invoked skills
+applies just as much to not doubling up on entire skill sets.
+
 ## How the buckets express it
 
 The convention is enforced structurally: `CLAUDE.md` mandates that every
@@ -150,3 +167,6 @@ release as redundant (`caveman`, `zoom-out`), and `write-a-skill` was replaced b
 - `sources/mattpocock/skills-repo/skills-engineering-code-review-SKILL.md-ffd0e041.md` — origin: https://github.com/mattpocock/skills/blob/a114b4ed92b2fd21fe5513e24abdd56706fb72b0/skills/engineering/code-review/SKILL.md (revision 2026-08-07 — harness-neutral "spawn both sub-agents in parallel" wording)
 - `sources/mattpocock/skills-repo/skills-engineering-codebase-design-DESIGN-IT-TWICE.md-7e0e561e.md` — origin: https://github.com/mattpocock/skills/blob/6b841ef61002fbc717f94fe80f18e0c814565b76/skills/engineering/codebase-design/DESIGN-IT-TWICE.md (revision 2026-08-07 — same harness-neutral wording)
 - `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/8b13390845f9f5e60ae623f52dbe8733f4329538/skills/engineering/improve-codebase-architecture/SKILL.md (revision 2026-08-07 — same harness-neutral wording)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086933648834498649-fb84a362.md` — origin: https://x.com/mattpocockuk/status/2086933648834498649
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086933777272512785-4a7d04ec.md` — origin: https://x.com/mattpocockuk/status/2086933777272512785
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087077508264935902-786caaee.md` — origin: https://x.com/mattpocockuk/status/2087077508264935902

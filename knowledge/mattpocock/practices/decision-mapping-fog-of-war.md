@@ -463,6 +463,45 @@ GitLab, and local Markdown are the shipped backends (see
 `setup-seeded-config-and-dependency-tiers`), not an exhaustive list of what the
 skill can be pointed at.
 
+## The Notes override is written by the party it constrains
+
+Wayfinder's "plan, don't do" default can be lifted for a specific map by
+writing an override into that map's own `## Notes` block — but the Notes are
+agent-written, into the same file the constraint and its exemption both live
+in. The most-reported wayfinder failure is a direct consequence: one user
+watched an agent write "this map carries execution" into its own Notes mid-session
+and then read that line back in a *later* session as its own standing licence,
+going on to build against a live server. There is no hard in-skill stop for "I
+meant the default, not the override" — the constrained party can grant itself
+the exemption and no later session can tell the difference between a
+deliberate override and a self-granted one. Until that's fixed, the practical
+guard is reading the Notes on any map you didn't chart yourself before trusting
+its "plan, don't do" default still holds, and treating any `wayfinder:task`
+ticket that looks like a slice of the build as mis-typed rather than
+intentional.
+
+## Comprehensive verbosity is a live, unresolved cost
+
+The heaviness of wayfinder's grilling isn't only a matter of question count —
+practitioners report the *length* of each question as the sharper problem:
+every question arrives as three paragraphs, which causes decision exhaustion
+independent of how many rounds the frontier takes. The mechanism named for it:
+verbosity strips out *why* a question is being asked, so across a long map the
+reader loses the chain from one decision to the next even while individually
+answering each one correctly. This reads as a property of the current
+generation of models rather than of the skill's design, and no fix has landed;
+practitioner mitigations are a lower reasoning effort and a plain-language
+instruction in `CLAUDE.md`, not a skill-level setting. A related field report
+names the model's other failure mode at scale: a map charted to 27 tickets
+found, by the time the user reached the thirteenth, that the remaining
+fourteen no longer made sense — later tickets had rested on assumptions the
+earlier, now-resolved ones had quietly invalidated, the exact waterfall trap
+the fog-of-war design exists to avoid. The mitigation is the same one that
+makes wayfinder work at all: scope the map to one bounded destination rather
+than an entire product, and prototype aggressively enough that assumptions get
+tested while they're still cheap to be wrong about, rather than letting a
+sprawling map accumulate assumptions no one has checked.
+
 ## Domain fit: a poor match for game development
 
 Asked directly about using wayfinder for game dev, Matt is blunt: "Don't use
@@ -477,6 +516,7 @@ hard to build a fast, legible feedback loop around subjective feel the way
 
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-wayfinder-e757be50.md` — origin: https://www.aihero.dev/skills-wayfinder
 - `sources/mattpocock/skills-repo/skills-in-progress-decision-mapping-SKILL.md-cdd9e8ec.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/in-progress/decision-mapping/SKILL.md (and revision 2026-06-24, origin https://github.com/mattpocock/skills/blob/846e8509f656adee303a5ea514a6830af4a962d6 — "Discuss" ticket type renamed "Grilling"; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/8258b0fa07254990b0d4d680ef28d353ef67788f — slug ids, `Status`, and the `Handoff` protocol; revision 2026-07-01, origin https://github.com/mattpocock/skills/blob/ac84e71c521d7636dc3db01ca36f0c167b6b39e2 — the `Task` ticket type, domain-agnostic framing, and the `## Notes` block)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-06-17; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/00b0f60a9f2cea78216bc7165684bd5610495f9e — `decision-mapping` renamed `wayfinder`; revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/c150c7074b3523328da2c980d22c84b8c21a2308 — `wayfinder` graduates out of the in-progress list entirely)
 - `sources/mattpocock/skills-repo/skills-engineering-README.md-1400dd55.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/README.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/f02469bf3e8c183fd269565808c7b613ec6011c5 — `wayfinder` lands under User-invoked)

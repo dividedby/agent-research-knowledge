@@ -151,6 +151,31 @@ same "does this still say something" test as anywhere else in the discipline:
 spec survives long enough to be useful during review; prune later, once it
 genuinely isn't.
 
+## A back-of-envelope heuristic for ticket count
+
+When you're unsure how finely to slice `/to-tickets`, Matt offers a concrete
+heuristic: estimate the total tokens the task will take (experience helps
+here; when unsure, estimate high), divide by ~150k (the smart zone — see
+`keep-the-agent-in-the-smart-zone`), and that's roughly the number of tickets
+to aim for — a 1M-token refactor is "6.66 smart zones, so 7 tickets." He's
+explicit it's a **rule of thumb, not a benchmarked number**: asked whether
+150k was measured or "just vibes," his answer was simply "Rule of thumb." He
+also frames it as something a human should see rather than something the
+skill should compute and hide: asked why not bake the estimate into
+`/to-tickets` itself, he called it "probably a useful number to surface for
+the human making that judgement" — the estimate informs the human's sizing
+call rather than replacing it.
+
+## Several ideas at once: run each through the main flow, sized by weight
+
+Asked how to avoid losing good suggestions when several ideas surface at once
+(e.g. from a prototype session) without treating every one as equally
+weighty, Matt's answer is not to batch them into one plan: run each idea
+through the same main flow as normal, and let its own size decide which
+branch it takes — "if it's small, grill and implement directly. If it's big,
+use a spec and break it into tickets." One flow handles both cases; the size
+of the idea, not a separate process per idea, is what decides the branch.
+
 ## `/to-spec` doesn't interview — grilling already happened upstream
 
 Its predecessor `/to-prd` carried an interview step it would run if no prior
@@ -175,8 +200,62 @@ a durable spec, an AFK agent can pick up a ticket cold, complete it, and stop
 briefs, arrived at here from the planning side rather than the brief-writing
 side.
 
+## Seams get agreed at the spec, not invented downstream
+
+Before `to-spec` writes a word, it sketches the seams the feature will be
+tested at and checks them with the user — preferring seams that already exist
+over new ones, and taking the highest one it can reach (the ideal count across
+a whole change is one). Those agreed seams then travel through the rest of the
+chain by reference rather than by re-confirmation: `tdd` is told to work only
+at the seams the spec already settled, and `code-review` checks afterward that
+only the agreed-upon seams were actually used. The binding is indirect — it
+runs entirely through the spec document — which is exactly why the seam
+conversation is worth taking seriously at this step rather than deferring it
+to whichever skill happens to write the first test.
+
+## `ready-for-agent` on the spec issue is a trap for AFK runners
+
+The label `to-spec` applies to a published spec means "no further triage
+needed" — an input designation, not a work order — but an AFK agent polling
+the tracker for `ready-for-agent` can't see that distinction. Left unguarded,
+it will try to build the entire spec in one run instead of picking up the
+ticket-sized slices `to-tickets` derives from it afterward. This is the
+most-reported rough edge on the skill, and the workaround is on the caller: 
+exclude the parent spec issue explicitly in the AFK agent's prompt, or strip
+the label from the spec once `to-tickets` has run over it.
+
+## The template assumes a feature; an architectural change fights it
+
+`to-spec`'s template leans on user stories, which is the wrong shape for a
+refactor or a module-boundary change — the result is stories nobody asked for,
+written around decisions that are really about interfaces and invariants. The
+documented workaround is to lean on the implementation-decisions and
+testing-decisions sections instead of the user-story frame, and let the
+durable architectural calls land as ADRs via `grill-with-docs` rather than
+trying to make the spec template carry them.
+
+## Blocking edges are the point of a `to-tickets` artifact, not decoration
+
+`to-tickets` doesn't just list tickets — every ticket declares its **blocking
+edges**, the other tickets that must close before it can start, and those
+edges are what let a tracker (or a human) compute the **frontier**: whichever
+tickets have no open blockers left, and are therefore takeable right now, in
+parallel if wanted. On GitHub this is meant to ride the tracker's own native
+sub-issue and blocking-relationship support (`gh issue create --parent <n>`,
+`gh issue create --blocked-by 12,15`), both available since `gh` v2.94 — but
+in practice this is reported broken across a dozen runs and several models,
+worse on Codex than on Claude: tickets land as plain siblings instead of
+sub-issues, and a "Blocked by" line gets written into the issue body as prose
+instead of a real blocking link (one report even had the agent assert GitHub
+has no native blocking relationship at all, which is false). Because blocker
+numbers are always known at creation time — blockers are published first — the
+reliable move today is wiring the parent links and native blocking by hand
+after a run, rather than trusting the template to have set them.
+
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-to-spec-8b6729bc.md` — origin: https://www.aihero.dev/skills-to-spec
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-to-tickets-c067d73f.md` — origin: https://www.aihero.dev/skills-to-tickets
 - `sources/mattpocock/aihero/https-www.aihero.dev-5-agent-skills-i-use-every-day-056774d5.md` — origin: https://www.aihero.dev/5-agent-skills-i-use-every-day (revision 2026-07-26 — the `/to-prd`→`/to-spec`, `/to-issues`→`/to-tickets` rename and the "does not interview" workflow change)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079926515257520400-ce5571da.md` — origin: https://x.com/mattpocockuk/status/2079926515257520400
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079926855788855524-9cb40b6e.md` — origin: https://x.com/mattpocockuk/status/2079926855788855524
@@ -207,3 +286,7 @@ side.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083842093630324743-fde70b59.md` — origin: https://x.com/mattpocockuk/status/2083842093630324743
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083842523772957132-cf5db06d.md` — origin: https://x.com/mattpocockuk/status/2083842523772957132
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083862208795050365-882e642f.md` — origin: https://x.com/mattpocockuk/status/2083862208795050365
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087111966854730148-dab0316e.md` — origin: https://x.com/mattpocockuk/status/2087111966854730148
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087120207428907471-e2310da6.md` — origin: https://x.com/mattpocockuk/status/2087120207428907471
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087183449266196671-bade10ec.md` — origin: https://x.com/mattpocockuk/status/2087183449266196671
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087150963140255805-5a01a8ab.md` — origin: https://x.com/mattpocockuk/status/2087150963140255805

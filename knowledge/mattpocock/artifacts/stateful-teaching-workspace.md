@@ -180,8 +180,30 @@ token-efficient** (later lessons reuse rather than regenerate shared assets) and
 it **builds momentum** (each lesson starts from a richer base) — reuse is
 positioned as a compounding asset, not just deduplication.
 
+## An instruction-level fix can't close a component-level bug
+
+Quiz questions in generated lessons were confirmed, across several people and
+several models (Sonnet, Opus, GLM), to place the correct answer in the first
+option far more often than chance — a positional tell that lets a learner
+pattern-match instead of recall. The first fix attempt was prose: `SKILL.md`
+now requires every option to be the same length, which kills the *other* tell
+(the correct answer used to be the only fully-reasoned one) but says nothing
+about position, and one contributor who tested an instruction-level fix for
+position specifically reported the correct answer still landing in slot A 33
+times out of 33 across nine lessons. The generalizable point: a bug that lives
+in how a component is *rendered* — here, a quiz widget that always lists the
+correct option first — doesn't reliably respond to a prose instruction aimed
+at the model that authors the content, because the instruction has to be
+re-obeyed correctly on every single generation and the render logic isn't
+being asked to change at all. The fix that actually closes this class of bug
+is structural: a quiz component in `assets/` that shuffles option order at
+render time, which — because `assets/` is the workspace's own, user-editable
+reuse layer (see "Reuse-first lessons" above) — is something a user can add
+locally today rather than waiting on the shipped skill to change.
+
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-teach-fff38a04.md` — origin: https://www.aihero.dev/skills-teach
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-SKILL.md-993c30ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/SKILL.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/skills-repo/skills-in-progress-teach-MISSION-FORMAT.md-a060ea4c.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/teach/MISSION-FORMAT.md

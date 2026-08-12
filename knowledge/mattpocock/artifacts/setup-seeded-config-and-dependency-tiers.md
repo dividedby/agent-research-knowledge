@@ -105,8 +105,31 @@ breaks the indirection for everyone, silently and without an error — the fix
 was making `wayfinder` resolve the doc via the same pointer every other
 consumer already used, restoring one true resolution path across the suite.
 
+## "Config is death": the setup skill's scope is deliberately narrow
+
+Users repeatedly ask `setup-matt-pocock-skills` to become the home for more
+than its three decisions — grilling cadence, question format, tone, per-user
+preferences — and the standing answer is a flat refusal: "Config is death."
+Anything beyond tracker, labels, and doc layout belongs in the repo's own
+`CLAUDE.md` as plain instructions, which every skill already reads; growing the
+setup skill's surface into a general preferences store is the thing being
+refused, not an oversight to fix. The same narrowness shows up as an open
+complaint the setup skill doesn't resolve on its own: `docs/agents/triage-labels.md`
+only records the *mapping* between canonical role names and a tracker's real
+label strings — it never runs `gh label create`, so a fresh GitHub repo still
+needs the five state and two category labels created by hand once, or `triage`
+fails outright trying to apply one that doesn't exist. A second, unrelated gap
+sits in the file-selection rule: setup edits `CLAUDE.md` if it exists, else
+`AGENTS.md` — checking which file *exists*, not which harness is actually
+running — so a `CLAUDE.md` left over from an earlier Claude Code session can
+collect the `## Agent skills` block somewhere a Codex session run afterward
+never reads. Both gaps are worked around by hand today: create the tracker
+labels once with `gh label create`, and either move the block to `AGENTS.md`
+or make `CLAUDE.md` a one-line pointer at it.
+
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-setup-matt-pocock-skills-7dbff8a3.md` — origin: https://www.aihero.dev/skills-setup-matt-pocock-skills
 - `sources/mattpocock/skills-repo/docs-adr-0001-explicit-setup-pointer-only-for-hard-dependenc-071cb663.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/docs/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-SKILL.md-5dba7935.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/SKILL.md (revision 2026-07-09, origin https://github.com/mattpocock/skills/blob/557a22040d64b8c03c725361637e6b10f2c64b73/skills/engineering/setup-matt-pocock-skills/SKILL.md; revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/b93c987ac95a97bab83f4fd0263c5fb34a355ff1/skills/engineering/setup-matt-pocock-skills/SKILL.md — recommended-answer defaults and skipping settled/moot sections)
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md

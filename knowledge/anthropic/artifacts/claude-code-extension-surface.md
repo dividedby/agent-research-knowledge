@@ -13,7 +13,12 @@ deterministic, in-context-vs-out, and manual-vs-automatic.
   agent to ignore the rules that matter. Exclude anything the agent can figure out
   from the code, standard conventions, frequently-changing info, and detailed API
   docs (link instead). It composes across scopes (home, project root, parents for
-  monorepos, on-demand child dirs) and supports `@path` imports. `/init` analyzes
+  monorepos, on-demand child dirs) and supports `@path` imports. The project root
+  actually holds two files with opposite sharing intent: `./CLAUDE.md` is checked
+  into git for the team, while `./CLAUDE.local.md` holds personal,
+  project-specific notes and belongs in `.gitignore` — separating "persistent
+  context for every session" from "my own scratch notes" that shouldn't ship to
+  teammates. `/init` analyzes
   the codebase to scaffold a first draft you then refine. Verify what actually
   loaded with `/context` rather than assuming it did — and since the whole file is
   paid for on every turn, route anything only *sometimes* relevant (domain
@@ -62,10 +67,12 @@ there's no human backstop once it's running unattended, and keep `--verbose` for
 developing the prompt but drop it once you're running at scale). Approval-per-action is safe by
 default but has its own failure mode — after the tenth prompt you're no longer
 reviewing, you're clicking through — so permission friction is reduced three ways:
-allowlists for known-safe tools, OS-level sandboxing, or auto mode (a classifier
-vets commands), each trading safety against convenience. (Auto mode self-limits
-under `-p`: with no human to fall back to, it aborts if the classifier repeatedly
-blocks actions.)
+allowlists for known-safe tools, OS-level sandboxing, or auto mode (a separate
+classifier model reviews each command and blocks only what looks risky — scope
+escalation, unknown infrastructure, hostile-content-driven actions — letting
+routine work proceed without a prompt), each trading safety against convenience.
+(Auto mode self-limits under `-p`: with no human to fall back to, it aborts if
+the classifier repeatedly blocks actions.)
 
 ## Sources
 - `sources/anthropic/engineering/https-www.anthropic.com-engineering-claude-code-best-practic-4d249e2a.md` — https://www.anthropic.com/engineering/claude-code-best-practices

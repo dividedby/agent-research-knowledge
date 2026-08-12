@@ -41,6 +41,34 @@ just to the maintainer driving the session: anyone reading the issue later
 sees at a glance which comments came from the triage agent versus a person,
 without having to infer it from tone or trust the session log.
 
+## Only rejected enhancements write to the knowledge base
+
+`wontfix` is not one closing action but three, and only one of them writes to
+`.out-of-scope/`. Closing as *already implemented* posts a comment pointing at
+where the feature already lives and writes nothing to `.out-of-scope/` — it's
+a built feature, not a rejected one, and filing it there would poison the
+dedup checks a future triage pass runs against that directory. Closing a
+*rejected bug* is a polite explanation and a close, also with no file. Only a
+*rejected enhancement* gets a markdown file under `.out-of-scope/`, linked
+from the closing comment. The three-way split matters because the directory
+is read wholesale on every future triage pass and matched by concept, not
+keyword — a stray "already implemented" entry there would make a later
+built-and-shipped feature look like a standing rejection.
+
+## Triage is the on-ramp for inbound work, never for self-generated tickets
+
+The rule is flat: `triage` runs only over issues that arrived from outside —
+raw bug reports, incoming feature requests, an unannounced external PR — never
+over tickets the same skill-set already produced. Tickets `to-tickets`
+publishes are agent-ready by construction (it applies `ready-for-agent` as it
+publishes, precisely so an AFK runner doesn't need a second pass), so running
+`triage` over them is wasted work at best and a source of confusion at worst —
+a reported case had a user's AFK runner sit idle because it was waiting on
+`needs-triage`, the label `triage` would have applied, while `to-tickets` had
+already published everything as `ready-for-agent`. The two lanes meet at
+exactly one place — an issue labelled `ready-for-agent` with a brief attached
+— never before it.
+
 ## Verify the claim before grilling
 
 Before any state refinement, triage checks the claim holds up: reproduce a reported bug from the reporter's steps, or for a PR check out the diff and run the relevant tests to confirm it does what it claims. The outcome — confirmed (with the code path), failed, or insufficient detail (a strong `needs-info` signal) — is reported, and a confirmed verification makes a materially stronger agent brief. Triage also runs two codebase checks during context-gathering: a **redundancy** search (is this already implemented? — by domain concept, not the request's wording; if so it's an already-implemented `wontfix`) and a **prior-rejection** check against `.out-of-scope/`. The verification step is what separates "an agent moved a label" from "an agent confirmed the work is real and specified."

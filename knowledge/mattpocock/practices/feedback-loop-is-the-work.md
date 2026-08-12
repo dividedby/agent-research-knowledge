@@ -218,6 +218,33 @@ and `/code-review` (with its own separated Standards/Spec axes — see
 `review-skill-two-axis-with-smell-baseline`) is the second, deliberately
 different pass that's expected to find the ~20% the first pass didn't get to.
 
+## Two open gates: over-firing on easy questions, and no checkpoint before the fix
+
+`diagnosing-bugs` is heavy by design — six gated phases before a fix lands —
+which makes it the wrong tool when it fires on something that didn't need it.
+This is the most-reported problem with the skill: on models with a lower
+activation threshold than the one it was calibrated against, a plain
+description of a problem triggers the full discipline anyway, building a
+reproduction scenario of limited value before answering a question the user
+just wanted answered directly. The accepted fix — graduate to the heavy
+version only once a lighter answer proves insufficient — hasn't shipped; the
+practical workaround is saying "just answer this, don't diagnose" or disabling
+model invocation for the skill. A second, structural gap sits later in the
+loop: only Phase 3 (the ranked hypothesis list) has a human checkpoint. Nothing
+gates the step *between* instrumentation and the fix, so the agent can start
+writing the fix before the user has agreed the root cause is right — a request
+for that gate is open and unaddressed.
+
+`tdd`'s pre-agreed-seam rule decides *where* a test goes once you're inside the
+red-green loop, but nothing in the skill decides *whether* a change deserves
+the loop at all. Config, wiring, glue code, type annotations, and straight CRUD
+delegation are a real, named, unfixed gap: run `tdd` on a change with no
+independent source of truth to assert against, and the result is a test that
+restates the implementation — the tautological anti-pattern above, arrived at
+by picking the wrong change to test-drive rather than the wrong assertion.
+Until that judgement is built in, it's the caller's call, or a line in
+`CLAUDE.md`.
+
 ## A feedback loop is a stack you build into the repo
 
 For everyday building (not just debugging), the loop is concrete infrastructure
@@ -236,6 +263,8 @@ frontend.
 
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-diagnosing-bugs-15a5eaa7.md` — origin: https://www.aihero.dev/skills-diagnosing-bugs
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-tdd-48650cc0.md` — origin: https://www.aihero.dev/skills-tdd
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-SKILL.md-82a24dd7.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-scripts-hitl-loop.template.sh-7d00841a.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/scripts/hitl-loop.template.sh

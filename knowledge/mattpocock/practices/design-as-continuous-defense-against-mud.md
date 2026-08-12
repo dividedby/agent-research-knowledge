@@ -26,6 +26,36 @@ Testability and AI-navigability are treated as the same goal: a deep module's
 interface is its test surface, and the same small interface that makes it easy
 to test makes it easy for an agent to reason about.
 
+## Prevent the class, don't just catch the instance
+
+A sharper cut on the same thesis: **"Less 'let me write tests to catch the
+next time that error happens' — more 'let me make that class of error
+impossible with a better design.'"** A test only catches the specific bug you
+already found; redesigning the interface so the bug's *shape* can't recur
+closes off the whole category at once. His own before/after makes the
+distinction concrete: bad is commenting the fix in prose ("I forgot to
+include a file in the `sendTheseFilesToDocker` array"); good is removing the
+place a human (or agent) could forget in the first place — "let's bundle
+these files before we send them, that way any included file will be
+automatically sent." Asked how to get agents to write good code the first
+time, rather than needing this kind of fix applied after the fact, Matt's
+answer is to move the habit upstream: "by baking this thinking into the
+planning process" — the same "make errors structurally impossible" instinct
+applied before code exists, not only after a bug surfaces.
+
+## Firsthand account, and a caution about pointing at the skill by name
+
+A field report matches the "routine maintenance" framing above: after
+"vibing out" an app without ever looking at its internals, and getting scared
+once things started going wrong, running `improve-codebase-architecture` felt
+like "a lovely, warm bath of a skill" — the intended rescue path once
+accumulated entropy becomes visible. But Matt adds a caution about how the
+skill gets reached: if you explicitly hand the agent this skill's path as an
+option, "it'll choose it way more often than it should" — the skill doesn't
+reliably self-judge when nothing actually needs improving, so naming the path
+too readily biases the agent toward reaching for it even when the codebase
+doesn't warrant a pass.
+
 ## The codebase out-votes the prompt
 
 Matt's blunt claim: your codebase — far more than your prompt or `CLAUDE.md` — is
@@ -99,3 +129,9 @@ instead is a measurable gate the agent is held to.
 - `sources/mattpocock/aihero/https-www.aihero.dev-ways-ai-coding-has-rewired-my-brain-dc20954e.md` — origin: https://www.aihero.dev/ways-ai-coding-has-rewired-my-brain
 - `sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md` — origin: https://www.aihero.dev/tips-for-ai-coding-with-ralph-wiggum
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082528210319745433-082a8d65.md` — origin: https://x.com/mattpocockuk/status/2082528210319745433 (repost/quote-tweet: point credited to Robert "Uncle Bob" Martin/@unclebobmartin, amplified by Matt)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086830429416333758-6512adaa.md` — origin: https://x.com/mattpocockuk/status/2086830429416333758
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086836045354541074-7f7ed73c.md` — origin: https://x.com/mattpocockuk/status/2086836045354541074
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086924475153449317-957eecb9.md` — origin: https://x.com/mattpocockuk/status/2086924475153449317
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086838432102228008-9622d53f.md` — origin: https://x.com/mattpocockuk/status/2086838432102228008
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086839443084701816-39a08c9d.md` — origin: https://x.com/mattpocockuk/status/2086839443084701816
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086879498679484471-c84ba2ba.md` — origin: https://x.com/mattpocockuk/status/2086879498679484471

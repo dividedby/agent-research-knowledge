@@ -33,6 +33,19 @@ Format as `● P0` (filled circle icon plus label, colored by priority):
 - `● P1`: Orange (high)
 - `● P2-P4`: Default text (normal)
 
+**Revision: dropping the priority glyph to fix symbol overload.** The `●`
+filled circle originally did double duty — it's also the *status* icon for
+`blocked` (see Status Icons above). Reusing one glyph for two unrelated
+semantic axes (lifecycle status vs. priority level) meant a bare `●` in
+output was ambiguous without reading the surrounding label. The fix wasn't a
+new glyph, it was removing the glyph from priority entirely: priority now
+renders as a **text label only, colored by level, with no icon** (`P0`
+red+bold, `P1` orange, `P2` amber, `P3`–`P4` default) — freeing `●` to mean
+"blocked" unambiguously everywhere it appears. The general lesson: when a
+CLI's visual vocabulary reuses a symbol across two independent semantic
+categories, resolve the collision by dropping the icon from the
+*lower-signal* axis rather than inventing a second, similar-looking symbol.
+
 ## Semantic Color Strategy
 
 **Color only actionable items** - Don't color everything:
@@ -177,3 +190,5 @@ case types.StatusClosed:
 
 - `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (lines 313-417)
 - `sources/steveyegge/beads/AGENTS.md.md` (lines 53-60)
+- `sources/steveyegge/beads/AGENTS.md.md` (Priority Labels and Colors — dropping the `●` glyph from priority, P-label-only with color, new P2 amber tier, 2026-08-11 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENTS.md
+- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` (same Priority Labels and Colors revision, 2026-08-11 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md

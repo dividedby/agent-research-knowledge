@@ -98,8 +98,48 @@ axis checked against the originating issue/PRD, and a Standards axis anchored
 to a portable smell baseline *plus* curated project conventions. Skipping
 straight to a prompt collapses both axes back into vibes.
 
+## A harness-level name collision, an unguarded delegation loop, and no convergence guarantee
+
+Three practitioner-reported problems sit outside the skill's own design and are
+unfixed. First, the skill's name collides with Claude Code's own built-in
+`/code-review`, which hunts bugs in a diff rather than checking spec compliance
+and repo standards — installing this skill means one of the two wins, silently,
+depending on install method (plugin-marketplace installs alias everything under
+a `mattpocock-skills:` prefix and make the built-in hard to reach unqualified;
+a plain skills install lets the local file shadow the built-in outright). The
+shadowing is arguably a harness bug — a skill author should be free to name a
+skill anything — but the practical fix today is forking the skill under a new
+name and dropping `code-review` from the managed set, since editing the
+frontmatter or renaming the directory gets undone by the next `npx skills
+update`. Second, neither sub-agent prompt forbids delegation, so a Standards or
+Spec sub-agent can rediscover `/code-review` and fan out again; one report
+reached 50-plus agents from a single invocation. The field fix people apply on
+forks is one line in both sub-agent briefs — "do not invoke `/code-review` or
+spawn additional agents, perform this review directly" — but nothing in the
+shipped skill guards against it, so an unattended run needs the agent count
+watched. Third, the skill gives **no convergence guarantee**: fixes create new
+surface, and the Standards axis's judgement-call half isn't deterministic
+between runs, so a second pass on already-fixed code routinely finds new
+things. The intended posture is to treat one pass as a list of leads, act on
+the cited ones, and stop — running it in a loop expecting a clean pass is
+chasing a signal the skill was never built to converge to.
+
+A separate, structural argument favors running the skill in a **fresh session**
+from the one that wrote the code, even though `implement` calls it inline at
+the end of a build: "same context reviewing itself isn't review, it's
+confirmation bias with a slash command." The session that just wrote the diff
+holds every assumption that shaped it — exactly the context an independent
+reviewer wouldn't have — so invoking `/code-review` yourself from a clean
+session, against a fixed point, is the more honest version of the same check.
+The skill also only ever diffs `<fixed-point>...HEAD` (three-dot, from the
+merge-base), which excludes staged and uncommitted working-tree changes — if
+`implement` hasn't made an interim commit, there is nothing yet for the review
+to see, which reads as the skill silently reviewing nothing rather than
+failing loud.
+
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-code-review-4631b0e8.md` — origin: https://www.aihero.dev/skills-code-review
 - `sources/mattpocock/skills-repo/skills-in-progress-review-SKILL.md-f60ae53b.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/review/SKILL.md (revision 2026-06-30)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md
 - `sources/mattpocock/skills-repo/skills-engineering-code-review-SKILL.md-ffd0e041.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/engineering/code-review/SKILL.md (the skill promoted to `engineering/` and renamed `code-review`)

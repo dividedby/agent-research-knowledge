@@ -259,8 +259,30 @@ failure mode the whole grilling technique exists to prevent. Naming the gate
 explicitly turns "we're aligned" from an inference the agent makes on its own
 into a fact only the human gets to assert.
 
+## A skill naming another skill doesn't reliably load it
+
+`grill-with-docs`'s own `SKILL.md` is a one-line delegation — "run `grilling`,
+then `domain-modeling`" — and that delegation is reported as the single most
+common source of trouble with the skill, across harnesses and models. Naming a
+skill in prose doesn't reliably cause the agent to load it: the failure shows
+up in two shapes, both without any error surfacing. Full failure — neither
+sub-skill loads — produces a session that asks everything at once with no
+recommendations attached, because the agent is improvising an interview rather
+than running `grilling`'s actual frontier/round mechanic. Partial failure is
+the more confusing case: `grilling` loads but `domain-modeling` doesn't, which
+looks from the outside like a perfectly good interview that simply never
+touches `CONTEXT.md` — a session someone would only notice was broken by
+checking whether the glossary changed, which most people don't do mid-session.
+The tell in both cases is the same: if `CONTEXT.md` is untouched at the end of
+a grilling session that should have updated it, ask the agent directly which
+skills it actually loaded rather than assuming the delegation worked. The
+general lesson: a one-line "run X, then Y" skill body is a *reference* to
+composability, not a guarantee of it, and correlates with model and effort
+level rather than firing consistently.
+
 ## Sources
 
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-grilling-65787e81.md` — origin: https://www.aihero.dev/skills-grilling
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/grill-me/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/grill-with-docs/SKILL.md (revision 2026-06-17)
