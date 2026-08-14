@@ -22,6 +22,16 @@ he calls it "a bit bloated" rather than adopting it outright — evaluating
 someone else's off-the-shelf option on its merits before deciding whether to
 buy that piece too or build the thinner version himself.
 
+## The outcome: custom-built, not Hermes
+
+The Hermes evaluation named above resolved to build, not buy. Summing up the
+finished remote-agent setup, Matt writes "My IDE is Discord" — the chat
+surface has fully replaced a normal editor as where he drives agent work, not
+merely a notification layer on top of one. Asked directly whether that setup
+runs on Hermes, the existing Discord-agent tool he'd called "a bit bloated,"
+his answer is flat: "No, custom" — he built the thinner version himself
+rather than adopting the off-the-shelf option.
+
 ## Named trade-offs he's accepting up front, unresolved
 
 Two constraints a correspondent raised against running agents from a
@@ -44,3 +54,5 @@ reasoning from a hypothetical worst case.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086106829814194412-bab8be6a.md` — origin: https://x.com/mattpocockuk/status/2086106829814194412
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086107289669226977-477c172d.md` — origin: https://x.com/mattpocockuk/status/2086107289669226977
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086112433165250852-21226b49.md` — origin: https://x.com/mattpocockuk/status/2086112433165250852
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087555290174566491-b495025d.md` — origin: https://x.com/mattpocockuk/status/2087555290174566491
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087556320073289829-4ad641e7.md` — origin: https://x.com/mattpocockuk/status/2087556320073289829

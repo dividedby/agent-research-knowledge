@@ -85,6 +85,22 @@ The refinement isn't monotonically toward brevity, though. A 2026-07-17 revision
 
 A three-revision window immediately after (2026-07-18 through 2026-07-20, still 69 entries) reverses the reversal: almost every definition contracts back toward a terse one-liner, shedding the causal padding the 07-17 pass had just added. But the swing back isn't a round-trip to the *old* one-liners — a handful of terms land at a sharper resting point than either prior version had. Hallucination stops gesturing at "two flavors with different causes and fixes" and names them — factuality (invented facts) versus faithfulness (drift from loaded context). Subagent adds a hard constraint, "cannot spawn further subagents," and Handoff acquires the mirror-image trait, "with no return path" — the pair now discriminate on exactly the axis that matters (does the child report back automatically, or not). Attention relationship gets its scaling law spelled out numerically: a context of N tokens has roughly N² of these. So brevity keeps winning as the resting state, but each length cycle discards different weight than it added — precision compounds even while word count oscillates.
 
+## Passive delegation to grill-with-docs produces bloat, not a glossary
+
+A user reports the failure mode from the other side: left unsupervised,
+`CONTEXT.md` "often becomes filled with terminology I don't understand at
+all," accumulates content unrelated to the original definitions, and
+`grill-with-docs` in particular "frequently writes in a lot of seemingly
+redundant content" — to the point the file stops working as a way to
+understand the project. Matt's diagnosis doesn't blame the skill: "You need
+to be an active participant when you're writing to context.md." The glossary
+is a *joint* artifact — the agent proposes and polices terms, but the human
+still has to review what lands, the same way staying "a glossary and nothing
+else" (above) is a discipline someone has to hold, not a property
+`grill-with-docs` enforces on its own. Treating `CONTEXT.md` as unattended
+agent output rather than a document you're co-authoring is what turns
+"unbelievably powerful" into "quite poor" maintenance.
+
 ## The glossary drives the questions
 
 In a real session the documented terms aren't passive — they generate the
@@ -166,3 +182,4 @@ the decision — not as a log of everything that happened.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083133631862624283-3a5be8a0.md` — origin: https://x.com/mattpocockuk/status/2083133631862624283
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083146971506745662-72bf40d6.md` — origin: https://x.com/mattpocockuk/status/2083146971506745662
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083192182517748214-b64e128c.md` — origin: https://x.com/mattpocockuk/status/2083192182517748214
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087519726268285245-cc94a229.md` — origin: https://x.com/mattpocockuk/status/2087519726268285245

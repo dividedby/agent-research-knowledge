@@ -42,6 +42,18 @@ he wants automated away; a refocus tool that fires on demand, when output is
 actually confusing, is the design, not a stopgap for a hook that hasn't been
 built yet.
 
+## No combined-skill alternative has worked either
+
+Pressed on whether some other skill combination could reproduce `/wait-what`'s
+effect more automatically, Matt draws a blank: "'Solvable' by what mechanism?
+I've not found a thing that works apart from `/wait-what`, which the user
+needs to be in charge of invoking." The active-invocation requirement isn't a
+gap waiting on a cleverer combination of skills to close it — every avenue
+he's tried collapses back to the same one working fix, always user-invoked.
+He names the mechanism the same way from a different angle elsewhere: "the
+wait-what skill uses the domain language" — restating confusing output in the
+vocabulary [[domain-language-is-the-product]] describes, not a separate trick.
+
 ## An underrated use: pointed at the codebase, not just the chat
 
 The skill generalizes past its original purpose. Matt names three prompts
@@ -88,3 +100,5 @@ better placed to judge the span than a fixed rule would be.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085738402612146329-4fa560b1.md` — origin: https://x.com/mattpocockuk/status/2085738402612146329
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085746196467929466-dc44abc9.md` — origin: https://x.com/mattpocockuk/status/2085746196467929466
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085772378584351013-f82641ac.md` — origin: https://x.com/mattpocockuk/status/2085772378584351013
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087471480296661305-432f95d6.md` — origin: https://x.com/mattpocockuk/status/2087471480296661305
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087519904584855565-13cac9b1.md` — origin: https://x.com/mattpocockuk/status/2087519904584855565

@@ -76,6 +76,18 @@ it's aligned with what you want." A `CONTEXT.md` isn't a write-once artifact —
 if it stops being legible, the fix is to re-run the same challenge-and-sharpen
 moves against the existing file, not to abandon it or start a fresh one.
 
+A model-invoked skill's trigger description isn't exempt from that same
+maintain-don't-just-create posture. The skill's own description originally
+gave editing only an indirect branch — "record an architectural decision,"
+"pin down domain terminology," or the catch-all "another skill needs to
+maintain the domain model" — leaving a session that only *edits* an existing
+`CONTEXT.md` or ADR to be inferred rather than named. It was later revised to
+name editing directly on each concrete artifact: "writing or editing a
+CONTEXT.md," "recording or editing an ADR." A trigger branch left implicit is
+a branch the model may not reliably fire on; naming maintenance explicitly,
+not just creation, is what makes the description's coverage match what the
+discipline above already does.
+
 ## The stateful artifacts assume one writer, and drift when that assumption breaks
 
 `grill-with-docs`'s `CONTEXT.md`/ADR output is designed around a single person
@@ -143,7 +155,7 @@ own — going from one narrow entry point to something woven through the whole
 
 ## Sources
 
-- `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-SKILL.md-afe6b5a2.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-SKILL.md-afe6b5a2.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/SKILL.md (revision 2026-08-14, origin https://github.com/mattpocock/skills/blob/9e8760ab7d4cd49433dcda5dbec74f3c2ac8f9a4/skills/engineering/domain-modeling/SKILL.md — the trigger description revised to name editing an existing CONTEXT.md/ADR directly, not just creating one)
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-CONTEXT-FORMAT.md-d4513441.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/CONTEXT-FORMAT.md
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-ADR-FORMAT.md-0fcfff53.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/ADR-FORMAT.md
 - `sources/mattpocock/skills-repo/docs-invocation.md-1ce78905.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/docs/invocation.md

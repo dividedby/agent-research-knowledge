@@ -71,8 +71,9 @@ allowlists for known-safe tools, OS-level sandboxing, or auto mode (a separate
 classifier model reviews each command and blocks only what looks risky — scope
 escalation, unknown infrastructure, hostile-content-driven actions — letting
 routine work proceed without a prompt), each trading safety against convenience.
-(Auto mode self-limits under `-p`: with no human to fall back to, it aborts if
-the classifier repeatedly blocks actions.)
+(Under `-p`, repeated classifier blocks no longer abort the run — auto mode
+instead falls back to a different behavior past a threshold, so an unattended
+`-p` invocation keeps going rather than dying mid-task on repeated blocks.)
 
 ## Sources
 - `sources/anthropic/engineering/https-www.anthropic.com-engineering-claude-code-best-practic-4d249e2a.md` — https://www.anthropic.com/engineering/claude-code-best-practices

@@ -151,6 +151,22 @@ same "does this still say something" test as anywhere else in the discipline:
 spec survives long enough to be useful during review; prune later, once it
 genuinely isn't.
 
+## Wayfinder's map is a decision record, too fat to double as the spec
+
+Asked whether the routing is always `Wayfinder → spec → ticket → implement`,
+even once a wayfinder map already looks complete, Matt confirms the default
+order holds — "in general, yes" — and names why the map can't just stand in
+for the spec despite covering the same ground: "Wayfinder tends to be a
+record of all decisions made, which is a bit too fat for a spec." The two
+documents solve different problems even when built from the same discussion:
+the map is comprehensive by design (every decision, the full fog-of-war
+trail), the spec is a lean, checkable destination. A correspondent reported
+their own Claude agents skipping the spec step, arguing the map's GitHub
+issues already covered it; Matt treats that as the agent drifting from the
+intended shape rather than a legitimate shortcut — the map is useful to
+*reference* from the spec when a decision needs its full context, but writing
+the spec is still the right move, not a step the map can absorb.
+
 ## A back-of-envelope heuristic for ticket count
 
 When you're unsure how finely to slice `/to-tickets`, Matt offers a concrete
@@ -290,3 +306,4 @@ after a run, rather than trusting the template to have set them.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087120207428907471-e2310da6.md` — origin: https://x.com/mattpocockuk/status/2087120207428907471
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087183449266196671-bade10ec.md` — origin: https://x.com/mattpocockuk/status/2087183449266196671
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087150963140255805-5a01a8ab.md` — origin: https://x.com/mattpocockuk/status/2087150963140255805
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087462098724950453-a0cd9f53.md` — origin: https://x.com/mattpocockuk/status/2087462098724950453

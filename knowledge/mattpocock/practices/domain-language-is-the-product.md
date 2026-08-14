@@ -30,6 +30,35 @@ have it captured somewhere the agent can read. Without that understanding,
 domain language "becomes meaningless drivel": vocabulary without
 comprehension is noise dressed as precision.
 
+## Renaming refactors used to be hard; agents make them cheap
+
+A companion thread sharpens why domain language pays off at the codebase
+level, not just the product level: "if you understand the 'shared language'
+of your codebase (i.e. the terms used, the names for things, relationships
+between them)... AND those terms are used consistently in the codebase, then
+you understand the codebase. Whether you read the actual code or not." Reading
+the code and understanding the language are alternate routes to the same
+comprehension — DDD "has never been more powerful" because there's now a
+cheap way to keep the second route open. That "used consistently" clause used
+to be the hard part: keeping a legacy codebase's names in sync as vocabulary
+evolved was, in Matt's view, "harder than it is now" — "renaming refactors are
+pretty simple with agents." What used to be prohibitively expensive busywork
+(renaming a concept across every file, table, and variable that touches it)
+is now cheap enough to do routinely, which is what makes "used consistently"
+achievable instead of aspirational.
+
+## Business-language renames propagate down, and it's worth doing pre-AI too
+
+Asked whether a rename in the business's own vocabulary should cascade all
+the way down — classes, properties, database tables — Matt's answer is
+unqualified: "Yes, definitely. And even worth doing before AI." The rename
+discipline isn't an AI-era invention that only makes sense because agents cut
+the labor cost; it was always the right move to keep a codebase's language
+matching the business's, agents just remove the excuse not to bother. He adds
+one qualifier on pacing: it's "usually... not so all-at-once" — a business
+vocabulary shift gets absorbed incrementally, not as a single flag-day
+migration.
+
 ## Why this compounds: precision compresses everything downstream
 
 This is the human-side counterpart to `CONTEXT.md`-as-agent-fuel (see
@@ -51,3 +80,6 @@ the domain's own language — as the lever that does the most work.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083800963853254820-a0a5b362.md` — origin: https://x.com/mattpocockuk/status/2083800963853254820
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083944031025782810-cec0ae49.md` — origin: https://x.com/mattpocockuk/status/2083944031025782810
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083944119085285519-efcb744f.md` — origin: https://x.com/mattpocockuk/status/2083944119085285519
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087508057932615740-366c0049.md` — origin: https://x.com/mattpocockuk/status/2087508057932615740
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087510345241727072-10aaafe6.md` — origin: https://x.com/mattpocockuk/status/2087510345241727072
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087523615574987261-211fec49.md` — origin: https://x.com/mattpocockuk/status/2087523615574987261

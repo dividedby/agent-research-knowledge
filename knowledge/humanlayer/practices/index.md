@@ -17,3 +17,4 @@ index lists them, one line each.
 - [agents-are-mostly-software](./agents-are-mostly-software.md) — 12-factor agents: own your prompts, context, tools, and control flow around a stateless model
 - [context-forking](./context-forking.md) — the context window is a stack you can only push/pop; fork it to course-correct, explore, or salvage
 - [ralph-dumb-loops-and-declarative-specs](./ralph-dumb-loops-and-declarative-specs.md) — a dumb while-loop works if the spec is good: declarative specs, carved context, small changesets
+- [compact-visual-representations](./compact-visual-representations.md) — ask agents to answer in trees/stacks/diagrams/pseudocode instead of prose; it's faster to read and forces design-before-code
