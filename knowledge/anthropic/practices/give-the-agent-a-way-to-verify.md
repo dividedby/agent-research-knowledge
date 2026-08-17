@@ -15,10 +15,12 @@ rather than leaving the goal implicit. For UI, point the agent at the visual:
 have it screenshot the result and list the differences from the target.
 
 Verification scales up to unattended runs through the harness, not just the
-prompt. A `/goal` condition re-checked by a separate evaluator after every turn;
-a Stop hook that runs the check as a deterministic gate and blocks the turn from
-ending until it passes (Claude Code overrides such a hook and ends the turn after
-8 consecutive blocks, so the gate can't wedge a run forever); a second-opinion
+prompt. A `/goal` condition re-checked by a separate evaluator after every turn
+(if Claude stalls without resolving it, Claude Code eventually stops the run
+with the goal still unmet, rather than looping forever); a Stop hook that runs
+the check as a deterministic gate and blocks the turn from ending until it
+passes (Claude Code overrides such a hook and ends the turn after 8 consecutive
+blocks, so the gate can't wedge a run forever either); a second-opinion
 subagent that tries to refute the result. The `/goal` and Stop-hook forms are
 specifically what let an *unattended* run finish correctly without you. Whatever
 the form, have the agent **show evidence** rather than assert success — the test

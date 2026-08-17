@@ -42,8 +42,20 @@ standard nobody applies to human-written code. In his view, people who still ins
 on reading every line either haven't used a model released in 2026, or haven't
 worked inside a multi-team org where that standard was never real to begin with.
 
+The same discipline sharpens further once verification runs inside a malleable,
+ephemeral sandbox: Ball describes asking the agent for *"irrefutable proof"* that
+something works, and because the sandbox can install and run whatever it needs,
+the agent builds bespoke, made-for-exactly-this-task verification — a
+presentation, a narrated video, a frame-by-frame walkthrough showing a race
+condition is fixed. Code review gets the same treatment: rather than reading a
+diff line-by-line, he has the agent help him review by quizzing him on the
+change, drawing diagrams, or building a walkthrough presentation — verification
+and review both become things you *direct the agent to produce*, not things you
+personally perform against the raw code.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-71-9d01a5bf.md` — *Joy & Curiosity #71* intro: "do you have to know every line?"; testing in every sense; code becomes less important once tested against the mental model; blast radius (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-71)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-87-9c595687.md` — *Joy & Curiosity #87*: feedback loops are changing; "why put training wheels on someone who never wobbles?" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-87)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-92-1574a563.md` — *Joy & Curiosity #92* intro: endorsing antirez's "control the ideas, not the code"; the multi-team-org double-standard argument for why review-every-line is the wrong bar (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-92)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-95-0c3b0985.md` — *Joy & Curiosity #95* intro: asking the agent for "irrefutable proof" via bespoke verification (presentations, frame-by-frame narrated video) an orb can build on demand; reviewing by having the agent quiz you or produce diagrams/presentations instead of reading the diff (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-95)

@@ -45,10 +45,14 @@ prefix like `[DEBUG-a4f2]` so cleanup is one grep, and *measure first* for perf
 regressions where logs mislead); **fix + regression test** (write the test before
 the fix — *but only if a correct seam exists*: a too-shallow seam gives false
 confidence, and "if no correct seam exists, that itself is the finding" to hand to
-architecture work); and **cleanup + post-mortem** (remove tagged instrumentation,
-state the correct hypothesis in the commit message so the next debugger learns,
-and only *then* — with the most information — recommend any architectural change to
-`/improve-codebase-architecture`).
+architecture work); and **cleanup** (remove tagged instrumentation,
+state the correct hypothesis in the commit message so the next debugger learns).
+A later revision drops the phase's own "post-mortem" framing along with the
+explicit final instruction to recommend an architectural change to
+`/improve-codebase-architecture` once the fix is in — the checklist items
+(repro gone, regression test present, instrumentation removed, hypothesis
+recorded) are unchanged, but the skill no longer names the hand-off to
+architecture work as its own closing step.
 
 ## HITL bash script as the last resort feedback loop
 
@@ -269,7 +273,7 @@ frontend.
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-scripts-hitl-loop.template.sh-7d00841a.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/scripts/hitl-loop.template.sh
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-scripts-hitl-loop.templat-b79f1c8e.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh (revision 2026-08-07, origin https://github.com/mattpocock/skills/blob/efce423018fc6468a3239621f1c1bcaacc723801 — noting `capture` echoes its value to the terminal)
-- `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/efce423018fc6468a3239621f1c1bcaacc723801/skills/engineering/diagnosing-bugs/SKILL.md (revision 2026-08-07 — the Redact section and the redacted Phase 1 completion criterion)
+- `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/efce423018fc6468a3239621f1c1bcaacc723801/skills/engineering/diagnosing-bugs/SKILL.md (revision 2026-08-07 — the Redact section and the redacted Phase 1 completion criterion; revision 2026-08-16, origin https://github.com/mattpocock/skills/blob/8bf2b38ed1b90eca40024849f33206ecd095f2c3 — Phase 6 renamed "Cleanup" and the closing "recommend an architectural change" hand-off dropped)
 - `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md (revision 2026-06-17; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/dc338028858adc73f624ebdb5cda1dd9f61c5c17 — tautological tests; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/5eea6114412fce36e27f3cbf19a9bf1e25b76fb4 — pre-agreed seams and refactoring moved out of the loop; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ffef7e3e24c271fc7f7ac6fc43a2556e6c9269d9 — the reference to `code-review` by its new name)
 - `sources/mattpocock/skills-repo/docs-engineering-tdd.md-54751a46.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/tdd.md
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md

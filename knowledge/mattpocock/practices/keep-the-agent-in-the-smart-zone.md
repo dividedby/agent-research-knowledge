@@ -176,6 +176,21 @@ difficulty (see `evaluating-models-past-tier-labels`), not avoiding the dumb zon
 categorically. The discipline is knowing which kind of work you're doing when you
 let context run past the line, not refusing to ever cross it.
 
+## Startup load eats into the budget before you type anything
+
+The 150K figure isn't the budget you actually get to spend — it's the ceiling
+*before* whatever loads automatically at session start. Asked to confirm
+whether the 150K line counts from zero or from wherever the session actually
+begins, Matt's answer names the gap directly: a user whose session opens at
+~90K tokens before typing a word has "a broken setup" with "only 60k of really
+top-notch tokens" left, against his own setup, which loads at 13K. `CLAUDE.md`
+content, skill descriptions, and any other system-prompt weight are exactly
+what a lean `CLAUDE.md` (see `claude-md-is-an-instruction-budget`) and a
+disciplined model-invoked skill set (see `invocation-axis-user-vs-model`) are
+minimizing — not to save tokens in the abstract, but because every token spent
+before the first message shrinks the smart zone the rest of the session has to
+work inside.
+
 ## Make the budget visible
 
 Because the smart zone is invisible by default, Matt surfaces it: his Claude Code
@@ -225,3 +240,4 @@ useful when it is empty" — same for your context window.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083563721998193063-6f4d2903.md` — origin: https://x.com/mattpocockuk/status/2083563721998193063
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083470789471261040-3a90c48e.md` — origin: https://x.com/mattpocockuk/status/2083470789471261040
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083481026018328802-35c244ab.md` — origin: https://x.com/mattpocockuk/status/2083481026018328802
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088885093578252496-74358efd.md` — origin: https://x.com/mattpocockuk/status/2088885093578252496

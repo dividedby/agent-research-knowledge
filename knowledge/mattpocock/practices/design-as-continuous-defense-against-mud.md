@@ -56,6 +56,28 @@ reliably self-judge when nothing actually needs improving, so naming the path
 too readily biases the agent toward reaching for it even when the codebase
 doesn't warrant a pass.
 
+Matt confirms his own trigger matches the field report rather than a fixed
+cadence: asked whether this is what he opens on an older codebase or something
+he runs regularly to keep a newer one tight, his answer is a feeling, not a
+schedule — "I use it basically whenever I start feeling terrified about the
+internals of my app." The "once every few days" framing above is the routine
+default; in practice the actual signal that fires it is the same loss-of-
+confidence moment the field report describes.
+
+## Do it right or do it twice
+
+Pressed on the "go fast vs. go straight" trade-off — the observation that more
+developers are choosing speed (more code, faster) over the fundamentals because
+it feels better in the moment — Matt names the tax up front: "this is the same
+conversation we've been having for years. Do it right or do it twice." Skipping
+the design discipline doesn't remove the cost, it defers it: get it wrong the
+first time and you spend more time cleaning up than the shortcut saved. He ties
+the aphorism directly to agent output quality, not just human effort: "if your
+codebase is easier to make changes in, you'll get better results from agents" —
+the same claim as "the codebase out-votes the prompt" below, restated as the
+reason cutting corners is self-defeating specifically *because* an agent is
+doing the next round of work in whatever state you left the codebase in.
+
 ## The codebase out-votes the prompt
 
 Matt's blunt claim: your codebase — far more than your prompt or `CLAUDE.md` — is
@@ -135,3 +157,5 @@ instead is a measurable gate the agent is held to.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086838432102228008-9622d53f.md` — origin: https://x.com/mattpocockuk/status/2086838432102228008
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086839443084701816-39a08c9d.md` — origin: https://x.com/mattpocockuk/status/2086839443084701816
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086879498679484471-c84ba2ba.md` — origin: https://x.com/mattpocockuk/status/2086879498679484471
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088172162641170923-dee95946.md` — origin: https://x.com/mattpocockuk/status/2088172162641170923
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088885540288442462-b2b15b80.md` — origin: https://x.com/mattpocockuk/status/2088885540288442462

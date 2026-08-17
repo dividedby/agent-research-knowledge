@@ -98,6 +98,35 @@ axis checked against the originating issue/PRD, and a Standards axis anchored
 to a portable smell baseline *plus* curated project conventions. Skipping
 straight to a prompt collapses both axes back into vibes.
 
+## CODING_STANDARDS.md accretes by observation, and review is where it gets budget to enforce it
+
+The curated-standards half of the Standards axis has a stated feed mechanism:
+"Notice the agent is doing something bad. Write it in `CODING_STANDARDS.md`
+(root of the repo). `/code-review` picks it up and enforces it at review time."
+Matt calls this the underplayed customizability of the skill and backs it with
+scale — "I have hundreds of lines in my `CODING_STANDARDS.md` files." Every
+constraint starts as an observed failure, not a speculative rule written in
+advance; the file is a running log of corrections, and `code-review`'s
+Standards axis is what turns each new line into an enforced check on every
+future diff instead of a one-off fix.
+
+Asked why this correction doesn't just go straight into `AGENTS.md` so the
+agent avoids the mistake by default, Matt's answer is a budget argument, not a
+preference: "implementation is already hugely overloaded, and code review is
+usually underloaded" — confirmed again when pressed on whether a long
+`CODING_STANDARDS.md` risks bloating a session's context: "you have more
+budget during review because it isn't so overloaded by the burden of
+implementation/exploration." This is `keep-the-agent-in-the-smart-zone`'s
+budgeting logic applied to *where* a standard lives, not just how much context
+a session uses: implementation is already spending attention on exploration
+and code generation, so a growing rulebook competes hardest with the phase
+that can least afford it; review is comparatively idle, so the same rulebook
+costs less there per unit of enforcement. It's also why `CODING_STANDARDS.md`
+is kept as a file separate from `AGENTS.md`/`CLAUDE.md` rather than folded in —
+a standards file "can afford a bit more bloat" precisely because it's only
+loaded at the review checkpoint, not on every session regardless of phase (see
+`claude-md-is-an-instruction-budget`'s CODING_STANDARDS.md carve-out).
+
 ## A harness-level name collision, an unguarded delegation loop, and no convergence guarantee
 
 Three practitioner-reported problems sit outside the skill's own design and are
@@ -150,3 +179,8 @@ failing loud.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080760324945301917-ebf81aaf.md` — origin: https://x.com/mattpocockuk/status/2080760324945301917
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080905425449308448-6725b6a4.md` — origin: https://x.com/mattpocockuk/status/2080905425449308448
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082885965798920502-f603b3e0.md` — origin: https://x.com/mattpocockuk/status/2082885965798920502
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088256132234055978-f3b53053.md` — origin: https://x.com/mattpocockuk/status/2088256132234055978
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088256432265167185-30575da8.md` — origin: https://x.com/mattpocockuk/status/2088256432265167185
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088272552967705071-69ec5b18.md` — origin: https://x.com/mattpocockuk/status/2088272552967705071
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088347274610880648-73d24dae.md` — origin: https://x.com/mattpocockuk/status/2088347274610880648
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088742184245731443-67a7980c.md` — origin: https://x.com/mattpocockuk/status/2088742184245731443

@@ -142,6 +142,19 @@ repeated sessions rather than being imposed once. When a conversation drifts
 into jargon anyway, his go-to move is simply to name the confusion and ask the
 model to reset scope: "'zoom out' is my go-to."
 
+A live instance names a subtler variant of the same failure: asking Opus 5 to
+`/teach` him about Buddhism, he catches it overusing "seam" — "I think I see
+what people mean about seamslop." The word isn't wrong or invented (unlike
+"dead parameter"/"monotonic funnel" above); Matt's own complaint is precisely
+that it's correct *and* useful *and* a word he genuinely likes — "the annoying
+thing is that it's using the word correctly AND it's useful in this situation.
+AND I genuinely love the word seam. Just change the record, please Opus." This
+is jargon drift's quieter cousin: not a wrong or unnegotiated term, but a good
+one reached for so reflexively it stops discriminating anything — the same
+"precision through contrast" the dictionary work above optimizes for, failing
+in the opposite direction when a model latches onto one term and rides it past
+usefulness.
+
 ## Endorsement signal: the shared-vocabulary move travels
 
 The practice resonates outside Matt's own repos. He amplifies a practitioner
@@ -154,6 +167,40 @@ building that common language explicitly names Matt's `/grill-with-docs`. This i
 foreign author's account that Matt endorsed, not his own assertion — but it
 corroborates that the canonical-vocabulary technique generalizes well past code
 into design-system and animation work.
+
+## Renamed to GLOSSARY.md: the file had already narrowed to what its new name says
+
+Because the discipline above is enforced ("a glossary and nothing else"), the
+file's actual contents eventually caught up to a more honest name. Matt debated
+renaming `CONTEXT.md` to `GLOSSARY.md`: "Over time `CONTEXT.md` has shrunk to
+literally just a glossary, so this makes sense. And IMO a glossary is much more
+intuitive than a DDD 'bounded context' (which is where `CONTEXT.md` comes
+from)." The rename doesn't change what the file holds — it's the same
+discipline this doc already describes — it just drops a piece of DDD jargon
+("bounded context") that was never load-bearing for the reader, in favor of a
+name that says exactly what's inside.
+
+The rename also sharpens the boundary with `AGENTS.md`. Asked why the glossary
+doesn't just live there, Matt's answer is about *how* a file earns attention,
+not just what's in it: "IMO `AGENTS.md` is best used for context pointers. A
+glossary there might simply be ignored, but when it's specifically requested
+via a skill (i.e. `/grill-with-docs`) then it assumes more importance to the
+agent." A glossary sitting passively in the root file competes with everything
+else that loads at startup; the same content, pulled in deliberately by a skill
+at the moment it's needed, reads as load-bearing instead of ambient. This is
+the same progressive-disclosure argument `claude-md-is-an-instruction-budget`
+makes for pointers generally, applied to the specific case of where domain
+vocabulary should sit.
+
+A user working the same problem independently converges on a compatible split
+and states it more concretely than Matt's own definition does: `CONTEXT.md`
+holds "the dev, how/where the project is deployed, the tools it uses, how it
+interacts with other projects," while `GLOSSARY.md` stays "just the domain
+language dictionary." Matt confirms the alignment directly — "sounds like my
+ideas align with yours then" — which fixes the practical answer for anyone
+choosing what goes where post-rename: infrastructure/deployment/tooling facts
+are a `CONTEXT.md` concern (or folded into `AGENTS.md`'s context-pointer role),
+domain nouns and verbs are `GLOSSARY.md`'s alone.
 
 ## ADRs only for genuine, hard-to-reverse trade-offs
 
@@ -183,3 +230,9 @@ the decision — not as a log of everything that happened.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083146971506745662-72bf40d6.md` — origin: https://x.com/mattpocockuk/status/2083146971506745662
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083192182517748214-b64e128c.md` — origin: https://x.com/mattpocockuk/status/2083192182517748214
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087519726268285245-cc94a229.md` — origin: https://x.com/mattpocockuk/status/2087519726268285245
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088722635999834182-dcd6ef79.md` — origin: https://x.com/mattpocockuk/status/2088722635999834182
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088725313186382272-d82fe6f6.md` — origin: https://x.com/mattpocockuk/status/2088725313186382272
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088729731642327181-e0be9a69.md` — origin: https://x.com/mattpocockuk/status/2088729731642327181
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088997432235364637-c0163596.md` — origin: https://x.com/mattpocockuk/status/2088997432235364637
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088603241525227683-723174c5.md` — origin: https://x.com/mattpocockuk/status/2088603241525227683
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088603561307386350-3aadc2c0.md` — origin: https://x.com/mattpocockuk/status/2088603561307386350

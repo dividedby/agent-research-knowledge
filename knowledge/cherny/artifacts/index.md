@@ -13,3 +13,4 @@ concept per file; this index lists them, one line each.
 - [layered-permission-system](./layered-permission-system.md) — safety as defense-in-depth (allowlists, sandbox, classifier auto mode), where the human is the weakest routine layer.
 - [safe-maintenance-audits](./safe-maintenance-audits.md) — `/checkup` audits your whole setup for drift but proposes a plan and waits, never mutating silently.
 - [context-engineering-judgement-over-rules](./context-engineering-judgement-over-rules.md) — the harness's own system prompt shed 80% of its rules for model judgement; the same shift applies to tool examples and just-in-time loading.
+- [tune-the-routine-not-the-pr](./tune-the-routine-not-the-pr.md) — daily autonomous maintenance routines earn trust with evidence-carrying PRs, a probe-then-act pattern for facts you can't derive statically, and fixing the routine instead of the PR.

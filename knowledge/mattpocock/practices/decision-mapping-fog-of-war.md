@@ -369,6 +369,19 @@ read-only (`/wayfinder tell me about this map`) to reorient after time away,
 a third invocation alongside the create/work-through pair above for when you
 just need the current state, not to claim or resolve a ticket.
 
+## A ticket session running into compaction: write decisions down, then clear
+
+The map is the durable record of a *closed* ticket's outcome, but a single
+ticket session can still run long enough to hit compaction before it closes —
+and a user reports exactly that failure: a wayfinding session compacting
+mid-resolution and "mutating my response to something I didn't actually say."
+Matt's suggested fix stays inside the tools already in this doc rather than
+proposing new machinery: "Can't you just say 'write down the decisions made so
+far' then clear?" — an explicit, user-triggered version of the same instinct
+as `/handoff` in `keep-the-agent-in-the-smart-zone`, aimed at the one place
+wayfinder's own state-saving (above) doesn't yet reach: a ticket resolution
+still in progress, before it's been written back to the map or closed.
+
 ## A Grilling ticket can hand off to a Prototype ticket mid-session
 
 Asked for a `/grill-me-with-prototypes` variant — spawn a subagent to
@@ -572,3 +585,4 @@ hard to build a fast, legible feedback loop around subjective feel the way
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082886831750688808-9b27df46.md` — origin: https://x.com/mattpocockuk/status/2082886831750688808
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083891713932755390-8ed2d491.md` — origin: https://x.com/mattpocockuk/status/2083891713932755390
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084189192821559654-a78f702b.md` — origin: https://x.com/mattpocockuk/status/2084189192821559654
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088347027159540044-eb5a1bc0.md` — origin: https://x.com/mattpocockuk/status/2088347027159540044

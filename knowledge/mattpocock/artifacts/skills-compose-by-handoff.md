@@ -63,6 +63,35 @@ shared understanding is reached — the same alignment gate
 `align-before-building-grilling` describes, now named as one step in a longer,
 explicitly-ordered pipeline rather than left as an implicit hand-off.
 
+## Inline invocation moved from prose slash-commands to an explicit tool call
+
+Across an August 2026 revision wave, nearly every skill that delegates to
+another rewrote its delegation from telling the model to "run `/grilling`" or
+"run the `/domain-modeling` skill" into an explicit instruction to **call the
+Skill tool** with that skill's name — `grill-with-docs` becomes "Call the
+Skill tool twice, for 'grilling' and 'domain-modeling'"; `grill-me` becomes
+"Call the Skill tool with 'grilling'"; `handoff`/`claude-handoff` name "which
+skills the next agent should call the Skill tool for" instead of "which
+skills the agent should invoke"; `wayfinder`, `triage`,
+`improve-codebase-architecture`, and `tdd` all follow the same substitution
+wherever they'd previously written a bare `/command` reference. The wording
+change is uniform and mechanical enough to read as a fleet-wide convention
+shift, not an independent choice made once per skill.
+
+The motivation lines up with a known failure elsewhere in this collection:
+`grill-with-docs`'s one-line delegation to `grilling` and `domain-modeling`
+is the single most commonly reported source of trouble, precisely because
+*naming* a skill in prose doesn't reliably cause a model to load it (see
+`align-before-building-grilling`'s "A skill naming another skill doesn't
+reliably load it"). Rewriting the delegation as a literal tool call swaps an
+instruction the model has to correctly interpret as "go run that command" for
+one that maps directly onto a concrete tool invocation — the same shift from
+convention to mechanism this repo repeats elsewhere (deterministic hooks over
+prose rules, linted architecture boundaries over a documented convention).
+Whether it actually closes the partial-loading gap isn't confirmed in these
+captures; what's confirmed is that the fleet standardised on the more
+literal instruction as its default composition idiom.
+
 ## A hand-off pointer is dead weight once the sequence becomes structural
 
 A skill's closing "now call skill X" instruction earns its place only as long
@@ -92,3 +121,11 @@ aimed at trimming one individual skill's own closing line.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072629917779439875-dff4a19f.md` — origin: https://x.com/mattpocockuk/status/2072629917779439875
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072638587267387803-25530ac9.md` — origin: https://x.com/mattpocockuk/status/2072638587267387803
 - `sources/mattpocock/skills-repo/skills-engineering-to-tickets-SKILL.md-d6e52aba.md` — origin: https://github.com/mattpocock/skills/blob/d574778f94cf620fcc8ce741584093bc650a61d3/skills/engineering/to-tickets/SKILL.md (revision 2026-07-22, origin https://github.com/mattpocock/skills/blob/57a5add86bfc5e9058dd94c512c4012b3c014336 — drops the closing "one ticket at a time with `/implement`, clearing context between tickets" pointer, leaving only the frontier-selection rule)
+- `sources/mattpocock/skills-repo/skills-engineering-grill-with-docs-SKILL.md-1015ebf3.md` — origin: https://github.com/mattpocock/skills/blob/9aad5d190aa87d659f82e68fdb0ee13636541c48/skills/engineering/grill-with-docs/SKILL.md (revision 2026-08-16 — "Call the Skill tool twice, for 'grilling' and 'domain-modeling'")
+- `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/ffae54adff84ac14e24bc2418f479b664d02773f/skills/productivity/grill-me/SKILL.md (revision 2026-08-16 — "Call the Skill tool with 'grilling'")
+- `sources/mattpocock/skills-repo/skills-productivity-handoff-SKILL.md-c846b3b5.md` — origin: https://github.com/mattpocock/skills/blob/404b84f562bf8f8a934314668f088c07651cebef/skills/productivity/handoff/SKILL.md (revision 2026-08-16 — "suggested skills" section now names which skills to call the Skill tool for)
+- `sources/mattpocock/skills-repo/skills-in-progress-claude-handoff-SKILL.md-f0e12f6d.md` — origin: https://github.com/mattpocock/skills/blob/2a2324225de032f7efdc37700f20293b61f88e4d/skills/in-progress/claude-handoff/SKILL.md (revision 2026-08-16 — same wording change)
+- `sources/mattpocock/skills-repo/skills-engineering-wayfinder-SKILL.md-fda0505b.md` — origin: https://github.com/mattpocock/skills/blob/dbda61e60513a04387605089043bd03bf3889930/skills/engineering/wayfinder/SKILL.md (revision 2026-08-16 — every ticket-type resolution step rewritten to "call the Skill tool")
+- `sources/mattpocock/skills-repo/skills-engineering-triage-SKILL.md-c4a91ff1.md` — origin: https://github.com/mattpocock/skills/blob/733481eb2e94d874b9b31fb1fd32534b7c0ddebc/skills/engineering/triage/SKILL.md (revision 2026-08-16 — grilling step rewritten to "call the Skill tool twice")
+- `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/6fc6607afb7ca35af99524957a85a33e41cfc2bc/skills/engineering/improve-codebase-architecture/SKILL.md (revision 2026-08-16 — same wording change across all three grilling-loop side effects)
+- `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/ea9d9ddb2675429026a318b898b0d8b4ed383674/skills/engineering/tdd/SKILL.md (revision 2026-08-16 — "call the Skill tool with 'codebase-design'")

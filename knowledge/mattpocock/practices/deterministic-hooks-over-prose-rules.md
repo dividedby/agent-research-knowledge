@@ -50,8 +50,26 @@ not just tool-call) where this particular mistake is cheapest to catch. A coding
 standard that only lives in a doc an agent might not reread is exactly the kind
 of rule this pattern converts into something that can't drift.
 
+## Scoped to narrow, mechanical checks — not a whole workflow's lifecycle
+
+The rule above is about individual, checkable constraints (a banned command, a
+banned global), not licence to encode an entire process as a hook chain.
+Pitched on a hook layer that would enforce a skill workflow's full lifecycle as
+a state machine — "ticket active → red observed → green observed → suite
+passed → reviewed → committed → ticket reconciled" — Matt rejects the shape
+outright: "sounds extremely invasive and likely a bit rubbish." The two ideas
+aren't in tension: a `PreToolUse` hook blocking `git push --force` is a single
+deterministic fact about one command, cheap to write and impossible to argue
+with; a hook that tracks and gates a multi-step process state is reimplementing
+what the skill's own prose already coordinates, at a layer that can't see the
+judgement calls (is this test suite actually the relevant one? does this
+commit close the ticket?) a skill can reason about. The line is narrow,
+verifiable facts versus process orchestration — hooks earn their keep on the
+former and get invasive and brittle on the latter.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-how-to-use-claude-code-hooks-to-enforce-c827626c.md` — origin: https://www.aihero.dev/how-to-use-claude-code-hooks-to-enforce-the-right-cli
 - `sources/mattpocock/aihero/https-www.aihero.dev-this-hook-stops-claude-code-running-dan-bcfc7d9c.md` — origin: https://www.aihero.dev/this-hook-stops-claude-code-running-dangerous-git-commands
 - `sources/mattpocock/course-video-manager/.sandcastle-CODING_STANDARDS.md-7b893b74.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/CODING_STANDARDS.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088353393664205241-a2aa2e0e.md` — origin: https://x.com/mattpocockuk/status/2088353393664205241

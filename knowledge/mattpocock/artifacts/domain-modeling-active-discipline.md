@@ -88,6 +88,46 @@ a branch the model may not reliably fire on; naming maintenance explicitly,
 not just creation, is what makes the description's coverage match what the
 discipline above already does.
 
+## Writing can silently fail inside someone else's orchestration layer
+
+Empty output has two causes, and only one is benign. The mundane one: nothing
+qualified — ADRs need all three gates, and a session with no new vocabulary
+genuinely has nothing to write to `CONTEXT.md`. The filed-and-unfixed one: when
+`grill-with-docs` runs *inside* another orchestration layer — a
+spec-driven-development wrapper, a multi-agent framework, a rule that invokes
+it as one step in someone else's pipeline — the file-writing half is reported
+to silently not happen while the interview itself still runs to completion. An
+agent (or a human skimming the transcript) has no signal that the write was
+dropped; the only check is to look at the working directory afterward rather
+than trust that a completed interview means `CONTEXT.md`/ADRs actually landed.
+
+## The glossary and ADRs are not a full decision ledger
+
+The most substantive open complaint about the discipline: everything that
+crystallises in a grilling session but doesn't meet the glossary bar or the
+three-part ADR gate goes into the conversation and nowhere else. There's no
+ledger tying a resolved answer through to the spec, the ticket, and the test
+that's supposed to enforce it downstream — and *precise* answers are the ones
+that suffer most, because ordering guarantees, negative requirements, and
+numeric defaults get softened into weaker prose the further downstream they
+travel. The result can look complete (a plausible spec, plausible tickets)
+while quietly missing the thing that was actually decided. The mitigation
+available today isn't structural: keep the session alive and feed it straight
+into `to-spec` rather than clearing it, and re-read the resulting spec against
+your own answers instead of assuming synthesis captured them faithfully.
+
+## Bootstrapping a repo with zero docs: pair it with improve-codebase-architecture
+
+`grill-with-docs` is also the right tool for a codebase that has no ADRs, no
+domain language, and no design principles at all — aimed at the repo itself
+rather than at one change ("help me document my repo"). The community pattern
+for this cold-start case is to pair it with `improve-codebase-architecture`:
+one skill surfaces the seams and structure worth naming, the other captures
+the resulting vocabulary and decisions. Expect to steer it more than a normal
+session — it reads code and asks about what it finds, and the human is still
+the one who decides which of the words already living in the codebase are the
+canonical ones.
+
 ## The stateful artifacts assume one writer, and drift when that assumption breaks
 
 `grill-with-docs`'s `CONTEXT.md`/ADR output is designed around a single person
@@ -165,3 +205,4 @@ own — going from one narrow entry point to something woven through the whole
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-domain-modeling-6c2be29b.md` — origin: https://www.aihero.dev/skills-domain-modeling
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084255866543390766-29f40882.md` — origin: https://x.com/mattpocockuk/status/2084255866543390766
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085674908051275993-c3c44927.md` — origin: https://x.com/mattpocockuk/status/2085674908051275993
+- `sources/mattpocock/skills-repo/docs-engineering-grill-with-docs.md-95a415e1.md` — origin: https://github.com/mattpocock/skills/blob/b848e846456fba9cc3f06a768cee78011042011f/docs/engineering/grill-with-docs.md (revision 2026-08-06 — the "Common questions" FAQ: the orchestration-layer silent-write-failure bug, the "no ledger tying answers to spec/ticket/test" complaint, and the pairing with `improve-codebase-architecture` for a repo with no docs at all)

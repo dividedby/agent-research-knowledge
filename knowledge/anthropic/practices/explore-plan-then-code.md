@@ -35,7 +35,10 @@ agent proceeds. And exploration runs both ways: ask the agent the questions you'
 ask another engineer about an unfamiliar codebase, let it interview *you* to
 surface implementation/UX/edge-case tradeoffs you hadn't considered, and use the
 open-ended `"what would you improve in this file?"` to surface things you didn't
-know to ask.
+know to ask. For a larger feature, don't stop at the interview — have the agent
+write up a spec from it before you start implementing, so the plan you're
+building against captures what the interview surfaced rather than living only in
+the conversation.
 
 ## Sources
 - `sources/anthropic/engineering/https-www.anthropic.com-engineering-claude-code-best-practic-4d249e2a.md` — https://www.anthropic.com/engineering/claude-code-best-practices

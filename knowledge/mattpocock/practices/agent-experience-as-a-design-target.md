@@ -26,6 +26,19 @@ docs are all *AX investments*. Where DX and AX diverge — an agent doesn't need
 pretty error message but does need a machine-checkable one — design for the agent
 explicitly rather than assuming good human ergonomics transfer.
 
+## AX doesn't retire DX
+
+Asked point-blank whether developer experience still matters "now that we're
+generating code via agents," Matt refuses the implied trade-off: "AX is
+important, but don't underestimate DX. Tools that prioritise both are the
+goal." The naming of AX earlier in this doc could read as DX being superseded
+— it isn't. Coding tools are still used by humans who read the errors, run the
+build, and hold the codebase's shape in their head even when an agent writes
+most of the diff; a tool that optimises only for the agent's three levers while
+letting human ergonomics rot has just moved the neglect from one axis to the
+other. The goal is a tool good for both, not a hierarchy where one retires the
+other.
+
 ## Codebase size and required context window are a false dichotomy
 
 Asked whether a larger codebase forces a larger working context window, Matt
@@ -46,3 +59,4 @@ skips the actual fix and pays for it in tokens and smart-zone budget instead (se
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079154519556944281-3a12ac20.md` — origin: https://x.com/mattpocockuk/status/2079154519556944281
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088275402292654472-bb05122b.md` — origin: https://x.com/mattpocockuk/status/2088275402292654472

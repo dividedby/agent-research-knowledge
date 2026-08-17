@@ -132,6 +132,30 @@ side: "you definitely don't want two competing skill sets in your context
 window" — the context-load argument for minimising model-invoked skills
 applies just as much to not doubling up on entire skill sets.
 
+Pushed by someone dismissing the whole set as too expensive "for people with
+tons of API tokens," Matt gives a sharper per-skill figure for the
+heaviest-used one: "`/grilling` is 345 tokens when invoked" — a number that
+only reads as expensive if you assume it loads every turn rather than once,
+on demand, exactly when the user types it.
+
+## User-invoked skills remove a whole category of error, not just a cost
+
+Beyond the context-load accounting above, Matt names a second, independent
+benefit of maxing out on user-invoked skills: reliability. Because nothing but
+the human can fire a user-invoked skill (the one-way rule above), an entire
+class of debugging question simply can't arise — "did `/to-spec` fire? why did
+`/to-spec` fire there?! why did it choose `/to-tickets` instead of
+`/to-spec`?!" A model-invoked skill's trigger phrasing is a probabilistic
+match against the conversation; a user-invoked one is a name you typed. "You
+stay in control" is the same control-over-autonomy stance as
+`small-adaptable-not-process-owning`, but the payoff here isn't about who owns
+the workflow — it's that auto-selection failures (wrong skill fires, right
+skill doesn't, model second-guesses which one applies) are eliminated by
+construction for anything reachable only by name. The token savings ("most of
+the skills don't cost any tokens until you invoke them") and the reliability
+gain are two separate wins from the same mechanism, not one restated as the
+other.
+
 ## How the buckets express it
 
 The convention is enforced structurally: `CLAUDE.md` mandates that every
@@ -170,3 +194,5 @@ release as redundant (`caveman`, `zoom-out`), and `write-a-skill` was replaced b
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086933648834498649-fb84a362.md` — origin: https://x.com/mattpocockuk/status/2086933648834498649
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086933777272512785-4a7d04ec.md` — origin: https://x.com/mattpocockuk/status/2086933777272512785
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087077508264935902-786caaee.md` — origin: https://x.com/mattpocockuk/status/2087077508264935902
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088366476331802768-cca10bc0.md` — origin: https://x.com/mattpocockuk/status/2088366476331802768
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088999534961553872-c558966d.md` — origin: https://x.com/mattpocockuk/status/2088999534961553872

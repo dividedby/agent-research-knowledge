@@ -33,6 +33,22 @@ problem the agent can do reliably, which is why `writing-great-skills` (the
 successor to `write-a-skill`) treats trigger phrasing as a top predictability
 lever — one trigger per genuinely-distinct branch, synonyms collapsed.
 
+## Endorsement: skills lack proper configuration, so some users move to CLIs instead
+
+A recurring gap in the flags above: neither `disable-model-invocation` nor the
+description-driven trigger gives a skill a real configuration surface. Will
+Ness (`@WillNessAI`) names the pain point directly — he has to configure his
+`wayfinder` tracker "using an ad-hoc file" for lack of anything better — and
+states the response he's personally moving toward: **"I'm moving towards
+'CLIs as Skills' for my personal agent tools so I can properly control
+context, configuration, deterministic routines."** Matt endorses the framing
+without qualification ("100% agree"). This is Will Ness's proposed pattern,
+credited to him — a CLI gives an agent tool a real argument surface,
+persistent config, and deterministic (non-probabilistic) invocation in a way a
+Markdown `SKILL.md` triggered by prose matching cannot, at the cost of the
+zero-setup portability a plain skill file has. Whether this reshapes Matt's own
+collection remains open; it's endorsement of a direction, not a shipped change.
+
 ## Argument hints
 
 A skill that expects an argument declares `argument-hint` (e.g. `handoff`:
@@ -48,3 +64,4 @@ when not.
 - `sources/mattpocock/skills-repo/skills-productivity-handoff-SKILL.md-c846b3b5.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/handoff/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/docs-invocation.md-1ce78905.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/docs/invocation.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088291572639035494-2e575361.md` — origin: https://x.com/mattpocockuk/status/2088291572639035494 (repost/endorsement: "CLIs as Skills" idea credited to Will Ness/@WillNessAI, amplified by Matt)
