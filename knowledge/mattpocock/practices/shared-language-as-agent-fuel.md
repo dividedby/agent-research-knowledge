@@ -168,6 +168,30 @@ foreign author's account that Matt endorsed, not his own assertion — but it
 corroborates that the canonical-vocabulary technique generalizes well past code
 into design-system and animation work.
 
+## Diagrams are an ephemeral planning aid, not a persisted substitute
+
+Pressed on a proposal to have the agent turn a codebase into a live visual
+diagram so a developer can discuss it more easily, Matt reports he's tried
+this repeatedly and it doesn't hold up for complex systems: "the overhead of
+understanding the diagram (and fixing slop) is huge." His stated alternative
+is exactly this doc's practice, named as a set: "Consistent domain language,
+condensing functionality into deep modules and READING ACTUAL CODE is
+better." He draws the line precisely at *persistence*, not at diagrams as a
+technique — diagramming *during planning*, generated and thrown away as "an
+analogy of the system," is fine; a diagram meant to stand in for code on an
+ongoing basis, "persisted and referred back to, feels iffy." Pushed on a tool
+that would keep a diagram as a zoomable, procedurally-generated visual layer
+over the real code, his answer states the underlying reason: "this is better
+expressed in the file system" — the codebase itself, read directly, already
+is the representation; a parallel visual artifact is a second, weaker source
+of truth to keep in sync. Asked what would justify a diagram *as* the source
+of truth instead of code, his answer closes the loop: "that source of truth
+would need to be executable. So it would be code" — anything expressive
+enough to actually drive the system collapses back into being code by
+definition, which is why the vocabulary-and-deep-modules combination this
+file already documents, not a diagram layer, is his answer for helping an
+agent (or a human) navigate a complex codebase.
+
 ## Renamed to GLOSSARY.md: the file had already narrowed to what its new name says
 
 Because the discipline above is enforced ("a glossary and nothing else"), the
@@ -236,3 +260,7 @@ the decision — not as a log of everything that happened.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088997432235364637-c0163596.md` — origin: https://x.com/mattpocockuk/status/2088997432235364637
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088603241525227683-723174c5.md` — origin: https://x.com/mattpocockuk/status/2088603241525227683
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088603561307386350-3aadc2c0.md` — origin: https://x.com/mattpocockuk/status/2088603561307386350
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089017494237290740-be7a25ae.md` — origin: https://x.com/mattpocockuk/status/2089017494237290740
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089090098641973480-194f3248.md` — origin: https://x.com/mattpocockuk/status/2089090098641973480
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089091957934985670-aae2e0c6.md` — origin: https://x.com/mattpocockuk/status/2089091957934985670
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089305826724884970-04b40d3c.md` — origin: https://x.com/mattpocockuk/status/2089305826724884970

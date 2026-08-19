@@ -30,9 +30,25 @@ default. Read the two together: assume one level of subagent nesting unless
 you've verified your harness supports more, and treat deeper nesting as an
 opt-in capability to confirm, not a baseline to build on.
 
+## A live bitter-lesson experiment: swap a hand-rolled loop for agent-led delegation
+
+The manager-vs-worker unlock above sets up a direct experiment. Instead of
+"hand-rolling a deterministic loop to tackle tickets from `/to-tickets`," Matt
+plans to "just get an agent to delegate to subagents" — replacing his own
+explicit orchestration code with the model's judgement about when and how to
+fan work out. He names the trade-off going in, not after the fact: "probably
+more expensive, less reliable, but may have emergent benefits." This is the
+bitter lesson applied to his own harness design — deliberately trading a
+deterministic, cheaper loop he controls for a less predictable one the model
+controls, specifically to find out whether letting capability (not his own
+scaffolding) drive the orchestration surfaces behaviour a hand-rolled loop
+can't reach. It's framed as a trial ("Going to try... this week"), not a
+settled recommendation.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065372560578003013-2736f0c6.md` — origin: https://x.com/mattpocockuk/status/2065372560578003013
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065374016328675609-b01859b6.md` — origin: https://x.com/mattpocockuk/status/2065374016328675609
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065376397862818212-a4512f4b.md` — origin: https://x.com/mattpocockuk/status/2065376397862818212
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089685052015673604-576d38b5.md` — origin: https://x.com/mattpocockuk/status/2089685052015673604

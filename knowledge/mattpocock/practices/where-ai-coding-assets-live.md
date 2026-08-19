@@ -72,6 +72,39 @@ assessment is "all harnesses promise to handle this and I've not seen one that
 actually works yet" — automatic memory/context management is a claim to be
 distrusted until demonstrated, not a solved problem to defer to.
 
+## Grep hygiene: why the location matters, not just the git-vs-issue split
+
+A later thread names the mechanism behind the "not in git" position: a coding
+agent's search tool (grep) is only as useful as what it finds, and stale plans,
+specs, and old research docs sitting in the tree pollute those results. Matt's
+name for the target property is **"grep hygiene"** — "when your coding agent
+searches for a concept, it should receive relevant results. Not a huge sludge
+of specs, plans, and old research docs. So many codebases have the grep
+hygiene of a compulsive hoarder." A correspondent's rephrase, "data hygiene,"
+gets a flat "Yes" — the concept isn't tied to the specific tool (grep vs.
+semantic search); it's about the searchable corpus itself staying clean. The
+same GitHub-issues move from earlier in this doc is now framed as *why* it
+protects grep hygiene, not just why it avoids merge conflicts: plans "are
+GitHub issues which get closed after implementation. Recoverable when needed,
+but out of view from codebase greps." Asked to justify moving assets out
+rather than just accepting the clutter, his answer restates the earlier
+"out of date" reasoning from a search-quality angle: stale docs "go out of
+date and agents treat them as gospel" once grep surfaces them alongside
+current code, with no signal distinguishing a live spec from an abandoned one.
+The fix generalizes past plans specifically — pressed by a correspondent who
+wants to keep both business logic *and* build plans in `./docs` with a lookup
+tool over them, Matt's answer is the same one line regardless of the tool:
+"Fine, but move it out of the place the agent greps." When a correspondent
+frames this as an argument for RAG/retrieval solving the hygiene problem, Matt
+narrows it further: general-purpose semantic retrieval has its own
+specificity problems, and "in a highly constrained dialect like code, grep is
+usually just strictly better" — so the fix isn't a smarter search tool, it's
+not putting the noise where any search tool has to sift through it. He closes
+the thread with the honest fork this leaves open: "Inside you there are two
+wolves: 1. Grep is bad, 2. Your codebase is bad. Choose the right wolf,
+friends" — before reaching for a fancier retrieval layer, first rule out that
+the problem is simply what you've let accumulate in the tree.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069698109492343101-6d683ee8.md` — origin: https://x.com/mattpocockuk/status/2069698109492343101
@@ -86,3 +119,11 @@ distrusted until demonstrated, not a solved problem to defer to.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2079925132001194205-0e6f0200.md` — origin: https://x.com/mattpocockuk/status/2079925132001194205
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085024586706321637-f43187cf.md` — origin: https://x.com/mattpocockuk/status/2085024586706321637
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085025125582184894-3f6ba0ac.md` — origin: https://x.com/mattpocockuk/status/2085025125582184894
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089683659913593278-83ff0e80.md` — origin: https://x.com/mattpocockuk/status/2089683659913593278
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089684501538427372-1f70b3ed.md` — origin: https://x.com/mattpocockuk/status/2089684501538427372
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089701313676284316-a6ac783f.md` — origin: https://x.com/mattpocockuk/status/2089701313676284316
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089703388199985256-e714e3b8.md` — origin: https://x.com/mattpocockuk/status/2089703388199985256
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089707659742032211-4090bc1d.md` — origin: https://x.com/mattpocockuk/status/2089707659742032211
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089707842768904448-d8c57094.md` — origin: https://x.com/mattpocockuk/status/2089707842768904448
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089719965414826261-99f1f63b.md` — origin: https://x.com/mattpocockuk/status/2089719965414826261
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089742493172609364-ad85d2d9.md` — origin: https://x.com/mattpocockuk/status/2089742493172609364

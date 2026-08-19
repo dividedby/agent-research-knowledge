@@ -1,5 +1,7 @@
 # Move agent execution off the laptop; buy the box, don't build it
 
+*Named follow-up: the finished setup is called Sandman — see the section below.*
+
 With his AI Coding course shipped, Matt names his next infrastructure project in
 one line: "the next week is all about personal infra — getting all my agent
 interactions off my PC and into remote boxes, controllable via Discord." The
@@ -47,6 +49,21 @@ consistent with treating infra decisions the same way he treats model/effort
 choices elsewhere: evaluate empirically once the cost is real, not by
 reasoning from a hypothetical worst case.
 
+## Sandman: the setup gets a name, and a command for fan-out
+
+The finished remote box gets a name — **Sandman**, "my agent who lives in a
+box" — and a concrete feature: a `/handoff` command that spawns new Discord
+threads, letting one session branch into another chat thread rather than
+staying trapped in a single linear conversation. This is the chat-controlled
+setup from above made procedural — fan-out isn't just "the IDE is Discord",
+it's a specific command for moving work into a fresh thread from inside the
+box. Reacting to another practitioner going all-in on cloud agents over local
+development, Matt frames the shift as inevitable rather than niche: "It me —
+we'll look back on 'one dev, many terminals' as an awkward interregnum" — the
+laptop-bound, many-terminal workflow this doc's move away from is, in his
+view, a temporary phase the field is passing through, not a durable steady
+state.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086104430412181587-3053369f.md` — origin: https://x.com/mattpocockuk/status/2086104430412181587
@@ -56,3 +73,6 @@ reasoning from a hypothetical worst case.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086112433165250852-21226b49.md` — origin: https://x.com/mattpocockuk/status/2086112433165250852
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087555290174566491-b495025d.md` — origin: https://x.com/mattpocockuk/status/2087555290174566491
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087556320073289829-4ad641e7.md` — origin: https://x.com/mattpocockuk/status/2087556320073289829
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089291938868457688-4ead2d79.md` — origin: https://x.com/mattpocockuk/status/2089291938868457688
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089293680951648602-bdcbe22e.md` — origin: https://x.com/mattpocockuk/status/2089293680951648602
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089592149385822686-dd5b292f.md` — origin: https://x.com/mattpocockuk/status/2089592149385822686

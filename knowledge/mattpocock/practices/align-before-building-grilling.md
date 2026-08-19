@@ -178,7 +178,11 @@ A field report quantifies the throughput trade: a plan that would have taken
 whose prerequisites were already settled. The fact/decision split holds under
 batching too: a frontier question needing a lookup is scheduled as a
 background research sub-agent rather than asked, so the round doesn't stall
-waiting on it.
+waiting on it. A second field report scales the same claim up by an order of
+magnitude: a user reports getting through ">100 questions in like 20% of the
+time it would usually take" once round-based batching landed, and Matt's
+one-word reply — "Amazing!" — confirms the throughput win generalizes past
+the 13-question example above rather than being a one-off result.
 
 ## Update: grill-me and grill-with-docs adopt rounds too (v1.2)
 
@@ -316,3 +320,4 @@ level rather than firing consistently.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083195552703943148-3657e44d.md` — origin: https://x.com/mattpocockuk/status/2083195552703943148
 - `sources/mattpocock/skills-repo/docs-productivity-grilling.md-f585c446.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/docs/productivity/grilling.md (revision 2026-08-05 — the `CLAUDE.md` override back to one-question-at-a-time)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083968515388678255-2f82dfbb.md` — origin: https://x.com/mattpocockuk/status/2083968515388678255
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089811151001358819-97432b72.md` — origin: https://x.com/mattpocockuk/status/2089811151001358819

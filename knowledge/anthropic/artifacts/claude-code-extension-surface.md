@@ -66,11 +66,16 @@ distribute the work across it: restrict tool access with `--allowedTools` since
 there's no human backstop once it's running unattended, and keep `--verbose` for
 developing the prompt but drop it once you're running at scale). Approval-per-action is safe by
 default but has its own failure mode — after the tenth prompt you're no longer
-reviewing, you're clicking through — so permission friction is reduced three ways:
-allowlists for known-safe tools, OS-level sandboxing, or auto mode (a separate
-classifier model reviews each command and blocks only what looks risky — scope
-escalation, unknown infrastructure, hostile-content-driven actions — letting
-routine work proceed without a prompt), each trading safety against convenience.
+reviewing, you're clicking through — so permission friction is reduced: auto mode
+(a separate classifier model reviews each command and blocks only what looks
+risky — scope escalation, unknown infrastructure, hostile-content-driven
+actions — letting routine work proceed without a prompt) is now the **built-in
+starting permission mode** for interactive terminal and VS Code sessions on
+Pro/Max/Team plans; other plans still start in Manual mode (ask before every
+file write, Bash command, MCP tool — now a named mode, not just unlabeled
+default behavior). Two more levers cut interruptions further, in Manual mode and
+layered on top of auto mode alike: allowlists for known-safe tools, and
+OS-level sandboxing — each trading safety against convenience.
 (Under `-p`, repeated classifier blocks no longer abort the run — auto mode
 instead falls back to a different behavior past a threshold, so an unattended
 `-p` invocation keeps going rather than dying mid-task on repeated blocks.)

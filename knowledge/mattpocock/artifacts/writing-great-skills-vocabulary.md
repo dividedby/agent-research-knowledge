@@ -237,6 +237,19 @@ applied reflexively — a reference about the information hierarchy uses the
 information hierarchy to organise itself, disclosing the one branch (skill
 mechanics) that most documents it teaches you to write will never need.
 
+## Remixing is a sanctioned use, not just authoring from scratch
+
+Asked how to choose between two overlapping skills, Matt's advice isn't "pick
+the better one" — it's "pick one or the other, **or combine them into a mega
+skill**. Don't adopt skills blindly, remix them and blend them to your
+purposes." A skill someone else wrote is a starting point to edit, not a fixed
+artifact to install as-is. And the tool for doing that blending is the same
+reference skill this file documents: `/writing-for-agents pick the best parts
+of both of these skills and combine them` — the skill that teaches predictability
+and pruning is also the one Matt reaches for to *perform* a merge, applying
+its own levers (duplication, information hierarchy, no-op pruning) to the
+combined result rather than concatenating both bodies verbatim.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-SKILL.md-b96ebc68.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/SKILL.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/ce24f42a242b70cbdda304f3422545a3e452285a — the Negation failure mode)
@@ -258,3 +271,5 @@ mechanics) that most documents it teaches you to write will never need.
 - `sources/mattpocock/skills-repo/skills-productivity-writing-for-agents-SKILL-MECHANICS.md-09cd255e.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/skills/productivity/writing-for-agents/SKILL-MECHANICS.md (the universal/skill-specific split, and model-invocation as additive not restrictive)
 - `sources/mattpocock/skills-repo/docs-productivity-writing-for-agents.md-549325ae.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/docs/productivity/writing-for-agents.md
 - `sources/mattpocock/skills-repo/skills-productivity-README.md-8510d914.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/README.md (revision 2026-08-05 — `writing-for-agents` listed as the renamed, user-invoked skill)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089461428411351288-535bd902.md` — origin: https://x.com/mattpocockuk/status/2089461428411351288
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089465919634297030-90e5932a.md` — origin: https://x.com/mattpocockuk/status/2089465919634297030
