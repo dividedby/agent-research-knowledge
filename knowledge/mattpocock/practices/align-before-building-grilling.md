@@ -80,6 +80,35 @@ grill-with-docs adopt rounds too (v1.2)" below) — 46 questions sounds like a
 runaway interview one-at-a-time, but is a more modest ~11-per-round average
 under batching.
 
+## Small features: grill after, not before
+
+The grill-before-you-build default has an explicit size exception. Asked how
+grilling helps on something as small as "add a button," Matt's answer inverts
+the sequence rather than skipping grilling altogether: "For small features I
+would grill AFTER implementation." The reasoning mirrors the fidelity split
+above from a different angle — sized by *implementation cost*, not just by
+*question fidelity*: "For things where the actual implementation isn't large,
+it's often better to see the thing first and then comment on it." When
+building the thing costs less than talking about it, the artifact itself
+becomes the cheapest way to reach alignment — the same "stop talking and make
+something to talk about" instinct that motivates prototyping, applied to
+trivially small changes rather than high-fidelity unknowns.
+
+## You are the driver, not a menu-selector
+
+Two separate exchanges name the same posture from opposite directions. Asked
+whether it's acceptable to interrupt a grilling session with unprompted
+thoughts rather than waiting to be asked, Matt's answer is unequivocal: "100%
+interject, you are the driver." And asked why a skill doesn't lean on the
+harness's built-in "ask user" feature instead of its own interview loop, he
+names the failure mode that feature would introduce: "I find it directs you
+into a totally passive mode, selecting from a menu instead of running the
+restaurant." Both answers reject the same shape of passivity — waiting for a
+permitted turn, or picking from a pre-built list — in favor of the human
+staying the active party throughout, the same "you decide when enough detail
+has been given" stance the under-specification section above already stakes
+out.
+
 ## Smarter models don't shrink the need for grilling
 
 A recurring objection is that as models get smarter, they'll infer intent from
@@ -133,7 +162,10 @@ interview: a plain interview "sharpens your thinking and then evaporates when
 the session ends"; `grill-with-docs` instead captures each term the moment it
 resolves into `CONTEXT.md` and records the hard, one-way decisions as ADRs, so
 **the alignment survives the conversation instead of living only in your
-head.** That framing also supplies the choice between three related skills, not
+head.** Asked how to keep those generated docs from drifting as the codebase
+changes later, Matt doesn't point at a separate maintenance step — the fix is
+the same primitive run again: "Just keep grilling, and the docs will
+update." That framing also supplies the choice between three related skills, not
 just two: want the interview with no lasting artifact → `grilling`; the plan is
 already clear and you just need to pin down or record terminology → the active
 discipline in `domain-modeling` (see `domain-modeling-active-discipline`); want
@@ -202,6 +234,13 @@ differentiator from the round-batching in-progress variant; as of v1.2 that
 differentiator is gone from the front door itself. Fielding a user's own
 recommendation for round-based batching, Matt confirms it's already landed:
 "In 1.2, grilling asks questions in rounds — agree with your rec here."
+
+The distinction disappearing at the front door had a concrete consequence:
+`batch-grill-me` itself came out of the repo rather than staying on as a
+separate, now-redundant skill. Asked why it was removed, Matt's answer is
+just the mechanism above stated as a fact about the repo: "It turned into
+`/grill-me`" — a separate skill folded back into the one it once diverged
+from, not preserved alongside it.
 
 ## When not to automate the decision to prototype
 
@@ -321,3 +360,9 @@ level rather than firing consistently.
 - `sources/mattpocock/skills-repo/docs-productivity-grilling.md-f585c446.md` — origin: https://github.com/mattpocock/skills/blob/f958fa17c1b62c3f7be38fc09512669acf6b64fc/docs/productivity/grilling.md (revision 2026-08-05 — the `CLAUDE.md` override back to one-question-at-a-time)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083968515388678255-2f82dfbb.md` — origin: https://x.com/mattpocockuk/status/2083968515388678255
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089811151001358819-97432b72.md` — origin: https://x.com/mattpocockuk/status/2089811151001358819
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090080604628885725-29bf83c6.md` — origin: https://x.com/mattpocockuk/status/2090080604628885725
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090415444263854442-49580284.md` — origin: https://x.com/mattpocockuk/status/2090415444263854442
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090505897336262786-199e0f1c.md` — origin: https://x.com/mattpocockuk/status/2090505897336262786
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090519046336729253-e692cec7.md` — origin: https://x.com/mattpocockuk/status/2090519046336729253
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090532353210720474-61e04150.md` — origin: https://x.com/mattpocockuk/status/2090532353210720474
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090532417308148144-aa63cb2e.md` — origin: https://x.com/mattpocockuk/status/2090532417308148144

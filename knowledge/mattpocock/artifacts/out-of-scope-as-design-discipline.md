@@ -102,6 +102,18 @@ the same request doesn't return as fresh code. And the reason written down must 
 **durable, not a deferral**: "we're too busy right now" is not a rejection and
 doesn't belong here.
 
+## The same posture, live: milestone/backlog tracking
+
+The discipline shows up conversationally too, not only as a written file.
+Asked whether the skills should manage which GitHub milestone or version a
+ticket belongs to — there's no built-in "backlog" bucket concept — Matt's
+answer is the same refusal pattern as the written `.out-of-scope/` files
+above: "I would say add it to the skills yourself. It's not something I think
+about." The unwritten form of the discipline matches the written one: a
+feature stays out of the curated set until it clears the "would a typical
+engineer recognise and want this" bar, and the escape hatch is the same too —
+the user extends their own copy rather than waiting for it to ship.
+
 ## Why this is an artifact, not just a policy
 
 Writing refusals down — in-repo, versioned, with prior-request citations — turns
@@ -125,3 +137,4 @@ ships with a "here's what to do instead."
 - `sources/mattpocock/sandcastle/.out-of-scope-docker-provider-bespoke-options.md-09799f82.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/docker-provider-bespoke-options.md
 - `sources/mattpocock/sandcastle/.out-of-scope-bundled-workflow-templates.md-6ba92b6c.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/bundled-workflow-templates.md
 - `sources/mattpocock/sandcastle/.out-of-scope-configurable-namespace-prefix.md-0a766b11.md` — origin: https://github.com/mattpocock/sandcastle/blob/f1aa0809d097db0d5c674e13c9ac3374ba2a629b/.out-of-scope/configurable-namespace-prefix.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090723339106959491-742510c9.md` — origin: https://x.com/mattpocockuk/status/2090723339106959491

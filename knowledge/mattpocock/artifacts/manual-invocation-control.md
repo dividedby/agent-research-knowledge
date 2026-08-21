@@ -13,6 +13,10 @@ deliberate, human-initiated act. (`zoom-out`, an earlier example of a pure
 imperative nudge that only made sense when the *human* felt lost, was later
 removed from the repo as unused.)
 
+The mechanism isn't Claude-Code-specific: asked whether `disable-model-invocation`
+is a Claude Code-only concept, Matt confirms the same control exists
+elsewhere — "Codex has its own equivalent."
+
 This flag has since been promoted from a per-skill exception to the repo's
 primary organising axis: **every** orchestrator a human types deliberately
 (`grill-me`, `grill-with-docs`, `to-prd`, `to-issues`, `triage`, `prototype`,
@@ -65,3 +69,4 @@ when not.
 - `sources/mattpocock/skills-repo/docs-invocation.md-1ce78905.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/docs/invocation.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088291572639035494-2e575361.md` — origin: https://x.com/mattpocockuk/status/2088291572639035494 (repost/endorsement: "CLIs as Skills" idea credited to Will Ness/@WillNessAI, amplified by Matt)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090554662290165938-9e02c4e0.md` — origin: https://x.com/mattpocockuk/status/2090554662290165938

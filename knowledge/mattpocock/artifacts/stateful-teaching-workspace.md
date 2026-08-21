@@ -161,6 +161,18 @@ are foreign authors' accounts that Matt *amplified*, not his own claims; they
 corroborate that the stateful, resource-first, HTML-output workspace generalizes
 to learner-built domain integrations in practice.
 
+## Clearing is cheap here because state lives in the workspace, not the session
+
+Asked whether the smart-zone discipline of clearing context between chunks of
+work (see `keep-the-agent-in-the-smart-zone`) applies to a multi-lesson
+`/teach` run the same way it does to a coding session, Matt confirms it does
+and names why it costs less here specifically: "Clearing is much less painful
+in the teach skill because it saves all of its progress into the workspace."
+The four-file workspace above isn't just persistent structure for its own
+sake — it's what makes `/clear` between lessons free instead of lossy,
+because nothing the next lesson needs is sitting only in the
+about-to-be-discarded conversation.
+
 ## Reuse-first lessons: the `./assets/` component library
 
 A later revision makes the workspace **reuse-first**, adding an `./assets/`
@@ -240,3 +252,4 @@ locally today rather than waiting on the shipped skill to change.
 - `sources/mattpocock/twitter/https-x.com-AmjadAbubkr-status-2065032802370834721-60f3593f.md` — origin: https://x.com/AmjadAbubkr/status/2065032802370834721
 - `sources/mattpocock/twitter/https-x.com-N3sOnline-status-2065090964751052833-6ed08e66.md` — origin: https://x.com/N3sOnline/status/2065090964751052833
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067358584833257744-0d53bc5b.md` — origin: https://x.com/mattpocockuk/status/2067358584833257744
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090726104315076738-1d4c7028.md` — origin: https://x.com/mattpocockuk/status/2090726104315076738

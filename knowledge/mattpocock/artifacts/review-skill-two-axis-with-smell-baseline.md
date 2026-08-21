@@ -127,6 +127,16 @@ a standards file "can afford a bit more bloat" precisely because it's only
 loaded at the review checkpoint, not on every session regardless of phase (see
 `claude-md-is-an-instruction-budget`'s CODING_STANDARDS.md carve-out).
 
+## A gap Matt names himself: no adversarial pass
+
+A further limitation, volunteered by Matt rather than reported by a
+practitioner: pointed at the aihero write-up of the skill and asked whether
+`/code-review` is sufficient on its own, he agrees it still lacks "the
+adversarial review of 'compound-engineering'" — the two-axis Standards/Spec
+check is not the same thing as a second agent built to actively attack the
+diff and try to break it. The skill checks conformance and completeness; it
+doesn't red-team the change.
+
 ## A harness-level name collision, an unguarded delegation loop, and no convergence guarantee
 
 Three practitioner-reported problems sit outside the skill's own design and are
@@ -184,3 +194,4 @@ failing loud.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088272552967705071-69ec5b18.md` — origin: https://x.com/mattpocockuk/status/2088272552967705071
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088347274610880648-73d24dae.md` — origin: https://x.com/mattpocockuk/status/2088347274610880648
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088742184245731443-67a7980c.md` — origin: https://x.com/mattpocockuk/status/2088742184245731443
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090315654318452922-d48a2e78.md` — origin: https://x.com/mattpocockuk/status/2090315654318452922

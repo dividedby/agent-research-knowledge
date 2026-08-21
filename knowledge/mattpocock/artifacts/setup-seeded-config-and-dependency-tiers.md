@@ -19,7 +19,12 @@ PRs/MRs are a request surface** (default no). When on, the config tells `triage`
 to pull contributors' external PRs into the same queue as issues and how to tell
 them apart from maintainers' in-flight work (`gh`'s `authorAssociation`, or
 filtering GitLab MR authors against project members). Local-markdown and "other"
-trackers skip the question — they have no PRs.
+trackers skip the question — they have no PRs. A later revision drops the flag
+out of the interview entirely — defaulting off and no longer asked during
+setup — on the reasoning that most repos never need it; flipping it is now a
+manual edit to `docs/agents/issue-tracker.md` for the minority (usually
+open-source maintainers) that do, rather than a question every setup run pays
+for.
 
 This is how a generic skill becomes repo-aware without hard-coding: the skill
 reads the config the user's repo already declares, rather than guessing or
@@ -135,7 +140,7 @@ or make `CLAUDE.md` a one-line pointer at it.
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-d3eb2123.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-gi-586b767e.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md
 - `sources/mattpocock/skills-repo/skills-engineering-setup-matt-pocock-skills-issue-tracker-lo-606b1b18.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md (revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/31dee0dfed958b42867d02168e4d300c452f86eb/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md — one-file-per-ticket local layout for `to-tickets`)
-- `sources/mattpocock/skills-repo/docs-engineering-setup-matt-pocock-skills.md-ed003b6b.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/setup-matt-pocock-skills.md (revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/29d7de66c30064a7a9df76ab428edf4c6bec6507/docs/engineering/setup-matt-pocock-skills.md)
+- `sources/mattpocock/skills-repo/docs-engineering-setup-matt-pocock-skills.md-ed003b6b.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/setup-matt-pocock-skills.md (revision 2026-07-10, origin https://github.com/mattpocock/skills/blob/29d7de66c30064a7a9df76ab428edf4c6bec6507/docs/engineering/setup-matt-pocock-skills.md; revision 2026-08-06, origin https://github.com/mattpocock/skills/blob/9d4fef8387cbc1276e0d07f3d144a9c34339d6f6 — the external-PR/MR flag dropped from the setup interview, now a manual doc edit)
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md
 - `sources/mattpocock/skills-repo/skills-engineering-code-review-SKILL.md-ffd0e041.md` — origin: https://github.com/mattpocock/skills/blob/a5c124ef9cfecc39636f426cc4ff956580d6ea10/skills/engineering/code-review/SKILL.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/9c306665c63db13e3cd9cf6df8871f7792051eab/CHANGELOG.md (revision 2026-07-09 — the `wayfinder` issue-tracker-path hardcoding fix, #472)

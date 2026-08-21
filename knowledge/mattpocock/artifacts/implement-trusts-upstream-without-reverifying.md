@@ -56,6 +56,28 @@ assumes exclusive ownership of the working tree is a reasonable design — but
 only if every caller actually honours that assumption, since nothing in the
 skill itself checks or enforces it.
 
+## Ceremony scales to task size, or the skill gets uninstalled
+
+Two practitioner exchanges describe the same mismatch from opposite sides.
+One found `/implement` "a bit overzealous" on a task as small as adding a
+close button to a modal — it triggered the full pipeline (typecheck, test
+suites, and both the Standards and Spec `code-review` sub-agents) for what
+amounted to a one-line change; Matt's response concedes the point and reaches
+for a naming fix over a behavioral one: "yes that is rather too rigorous, I
+suppose `/implement-spec` is maybe a better name for it." Renaming doesn't
+change what fires, though — asked more generally about full ceremony landing
+on a trivial change, Matt names the actual stakes: "Full ceremony on a one
+line change is how clankers get blocked," where "blocked" means the user
+disables or uninstalls the skill rather than tolerating unwanted overhead on
+small edits. The fix he points at is reading task size before deciding how
+much process to run, not dropping process altogether — a skill (or a human
+invoking one) that can't scale its own ceremony down for a trivially small
+change trains its users to route around it, the same trust-without-checking
+gap the rest of this doc documents, applied to *how much* gets run rather
+than *whether* the input is sound.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-implement-da314e96.md` — origin: https://www.aihero.dev/skills-implement
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090478544128250063-05648631.md` — origin: https://x.com/mattpocockuk/status/2090478544128250063
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090507328806138242-c94250f1.md` — origin: https://x.com/mattpocockuk/status/2090507328806138242

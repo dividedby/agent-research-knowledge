@@ -70,6 +70,13 @@ disparaging it, I'm just saying that my approach isn't SDD" — the objection is
 to the label being applied to his workflow, not to spec-driven development as
 a legitimate approach for people who actually want a durable spec.
 
+Asked directly what he'd call it instead, in a different exchange, one
+framing he's offered in passing lands closer to a familiar-to-devs category
+than a new methodology name: "IMO a spec is a RFC" — a checkable proposal
+document, not a durable spec-as-source artifact, which is the same "documents
+are for the model, not the human" naming instinct below applied to the term
+itself.
+
 ## Why specs go stale: they're a cache, not a source
 
 The reasoning behind deleting specs rather than archiving them as living docs:
@@ -307,3 +314,4 @@ after a run, rather than trusting the template to have set them.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087183449266196671-bade10ec.md` — origin: https://x.com/mattpocockuk/status/2087183449266196671
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087150963140255805-5a01a8ab.md` — origin: https://x.com/mattpocockuk/status/2087150963140255805
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2087462098724950453-a0cd9f53.md` — origin: https://x.com/mattpocockuk/status/2087462098724950453
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090159967567245685-227fdea3.md` — origin: https://x.com/mattpocockuk/status/2090159967567245685

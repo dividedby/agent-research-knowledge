@@ -20,6 +20,12 @@ Where they go instead is unsettled, but his current split is concrete:
   building it — uncertain whether no one has tried it because it is good, or
   because it sucks.
 
+The same routing covers an idea surfaced mid-session rather than at planning
+time. Asked how to capture a deferred/backlog task that comes up while deep in
+a skill session — or while brainstorming in a different tool entirely — Matt
+reaches for the same existing primitive rather than proposing a new one:
+"/handoff to GitHub should be fine."
+
 A sharper version of the "not in git" position adds the concrete failure mode
 that makes local markdown the wrong choice, not just a messier one: with a
 plan document as a local file, **merge conflict resolution becomes a thing** —
@@ -105,6 +111,21 @@ wolves: 1. Grep is bad, 2. Your codebase is bad. Choose the right wolf,
 friends" — before reaching for a fancier retrieval layer, first rule out that
 the problem is simply what you've let accumulate in the tree.
 
+## The wolf fork, applied: precise prompts beat fancier tooling
+
+The fork isn't just rhetorical — Matt applies it directly when practitioners
+propose fixes. Asked what actually fixes bad grep results, his answer is a
+prompting habit, not a tooling upgrade: "Your prompt should insist that the
+agent writes precise grep commands so that it only does relevant searches" —
+a vague or overly broad query recreates the noise problem even in a clean
+tree, so hygiene has to be enforced at query time too, not only at storage
+time. When another correspondent proposed a heavier fix instead — "A stable
+symbolic index queryable via a DSL?" — Matt calls it the wrong wolf as well:
+reaching for bespoke retrieval infrastructure is still choosing wolf 1 (blame
+the tool), dressed up as engineering, before ruling out wolf 2 (the tree
+itself is what's bad). The "grep is usually just strictly better" line above
+holds against a custom symbolic index, not only against semantic/RAG search.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2069698109492343101-6d683ee8.md` — origin: https://x.com/mattpocockuk/status/2069698109492343101
@@ -127,3 +148,6 @@ the problem is simply what you've let accumulate in the tree.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089707842768904448-d8c57094.md` — origin: https://x.com/mattpocockuk/status/2089707842768904448
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089719965414826261-99f1f63b.md` — origin: https://x.com/mattpocockuk/status/2089719965414826261
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089742493172609364-ad85d2d9.md` — origin: https://x.com/mattpocockuk/status/2089742493172609364
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090036479686758580-2c8cbba8.md` — origin: https://x.com/mattpocockuk/status/2090036479686758580
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090037549460762721-240e2254.md` — origin: https://x.com/mattpocockuk/status/2090037549460762721
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090315715236491494-720bc9a4.md` — origin: https://x.com/mattpocockuk/status/2090315715236491494

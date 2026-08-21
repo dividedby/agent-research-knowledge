@@ -55,8 +55,46 @@ hook that adds SRI hashes computed by `curl` against bytes the CDN serves
 differently to a browser — can silently produce unstyled, diagram-free output
 that the agent has no way to notice, because it never renders the page itself.
 
+## Four recurring situations, and honesty about the rest
+
+A later revision replaces the single "run it every few days" framing with four
+named situations, each pointing at a different prompt: **routine upkeep** (run
+it periodically so structure doesn't rot between features), **before a big
+build** (point it at the spec and ask "how can we make this change easy?" —
+named as the single most effective prompt for the skill), **brownfield audit**
+(run it on a large, unstructured or vibe-coded repo to see what shape it's
+actually in), and **legacy test work** (find the missing seams before writing
+tests against code that has none). The report only ever answers the question
+you scoped it to, so naming a direction is what turns a routine scan into an
+actionable one.
+
+Two more honest limits, surfaced once the skill had enough users to report
+back: working several candidates in one session floods the context window with
+the report, the grilling, and the code changes at once, so the recommended
+unit is one candidate per session — pick one, grill it, take the decision into
+`to-spec`, and turn the rest into tickets for later rather than trying to clear
+the whole report in one sitting. And on a genuinely out-of-control legacy
+codebase the skill only "helps a little" by its own users' account, going in
+circles on some eight-year-old repos where it produces a clean graph on a
+tidy one — there is no dedicated deeper `/refactor` mode for that case yet, and
+running `grill-with-docs` first to establish a shared vocabulary tends to
+improve its output more than repeating the scan does.
+
+## A harness-portability gap: it names Claude Code's `Explore` subagent directly
+
+The exploration step calls Claude Code's `Agent` tool with `subagent_type=Explore`
+by name rather than through anything harness-neutral, so a harness without that
+specific tool — Codex, for instance — can't substitute an equivalent and instead
+silently skips the parallel exploration. The skill still runs and still produces
+a report; the scan is just less thorough on a non-Claude-Code harness, with no
+error surfaced to say so. It's a concrete instance of the same trade-off
+`review-skill-two-axis-with-smell-baseline`'s parallel-subagent design faces
+elsewhere in the collection: a feature built on a harness-specific primitive
+buys real capability (true parallel exploration) at the cost of degrading
+invisibly outside that one harness.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-improve-codebase-architecture-23b24b6b.md` — origin: https://www.aihero.dev/skills-improve-codebase-architecture
-- `sources/mattpocock/skills-repo/docs-engineering-improve-codebase-architecture.md-9de7ede1.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/improve-codebase-architecture.md (revision 2026-07-13, origin https://github.com/mattpocock/skills/blob/626593b256ee7424fe23d29d7420f391faf6bea4)
+- `sources/mattpocock/skills-repo/docs-engineering-improve-codebase-architecture.md-9de7ede1.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/improve-codebase-architecture.md (revision 2026-07-13, origin https://github.com/mattpocock/skills/blob/626593b256ee7424fe23d29d7420f391faf6bea4; revision 2026-08-06, origin https://github.com/mattpocock/skills/blob/a5317989bec13bede0a68297eeabfd4bba834536 — the four recurring-situations table, one-candidate-per-session, the honest legacy-codebase limit, and the Explore-subagent harness-portability gap)
 - `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/improve-codebase-architecture/SKILL.md (revision 2026-07-13, origin https://github.com/mattpocock/skills/blob/dc900951502dc5cd3a0d96699fd2020fb79be9a2 — "Scope before you scan — YAGNI")

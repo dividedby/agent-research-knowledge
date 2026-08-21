@@ -67,6 +67,17 @@ one is still purely additive. Most of these boundaries are recorded
 as refusals in [[out-of-scope-as-design-discipline]]; the philosophy here is the
 *why* underneath them.
 
+## An orchestrator is a subtype of harness, not an alternative to one
+
+A recurring positioning move is to claim a product is "an orchestrator, not a
+harness" — arguing against the word rather than the thing. Matt rejects the
+framing on taxonomy grounds, not marketing grounds: "Except an orchestrator is
+just a harness of harnesses. So bad luck, it is a subtype of harness." The
+point generalizes past any one product: anything that drives other harnesses
+is still, structurally, a harness — orchestration is a shape a harness can
+take, not an escape from being one, the same way a framework built on top of a
+UI library doesn't stop being an alternative to using that library directly.
+
 ## Sources
 
 - `sources/mattpocock/sandcastle/.out-of-scope-provider-error-retry.md-19d09e74.md` — origin: https://github.com/mattpocock/sandcastle/blob/8da999eca700c0f1f8478b29d571b769ec1f0179/.out-of-scope/provider-error-retry.md
@@ -79,3 +90,4 @@ as refusals in [[out-of-scope-as-design-discipline]]; the philosophy here is the
 - `sources/mattpocock/sandcastle/CHANGELOG.md.md` — origin: github.com/mattpocock/sandcastle (CHANGELOG.md)
 - `sources/mattpocock/sandcastle/README.md.md` — origin: github.com/mattpocock/sandcastle (README.md)
 - `sources/mattpocock/sandcastle/src-AgentProvider.ts-c6a6e278.md` — origin: github.com/mattpocock/sandcastle (src/AgentProvider.ts)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090370662539956407-a0590188.md` — origin: https://x.com/mattpocockuk/status/2090370662539956407

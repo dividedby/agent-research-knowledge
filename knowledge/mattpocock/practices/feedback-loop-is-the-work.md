@@ -222,6 +222,27 @@ and `/code-review` (with its own separated Standards/Spec axes — see
 `review-skill-two-axis-with-smell-baseline`) is the second, deliberately
 different pass that's expected to find the ~20% the first pass didn't get to.
 
+## Named boundaries: not a performance sweep, not the same pass as triage, and a redaction gap the fix didn't fully close
+
+Three more limits `diagnosing-bugs`' docs page names explicitly, once it had
+enough real usage to report them. It refuses to be a proactive performance
+auditor: pointed at a whole codebase and asked "where are the bottlenecks",
+the answer is no — the skill diagnoses one failure you can already name, its
+performance branch establishes a baseline and bisects *from* a reported
+symptom, and a proposal for the proactive sweep version was raised and closed.
+It also doesn't dedupe against `triage`: triage's own verification step is
+already "a shallow, bounded instance of diagnosing-bugs Phase 1–2," but
+neither skill's file references the other, so running triage first gives you
+most of Phase 1's raw material without the skill ever crediting or reusing it
+— expect to redo the work properly here regardless. And the redaction fix
+above (Phase 1's own completion criterion) doesn't reach everywhere a secret
+can travel: the skill also asks the agent to request and paste *artifacts* —
+HAR files, log dumps, core dumps — and none of those are sanitised by
+instruction, so credentials and personal data can still ride along into a
+chat, an issue, or a PR through that second door even after the first one was
+closed. Treat redaction of anything beyond the Phase 1 command's own output as
+your job, not the skill's, until that gap is addressed.
+
 ## Two open gates: over-firing on easy questions, and no checkpoint before the fix
 
 `diagnosing-bugs` is heavy by design — six gated phases before a fix lands —
@@ -274,6 +295,7 @@ frontend.
 - `sources/mattpocock/skills-repo/skills-engineering-diagnose-scripts-hitl-loop.template.sh-7d00841a.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/diagnose/scripts/hitl-loop.template.sh
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-scripts-hitl-loop.templat-b79f1c8e.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh (revision 2026-08-07, origin https://github.com/mattpocock/skills/blob/efce423018fc6468a3239621f1c1bcaacc723801 — noting `capture` echoes its value to the terminal)
 - `sources/mattpocock/skills-repo/skills-engineering-diagnosing-bugs-SKILL.md-175875ba.md` — origin: https://github.com/mattpocock/skills/blob/efce423018fc6468a3239621f1c1bcaacc723801/skills/engineering/diagnosing-bugs/SKILL.md (revision 2026-08-07 — the Redact section and the redacted Phase 1 completion criterion; revision 2026-08-16, origin https://github.com/mattpocock/skills/blob/8bf2b38ed1b90eca40024849f33206ecd095f2c3 — Phase 6 renamed "Cleanup" and the closing "recommend an architectural change" hand-off dropped)
+- `sources/mattpocock/skills-repo/docs-engineering-diagnosing-bugs.md-c0888f15.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/diagnosing-bugs.md (revision 2026-08-06, origin https://github.com/mattpocock/skills/blob/c7726a74444dc1ab490fab108b5893cb06ed6dee — the "Common questions" section: the out-of-scope performance sweep, the unacknowledged overlap with `triage`, and the artifact-redaction gap)
 - `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md (revision 2026-06-17; revision 2026-06-30, origin https://github.com/mattpocock/skills/blob/dc338028858adc73f624ebdb5cda1dd9f61c5c17 — tautological tests; revision 2026-07-02, origin https://github.com/mattpocock/skills/blob/5eea6114412fce36e27f3cbf19a9bf1e25b76fb4 — pre-agreed seams and refactoring moved out of the loop; revision 2026-07-03, origin https://github.com/mattpocock/skills/blob/ffef7e3e24c271fc7f7ac6fc43a2556e6c9269d9 — the reference to `code-review` by its new name)
 - `sources/mattpocock/skills-repo/docs-engineering-tdd.md-54751a46.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/tdd.md
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md

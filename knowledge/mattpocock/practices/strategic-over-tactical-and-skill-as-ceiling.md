@@ -7,7 +7,10 @@ and planning. His claim is sharp and repeated — AI has *eaten* tactical
 programming, but it is bad at strategic. The work that used to take an engineer
 from junior to senior (planning, QA, codebase design, figuring out *what* to
 build) is no longer optional seniority polish; in this era it is table stakes,
-because the tactical layer it used to sit on top of is now commoditised.
+because the tactical layer it used to sit on top of is now commoditised. He's
+compressed the same split into a reusable aphorism, batted back at someone
+else's "Engineering is for the machines, design is human": "Tactics for the
+bots. Strategy for the people."
 
 ## The skill ceiling: your level multiplies, it doesn't get bypassed
 
@@ -106,3 +109,4 @@ read it.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083883100702949626-236c94ad.md` — origin: https://x.com/mattpocockuk/status/2083883100702949626
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083933709971988567-8b631fa9.md` — origin: https://x.com/mattpocockuk/status/2083933709971988567
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083934253440549174-0a655ccf.md` — origin: https://x.com/mattpocockuk/status/2083934253440549174
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090419774161383714-4cc14a02.md` — origin: https://x.com/mattpocockuk/status/2090419774161383714
