@@ -90,6 +90,18 @@ is the same one: if the human's job is to inspect and understand what ships,
 implementation can't be fully disposable — someone still has to be able to
 read it.
 
+## A review-intensity gradient, not just a build-vs-plan split
+
+Discussing Dex Horthy's optimism that "lights off" (agent-only, no human code
+reading) engineering is achievable, Matt names exactly where he agrees and
+where he doesn't: "for what it's worth he takes a pretty similar line to me
+in terms of the amount of human review. I.e. for tactical stuff you can
+largely let the agents roll. But for strategic stuff you do need a firm hand
+both in planning and in review." This restates the tactical/strategic split
+above as a *review-intensity* gradient rather than only a build-vs-plan one —
+tactical work earns loose supervision, strategic work keeps the firm hand in
+both directions, not just at the planning stage.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065500685362237868-fec632ae.md` — origin: https://x.com/mattpocockuk/status/2065500685362237868
@@ -110,3 +122,4 @@ read it.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083933709971988567-8b631fa9.md` — origin: https://x.com/mattpocockuk/status/2083933709971988567
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083934253440549174-0a655ccf.md` — origin: https://x.com/mattpocockuk/status/2083934253440549174
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090419774161383714-4cc14a02.md` — origin: https://x.com/mattpocockuk/status/2090419774161383714
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090854925966209387-d38a7c00.md` — origin: https://x.com/mattpocockuk/status/2090854925966209387

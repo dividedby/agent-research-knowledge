@@ -139,6 +139,28 @@ out-votes the prompt" above: a prose instruction to be clean doesn't survive
 contact with an agent that has no taste for architecture; what has to exist
 instead is a measurable gate the agent is held to.
 
+## Endorsement: gardeners as the team's defence, and tech debt at any codebase size
+
+Matt amplified two more practitioners' framings that converge on the same
+thesis. Quoting @poteto's description of a "gardener" role — someone quietly
+watching the stream of PRs, noticing smells ("the third `isRecord` this
+week"), turning every weed pulled into a rule so it can't grow back — Matt
+endorses the metaphor and adds his own gloss: "I'd argue the only thing your
+team needs are gardeners." Pushed back on by @filearts, who worried a
+gardener role risks confining someone to "the garden" when a garden isn't
+always what's needed, Matt's rejoinder — "Lol do you think gardeners live in
+their gardens" — rejects the idea that having someone tend the codebase as a
+role is limiting; it's a function performed, not a cage.
+
+Quoting @snowmaker's observation that technical debt "used to be something
+you just had to live with in a sufficiently large codebase. No longer," Matt
+agrees and sharpens the claim to fit his own thesis above: "Yes, now you live
+with it even in tiny codebases." This is the same "agents accelerate
+entropy" argument from a different angle — if what determines how fast a
+codebase rots is the presence of an unsupervised agent rather than codebase
+size, tech debt stops being a scale problem and becomes a universal one, on
+day one of even a brand-new project.
+
 ## Sources
 
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
@@ -159,3 +181,6 @@ instead is a measurable gate the agent is held to.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086879498679484471-c84ba2ba.md` — origin: https://x.com/mattpocockuk/status/2086879498679484471
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088172162641170923-dee95946.md` — origin: https://x.com/mattpocockuk/status/2088172162641170923
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088885540288442462-b2b15b80.md` — origin: https://x.com/mattpocockuk/status/2088885540288442462
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090842184408772828-a8196d2e.md` — origin: https://x.com/mattpocockuk/status/2090842184408772828 (repost/quote-tweet: gardener metaphor credited to @poteto, amplified by Matt)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090885901605871683-6697f041.md` — origin: https://x.com/mattpocockuk/status/2090885901605871683
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090887459336823019-934c4f00.md` — origin: https://x.com/mattpocockuk/status/2090887459336823019 (repost/quote-tweet: tech-debt-at-scale point credited to @snowmaker, amplified by Matt)

@@ -44,7 +44,11 @@ That follows from what the CLI is *for* — an agent invoking a command has
 already decided to act, and a tool built to be driven by an agent has no
 human on the other end of an interactive "are you sure?" to answer, so the
 only real safety lever is which nouns get write verbs at all, not a runtime
-guard on each call. The glossary obligation from above carries over
+guard on each call. Argument order is likewise fixed across every write verb —
+flags come before the positional `<id>` — a small, easy-to-miss convention
+whose payoff is that an agent constructing a `cvm` invocation from the domain
+vocabulary never has to special-case one noun's argument shape against
+another's. The glossary obligation from above carries over
 unchanged: the new verbs' `--help` text still has to track `CONTEXT.md` by
 hand.
 
@@ -72,3 +76,4 @@ The domain glossary backs this up in its own terms, not just in the CLI's behavi
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-07)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-30, write-capable nouns expand to beat/lesson/video/file/pitch/deliverable/course)
 - `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-07-30, **Deliverable Status** entry adds the "manual means underived, not hand-typed" ADR 0022 clause)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-08-24, "flags come before the positional `<id>`" argument-order convention)

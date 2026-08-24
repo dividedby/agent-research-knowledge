@@ -71,6 +71,21 @@ you reach into my internals," but "am I portable to a place that has no
 filesystem at all." One check, two boundaries, because both are the same kind
 of leak if left to convention.
 
+The deep-module promotion travels down to workspace packages too, and the
+enforcement composes rather than centralising: `packages/lucide-icons` — a
+vendored, append-only icon-node table plus a tldraw path transpiler, shared by
+both the local app and the standalone Remotion renderer package — carries its
+own `.dependency-cruiser.cjs`, and the root `pnpm run lint:boundaries` **fans
+out to every package's own check** instead of running one shared rule set
+against the whole tree. That's a small but real generalization of "gate,
+don't just convention": as the repo splits into more independently-versioned
+packages, the boundary check stays one command an agent runs, but the rule
+each package enforces is the one that package's own author wrote for it,
+so a new package (or the standalone renderer, deliberately excluded from
+every other root `turbo` filter because `apps/local` shells out to its built
+binary rather than importing its render path) can define stricter or
+different rules than its neighbors without those rules colliding.
+
 That one-off repo convention has since been generalised into a shippable
 skill, `setup-ts-deep-modules`: it wires [dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
 into any TypeScript repo with four `error`-level rules — outsiders may import
@@ -88,7 +103,7 @@ names for tests — a check that has never gone red hasn't proven it can.
 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-how-to-make-codebases-ai-agents-love-1ba6d0b5.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-ways-ai-coding-has-rewired-my-brain-dc20954e.md
-- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-11, "Deep-module packages"; revision 2026-08-11, `lint:boundaries` widened to also enforce that `packages/core` stays filesystem-free)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-11, "Deep-module packages"; revision 2026-08-11, `lint:boundaries` widened to also enforce that `packages/core` stays filesystem-free; revision 2026-08-24, `packages/lucide-icons` promoted to a workspace-level deep module with its own `.dependency-cruiser.cjs`, `lint:boundaries` fans out to every package's own check, `packages/overlay-renderer` shells out to its built binary rather than being imported and is excluded from every root `turbo` filter)
 - `sources/mattpocock/course-video-manager/README.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/README.md (revision 2026-08-11, "Repository layout": `apps/local`, `apps/remote`, `packages/core` split)
 - `sources/mattpocock/skills-repo/skills-in-progress-setup-ts-deep-modules-SKILL.md-818cdfcd.md` — origin: https://github.com/mattpocock/skills/blob/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/in-progress/setup-ts-deep-modules/SKILL.md
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-07-11, origin https://github.com/mattpocock/skills/blob/85804e72bbb83120b3becba0edd22b91abf3aa52 — `setup-ts-deep-modules` listed)

@@ -35,7 +35,9 @@ machine and nothing can change that: `cvm file` (needs the Video Files
 directory), `cvm course readiness` and `cvm course publish` (need the
 finished-videos directory and, for publish, ffmpeg). These are named
 **Local-only Commands**, and each refuses *at the front of the command,
-before doing any work*, naming exactly what it would have needed. The
+before doing any work*, naming exactly what it would have needed — raising a
+named error class (`LocalOnlyCommandError`) on a distinct exit code (7), so a
+caller can branch on "wrong machine" without parsing prose (ADR 0025). The
 author's machine declares itself with an environment variable
 (`CVM_LOCAL_MACHINE`); any box that says nothing is treated as remote by
 default — the safe direction to fail in.
@@ -51,8 +53,10 @@ per-command and checked before the command does anything observable.
 
 Every `cvm` request states its **Schema Version** — the number of Drizzle
 migrations the checkout was built against — and the deployed API compares it
-against its own. Any difference is refused outright (a distinct exit code,
-naming both numbers and telling the caller to pull); an out-of-date box
+against its own. Any difference is refused outright (exit code 6 — a
+different, dedicated code from the Local-only Commands' exit 7, so the two
+"you can't run this from here" reasons stay distinguishable — naming both
+numbers and telling the caller to pull); an out-of-date box
 doesn't get to write against a schema it doesn't understand. Migrations
 themselves are additive-only (no dropped or renamed columns without a
 two-step release), which is what actually keeps a `cvm` call already in
@@ -74,3 +78,4 @@ exists to prevent on the read side.
 - `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-08-11, new "Remote access" section: **API Token**, **Remote Box**, **Local-only Command**, **Schema Version**)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-08-11, `cvm` reaches data over HTTP through `apps/remote`, bearer-token auth, one-transport rule, Schema Version refusal, three local-only commands, one-route-one-rpcMethod build check)
 - `sources/mattpocock/course-video-manager/README.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/README.md (revision 2026-08-12, ADR 0026: migrations moved from an automatic deploy step to a manual `pnpm db:migrate`, because deploy-time application ran on every Vercel build including previews)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-08-24, `cvm` CLI section: Schema Version mismatch refused on exit 6; Local-only Commands refuse on exit 7 via a named `LocalOnlyCommandError`, ADR 0025)

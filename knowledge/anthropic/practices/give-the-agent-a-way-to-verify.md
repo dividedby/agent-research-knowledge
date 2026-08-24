@@ -22,7 +22,10 @@ the check as a deterministic gate and blocks the turn from ending until it
 passes (Claude Code overrides such a hook and ends the turn after 8 consecutive
 blocks, so the gate can't wedge a run forever either); a second-opinion
 subagent that tries to refute the result. The `/goal` and Stop-hook forms are
-specifically what let an *unattended* run finish correctly without you. Whatever
+specifically what let an *unattended* run finish correctly without you. Even
+after Claude's own check passes, `/verify` gives you a cheap, human-triggered
+re-check against the running app — a manual pass layered on top of, not instead
+of, the automated one. Whatever
 the form, have the agent **show evidence** rather than assert success — the test
 output, the command and what it returned, a screenshot — since reviewing evidence
 is faster than re-running the check yourself and works for sessions you weren't

@@ -29,8 +29,10 @@ deterministic, in-context-vs-out, and manual-vs-automatic.
   `CLAUDE.md` already answers, the phrasing is ambiguous. Treat it like code —
   review it when things go wrong, prune it regularly, verify a change by observing
   whether behavior actually shifts — and check it into git so it compounds in
-  value across the team. Emphasis markers (`IMPORTANT`, `YOU MUST`) measurably
-  improve adherence to a given rule.
+  value across the team. Emphasis markers (`IMPORTANT`, `YOU MUST`) improve
+  adherence to a given rule, but only while scarce: pin one to the single
+  instruction Claude keeps skipping, not across the file — emphasize everything
+  and nothing stands out.
 - **Hooks** — scripts run automatically at workflow points. Unlike `CLAUDE.md`
   instructions, hooks are **deterministic**: they guarantee the action happens
   (run eslint after every edit; block writes to a protected folder). Convert a
@@ -58,13 +60,19 @@ as it happens rather than wait for the final object
 — the run still creates a resumable session by default, so a scripted `-p` call
 is not throwaway state; pass `--no-session-persistence` to opt out;
 parallel sessions via git worktrees (isolated checkouts so edits don't collide),
-the desktop app, web VMs, or coordinated agent teams; and **fan-out** across many
-files for large migrations (have the agent write the file list to disk, e.g.
-`files.txt`, rather than just enumerate it in the transcript — a loop script in
-the next step needs a durable list to read, not conversation text — then
-distribute the work across it: restrict tool access with `--allowedTools` since
-there's no human backstop once it's running unattended, and keep `--verbose` for
-developing the prompt but drop it once you're running at scale). Approval-per-action is safe by
+the desktop app, web VMs, **Agent view** (`claude agents` dispatches sessions
+that keep running in the background and watches them from one screen — a
+research preview), or **agent teams** (coordinated sessions sharing tasks and
+messaging under a team lead — experimental, disabled by default); and
+**fan-out** across many files for large migrations — inside a git repo,
+`/batch <instruction>` is the built-in path: it splits the change across 5–30
+subagents, each in its own worktree, each opening its own pull request. To drive
+the fan-out from your own script instead: have the agent write the file list to
+disk, e.g. `files.txt`, rather than just enumerate it in the transcript — a loop
+script in the next step needs a durable list to read, not conversation text —
+then distribute the work across it: restrict tool access with `--allowedTools`
+since there's no human backstop once it's running unattended, and keep
+`--verbose` for developing the prompt but drop it once you're running at scale. Approval-per-action is safe by
 default but has its own failure mode — after the tenth prompt you're no longer
 reviewing, you're clicking through — so permission friction is reduced: auto mode
 (a separate classifier model reviews each command and blocks only what looks

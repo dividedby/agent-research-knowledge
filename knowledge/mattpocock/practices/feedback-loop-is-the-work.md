@@ -177,6 +177,27 @@ that the whole system works together. While some apps resist single-seam testing
 (requiring extensive service mocking), the principle holds: fewer seams mean
 better agent outcomes.
 
+## A renderer's real output is the wrong seam — test the contract instead
+
+`course-video-manager`'s coding standards apply the single-seam principle to
+a concrete, expensive case: **never write an automated test against a
+Remotion renderer package's actual render output**, for any renderer package
+that exists today or is added later. The reasoning is cost and signal, not
+squeamishness — a real render boots Chromium, takes minutes, downloads a
+browser on a cold machine, and asserts on pixels that a deliberate branding
+change is *supposed* to move, so the test fails for the one reason that isn't
+a bug. The fix isn't "don't test the renderer," it's picking a cheaper, more
+stable seam one layer in: test the renderer's **props schema** (pure
+validation, no Chromium — the contract every caller writes against) and the
+**orchestration around the render** (the props a service builds, and the
+arguments it spawns the renderer with, with the renderer faked at the process
+boundary like any other external process). The actual visual "look" is left
+to a human checking Remotion Studio, not a test. It's the same move
+`diagnosing-bugs`' loop-construction menu applies generally: when the
+literal, most-direct seam is slow, flaky, or expensive, move the seam to the
+nearest boundary that's still deterministic and fast, rather than either
+skipping the test or eating the Chromium cost anyway.
+
 ## Agreeing the seam is a planning-stage step, enforced downstream
 
 Deciding *where* the seams are isn't left to whichever skill happens to write a
@@ -311,3 +332,4 @@ frontend.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086089056711036949-a7b4b448.md` — origin: https://x.com/mattpocockuk/status/2086089056711036949
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086093679677034920-85117314.md` — origin: https://x.com/mattpocockuk/status/2086093679677034920
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086110209961828833-589d231b.md` — origin: https://x.com/mattpocockuk/status/2086110209961828833
+- `sources/mattpocock/course-video-manager/.sandcastle-CODING_STANDARDS.md-7b893b74.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/CODING_STANDARDS.md (revision 2026-08-24, "Remotion renderer packages": never test actual render output, test the props schema and the render-orchestration boundary instead, leave the visual "look" to a human in Remotion Studio)

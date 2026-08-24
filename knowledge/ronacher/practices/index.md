@@ -9,6 +9,7 @@ One concept per file; this index lists them, one line each.
 
 - [agent-as-collaborator-you-stay-accountable](./agent-as-collaborator-you-stay-accountable.md) — the AI is a curious intern you delegate to but never blame; you own every line.
 - [pick-an-agent-legible-language](./pick-an-agent-legible-language.md) — language choice is an agentic decision; Go wins on weights, tooling, and low churn.
+- [agents-remove-the-familiarity-barrier](./agents-remove-the-familiarity-barrier.md) — you no longer need to already know a language or hard domain to work in it; choice now tracks what you want, not what you know.
 - [fast-observable-tools](./fast-observable-tools.md) — tools must be fast, user-friendly, chaos-monkey-proof, and log to a file the agent can read.
 - [yolo-mode-delegate-and-wait](./yolo-mode-delegate-and-wait.md) — full permissions, hand off the whole job, watch and wait; the IDE shrinks.
 - [code-over-inference-for-repeatable-work](./code-over-inference-for-repeatable-work.md) — for anything that recurs, have the agent write code you can review the approach of, not loop on inference.

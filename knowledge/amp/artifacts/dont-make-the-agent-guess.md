@@ -13,8 +13,9 @@ The scaffolding that makes this possible:
   nothing's running — so the agent never has to diagnose "what state is this
   environment in" before it can act. Cache the result (snapshot a freshly
   provisioned sandbox and reuse it) so repeat runs are fast, and give the agent
-  a matching wake-up hook to re-settle state after the environment goes idle and
-  comes back.
+  a matching hook that fires on first activation and every subsequent wake-up —
+  to re-authenticate connections and re-settle state after the environment goes
+  idle and comes back — rather than folding that into the one-shot setup step.
 - **Documentation discovered on demand, not loaded up front.** Many small,
   directory-scoped docs (Amp's repo carries 41) that the agent reads only when
   it touches that area, rather than one giant onboarding doc competing for
