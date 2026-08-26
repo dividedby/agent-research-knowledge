@@ -76,6 +76,19 @@ closer to an independent review pass than to a model grading its own
 homework, the same "same context reviewing itself isn't review" caution
 `review-skill-two-axis-with-smell-baseline` already applies to code review.
 
+## From floated name to a stubbed skill
+
+The idea materialized: `retro` now exists as a real file in the `in-progress`
+beta bucket, carrying the caveat `STUB: design notes only, not functional
+yet.` Its `disable-model-invocation: true` frontmatter keeps it a
+deliberately-invoked checkpoint rather than something the model fires on its
+own — the same "not an automatic per-PR loop" shape floated above, now
+encoded as a harness-level switch instead of just an intention. Its concrete
+category checklist for what a retro is allowed to write into (see
+`retro-skill-symptom-to-intervention-checklist`) is the bounded taxonomy that
+answers the clutter worry named above: a fixed set of intervention types, not
+an open-ended "write down what you learned."
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088733788335489218-b6633825.md` — origin: https://x.com/mattpocockuk/status/2088733788335489218
@@ -88,3 +101,5 @@ homework, the same "same context reviewing itself isn't review" caution
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088913666141765977-20edb29f.md` — origin: https://x.com/mattpocockuk/status/2088913666141765977
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088988804635935104-22e042a4.md` — origin: https://x.com/mattpocockuk/status/2088988804635935104
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088997639735951629-7ee07601.md` — origin: https://x.com/mattpocockuk/status/2088997639735951629
+- `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-08-25, origin https://github.com/mattpocock/skills/blob/c4745476a77d0b34af2933a01cf13f9bcd22fc30/skills/in-progress/README.md — `retro` listed as a STUB)
+- `sources/mattpocock/skills-repo/skills-in-progress-retro-SKILL.md-95ca61b1.md` — origin: https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/skills/in-progress/retro/SKILL.md
