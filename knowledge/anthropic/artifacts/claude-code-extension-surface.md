@@ -19,7 +19,10 @@ deterministic, in-context-vs-out, and manual-vs-automatic.
   project-specific notes and belongs in `.gitignore` — separating "persistent
   context for every session" from "my own scratch notes" that shouldn't ship to
   teammates. `/init` analyzes
-  the codebase to scaffold a first draft you then refine. Verify what actually
+  the codebase to scaffold a first draft you then refine, and for a file that's
+  grown stale, `/doctor` runs the inverse pass — proposing cuts for anything
+  Claude can already derive from the code itself, rather than leaving pruning to
+  manual review alone. Verify what actually
   loaded with `/context` rather than assuming it did — and since the whole file is
   paid for on every turn, route anything only *sometimes* relevant (domain
   knowledge, situational workflows) into a Skill instead, which loads on demand
@@ -60,6 +63,8 @@ as it happens rather than wait for the final object
 — the run still creates a resumable session by default, so a scripted `-p` call
 is not throwaway state; pass `--no-session-persistence` to opt out;
 parallel sessions via git worktrees (isolated checkouts so edits don't collide),
+optionally with **cross-session messaging** so sessions you're driving yourself
+can pass findings to each other instead of staying siloed,
 the desktop app, web VMs, **Agent view** (`claude agents` dispatches sessions
 that keep running in the background and watches them from one screen — a
 research preview), or **agent teams** (coordinated sessions sharing tasks and

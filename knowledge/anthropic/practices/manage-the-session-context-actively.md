@@ -17,6 +17,10 @@ The named failure patterns and their fixes:
   it into a subagent whose separate context window absorbs the reading and reports
   back only a summary.
 
+Visibility comes first — you can't manage what you can't see. Track consumption
+continuously with a custom status line rather than discovering the window is
+full only once output degrades.
+
 Beyond reset, the controls are: **course-correct early** (interrupt mid-action
 with `Esc`, context preserved, and redirect — tight feedback loops beat hoping the
 first attempt lands; or just say `"undo that"` to have it revert changes);
