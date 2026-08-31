@@ -22,3 +22,5 @@ each.
 - [generate-variations-then-curate](./generate-variations-then-curate.md) — for fiddly, feel-your-way work, fan out into many variations and curate rather than hand-edit.
 - [ungated-agents-are-tactical-tornadoes](./ungated-agents-are-tactical-tornadoes.md) — unmanaged agents can churn out working code that doesn't fit the system, piling up complexity debt faster than a human ever could.
 - [agent-notifications-habituate-fast](./agent-notifications-habituate-fast.md) — broadcasting agent events to a shared channel becomes ignored wallpaper within days; filter, don't just tune.
+- [recalibrate-bug-tolerance](./recalibrate-bug-tolerance.md) — agents shrink a shipped bug's lifetime, so the old speed-vs-defects balance point needs a deliberate reset, not a frozen assumption.
+- [force-clarity-with-controlled-english](./force-clarity-with-controlled-english.md) — when an answer is jargon-heavy or vague, demand it restated in ASD-STE100 Simplified Technical English to expose whether it says anything.
