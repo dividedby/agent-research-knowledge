@@ -40,6 +40,15 @@ wrapper around a coding agent" is a phenomenon specific to engineers for whom
 that wrapper is already an improvement on their unassisted output — not a
 general trend to expect across a team.
 
+**The same read doubles as a deliberate coping tactic, not just an observation.**
+When a colleague's low-effort AI-relaying shades into "workslop" — pasting big
+chunks of AI output at you rather than doing the work — you can choose to treat
+them as that high-latency interface on purpose. It's still awkward and slower
+than a direct conversation, but more compute thrown at the problem beats less,
+however badly mediated, which makes it worth doing even when the underlying gap
+is closer to low effort than low skill.
+
 ## Sources
 
 - `sources/seangoedecke/blog/https-seangoedecke.com-ai-makes-weak-engineers-less-harmful-48921ced.md` — origin: https://seangoedecke.com/ai-makes-weak-engineers-less-harmful/
+- `sources/seangoedecke/blog/https-seangoedecke.com-how-to-protect-yourself-from-workslop-50e770b6.md` — origin: https://seangoedecke.com/how-to-protect-yourself-from-workslop/
