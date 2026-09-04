@@ -307,6 +307,27 @@ retry against the failing check until it's green. Letting the running dev server
 be reachable (or a headless browser / Playwright MCP) extends the loop to the
 frontend.
 
+## Scope the local loop to what changed; know when red is the sandbox, not the code
+
+`course-video-manager`'s testing convention narrows the loop from the whole repo
+to just what's touched, because "the rate you can get feedback is your speed
+limit" only holds if the loop stays fast as the suite grows. While iterating,
+run only the specific test file(s) that cover the change, directly (`pnpm
+--filter <package> test -- path/to/thing.test.ts`) — never a package's full
+suite by hand. The full, unfiltered suite is CI's job, run on every PR, so
+targeting locally never leaves a change actually unverified; it moves the
+exhaustive pass to the check that runs regardless, freeing the interactive loop
+to stay proportional to the diff instead of growing with the whole repo.
+
+A named, environment-specific failure mode travels with the convention: known
+PGlite flakiness under a sandboxed agent workspace's CPU load. A red result
+from a loop running inside a resource-constrained sandbox can be the sandbox
+contending for CPU, not a real regression — the same "diagnose the environment
+before concluding the code (or the model) is wrong" instinct as
+[[diagnose-environment-before-blaming-the-model]], applied specifically to test
+infrastructure: before treating a local red as a bug, check whether the
+environment running the loop is the actual cause.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-diagnosing-bugs-15a5eaa7.md` — origin: https://www.aihero.dev/skills-diagnosing-bugs
@@ -333,3 +354,4 @@ frontend.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086093679677034920-85117314.md` — origin: https://x.com/mattpocockuk/status/2086093679677034920
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086110209961828833-589d231b.md` — origin: https://x.com/mattpocockuk/status/2086110209961828833
 - `sources/mattpocock/course-video-manager/.sandcastle-CODING_STANDARDS.md-7b893b74.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/CODING_STANDARDS.md (revision 2026-08-24, "Remotion renderer packages": never test actual render output, test the props schema and the render-orchestration boundary instead, leave the visual "look" to a human in Remotion Studio)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-09-04, new "Testing" section: two-tier discipline — targeted test file(s) while iterating via `pnpm --filter <package> test`, full unfiltered suite runs in CI on every PR, and known PGlite flakiness under a sandboxed agent workspace's CPU load, per `docs/agents/testing.md`)

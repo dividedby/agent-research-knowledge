@@ -33,9 +33,20 @@ re-run of the script after adding, removing, or renaming a skill. It confirms
 the same core bet (one authored set, symlinked into every harness's expected
 path) without needing the npm-specific machinery this sketch proposed.
 
+The script later stopped linking every skill unconditionally: it now excludes
+`deprecated/` and `misc/`, the two buckets that are neither promoted (see
+`buckets-and-promotion-discipline`) nor useful to have live-installed locally.
+The distinction the script draws isn't the same one the publication invariant
+draws — `in-progress/` is unpromoted but still gets linked, because a local
+symlink install is how Matt tries a beta skill himself, while `misc/` and
+`deprecated/` skills are ones he's already decided not to reach for. Local
+linking follows "would I actually invoke this," not "is this advertised."
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062129440558047545-df93babd.md` — origin: https://x.com/mattpocockuk/status/2062129440558047545
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062162143944827322-cf318feb.md` — origin: https://x.com/mattpocockuk/status/2062162143944827322
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2071159019058647144-771bdb97.md` — origin: https://x.com/mattpocockuk/status/2071159019058647144
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/31a854fc1d37464d373218be58588ea8691a01c3/CLAUDE.md (revision 2026-06-17, `scripts/link-skills.sh`)
+- `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/728a8b63e9c91bf16483cde6a5060463b831f334/AGENTS.md (revision 2026-09-04 — `link-skills.sh` excludes `deprecated/` and `misc/`)
+- `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/728a8b63e9c91bf16483cde6a5060463b831f334/CLAUDE.md (revision 2026-09-04, same change)
