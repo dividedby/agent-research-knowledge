@@ -14,6 +14,10 @@ A blocking gate, a warnings panel, and an agent-facing query are typically built
 
 Whenever the same yes/no or what's-outstanding question needs answering from more than one entry point — a hard gate, a soft UI hint, and a query surface built for an agent — resist splitting it into "the strict version" and "the informational version" maintained separately. Compute the full underlying state once, and let each consumer decide independently which subset of it blocks and which is merely informational (as Publish Readiness does by marking only 3 of its 4 lists as blocking) — the *computation* stays singular even when its consequences differ by consumer.
 
+## The failure mode caught mid-drift: two surfaces disagreeing on visibility
+
+The same drift the principle warns about showed up, briefly, in course-video-manager's own UI. **Course View Display Settings** is a per-browser (`localStorage`, not database) set of checkboxes controlling which elements of the course tree are shown — Section descriptions, Learning Goals, Beats, and so on — read by the course view to decide what to render and by its own filter bar to decide which filter controls even appear. When a second surface, the **Section Workbench** (a drill-down view of one Section reusing the course view's own components), was first built, it didn't read these settings at all — it "always shows everything," an independent, undocumented answer to the same "what should be visible" question the settings object already answered. A later revision closed the gap by having the Workbench read the same stored settings the course view does, so — in the glossary's own words — "the two surfaces now agree on what's visible." The one-computation principle applies just as well to client-side visibility state as to a server-computed readiness check: the fix wasn't teaching the Workbench its own visibility rules, it was pointing it at the one source the other surface already trusted.
+
 ## The same shape, in a skill's own logic
 
 The principle isn't limited to a computed value — it applies just as well to
@@ -32,3 +36,5 @@ shared thing is a computed value or a skill's procedure.
 
 - `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-07-30, new **Publish Readiness** entry)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085290713994953056-25939aa4.md` — origin: https://x.com/mattpocockuk/status/2085290713994953056
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-09-05, new **Course View Display Settings** entry; the **Section Workbench** entry noting it "does not read Course View Display Settings")
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-09-07, the **Section Workbench** entry updated: "the two surfaces now agree on what's visible")

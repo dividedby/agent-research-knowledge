@@ -18,3 +18,5 @@ index lists them, one line each.
 - [context-forking](./context-forking.md) — the context window is a stack you can only push/pop; fork it to course-correct, explore, or salvage
 - [ralph-dumb-loops-and-declarative-specs](./ralph-dumb-loops-and-declarative-specs.md) — a dumb while-loop works if the spec is good: declarative specs, carved context, small changesets
 - [compact-visual-representations](./compact-visual-representations.md) — ask agents to answer in trees/stacks/diagrams/pseudocode instead of prose; it's faster to read and forces design-before-code
+- [software-factory-metrics-miss-maintainability](./software-factory-metrics-miss-maintainability.md) — one-shot test pass rate, token spend, and task count don't measure whether code stays maintainable
+- [lights-off-autonomy-drowns-in-slop](./lights-off-autonomy-drowns-in-slop.md) — extended fully-unattended agent loops degrade into slop; the fix is to read code again, seek leverage, and decompose skills into workflows

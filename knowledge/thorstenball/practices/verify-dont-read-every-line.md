@@ -42,6 +42,20 @@ standard nobody applies to human-written code. In his view, people who still ins
 on reading every line either haven't used a model released in 2026, or haven't
 worked inside a multi-team org where that standard was never real to begin with.
 
+The debate extends past the diff to the process wrapped around it: Ball rejects
+the idea that the traditional shape of code review — every PR, read line by
+line, by two humans — survives at the volume and pace agents produce work; by
+his own framing, doing that to agent-opened PRs is a process for a different
+era, not one that makes sense once agents are shipping this much, this fast.
+He's careful to scope the claim: not that review is worthless, but that its
+traditional shape buys less than its cost suggests — bugs still slip through,
+time goes to low-value nits, and it demotivates without stopping much. The
+caveat he flags, from Thoughtworks CTO Rachel Laycock: automating review away
+outright risks losing the *other* things review was doing — teaching, spreading
+ownership, building shared architectural understanding — so the fix isn't
+dropping review, it's asking why those functions have to wait until review to
+happen at all.
+
 The same discipline sharpens further once verification runs inside a malleable,
 ephemeral sandbox: Ball describes asking the agent for *"irrefutable proof"* that
 something works, and because the sandbox can install and run whatever it needs,
@@ -59,3 +73,4 @@ personally perform against the raw code.
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-87-9c595687.md` — *Joy & Curiosity #87*: feedback loops are changing; "why put training wheels on someone who never wobbles?" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-87)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-92-1574a563.md` — *Joy & Curiosity #92* intro: endorsing antirez's "control the ideas, not the code"; the multi-team-org double-standard argument for why review-every-line is the wrong bar (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-92)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-95-0c3b0985.md` — *Joy & Curiosity #95* intro: asking the agent for "irrefutable proof" via bespoke verification (presentations, frame-by-frame narrated video) an orb can build on demand; reviewing by having the agent quiz you or produce diagrams/presentations instead of reading the diff (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-95)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-98-c70ec820.md` — *Joy & Curiosity #98*: rejecting line-by-line two-person PR review as a process for agent-scale output ("The End of Code Review?"); Rachel Laycock's caveat that automating review away risks losing its teaching/ownership/architecture-sharing functions (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-98)

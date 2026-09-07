@@ -24,3 +24,4 @@ each.
 - [agent-notifications-habituate-fast](./agent-notifications-habituate-fast.md) — broadcasting agent events to a shared channel becomes ignored wallpaper within days; filter, don't just tune.
 - [recalibrate-bug-tolerance](./recalibrate-bug-tolerance.md) — agents shrink a shipped bug's lifetime, so the old speed-vs-defects balance point needs a deliberate reset, not a frozen assumption.
 - [force-clarity-with-controlled-english](./force-clarity-with-controlled-english.md) — when an answer is jargon-heavy or vague, demand it restated in ASD-STE100 Simplified Technical English to expose whether it says anything.
+- [naive-interventionism](./naive-interventionism.md) — reviewers are biased toward finding fault because finding fault is the job; weigh the nitpick against the whole delivery.
