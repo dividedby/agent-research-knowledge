@@ -19,6 +19,13 @@ prototype and something actually shipped.
   upstream API was "possible with enough effort" but not worth that effort on its
   own. In both cases the blocker wasn't the interesting part of the problem — it
   was the boring part that agents absorb without complaint.
+- **Delegating implementation surfaces options you wouldn't have found alone.**
+  Building Deckard, a local AI-text-detection browser extension, Goedecke let the
+  agent make top-level technical decisions: doing inference in C++ instead of
+  Python (a language he was less comfortable in) and using native messaging
+  instead of standing up a local HTTP server — a choice he says he wouldn't have
+  thought of himself. The agent isn't just executing a known plan faster; handing
+  it the "how" widens the option space beyond your own default toolkit.
 
 This is why "if AI writes code so well, where's the flood of AI-built products"
 undersells what's happening. Writing code was never the only bottleneck to
@@ -31,3 +38,4 @@ things an agent helped you build faster.
 ## Sources
 
 - `sources/seangoedecke/blog/https-seangoedecke.com-weird-projects-i-shipped-with-ai-c200f795.md` — origin: https://seangoedecke.com/weird-projects-i-shipped-with-ai/
+- `sources/seangoedecke/blog/https-seangoedecke.com-deckard-6bf51fb2.md` — origin: https://seangoedecke.com/deckard/
