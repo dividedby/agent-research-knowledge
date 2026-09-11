@@ -33,6 +33,15 @@ The mechanics of how it goes wrong:
   is dramatically cheaper (the MiniJinja→Go port took only 2.2M tokens). And
   current pricing is "almost certainly subsidized" — these patterns may not stay
   viable.
+- **Newer models don't know when to stop.** A fully hands-off "software
+  factory" run — a frontier model (GPT-6 Astra) left to manage its own context
+  and spawn its own subagents with zero oversight — burned roughly 1B tokens
+  (~$1,200) over 35 hours, landed 79 commits at ~$15.50 each, and delivered
+  nothing of value and nothing learned. Earlier models would plateau or give up
+  on an oversized task; a model trained to be relentless on long-horizon
+  completion just keeps going instead. That makes "slightly too big a task" a
+  qualitatively different mistake than it used to be — no longer self-limiting,
+  now open-ended until someone turns it off.
 
 The discipline that keeps delegation ([[yolo-mode-delegate-and-wait]]) from
 becoming psychosis is the same accountability line from
@@ -46,3 +55,4 @@ their own agent run over an opaque human-submitted one.
 
 ## Sources
 - /home/runner/work/agent-research/agent-research/sources/ronacher/blog/https-lucumr.pocoo.org-2026-1-18-agent-psychosis-5dd86afc.md — https://lucumr.pocoo.org/2026/1/18/agent-psychosis/
+- `sources/ronacher/blog/https-lucumr.pocoo.org-2026-9-7-astra-why-f536d02c.md` — origin: https://lucumr.pocoo.org/2026/9/7/astra-why/
