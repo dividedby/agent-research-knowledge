@@ -21,3 +21,4 @@ each.
 - [claude-code-for-learning](./claude-code-for-learning.md) — treat "explain this" as a first-class output: explanatory mode, HTML slides, ASCII diagrams, a spaced-repetition skill.
 - [automation-as-leverage](./automation-as-leverage.md) — a correction fixes one run, infrastructure fixes every run; "a rejected PR is a failure of automation."
 - [finding-your-unknowns](./finding-your-unknowns.md) — the skill of agentic coding is surfacing what Claude doesn't know before it has to guess; a toolkit for before, during, and after implementation.
+- [read-diffs-selectively-trust-the-tests](./read-diffs-selectively-trust-the-tests.md) — only open the diff for critical or important-to-get-right code; a property-based test suite is what lets you hand over the rest unread.

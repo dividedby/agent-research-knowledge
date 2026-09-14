@@ -12,6 +12,15 @@ compressed the same split into a reusable aphorism, batted back at someone
 else's "Engineering is for the machines, design is human": "Tactics for the
 bots. Strategy for the people."
 
+## "Dead" means tactical programming, not programming
+
+Pressed on a claim that human programming is "dead," Matt sharpens the word to
+avoid the reading that he means all human coding is over: "I mean dead as in
+'humans doing tactical programming is dead.'" The scope of the claim is
+exactly the tactical/strategic split above — strategic programming (and the
+skill required to do it) is very much alive; it's the day-to-day, line-by-line
+writing that AI has taken over.
+
 ## The skill ceiling: your level multiplies, it doesn't get bypassed
 
 The load-bearing principle is that **your skill level acts as a ceiling for the
@@ -64,6 +73,62 @@ knowledge that lets you talk to the model as one expert to another. His
 `/teach` skill (see `stateful-teaching-workspace`) is the concrete mechanism
 he points people at when asked how to build that "get good at the thing"
 knowledge deliberately rather than by accident.
+
+## A concrete order for "which fundamentals, in which order"
+
+Pushed to name which fundamentals matter and in what sequence, Matt gives a
+five-step order rather than a flat list: (1) learn to read code, (2) learn to
+use the terminal, (3) learn how good teams prevent human/agent mistakes
+(types, tests, linting), (4) learn to structure an app so its tests/types are
+actually load-bearing (deep modules, seams, adapters), (5) learn ubiquitous
+language from DDD. Reading code and the terminal come first because everything
+downstream depends on them directly: "all the types/tests feedback loops are
+terminal apps — plus your agent uses the terminal, so it's important to
+understand what it's doing" — you can't judge a feedback loop's output, or
+follow what your own agent is doing, without first being able to read what
+scrolls past in a terminal. The order is a dependency chain, not a ranked
+list of importance: each later step needs the fluency the earlier ones built.
+This is the concrete curriculum behind "get good at the thing you're using AI
+for" above, and it doesn't mean writing code by hand disappears from the
+learning path — "get the AI to generate you some code, have a fiddle with it"
+plus his own `/teach` skill (see `stateful-teaching-workspace`) for building
+interactive lessons around it are the mechanisms Matt points people at to
+build this fluency deliberately rather than by accident.
+
+## The lost feel of your own strategic mistakes
+
+A blind spot AI coding introduces: it's hard to *feel* your strategic
+mistakes. Matt recalls specific bad calls from his pre-AI career — a
+needlessly complex form library, a webpack + PHP combo — that cost real time
+and that he still remembers precisely because living through the pain taught
+him to recognize the shape of a mistake. "But often, we didn't even see them
+as mistakes! We just thought 'this is the way we do it.'" He sees the same
+pattern transferring to agents: told to do a task, an agent does that task —
+it isn't trained to propose strategic alternatives or think outside the brief
+it was given. That leaves the human as the only party positioned to notice a
+strategic opportunity, but noticing depends on having felt the pain of
+working inside the wrong strategic choice — a feedback signal that AI-assisted
+work generates far less of, because tactical friction (the thing that used to
+surface a bad strategic call) is exactly what AI has absorbed. He's wary of a
+too-easy fix here: whether a "simpler implementation" heuristic counts as
+strategic awareness gets a direct no — "I don't see how 'simpler
+implementation' means 'thinking outside the box' — the right thing to do is
+not always the simplest." He's building an opportunity to catch this into his
+in-progress `/retro` skill (see `retro-skill-symptom-to-intervention-checklist`),
+while flagging his own uncertainty about whether a fixed-category retro can
+actually replace felt experience as the trigger for noticing a strategic
+mistake.
+
+Pressed on whether the strategic gap is really just a context problem — would
+an agent with 100% of a human's context still be worse at strategic thinking?
+— Matt agrees with the framing but names why it's not an easily-closed gap:
+"it's a really, really gnarly context problem... the agent would need an
+EXTREME amount of context, most of which is not stuff I can put into words."
+The missing context here isn't a bigger context window away from being
+loaded — it's tacit knowledge that was never verbalized in the first place,
+which is a sharper claim than a token-budget limitation (see
+`hallucination-two-flavors` for the related factuality/faithfulness split
+between context that's missing versus context that's present but ignored).
 
 ## "We are all engineering managers now" — and that role still reads the code
 
@@ -123,3 +188,13 @@ both directions, not just at the planning stage.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083934253440549174-0a655ccf.md` — origin: https://x.com/mattpocockuk/status/2083934253440549174
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090419774161383714-4cc14a02.md` — origin: https://x.com/mattpocockuk/status/2090419774161383714
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090854925966209387-d38a7c00.md` — origin: https://x.com/mattpocockuk/status/2090854925966209387
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097278371747037453-812362d0.md` — origin: https://x.com/mattpocockuk/status/2097278371747037453
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097611379763007870-4a8fd70d.md` — origin: https://x.com/mattpocockuk/status/2097611379763007870
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097611981834309708-d9272879.md` — origin: https://x.com/mattpocockuk/status/2097611981834309708
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097612882175205396-2b34ec5c.md` — origin: https://x.com/mattpocockuk/status/2097612882175205396
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097627767382614520-3bec06db.md` — origin: https://x.com/mattpocockuk/status/2097627767382614520
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097638250798035344-5257f16e.md` — origin: https://x.com/mattpocockuk/status/2097638250798035344
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097967205216379355-c2e7aa56.md` — origin: https://x.com/mattpocockuk/status/2097967205216379355
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097972570322534789-1da6c3e6.md` — origin: https://x.com/mattpocockuk/status/2097972570322534789
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098056919587959293-8b7dc6c6.md` — origin: https://x.com/mattpocockuk/status/2098056919587959293
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098892897944789453-e6545359.md` — origin: https://x.com/mattpocockuk/status/2098892897944789453

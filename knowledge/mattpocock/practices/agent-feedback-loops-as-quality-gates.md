@@ -22,6 +22,16 @@ The key insight: "Raising test boundaries lets you catch more bugs and work more
 
 This means testing at higher levels of abstraction — testing the whole feature workflow rather than individual functions.
 
+Whether E2E specifically belongs in the loop is a cost/benefit call, not a
+default yes. Asked whether he runs E2E on top of lint/type/unit tests after
+`to-spec`, Matt endorses the idea in principle — "it's great, love the
+idea" — but reports not having set it up for his own stack, because some of
+what he builds is "really hard to run e2e." The pass genuinely catches subtle
+bugs the cheaper checks miss, but flaking cost is a real reason to leave it
+out of the loop rather than a failure of discipline — add it where it's
+practical to run reliably, skip it where it isn't, rather than treating a full
+E2E gate as mandatory everywhere.
+
 ## Feedback Loops as Constraints
 
 When agents work autonomously (Ralph loops), feedback loops become non-negotiable constraints:
@@ -44,3 +54,4 @@ The key is that feedback loops give agents actual context about what's working a
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-essential-ai-coding-feedback-loops-for--3a500e40.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-ways-ai-coding-has-rewired-my-brain-dc20954e.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098059818795704363-38d01b00.md` — origin: https://x.com/mattpocockuk/status/2098059818795704363

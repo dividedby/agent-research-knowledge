@@ -29,7 +29,18 @@ than defaulting to either verdict. Only once you know which one you're looking
 at do you know whether the fix is a steering-doc rule or a different model/
 prompt.
 
+## Three variables to check before blaming the model
+
+When someone reports a bad result and you're trying to diagnose it, the first
+move is to ask which of three independent variables was actually in play,
+rather than jumping straight to "the model is bad": **"Model, harness,
+effort?"** A complaint that doesn't specify which model, which harness, and
+what reasoning-effort setting produced the output isn't yet diagnosable —
+the same output can look like a model failure, a harness bug, or an
+under-provisioned effort setting depending on which of the three changed.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080573297557721316-13e4a49e.md` — origin: https://x.com/mattpocockuk/status/2080573297557721316
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080576449933644071-b5704544.md` — origin: https://x.com/mattpocockuk/status/2080576449933644071
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097033781215436971-fdae98db.md` — origin: https://x.com/mattpocockuk/status/2097033781215436971

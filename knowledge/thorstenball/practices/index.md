@@ -25,3 +25,4 @@ each.
 - [recalibrate-bug-tolerance](./recalibrate-bug-tolerance.md) — agents shrink a shipped bug's lifetime, so the old speed-vs-defects balance point needs a deliberate reset, not a frozen assumption.
 - [force-clarity-with-controlled-english](./force-clarity-with-controlled-english.md) — when an answer is jargon-heavy or vague, demand it restated in ASD-STE100 Simplified Technical English to expose whether it says anything.
 - [naive-interventionism](./naive-interventionism.md) — reviewers are biased toward finding fault because finding fault is the job; weigh the nitpick against the whole delivery.
+- [blind-test-agent-friendliness](./blind-test-agent-friendliness.md) — spawn unbriefed agents to see if they discover and use a tool on their own; that's the real test of agent-friendliness, not self-report.

@@ -24,6 +24,22 @@ silently produces trouble" — and that document has to be written on purpose,
 severity-ordered, because no amount of crawling usage docs or prior art
 manufactures it for you.
 
+## Mining other people's footguns, not just your own
+
+Getting burned personally isn't the only channel Matt uses to fill a footgun
+list — he actively solicits negative reports from other users of his skills,
+treating concrete failure reports as valuable enough to seek out deliberately:
+"Concrete negative feedback is so valuable that I will risk engaging a
+ragebaiter to get it." When a report arrives too vague to act on, he pushes
+for the specific failure rather than letting it go: "Could you be a bit more
+specific? What concrete failure mode did you encounter? I'm shamelessly
+trying to mine you for negative feedback, which is the main way I improve the
+skills." The two channels (his own burns, others' reports) feed the same
+severity-ordered list this doc describes — the second just scales past what
+one person's own usage can surface.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082817962965180761-85a7a83c.md` — origin: https://x.com/mattpocockuk/status/2082817962965180761
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097015734496837648-7c58eaa4.md` — origin: https://x.com/mattpocockuk/status/2097015734496837648
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098680615730139200-601eb25b.md` — origin: https://x.com/mattpocockuk/status/2098680615730139200

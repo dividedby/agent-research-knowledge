@@ -50,9 +50,23 @@ paid app took an hour or six to build, a hundred competitors can rebuild it in
 thirty minutes, so cloneability — not scarcity — sets the price, and prices for
 anything that easily replicable trend toward zero.
 
+The same cost collapse changes what's worth *sharing*, too. When Ball built a
+$5-in-tokens custom browser-link router (routing Slack/terminal links to the
+right browser profile) and people asked him to open-source it, his reaction
+was: "why, man? There's the prompt! Build your own!" Once the artifact is
+trivially reproducible, the reusable unit shifts from the code to the prompt
+that generated it. The logic bites even the builder: after polishing the tool
+with follow-up prompts ("oh and these links should open here," "go through my
+browser history and set up rules for the most common ones") until it had a
+proper configuration UI, he never used that UI once — re-prompting Amp
+directly each time a rule needed to change was still less friction than
+opening what he'd built. His verdict: "It's jellyware, baby." Once code is
+this cheap, even your own finished software can lose to just re-prompting.
+
 ## Sources
 
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-72-67188f9a.md` — *Joy & Curiosity #72* intro: the disconnect between people who "get it" and those who don't; agent-vs-ChatGPT, frontier models, prompting, AGENTS.md, judging code by human standards, taking hands off the wheel (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-72)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-73-e7187f0c.md` — *Joy & Curiosity #73* intro: optimize for agents over humans even at the cost of developer experience (the UUIDs anecdote) (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-73)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-78-d865b504.md` — *Joy & Curiosity #78* intro: the rainwater-into-oil analogy; "all of it was built on the assumption that code is expensive" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-78)
 - `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-75-32551187.md` — *Joy & Curiosity #75* intro: "invisible software" — personal Amp-built tools too costly to generalize to ever release; cloneability crashing prices for small paid apps (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-75)
+- `sources/thorstenball/blog/https-registerspill.thorstenball.com-p-joy-and-curiosity-99-9fa8651f.md` — *Joy & Curiosity #99*: the $5 browser-link-router anecdote — "why, man? There's the prompt! Build your own!"; polishing his own tool with a configuration UI he then never used, "It's jellyware, baby" (origin https://registerspill.thorstenball.com/p/joy-and-curiosity-99)

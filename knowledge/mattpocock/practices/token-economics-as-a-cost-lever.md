@@ -69,6 +69,19 @@ is not one winner but *right format per purpose*: a stack uses HTML for the thin
 that need it and Markdown for the things that don't — you pick the cheapest
 representation the consumer can act on, rather than standardizing on the prettiest.
 
+## Contact sheets: batch images to cut read calls
+
+The same input-cost discipline applies to images, not just text. Endorsing a
+tip to collage multiple screenshots into one "contact sheet" before asking an
+agent to review them, Matt names the payoff directly: "squeeze in 12
+screenshots instead of one to let the agent see something changing over
+time." One collaged image costs one image-read tool call; twelve separate
+screenshots cost twelve — so batching isn't just tidier, it multiplies how
+much visual evidence fits in the same context spend, and it's the only way to
+let the agent see change *across* a sequence rather than reviewing isolated
+frames. He confirms the technique transfers across tools, not just the one it
+was first reported for.
+
 ## Why vocabulary size sits underneath all of this
 
 Tokenization is learned bottom-up from a corpus — characters, then frequent
@@ -88,3 +101,4 @@ sharper and cheaper to run.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061888451700486547-e7f2ccaf.md` — origin: https://x.com/mattpocockuk/status/2061888451700486547
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061888589542162693-79619669.md` — origin: https://x.com/mattpocockuk/status/2061888589542162693
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061889988761960787-38e06b2c.md` — origin: https://x.com/mattpocockuk/status/2061889988761960787
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099172859599880503-a10620a5.md` — origin: https://x.com/mattpocockuk/status/2099172859599880503 (quote-tweet: technique credited to @pvncher, endorsed and extended by Matt)

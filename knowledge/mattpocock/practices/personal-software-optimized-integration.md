@@ -69,6 +69,43 @@ choice, but a separate, deliberately-built personal wiki is where Matt *does*
 want durable, accumulating state — because it's system he controls end to end,
 not a harness-vendor memory feature he can't inspect.
 
+## Applying the wiki to knowledge work: parallel sections, dictation, and a night-shift linter
+
+Matt reports extending the same Karpathy-inspired-wiki approach from admin to
+knowledge work specifically — course and talk planning — and names four parts
+that, together, let him "speak the thing I want into existence" while the
+model does the integration:
+
+1. Give each **deliverable** (a course, a talk — more than a day's labour) its
+   own wiki.
+2. Split the deliverable into **sections** that can be worked on in
+   independent agent threads during the day, so more than one thread means
+   parallelizing work across different sessions, all reading from and writing
+   to the same wiki as shared state. Concretely, sections live in "different
+   folders in the same repo" — accessible to every thread, but each thread is
+   discouraged from writing outside its own workspace folder.
+3. His own input arrives as **braindumps** — large chunks of dictated text the
+   model integrates into the wiki — and he reacts to the model's own HTML
+   reports of the current state by dictating again, closing a speak-in,
+   read-back loop rather than typing.
+4. A **linting skill**, run during a "night shift," uses "a ton of subagents"
+   generously to check the whole deliverable for every possible weakness. Its
+   checks are qualitative review, not deterministic pass/fail assertions: "not
+   'run the tests', more like 'check that the content is in the correct
+   order,' 'check that the language is not too confusing' — more like
+   automated review than automated checks." He confirms the loop already
+   extends past planning into execution — "the agents execute commands in my
+   CMS, have been doing this for a while" — so the wiki isn't just a planning
+   scratchpad, it drives real publishing actions too.
+
+Matt frames this explicitly as a work in progress rather than a finished
+methodology, but one he already likes: the combination of parallel
+day-shift threads plus a broad night-shift review pass is a distinct
+division of labour from the single-thread `/retro` or `code-review` loops
+elsewhere in the collection — many cheap, generous review subagents hunting
+open-endedly for weaknesses, rather than one focused pass against a fixed
+checklist.
+
 ## The Future Bet
 
 Matt sees the future in bespoke applications rather than generic tools everyone uses the same way. Personal software that deeply understands your specific needs and projects rather than trying to serve all use cases adequately.
@@ -97,3 +134,6 @@ The goal is moving faster through automation, not replacing human judgment with 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082547448413630502-bf728589.md` — origin: https://x.com/mattpocockuk/status/2082547448413630502
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082748002226032666-dd713d5b.md` — origin: https://x.com/mattpocockuk/status/2082748002226032666
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082814640623378587-9d4c97d5.md` — origin: https://x.com/mattpocockuk/status/2082814640623378587
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097638166232457451-d39b3368.md` — origin: https://x.com/mattpocockuk/status/2097638166232457451
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097639875449094230-1e8a2f3f.md` — origin: https://x.com/mattpocockuk/status/2097639875449094230
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097640030609002873-2ab4a1d9.md` — origin: https://x.com/mattpocockuk/status/2097640030609002873

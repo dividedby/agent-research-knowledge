@@ -37,6 +37,28 @@ answer to the risk Matt names elsewhere in the collection — that models are
 "REALLY bad at improving their own behavior" unattended — applied at the
 schema level rather than as a prose caveat.
 
+## Three targets, and what distinguishes it from `improve-codebase-architecture`
+
+Matt's own compressed framing of the skill's purpose: it "gives you
+opportunities to improve your codebase, skills, and steering over time based
+on actual session data" — three targets (codebase, skills, steering docs), all
+gated on having real session history to mine, which is the concrete
+distinction from its sibling `improve-codebase-architecture`: "I would say
+that improve codebase architecture requires zero inputs, whereas `/retro`
+needs a session history to work well." The two skills look similar on the
+surface — both surface improvement opportunities — but one works cold on the
+codebase alone and the other only has something to say once a session has
+actually happened.
+
+## `/retro` stays human-in-the-loop by design
+
+Responding to skepticism that an agent can reliably self-improve without a
+knowledgeable person driving it, Matt agrees rather than pushing back: "Agree,
+`/retro` is HITL." This is the same discipline the seven-category schema above
+enforces structurally — candidates are proposed and ranked, never applied
+unattended — restated directly as a design commitment rather than left
+implicit in the mechanism.
+
 ## Coding-standards fixes route to review, not implementation
 
 The skill's own rationale for treating "coding standards" as its own category
@@ -54,3 +76,6 @@ code smells alone.
 
 - `sources/mattpocock/skills-repo/skills-in-progress-retro-SKILL.md-95ca61b1.md` — origin: https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/skills/in-progress/retro/SKILL.md
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-08-25, origin https://github.com/mattpocock/skills/blob/c4745476a77d0b34af2933a01cf13f9bcd22fc30/skills/in-progress/README.md — `retro` listed as a STUB)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097972745023754353-653b2e18.md` — origin: https://x.com/mattpocockuk/status/2097972745023754353
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098062605407461744-a5f92d77.md` — origin: https://x.com/mattpocockuk/status/2098062605407461744
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098063469572415819-5b9203f5.md` — origin: https://x.com/mattpocockuk/status/2098063469572415819

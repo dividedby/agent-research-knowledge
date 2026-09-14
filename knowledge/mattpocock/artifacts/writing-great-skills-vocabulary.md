@@ -127,7 +127,12 @@ with a test:
 - **Duplication** — the same meaning in two places; costs maintenance and tokens
   and inflates a meaning's ladder rank. The accidental inverse of a leading word.
 - **Sediment** — stale layers that accrete because adding feels safe and removing
-  risky; the default fate of any skill without a pruning discipline.
+  risky; the default fate of any skill without a pruning discipline. Matt's own
+  analogy for the inevitability: "If you give me a drawer, I will eventually
+  fill it with cables. If you give an agent a markdown file, it will eventually
+  fill it with: unnecessary implementation details, session-specific
+  observations, stale docs" — naming the three concrete shapes sediment takes
+  in a steering file, not just the abstract failure mode.
 - **Sprawl** — a skill simply too long even when every line is live and unique;
   cured by the hierarchy (disclose, split by branch/sequence).
 - **No-op** — a line the model already obeys by default, so you pay load to say
@@ -273,3 +278,4 @@ combined result rather than concatenating both bodies verbatim.
 - `sources/mattpocock/skills-repo/skills-productivity-README.md-8510d914.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/README.md (revision 2026-08-05 — `writing-for-agents` listed as the renamed, user-invoked skill)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089461428411351288-535bd902.md` — origin: https://x.com/mattpocockuk/status/2089461428411351288
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2089465919634297030-90e5932a.md` — origin: https://x.com/mattpocockuk/status/2089465919634297030
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097238983226868194-c8c74e2b.md` — origin: https://x.com/mattpocockuk/status/2097238983226868194

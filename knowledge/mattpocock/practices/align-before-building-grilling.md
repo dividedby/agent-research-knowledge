@@ -80,6 +80,23 @@ grill-with-docs adopt rounds too (v1.2)" below) — 46 questions sounds like a
 runaway interview one-at-a-time, but is a more modest ~11-per-round average
 under batching.
 
+## You decide when to stop, and framing sets expectations up front
+
+Two more levers the human controls before and during the interview. First, the
+session length is a personal call, not a fixed protocol: "I rarely go over 30
+or 40 questions. I usually just say 'time to get building now' when I feel
+like we're aligned" — a concrete ceiling and an explicit closing phrase,
+alongside the abstract "you are the driver" stance above. Second, how you
+*frame* what you're building shifts how hard the agent grills: explicitly
+calling something a "prototype" sets an expectation of lower rigor and gives a
+much nicer, faster session, whereas an app the agent reads as finance- or
+medical-flavored triggers a long grilling by default. That framing lever isn't
+something to bake into the skill itself as a blanket instruction — asked to
+add an "avoid overengineering" caveat directly into the skill, Matt declines:
+"it's only relevant in some contexts." The lesson generalizes past grilling:
+a skill's depth of interrogation should track what you tell it about the
+stakes, not a fixed setting everyone gets by default.
+
 ## Small features: grill after, not before
 
 The grill-before-you-build default has an explicit size exception. Asked how
