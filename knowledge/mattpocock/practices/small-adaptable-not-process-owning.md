@@ -112,8 +112,23 @@ prototype assets are deliberately *temporary* — cached in the repo for one spr
 and then removed, because kept too long they go stale and steer the agent wrong
 (the same doc-rot logic as `claude-md-is-an-instruction-budget`).
 
+## Most skills belong to a methodology; a few are free-floating
+
+The seven-phase pipeline above is the common case, not a rule every skill
+must fit. Asked whether a particular skill was tied to a process the way most
+of his are, Matt draws the distinction directly: "this one is relatively
+unique in my skillset for not being tied to a 'process' — I.e. most of my
+skills are part of a methodology. This one is free-floating." A skill earns a
+slot in the pipeline (grill → prototype → PRD → issues → build → review) when
+it's a *stage*; it's fine for a skill to instead be a standalone utility
+reachable from anywhere, with no upstream or downstream neighbour in the
+chain. Naming the exception matters because it keeps "small, adaptable, not
+process-owning" from being misread as "every skill must slot into the seven
+phases" — composability, not pipeline membership, is the actual requirement.
+
 ## Sources
 
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099786151796134380-d0bccd09.md` — origin: https://x.com/mattpocockuk/status/2099786151796134380
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md
 - `sources/mattpocock/skills-repo/skills-engineering-prototype-SKILL.md-aae38256.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/prototype/SKILL.md
 - `sources/mattpocock/skills-repo/skills-productivity-caveman-SKILL.md-3d901941.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/caveman/SKILL.md

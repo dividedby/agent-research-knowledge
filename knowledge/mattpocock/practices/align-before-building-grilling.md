@@ -111,6 +111,19 @@ becomes the cheapest way to reach alignment — the same "stop talking and make
 something to talk about" instinct that motivates prototyping, applied to
 trivially small changes rather than high-fidelity unknowns.
 
+## The threshold itself is a live dial, not a fixed setting
+
+The session-length ceiling and the prototype-framing lever above both shift
+grilling's *depth* indirectly. There's also a direct control: mid-session, the
+human can just say "lower the threshold for questions a little. Use your best
+judgment" and the agent adjusts how aggressively it keeps interrogating.
+Naming this explicitly matters because it removes a false choice — between
+"put up with an over-eager interview" and "abandon grilling for that session"
+— by making the interview's granularity itself a parameter the driver can
+retune on the fly, the same "you are in control" posture as the interrupt-
+and-interject right below, applied to the question threshold instead of the
+conversation's content.
+
 ## You are the driver, not a menu-selector
 
 Two separate exchanges name the same posture from opposite directions. Asked
@@ -342,6 +355,7 @@ level rather than firing consistently.
 
 ## Sources
 
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099931484744212645-4d30d9a1.md` — origin: https://x.com/mattpocockuk/status/2099931484744212645
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-grilling-65787e81.md` — origin: https://www.aihero.dev/skills-grilling
 - `sources/mattpocock/skills-repo/README.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/README.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-productivity-grill-me-SKILL.md-5d73b98f.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/productivity/grill-me/SKILL.md (revision 2026-06-17)

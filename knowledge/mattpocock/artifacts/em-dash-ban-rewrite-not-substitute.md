@@ -30,7 +30,18 @@ past em-dashes specifically: any repo-wide find-and-replace over prose that
 was written with a placeholder's specific shape in mind needs the same
 per-instance judgement call, not a single global substitution rule.
 
+## The ban targets one character, not the family
+
+The rule is easy to over-apply by pattern-matching on "dash" rather than the
+specific character: "hyphens are different from em-dashes." A hyphen joins
+compound words and is ordinary, load-bearing punctuation with no AI-tell
+association; only the em-dash is the reliable tell the ban exists to strip.
+Scoping the rule to the exact character it targets keeps an over-eager
+rewrite pass from stripping legitimate hyphenation on its way to removing
+what the rule actually bans.
+
 ## Sources
 
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099955693855928565-dc3ddb72.md` — origin: https://x.com/mattpocockuk/status/2099955693855928565
 - `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/3fa0c426c0fdd4c5cdee05c2bbf66e9cf4f1abc1/AGENTS.md (revision 2026-08-20 — the em-dash ban and the rewrite-not-substitute instruction)
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/3fa0c426c0fdd4c5cdee05c2bbf66e9cf4f1abc1/CLAUDE.md (revision 2026-08-20, same rule)

@@ -176,6 +176,32 @@ the agent *can't* find by looking (an unwritten convention, the reason behind a
 choice, a gotcha no config confesses), and leave one-file, one-command lookups
 to the environment, where they cannot go stale the way a restated copy will.
 
+## The authoring heuristic: build a skill when a mistake recurs
+
+The signal that a skill is warranted isn't a plan to write one in advance —
+it's a mistake that keeps happening. Asked directly whether he'd made a
+particular error before, Matt's answer names the mechanism in one breath:
+"I did once, so I built a skill. Then it never happened again." The skill
+isn't written speculatively against a hypothetical failure mode; it's the
+response to a *specific, already-observed* recurrence, and its payoff is
+measured the same concrete way — the mistake stops. This is the same
+after-the-fact-correction shape as the `CODING_STANDARDS.md` feed mechanism
+(see `review-skill-two-axis-with-smell-baseline`'s "Notice the agent is doing
+something bad, write it down" habit), applied one level up: instead of adding
+a line to an existing standards file, the recurring failure earns a whole new
+skill when the fix is a *process* to follow, not a *rule* to check.
+
+## Validate a skill's worth by testing without it
+
+The no-op test above (delete a *line*, re-run, see if the output changes)
+has a coarser sibling for the whole skill: "Have you tested *not* using it?"
+— the same deletion discipline applied at the level of the skill itself
+rather than one sentence inside it. A skill can survive line-by-line no-op
+pruning and still be dead weight in aggregate if the task it wraps would have
+gone the same way unassisted; the only way to catch that is to actually run
+the task without the skill and compare, not to assume a skill earns its
+keep just because none of its individual lines do.
+
 ## The no-op is context-relative, and the deletion test is how you find it
 
 Matt's sharpest public framing of the no-op: agent-authored skills are *littered*
@@ -257,6 +283,8 @@ combined result rather than concatenating both bodies verbatim.
 
 ## Sources
 
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099785958958792935-57df5280.md` — origin: https://x.com/mattpocockuk/status/2099785958958792935
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099786193940418767-9cde06a8.md` — origin: https://x.com/mattpocockuk/status/2099786193940418767
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-SKILL.md-b96ebc68.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/SKILL.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/ce24f42a242b70cbdda304f3422545a3e452285a — the Negation failure mode)
 - `sources/mattpocock/skills-repo/skills-productivity-writing-great-skills-GLOSSARY.md-1e43a906.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/productivity/writing-great-skills/GLOSSARY.md (revision 2026-07-07, origin https://github.com/mattpocock/skills/blob/82ecc586f26c5a31062113faa3cef08e6e394116 — the same Negation term added to the Steering axis)
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md (revision 2026-07-09, PR #463, origin https://github.com/mattpocock/skills/blob/af6d6922c3e2b5288eef155346cbe319e4ed3bd0 — the Negative Space failure mode)

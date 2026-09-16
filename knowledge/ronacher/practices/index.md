@@ -23,3 +23,4 @@ One concept per file; this index lists them, one line each.
 - [you-are-the-bottleneck](./you-are-the-bottleneck.md) — review and accountability are the irreducible bottleneck; you were the bottleneck all along.
 - [agents-erode-team-coordination-silently](./agents-erode-team-coordination-silently.md) — agents remove the friction that used to force shared understanding; the tower keeps rising with no failure signal.
 - [latent-capability-diffusion](./latent-capability-diffusion.md) — a project idea from an LLM conversation may be a latent capability the model is surfacing to many people at once, not your own insight.
+- [structure-is-the-ai-tell](./structure-is-the-ai-tell.md) — AI detectors key on the outline, not the words; a from-scratch rewrite that keeps the same structure still reads as machine-generated.

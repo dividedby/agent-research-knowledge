@@ -19,3 +19,5 @@ them, one line each.
 - [code-distance-is-contextual](./code-distance-is-contextual.md) — how far you step back from the code is an "it depends" dial (domain, feedback loops, risk, brownfield, team size, seniority), not a personality or moral stance.
 - [vibe-coding-is-a-spectrum-of-understanding](./vibe-coding-is-a-spectrum-of-understanding.md) — vibe code = code nobody understands; a continuous comprehension axis, and the same tools can climb you back up it.
 - [barefoot-developers](./barefoot-developers.md) — LLMs enable a new middle-tier builder of local home-cooked software, but the legos still need glue (orchestrator agents + agent-aware tools).
+- [plans-are-a-weak-resource-for-situated-action](./plans-are-a-weak-resource-for-situated-action.md) — plans orient but can't predict the journey; agents make it worse because the human must front-load every judgment call before the agent departs alone.
+- [boundary-objects-must-serve-human-legibility](./boundary-objects-must-serve-human-legibility.md) — planning artifacts should be built for human reasoning (visual, interactive, reality-grounded), not just for what's cheap for the agent to produce.

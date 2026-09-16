@@ -7,3 +7,4 @@ concept decide. One concept per file; this index lists them, one line each.
 
 - [agent-orchestration-patterns](./agent-orchestration-patterns.md) — four reusable orchestration patterns (specialised roles, ephemeral sessions / persistent Git-stored state, work queues, agent-managed merge queues) read out of Gas Town as speculative design.
 - [collaborative-multiplayer-agent-workspace](./collaborative-multiplayer-agent-workspace.md) — Ace's build decisions: microVM-backed multiplayer sessions, shared cloud computer, multiplayer prompting/plans, proactive context dashboard.
+- [collaborative-planning-editor-chopin](./collaborative-planning-editor-chopin.md) — Chopin's build decisions: MDX plan documents with inline interactive visuals, decision provenance, multiplayer editing — GitHub Next's distinct planning-surface prototype alongside Ace.

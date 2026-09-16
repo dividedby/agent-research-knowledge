@@ -163,6 +163,20 @@ for directly ("it's a CC feature you can copy"), not a bespoke pattern to build
 — the same instinct as `/compact`/`/handoff` above, aimed at a single
 oversized turn rather than a whole session's accumulated drift.
 
+## Already in the dumb zone? Clear and re-derive from the transcript
+
+A fourth lever sits alongside `/compact`, `/handoff`, and the rewind trick
+above, for when none of them are the right shape: if the session is already
+deep in the dumb zone, "you can clear, and get it to analyse the previous
+session." `/clear` wipes the context outright rather than summarising it —
+the fresh session then reads back over the *previous* session's record to
+recover what mattered, instead of carrying a compacted (and therefore lossy)
+version of it forward. The choice this adds to the set: `/compact` when the
+thread should keep running with a trimmed memory, `/handoff` when a human
+needs to stay in the loop on the next slice, and a bare `/clear` + re-read
+when the session is already too far gone for a summary to be worth trusting
+and starting clean is cheaper than clawing it back mid-stream.
+
 ## The dumb zone isn't always wrong to use
 
 Working in the dumb zone costs more than the smart zone even beyond the quality
@@ -210,6 +224,7 @@ useful when it is empty" — same for your context window.
 
 ## Sources
 
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099895520189616469-6e3fb55e.md` — origin: https://x.com/mattpocockuk/status/2099895520189616469
 - `sources/mattpocock/aihero/https-www.aihero.dev-why-the-anthropic-ralph-plugin-sucks-60344c9c.md` — origin: https://www.aihero.dev/why-the-anthropic-ralph-plugin-sucks
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-handoff-2afa3dc0.md` — origin: https://www.aihero.dev/skills-handoff
 - `sources/mattpocock/aihero/https-www.aihero.dev-creating-the-perfect-claude-code-status-e04f7d09.md` — origin: https://www.aihero.dev/creating-the-perfect-claude-code-status-line

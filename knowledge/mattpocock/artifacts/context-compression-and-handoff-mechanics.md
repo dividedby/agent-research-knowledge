@@ -88,6 +88,16 @@ dependency graph and driving several background sessions through it is
 orchestration logic that belongs one layer down, in the harness, not bolted
 onto a skill whose job is authoring a single prompt.
 
+The same instinct resurfaces as a standing editorial test, not a one-off
+ruling: weighing whether to cut an unrelated skill entirely, Matt's own
+reasoning is the identical question asked of different material — "IMO this
+is a harness concern, not a skill concern." A skill is scoped to what a
+prompt/markdown body can decide; a concern whose answer depends on what the
+surrounding tool already does (or should do) for every skill uniformly
+belongs to the layer beneath the skill, not inside it — and when a skill's
+job turns out to actually be a harness's job, the fix is to remove the skill
+rather than keep it as a thin wrapper around a capability that isn't its own.
+
 ## Primary vs Secondary Source: the lossiness is structural
 
 Underneath every handoff and compaction is a single trade-off Matt names with two
@@ -132,6 +142,7 @@ buying, whichever mechanism supplies them.
 
 ## Sources
 
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2099783476132057121-f470aa40.md` — origin: https://x.com/mattpocockuk/status/2099783476132057121
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-handoff-2afa3dc0.md` — origin: https://www.aihero.dev/skills/handoff
 - `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary (revision 2026-06-05)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2062825992486269441-a87fb8b9.md` — origin: https://x.com/mattpocockuk/status/2062825992486269441
