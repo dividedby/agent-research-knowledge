@@ -8,5 +8,4 @@ under the `amp` subject; this subject is his personal essay blog, which skews
 forcing essay material into it. One concept per file; this index lists them, one
 line each.
 
-_No concepts synthesized yet — the first run after this Source goes live will
-populate this index (and may stay empty if the blog yields only `practices/`)._
+- [fast-classifier-for-structured-decisions](./fast-classifier-for-structured-decisions.md) — reserve the full LLM call for open-ended work; route fixed-choice sub-decisions to a dedicated fast/cheap classifier instead.

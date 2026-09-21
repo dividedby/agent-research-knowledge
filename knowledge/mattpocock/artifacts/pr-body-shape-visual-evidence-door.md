@@ -34,7 +34,11 @@ options theory: is this a one-way door (hard to walk back) or a two-way door
 (cheap to revert), and what's the blast radius if it goes wrong (consumer
 breakage, layout shift, mobile responsiveness, etc.)? Naming the door
 explicitly gives a reviewer a risk budget to calibrate scrutiny against,
-instead of leaving them to infer reversibility from the diff's size. The call
+instead of leaving them to infer reversibility from the diff's size. The
+template enforces this at the field level, too: a later revision splits Door
+and Blast Radius into a short tag (one-way/two-way; a single word) with the
+fuller explanation demoted to an optional line beneath it, so the risk budget
+reads in two words before a reviewer has to read further. The call
 has a direct payoff for *when* review happens, not just how it's labeled: for
 a two-way door, Matt takes it as fine to merge first and read the review
 after — the same reversibility argument that licenses auto-fixing
@@ -56,7 +60,7 @@ established rather than generic engineering prose.
 
 ## Sources
 
-- `sources/mattpocock/skills-repo/skills-in-progress-pr-SKILL.md-795517e8.md` — origin: https://github.com/mattpocock/skills/blob/74ca5fe077456a0b3b2f5310cf9430999fd0b5fd/skills/in-progress/pr/SKILL.md
+- `sources/mattpocock/skills-repo/skills-in-progress-pr-SKILL.md-795517e8.md` — origin: https://github.com/mattpocock/skills/blob/74ca5fe077456a0b3b2f5310cf9430999fd0b5fd/skills/in-progress/pr/SKILL.md (revision 2026-09-19 — Merge Danger template splits Door/Blast Radius into a short tag plus optional elaboration)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-09-18, origin https://github.com/mattpocock/skills/blob/700989c0b6e64d1133449793d86bcb3a35a031f9/skills/in-progress/README.md — `pr` listed)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100521948786667822-1c6587b1.md` — origin: https://x.com/mattpocockuk/status/2100521948786667822
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100539180560363692-49546026.md` — origin: https://x.com/mattpocockuk/status/2100539180560363692

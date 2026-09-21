@@ -116,7 +116,12 @@ preference: "implementation is already hugely overloaded, and code review is
 usually underloaded" — confirmed again when pressed on whether a long
 `CODING_STANDARDS.md` risks bloating a session's context: "you have more
 budget during review because it isn't so overloaded by the burden of
-implementation/exploration." This is `keep-the-agent-in-the-smart-zone`'s
+implementation/exploration." He states the same split in a separate exchange
+with the failure mode named explicitly rather than just the budget mechanics:
+"the implementer is overloaded with demands already. If you ask it to also do
+the coding standards you'll get a worse output" — bundling a second
+responsibility onto the implementer doesn't just spend more of its budget, it
+degrades the primary output it was already doing. This is `keep-the-agent-in-the-smart-zone`'s
 budgeting logic applied to *where* a standard lives, not just how much context
 a session uses: implementation is already spending attention on exploration
 and code generation, so a growing rulebook competes hardest with the phase
@@ -195,3 +200,4 @@ failing loud.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088347274610880648-73d24dae.md` — origin: https://x.com/mattpocockuk/status/2088347274610880648
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088742184245731443-67a7980c.md` — origin: https://x.com/mattpocockuk/status/2088742184245731443
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090315654318452922-d48a2e78.md` — origin: https://x.com/mattpocockuk/status/2090315654318452922
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100932313643188339-4b393998.md` — origin: https://x.com/mattpocockuk/status/2100932313643188339
