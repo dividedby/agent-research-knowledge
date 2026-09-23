@@ -132,6 +132,27 @@ a standards file "can afford a bit more bloat" precisely because it's only
 loaded at the review checkpoint, not on every session regardless of phase (see
 `claude-md-is-an-instruction-budget`'s CODING_STANDARDS.md carve-out).
 
+## What review catches that linting can't, and why it belongs on every PR
+
+Pressed on what `/code-review` is actually for, Matt draws its boundary
+against the mechanical checks a linter already covers: the check is for
+"which techniques to use, how to structure modules, whether it's conformant
+to the original spec... the stuff that linting can't touch." A linter
+enforces rules that are cheap to state and check syntactically; the three
+things he names — technique choice, module structure, spec conformance — all
+require judgement against context a linter has no way to hold, which is
+exactly the judgement work the Standards/Spec split above is built to carry
+(Fowler's smells for the first, the spec-discovery chain for the second).
+Because that judgement can't be done any other way, his conclusion is a
+policy, not a preference: "IMO every PR should have an automated
+`/code-review` check on it" — the check belongs in the same mandatory,
+non-optional tier as a linter or a test suite, not a manual step a reviewer
+has to remember to invoke (this is already load-bearing in
+`course-video-manager`'s CI, see [[label-driven-agent-ci-pipeline]]). The same
+reasoning that keeps curated standards out of the implementer's prompt
+compresses to one imperative, stated as a general rule rather than derived
+case-by-case: "Put this instruction in your reviewer, not your implementer."
+
 ## A gap Matt names himself: no adversarial pass
 
 A further limitation, volunteered by Matt rather than reported by a
@@ -201,3 +222,7 @@ failing loud.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088742184245731443-67a7980c.md` — origin: https://x.com/mattpocockuk/status/2088742184245731443
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090315654318452922-d48a2e78.md` — origin: https://x.com/mattpocockuk/status/2090315654318452922
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100932313643188339-4b393998.md` — origin: https://x.com/mattpocockuk/status/2100932313643188339
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2101983422793011451-e662535f.md` — origin: https://x.com/mattpocockuk/status/2101983422793011451
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2101983662812152131-e47a6083.md` — origin: https://x.com/mattpocockuk/status/2101983662812152131
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2102043811476095215-bdce312c.md` — origin: https://x.com/mattpocockuk/status/2102043811476095215
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2102122113700131042-d66f30f5.md` — origin: https://x.com/mattpocockuk/status/2102122113700131042

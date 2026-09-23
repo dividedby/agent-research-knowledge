@@ -183,6 +183,16 @@ unreviewed, agent-authored glossary is worse than none, because it becomes
 confident-sounding lore that later sessions treat as established truth without
 anyone having actually checked it.
 
+Matt draws the same scope line from the opposite direction: "ubiquitous
+language is as far as you should go with DDD, no need for the runtime stuff
+too" — narrowing DDD's useful surface to naming, not tactical patterns like
+aggregates or bounded-context runtime scaffolding, while still calling the
+vocabulary half "INCREDIBLE with agents." The remaining friction isn't
+technical: "it just feels like a big conceptual lift for a team to adopt." A
+team can get the full benefit of the practice while discarding all the
+runtime ceremony; what's left to overcome is convincing people to adopt a
+vocabulary discipline at all, not building tooling to support it.
+
 ## Not deprecated — absorbed and expanded
 
 Asked whether the standalone `ubiquitous-language` skill had been dropped,
@@ -206,3 +216,6 @@ own — going from one narrow entry point to something woven through the whole
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084255866543390766-29f40882.md` — origin: https://x.com/mattpocockuk/status/2084255866543390766
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085674908051275993-c3c44927.md` — origin: https://x.com/mattpocockuk/status/2085674908051275993
 - `sources/mattpocock/skills-repo/docs-engineering-grill-with-docs.md-95a415e1.md` — origin: https://github.com/mattpocock/skills/blob/b848e846456fba9cc3f06a768cee78011042011f/docs/engineering/grill-with-docs.md (revision 2026-08-06 — the "Common questions" FAQ: the orchestration-layer silent-write-failure bug, the "no ledger tying answers to spec/ticket/test" complaint, and the pairing with `improve-codebase-architecture` for a repo with no docs at all)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2102013485945069612-ecbbbfe6.md` — origin: https://x.com/mattpocockuk/status/2102013485945069612
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2102013533793698142-f9c165fa.md` — origin: https://x.com/mattpocockuk/status/2102013533793698142
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2102035584638148776-867d1834.md` — origin: https://x.com/mattpocockuk/status/2102035584638148776
