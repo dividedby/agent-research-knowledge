@@ -60,6 +60,23 @@ drop that discipline entirely and let the agent free-associate — the same
 autonomy that would be reckless mid-project is fine when the downside is
 "delete the branch."
 
+## Past AFK: software factory, then dark factory
+
+Matt's own dictionary names two further rungs past AFK, and the distinction
+between them is the one that matters. A **software factory** is a system of
+work where *triggers* — a cron tick, a new issue, a merged PR — start agent
+sessions instead of a human, so HITL time is spent only where it's actually
+needed; the sandcastle batch loop (`sandcastle-plan-execute-merge-loop`) and
+the label-driven CI pipeline (`label-driven-agent-ci-pipeline`) are both this
+in practice. A **dark factory** goes one rung further: a codebase, or part of
+one, where the software factory writes the code and *no human ever reviews
+it*. The two are independent axes, not one ladder collapsed into a single
+"more automated" label — a software factory that still gates on human review
+carries the same risk profile as any other AFK Ralph loop; a dark factory has
+removed the last checkpoint, so the feedback-loop discipline above
+(deterministic checks, a scoped stop condition, sandboxing) is doing all the
+safety work that a human otherwise would.
+
 ## The loop generalises past features
 
 Anything expressible as "look at the repo, improve one thing, commit" fits the
@@ -71,8 +88,9 @@ PRs rather than commits to main, which turns Ralph into a backlog-triaging engin
 
 ## Sources
 
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-getting-started-with-ralph-7f6ee75f.md
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-why-the-anthropic-ralph-plugin-sucks-60344c9c.md
-- /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-heres-how-to-stream-claude-code-with-af-8595552d.md
+- `sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md` — origin: https://www.aihero.dev/tips-for-ai-coding-with-ralph-wiggum
+- `sources/mattpocock/aihero/https-www.aihero.dev-getting-started-with-ralph-7f6ee75f.md` — origin: https://www.aihero.dev/getting-started-with-ralph
+- `sources/mattpocock/aihero/https-www.aihero.dev-why-the-anthropic-ralph-plugin-sucks-60344c9c.md` — origin: https://www.aihero.dev/why-the-anthropic-ralph-plugin-sucks
+- `sources/mattpocock/aihero/https-www.aihero.dev-heres-how-to-stream-claude-code-with-af-8595552d.md` — origin: https://www.aihero.dev/heres-how-to-stream-claude-code-with-afk-agents
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086206733521695001-dc80f9af.md` — origin: https://x.com/mattpocockuk/status/2086206733521695001
+- `sources/mattpocock/aihero/https-www.aihero.dev-ai-coding-dictionary-ece441bb.md` — origin: https://www.aihero.dev/ai-coding-dictionary

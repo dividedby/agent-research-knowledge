@@ -69,9 +69,9 @@ the desktop app, web VMs, **Agent view** (`claude agents` dispatches sessions
 that keep running in the background and watches them from one screen — a
 research preview), or **agent teams** (coordinated sessions sharing tasks and
 messaging under a team lead — experimental, disabled by default); and
-**fan-out** across many files for large migrations — inside a git repo,
+**fan-out** across many files for large migrations —
 `/batch <instruction>` is the built-in path: it splits the change across 5–30
-subagents, each in its own worktree, each opening its own pull request. To drive
+subagents, each in its own worktree. To drive
 the fan-out from your own script instead: have the agent write the file list to
 disk, e.g. `files.txt`, rather than just enumerate it in the transcript — a loop
 script in the next step needs a durable list to read, not conversation text —
