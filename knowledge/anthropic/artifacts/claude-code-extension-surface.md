@@ -84,9 +84,11 @@ reviewing, you're clicking through — so permission friction is reduced: auto m
 risky — scope escalation, unknown infrastructure, hostile-content-driven
 actions — letting routine work proceed without a prompt) is now the **built-in
 starting permission mode** for interactive terminal and VS Code sessions on
-Pro/Max/Team plans; other plans still start in Manual mode (ask before every
-file write, Bash command, MCP tool — now a named mode, not just unlabeled
-default behavior). Two more levers cut interruptions further, in Manual mode and
+Claude Code v2.1.283+, regardless of plan; on earlier versions the same default
+is gated to Pro/Max/Team plans, with other plan/version combinations starting
+in Manual mode (ask before every file write, Bash command, MCP tool — now a
+named mode, not just unlabeled default behavior) — the eligibility bar is
+loosening release over release. Two more levers cut interruptions further, in Manual mode and
 layered on top of auto mode alike: allowlists for known-safe tools, and
 OS-level sandboxing — each trading safety against convenience.
 (Under `-p`, repeated classifier blocks no longer abort the run — auto mode

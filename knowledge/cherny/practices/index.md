@@ -22,3 +22,4 @@ each.
 - [automation-as-leverage](./automation-as-leverage.md) — a correction fixes one run, infrastructure fixes every run; "a rejected PR is a failure of automation."
 - [finding-your-unknowns](./finding-your-unknowns.md) — the skill of agentic coding is surfacing what Claude doesn't know before it has to guess; a toolkit for before, during, and after implementation.
 - [read-diffs-selectively-trust-the-tests](./read-diffs-selectively-trust-the-tests.md) — only open the diff for critical or important-to-get-right code; a property-based test suite is what lets you hand over the rest unread.
+- [choosing-an-effort-level](./choosing-an-effort-level.md) — `/effort` is a compute dial for independent judgement and verification, not raw capability; spend it on tasks with hidden edge cases, not ones blocked by a wrong approach.

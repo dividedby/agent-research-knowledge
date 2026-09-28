@@ -11,14 +11,18 @@ undifferentiated pool.
 
 ## The ladder: intent → plan → what actually happened
 
-**Beats** (the pre-recording plan — "what I'm going to do or say") sit at the
-bottom: sketched intent, not authored prose. **Script** (a screenplay-style
-flowing document read off the teleprompter) is one rung up — the plan
-actually written out, verbatim for framing beats and bracketed cues for
-improvised ones. The **Transcript** — clip text harvested from the recording
-itself — is the top rung and *supersedes both once filmed*: it is the only
+A later revision names the ladder explicitly and adds a rung below Beats: a
+**Beat** (what a moment of the video does for the *viewer* — the job, not the
+words) is authored first, then a **Clip Mockup** (one still image and its
+spoken line — the picture and the words, decided before the camera is on) is
+built from it, then the **Script** is written out from the Clip Mockup lines,
+and the **Transcript** is what was actually said on camera. Stated once, in
+the glossary itself: "each rung is authored from the one below it," and the
+Transcript "supersedes all of them once the Video is filmed" — it is the only
 source that records what was actually said, so it is the sole basis for
-anything the article claims the speaker said.
+anything the article claims the speaker said. The generative direction runs
+opposite the fidelity order: each rung is *written from* the one beneath it,
+but *outranked by* it once a more-faithful rung exists.
 
 ## Supporting material never joins the ladder
 
@@ -45,3 +49,4 @@ was planned or nearby."
 ## Sources
 
 - `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-07-29 — the **Video File** entry's writer-context clause now names **Script** alongside Transcript/Beats and cross-references the fidelity ladder, ranking Transcript as the sole source of claims and Video Files as evidence-only)
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-09-27 — the **Script** entry states "THE FIDELITY LADDER" explicitly: Beat → Clip Mockup → Script → Transcript, each rung authored from the one below it)

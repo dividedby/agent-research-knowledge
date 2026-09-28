@@ -88,6 +88,19 @@ In the same spirit Matt keeps a `CODING_STANDARDS.md` *separate* from the root
 file: standards are relevant only to sessions that write code, so they live in
 their own pulled-in doc rather than burning budget on every session.
 
+Where a pulled-in doc lives is itself a signal, and it moved: `course-video-manager`'s
+`CODING_STANDARDS.md` started under `.sandcastle/` (the CI/agent-scaffolding
+directory) and was promoted to the repo root, in lockstep across every prompt
+that referenced its old path. The stated reason is read-timing, not tidiness:
+"read it while writing code, not only while reviewing it: `every \`any\` is a
+leak` binds the hand that writes the cast." A doc that only lives beside CI
+config reads as review-time-only material; putting it where every session
+already looks is what makes an agent actually consult it *during*
+implementation instead of getting corrected on it afterward at the review
+gate (see [[review-skill-two-axis-with-smell-baseline]]'s CODING_STANDARDS.md
+feed-by-observation loop — this is the counterpart lesson: enforcement at
+review still needs the same file discoverable earlier).
+
 ## Against vanilla AGENTS.md with no skills at all
 
 Pressed on a rival minimalism further downstream — skip skills entirely, keep
@@ -130,6 +143,9 @@ When enforceable constraints can be encoded as PreToolUse hooks (that exit with 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-my-agents-md-file-for-building-plans-yo-12a7f93d.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-how-to-use-claude-code-hooks-to-enforce-c827626c.md
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/course-video-manager/CLAUDE.md.md
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-09-26, "Coding standards": `CODING_STANDARDS.md` sits at the repo root rather than in `.sandcastle/`, "read it while writing code, not only while reviewing it")
+- `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-c5851432.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review/prompt.md (revision 2026-09-26, the injected standards path updates from `.sandcastle/CODING_STANDARDS.md` to `CODING_STANDARDS.md` in lockstep)
+- `sources/mattpocock/course-video-manager/.sandcastle-review-prompt.md-9d9013f8.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/review-prompt.md (revision 2026-09-26, the same standards-path update made independently in the older Ralph-loop review prompt)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061685783342256491-4bba91f0.md` — origin: https://x.com/mattpocockuk/status/2061685783342256491
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061707663088529896-786519e4.md` — origin: https://x.com/mattpocockuk/status/2061707663088529896
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2061712630071362011-02e73004.md` — origin: https://x.com/mattpocockuk/status/2061712630071362011

@@ -67,6 +67,23 @@ commit close the ticket?) a skill can reason about. The line is narrow,
 verifiable facts versus process orchestration — hooks earn their keep on the
 former and get invasive and brittle on the latter.
 
+## A lint rule only earns blocking status by encoding a documented standard
+
+The inverse failure mode matters just as much: not every mechanically
+checkable rule should become a hard gate. `course-video-manager`'s CI
+(`pnpm run check`, run in CI's exact order: typecheck, oxlint, package
+boundaries, five file guards, then the full test suite) treats its linter's
+own opinions as **advisory** — oxlint's `correctness` warnings are "a standing
+backlog cleared by hand," an invitation for a file you're already touching,
+not a blocker. **Only rules that encode a documented coding standard are
+errors.** A generic linter ships with hundreds of stylistic opinions nobody on
+the project actually agreed to; wiring all of them to block a commit imports
+someone else's judgement calls as if they were the team's own deliberate
+rules. The same "hook only what's actually deterministic and actually agreed"
+discipline that promotes a prose rule to a hook is also what should gate a
+linter's own defaults down to advisory *unless* a human has separately written
+the rule down as a standard the project holds itself to.
+
 ## Endorsement signal: a general hierarchy for eliminating corrections
 
 Matt amplified a practitioner (@poteto) stating the same instinct as a general
@@ -89,5 +106,7 @@ resort, not a first line of defense.
 - `sources/mattpocock/aihero/https-www.aihero.dev-how-to-use-claude-code-hooks-to-enforce-c827626c.md` — origin: https://www.aihero.dev/how-to-use-claude-code-hooks-to-enforce-the-right-cli
 - `sources/mattpocock/aihero/https-www.aihero.dev-this-hook-stops-claude-code-running-dan-bcfc7d9c.md` — origin: https://www.aihero.dev/this-hook-stops-claude-code-running-dangerous-git-commands
 - `sources/mattpocock/course-video-manager/.sandcastle-CODING_STANDARDS.md-7b893b74.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/CODING_STANDARDS.md
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-09-26, "Checks": `pnpm run check` runs CI's exact order — typecheck, oxlint, boundaries, five file guards, unfiltered tests; oxlint's `correctness` warnings are advisory, only rules encoding a documented standard are errors)
+- `sources/mattpocock/course-video-manager/.github-workflows-test.yml-7ceee5d9.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.github/workflows/test.yml
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2088353393664205241-a2aa2e0e.md` — origin: https://x.com/mattpocockuk/status/2088353393664205241
 - `sources/mattpocock/twitter/https-x.com-poteto-status-2089067865098113024-1e62ec24.md` — origin: https://x.com/poteto/status/2089067865098113024

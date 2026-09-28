@@ -69,6 +69,22 @@ Three revisions later, "more nouns may gain writes over time" reads as a track r
 
 The domain glossary backs this up in its own terms, not just in the CLI's behavior: **Deliverable Status** is defined as "manual" meaning *underived* — never computed from linked entities — explicitly **not** *hand-typed*, because "the app and an agent (`cvm deliverable`) author it the same way" (ADR 0022). The vocabulary is deliberate that a write arriving from an agent through the CLI isn't a lesser or special-cased instance of a "manual" field; it's the identical write path a human uses clicking a button. That's the same alignment the noun-by-noun rollout demonstrates mechanically (reusing the existing write service), restated instead as a vocabulary guarantee an agent reading `CONTEXT.md` can rely on directly.
 
+## The rollout reaches a noun that only makes sense on the author's own machine
+
+`clip-mockup` (add/update/move/delete) later joins the write-capable set, authoring
+a Video's pre-filming **Animatic** frames — and it lands as both write-capable
+*and* **Local-only**, alongside `footage`, widening the local-only set from
+three commands to five. The reason tracks the write's own payload rather than
+a blanket caution about writes in general: a Clip Mockup's frame is a PNG file
+on the author's disk, and `footage` manages raw recordings that live there
+too — commands whose data genuinely isn't reachable over the CLI's HTTP
+transport are refused up front on any other machine (exit 7), the same
+`LocalOnlyCommandError` gate as `cvm file`. The noun-by-noun rollout was never
+just "more write access over time" — each addition still has to clear the
+same two independent questions this CLI already answers per noun: can this
+write go over the shared HTTP transport, and does it touch something that
+only exists on one particular box.
+
 ## Sources
 
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-06-30)
@@ -77,3 +93,4 @@ The domain glossary backs this up in its own terms, not just in the CLI's behavi
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-07-30, write-capable nouns expand to beat/lesson/video/file/pitch/deliverable/course)
 - `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-07-30, **Deliverable Status** entry adds the "manual means underived, not hand-typed" ADR 0022 clause)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-08-24, "flags come before the positional `<id>`" argument-order convention)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-09-26, `clip-mockup` joins the write-capable nouns; `footage` and `clip-mockup` widen the Local-only Command set from three commands to five)

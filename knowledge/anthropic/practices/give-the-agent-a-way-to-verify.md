@@ -19,8 +19,9 @@ prompt. A `/goal` condition re-checked by a separate evaluator after every turn
 (if Claude stalls without resolving it, Claude Code eventually stops the run
 with the goal still unmet, rather than looping forever); a Stop hook that runs
 the check as a deterministic gate and blocks the turn from ending until it
-passes (Claude Code overrides such a hook and ends the turn after 8 consecutive
-blocks, so the gate can't wedge a run forever either); a second-opinion
+passes (Claude Code caps how many consecutive blocks a Stop hook gets before it
+overrides the hook and ends the turn anyway, so the gate can't wedge a run
+forever either); a second-opinion
 subagent that tries to refute the result. The `/goal` and Stop-hook forms are
 specifically what let an *unattended* run finish correctly without you. Even
 after Claude's own check passes, `/verify` gives you a cheap, human-triggered
