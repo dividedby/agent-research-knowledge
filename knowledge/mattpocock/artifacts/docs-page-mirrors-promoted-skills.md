@@ -55,6 +55,20 @@ the section (and where its content comes from) turns what used to read as an
 optional flourish into a required, checkable part of every promoted skill's
 sync obligation.
 
+## The one exception: a removed skill's page stays, marked archived
+
+A promoted skill that is deleted outright (not renamed, not folded into
+another) breaks the pairing rule in one deliberate way: the docs page is not
+deleted with it. `resolving-merge-conflicts` was removed from the plugin
+entirely in v1.3.0, and its docs page stayed up, marked archived, for
+reference — the one case in the set where a skill was authored, shipped, and
+later just dropped with no successor and no redirect (see
+[[resolving-merge-conflicts-by-intent]]). The mirror obligation above is about
+keeping a *live* skill's page in sync with its `SKILL.md`; outright removal is
+handled as an explicit exception rather than by the same sync rule, because
+deleting the page too would erase a public URL's content with no replacement
+and no note that the technique it documented once existed.
+
 ## The pairing is a maintenance obligation, not a one-time export
 
 `CLAUDE.md` states the sync explicitly: when a promoted skill is added,
@@ -82,6 +96,9 @@ same obligation, and it decays the same way a docs page does if a change to
 the underlying set isn't mirrored into it in the same commit.
 
 ## Sources
+
+- `sources/mattpocock/skills-repo/AGENTS.md.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/AGENTS.md (revision 2026-09-30 — the removed-skill-keeps-its-archived-page exception)
+- `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/CLAUDE.md (revision 2026-09-30, same exception)
 
 - `sources/mattpocock/skills-repo/CLAUDE.md.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/CLAUDE.md (revision 2026-07-01)
 - `sources/mattpocock/skills-repo/docs-engineering-ask-matt.md-cb27a380.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/ask-matt.md

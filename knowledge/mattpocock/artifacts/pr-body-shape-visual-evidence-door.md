@@ -46,6 +46,37 @@ after — the same reversibility argument that licenses auto-fixing
 (`auto-fix-review-after-revert-safety-net`), applied one layer up to the PR
 itself.
 
+## The agent's own door call is a self-report, not a verdict to trust blindly
+
+The agent that wrote the change is also the one grading its reversibility,
+and a self-report is most comfortable exactly where it's least reliable: it
+tends to call "two-way, small blast radius" by default. Reversibility is
+often invisible in the diff itself — "rolling back a commit won't unsend a
+batch of emails," as one practitioner put it — so a flagged rollout that
+looks two-way in the code stays two-way only until the first write lands in
+the new format, at which point it's already one-way and the diff gives no
+sign of that. The skill hands the agent a definition (destructive actions and
+hard-to-reverse decisions are one-way) rather than a checklist, so the
+Merge Danger line is the one worth reading hardest, not trusting fastest.
+Two things make the call more honest: give the agent the ticket or spec, not
+just the diff, so it's reasoning from intent rather than surface; and write
+down, in the repo's own docs, which categories of change your repo always
+treats as one-way (schema migrations, anything that ships outward or
+deletes) so the agent reads that rule before making the call instead of
+re-deriving it from the diff each time.
+
+## A live environment is what makes evidence irrefutable
+
+Asked what actually licenses merging an agent's fix, Matt names the setup, not
+the write-up: give the agent access to a running app with all services
+attached, so it can generate — not assert — "irrefutable evidence that it
+fixed it." Evidence earns its tier because it comes from execution against the
+real system, and a live environment is the precondition for that execution to
+be possible at all. That evidence only closes the loop combined with the Merge
+Danger call: knowing the change is low blast radius and easy to walk back is
+what makes posting the evidence sufficient to merge, rather than waiting on a
+human to reproduce it first.
+
 ## Origin: replacing garbage default PR bodies
 
 The skill's premise, stated bluntly: "every model/harness I've seen creates
@@ -60,6 +91,9 @@ established rather than generic engineering prose.
 
 ## Sources
 
+- `sources/mattpocock/skills-repo/docs-engineering-pr.md-d4677600.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/docs/engineering/pr.md (the promoted skill's docs page — the self-report caveat on the door call)
+- `sources/mattpocock/skills-repo/skills-engineering-pr-SKILL.md-45f7060a.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/skills/engineering/pr/SKILL.md
+- `sources/mattpocock/skills-repo/skills-engineering-pr-CREDITS.md-5a3ad1d8.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/skills/engineering/pr/CREDITS.md
 - `sources/mattpocock/skills-repo/skills-in-progress-pr-SKILL.md-795517e8.md` — origin: https://github.com/mattpocock/skills/blob/74ca5fe077456a0b3b2f5310cf9430999fd0b5fd/skills/in-progress/pr/SKILL.md (revision 2026-09-19 — Merge Danger template splits Door/Blast Radius into a short tag plus optional elaboration)
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md (revision 2026-09-18, origin https://github.com/mattpocock/skills/blob/700989c0b6e64d1133449793d86bcb3a35a031f9/skills/in-progress/README.md — `pr` listed)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100521948786667822-1c6587b1.md` — origin: https://x.com/mattpocockuk/status/2100521948786667822
@@ -67,3 +101,4 @@ established rather than generic engineering prose.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100526189899083985-ec979a98.md` — origin: https://x.com/mattpocockuk/status/2100526189899083985
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100547293275394206-a1879b96.md` — origin: https://x.com/mattpocockuk/status/2100547293275394206
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2100574289393004839-0789c15c.md` — origin: https://x.com/mattpocockuk/status/2100574289393004839
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2103601654113112276-f1f6835d.md` — origin: https://x.com/mattpocockuk/status/2103601654113112276

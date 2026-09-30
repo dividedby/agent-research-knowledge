@@ -56,6 +56,31 @@ assumes exclusive ownership of the working tree is a reasonable design — but
 only if every caller actually honours that assumption, since nothing in the
 skill itself checks or enforces it.
 
+## A big token bill is usually a ticket-sizing problem, not a misuse signal
+
+A single ticket burning 150k tokens is normal rather than a sign the skill is
+being misused: a run does codebase exploration, a red-green loop per seam, a
+full test suite, and a review, so a non-trivial ticket exceeding 100k tokens
+is expected. The lever is upstream, in `to-tickets`, not in `implement`
+itself — right-size the ticket so it fits one fresh context window, and split
+it rather than raising the model's effort level if it keeps blowing out. This
+is the same trust-boundary shape as the rest of this doc: `implement` has no
+way to notice a ticket is oversized any more than it has a way to notice one
+was sliced horizontally; it just runs what it was handed, at whatever cost
+that takes.
+
+## `#2` resolves against whatever numbered list is visible, not the tracker
+
+Passed a bare reference like `/implement #2` in a fresh session, the number
+is resolved against whatever numbered list the agent happens to be looking
+at — which in a session with no other context loaded can be a todo file, a
+checklist, or some other work list entirely, not the configured issue
+tracker. The resolution is confident rather than fail-closed, so a run can
+start working on something completely unrelated with no signal that
+anything went wrong until well after it has started. The fix is to never
+pass a bare number: give the full reference (the issue URL, or
+`owner/repo#2`) and have the agent confirm the title back before it begins.
+
 ## Ceremony scales to task size, or the skill gets uninstalled
 
 Two practitioner exchanges describe the same mismatch from opposite sides.
@@ -79,5 +104,6 @@ than *whether* the input is sound.
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-implement-da314e96.md` — origin: https://www.aihero.dev/skills-implement
+- `sources/mattpocock/skills-repo/docs-engineering-implement.md-fe1fa164.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/docs/engineering/implement.md
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090478544128250063-05648631.md` — origin: https://x.com/mattpocockuk/status/2090478544128250063
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2090507328806138242-c94250f1.md` — origin: https://x.com/mattpocockuk/status/2090507328806138242

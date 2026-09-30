@@ -91,6 +91,16 @@ and read, disambiguated by whether the key already exists, rather than forcing
 the agent to remember (and pick correctly between) two verbs for the same
 concept.
 
+**Scope boundary: project facts, not operator preferences.** `bd remember` is
+for *durable project facts* — memory that should be shared and reappear for
+any agent/session working this project. Per-operator preferences (an
+individual's stylistic or workflow preferences) belong in the harness's own
+memory, not `bd remember`. The earlier guidance framed this only negatively
+("do not create MEMORY.md files"); naming the positive boundary — project
+fact vs. operator preference — keeps a shared, cross-agent memory store from
+being polluted with one operator's personal settings that shouldn't surface
+for a different agent or account on the same project.
+
 ## Cross-Session Data Flow
 
 ### Write Operations Auto-Commit
@@ -187,6 +197,20 @@ work, agents must:
   superseded the earlier advisory `golangci-lint run ./...` direct call, so
   "lint clean" became a single pass/fail gate rather than a warnings list the
   agent had to judge
+- Sync any generated build manifests the language's native build doesn't cover:
+  beads pairs Go's native build with Bazel BUILD files, so an agent that adds,
+  removes, or renames a Go file — or edits imports or `go.mod` — must also run
+  `make bazel-sync` and commit the resulting `BUILD.bazel`/`MODULE.bazel`
+  diff. The checklist item degrades gracefully around a tool the agent's
+  sandbox may not have: without Bazel installed, a same-repo PR gets the fix
+  auto-pushed to its branch by CI (pull before pushing again), while a fork
+  PR — where CI can't push back — gets a comment with an apply recipe
+  instead. The general shape: when a repo's source of truth (Go files) and a
+  derived artifact (BUILD files) can drift, the pre-commit checklist names the
+  sync step explicitly rather than assuming the agent's default mental
+  model of "test, lint, commit" already covers it, and gives a no-local-tool
+  fallback so the gate degrades to a bot/comment instead of silently passing
+  stale manifests.
 - File P0 issues if gates fail
 
 ### Agent Context Profiles — the managed block is subordinate, not sovereign
@@ -237,4 +261,5 @@ of agents stays accountable, not anonymous.
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd prime --no-memories`/`--memories-only` and the PRIME.md-override-keeps-memories clarification, 2026-07-14 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/docs-CLI_REFERENCE.md-3efcf9fe.md` (`bd unclaim` — coordinate-with-holder etiquette and prefer-lease-expiry guidance; `bd config` — `claim.pools` pool-aware claiming, anti-steal waiver, `bd reclaim` returns expired pool takes to the unassigned pool, 2026-07-17 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/docs/CLI_REFERENCE.md
 - `sources/steveyegge/beads/AGENTS.md.md` ("let's land the plane" trigger phrase, quality-gate/cleanup/hand-off detail, 2026-07-09 revision; `make ci-pr-lint` required-lint-gate rename, 2026-08-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENTS.md
-- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` ("Landing the Plane" — same trigger-phrase protocol, example session, 2026-07-09 revision; `make ci-pr-lint` required-lint-gate rename, 2026-08-08 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md
+- `sources/steveyegge/beads/AGENT_INSTRUCTIONS.md.md` ("Landing the Plane" — same trigger-phrase protocol, example session, 2026-07-09 revision; `make ci-pr-lint` required-lint-gate rename, 2026-08-08 revision; `make bazel-sync` BUILD-file sync step with same-repo-autofix/fork-PR-comment fallback, 2026-09-29 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/AGENT_INSTRUCTIONS.md
+- `sources/steveyegge/beads/README.md.md` (`bd remember` scope narrowed from "not MEMORY.md files" to "durable project facts, not per-operator preferences", 2026-09-30 revision) — origin: https://github.com/steveyegge/beads/blob/848d0d7b6c933a00bd3d06a9a7c2de4368a2a8db/README.md

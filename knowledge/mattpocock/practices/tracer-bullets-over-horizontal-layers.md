@@ -59,9 +59,31 @@ The lesson generalizes past this one skill: a tracer-bullet discipline needs a
 named escape valve for the shape of change tracer bullets can't cover, or
 agents either force a broken slice or silently abandon the discipline.
 
+## A field report puts numbers on the failure, and names the opposite one too
+
+A 26-ticket stack sliced by layer (corpus, producer, aggregator, selector
+tickets, rather than one vertical path through all of them) cost roughly
+twenty agent runs per closed ticket, about three quarters of them rework —
+and the team's own post-mortem traced every failure class back to the
+horizontal slicing itself, not to any one implementation. The catch at
+review time is a single question per ticket: "what can I demo when this is
+done?" A ticket with no answer is a horizontal slice; some practitioners add
+a "demo path" line to every ticket for exactly this reason and report it
+nudges the model toward vertical decomposition on its own.
+
+The opposite failure is real too, and worth naming so the fix for one doesn't
+overcorrect into the other: over-decomposition, where a three-line change
+comes back as a dozen atomic tickets because the model defaults to the
+smallest possible unit and loses the grouping that would make them
+meaningful. The catch here is the same review step from the other direction —
+ask to merge tickets that don't each answer the demo question distinctly —
+and the underlying rule of thumb is a floor: if the whole change fits in one
+context window, tracer-bullet ticketing isn't needed at all.
+
 ## Sources
 
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-tracer-bullets-0575e91a.md
+- `sources/mattpocock/skills-repo/docs-engineering-to-tickets.md-3ce51e8f.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/docs/engineering/to-tickets.md (revision 2026-09-30 — the 26-ticket horizontal-slicing field report and the over-decomposition counter-failure)
 - /home/runner/work/agent-research/agent-research/sources/mattpocock/aihero/https-www.aihero.dev-tips-for-ai-coding-with-ralph-wiggum-440a70a9.md
 - `sources/mattpocock/skills-repo/docs-engineering-to-issues.md-dd9cc616.md` — origin: https://github.com/mattpocock/skills/blob/5a4191541c97ec759a4c21ef9d9875e8d3f42507/docs/engineering/to-issues.md (revision 2026-07-08 — the wide-refactor exception, expand-contract sequencing)
 - `sources/mattpocock/skills-repo/skills-engineering-to-issues-SKILL.md-04f1cc54.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/to-issues/SKILL.md (revision 2026-07-08 — the same exception restated in the skill's Reference section)

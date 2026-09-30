@@ -87,6 +87,14 @@ to query against." The pointer-doc, not the inlined instruction, is the unit.
 In the same spirit Matt keeps a `CODING_STANDARDS.md` *separate* from the root
 file: standards are relevant only to sessions that write code, so they live in
 their own pulled-in doc rather than burning budget on every session.
+`CODING_STANDARDS.md` is also what turns generic model output into
+project-specific output — asked how to keep an agent's behavior from reading
+as generic, his answer is "you make it non-generic via CODING_STANDARDS." And
+the pointer chain doesn't stop at one level: a further-specialized doc like
+`DESIGN_SYSTEM.md` belongs as its own context pointer *inside*
+`CODING_STANDARDS.md`, not inlined there or promoted to the root — the same
+discovery-tree structure recursing one level deeper, so design-system detail
+loads only for the sessions that actually touch it.
 
 Where a pulled-in doc lives is itself a signal, and it moved: `course-video-manager`'s
 `CODING_STANDARDS.md` started under `.sandcastle/` (the CI/agent-scaffolding
@@ -154,3 +162,5 @@ When enforceable constraints can be encoded as PreToolUse hooks (that exit with 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072439857935221124-7c642dea.md` — origin: https://x.com/mattpocockuk/status/2072439857935221124
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2082060853319213481-07a7c588.md` — origin: https://x.com/mattpocockuk/status/2082060853319213481
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2083971013063086308-f11609ff.md` — origin: https://x.com/mattpocockuk/status/2083971013063086308
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2103541490815471787-ec236bbd.md` — origin: https://x.com/mattpocockuk/status/2103541490815471787
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2103755613763461121-90e6cd98.md` — origin: https://x.com/mattpocockuk/status/2103755613763461121

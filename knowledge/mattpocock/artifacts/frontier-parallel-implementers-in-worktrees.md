@@ -74,6 +74,50 @@ started with AFK workflows." `implement-spec`'s design (agreed spec and
 tickets in, one review pass at the end, out) sits at the heavy-alignment-
 then-hands-off end of that spectrum, not the only mode Matt endorses.
 
+## Worktrees postpone collisions to merge time, they don't remove them
+
+A blocking edge inferred from ticket text is a guess about which files each
+ticket will touch, and two tickets that read as "different parts of the
+codebase" can still share a message catalogue, a config registry, or a type.
+Each implementer sees only its own ticket and the shared exploration notes,
+never a sibling's work in progress, so a real run had a web ticket and a
+mobile ticket independently add the same field under two different names —
+`blockedSince` on one branch, `blockedOn` on the other — because neither
+implementer could see the other naming it. The fix is either a blocking edge
+between the two tickets so they run in sequence instead of in parallel, or
+exploration notes that pin the exact name each ticket is meant to add to a
+shared surface before either implementer starts.
+
+A second gap sits between the tracker and the run's actual state: on GitHub,
+a ticket's blocked-by count only drops when the blocking issue *closes*, and
+issues typically close on PR merge — which, in a run with no PR until the
+end, doesn't happen until everything is already done. The tracker is the
+right source for the *starting* graph, but a stale one mid-run; the
+orchestrator has to track which tickets have actually merged onto the
+integration branch itself and compute the live frontier from that, not from
+polling the tracker's blocked-by state.
+
+A third, narrower failure: a worktree holds only what git tracks, so a
+ticket whose verification depends on gitignored fixtures, a local database,
+or credentials can have its key test skip itself silently inside the
+worktree and still report green. For a ticket like that, the implementer
+needs to run the verification in the main checkout instead.
+
+## Running `code-review` mid-flight recreates the review-drives-more-building loop
+
+`code-review`'s Spec axis compares the code against the *whole* spec, so it
+only makes sense once every ticket has landed — run it while tickets are
+still in flight and every unbuilt ticket reads as a review failure, which the
+orchestrator then dutifully starts building, which triggers another review.
+One five-ticket run reported the review-and-fix loop alone taking roughly
+four hours because of exactly this: the skill runs `code-review` once, at the
+end, over the integration branch, and sends every finding to a single fix
+subagent — but nothing in the skill says when to stop after that one fix
+pass, so a second broad review starting on its own is the tell that the
+one-review-at-the-end discipline slipped. The mitigation is instructing the
+follow-up pass to check only the fixed findings and stop, rather than letting
+it re-run a full review.
+
 ## Trade-offs: convenient, but a deliberate step down from determinism
 
 Matt is explicit that the convenience comes at a cost. Weighing
@@ -91,6 +135,9 @@ considered stepping stone toward a system he'd rather build deterministically,
 not an endpoint.
 
 ## Sources
+
+- `sources/mattpocock/skills-repo/docs-engineering-implement-spec.md-abd9cf5f.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/docs/engineering/implement-spec.md
+- `sources/mattpocock/skills-repo/skills-engineering-implement-spec-SKILL.md-30f52bce.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/skills/engineering/implement-spec/SKILL.md
 
 - `sources/mattpocock/skills-repo/skills-in-progress-implement-spec-SKILL.md-ca6452a8.md` — origin: https://github.com/mattpocock/skills/blob/5b15a47f2d7150f545fbcacbfe381787fc0230dc/skills/in-progress/implement-spec/SKILL.md
 - `sources/mattpocock/skills-repo/skills-in-progress-README.md-7e74a106.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/in-progress/README.md

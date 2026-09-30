@@ -39,6 +39,23 @@ move as raising the abstraction to specification — see
 long as its properties hold; prose cannot, because prose *is* the idea-sharing
 medium whose value is the human ownership behind it.
 
+## The bar is conditional on the project's purpose
+
+"Comfortable with opaque code" is not unconditional — it's calibrated to *why*
+the project exists. Building a small ML classifier for his own education, he let
+an agent write every line, but at each step made sure the core ideas and
+insights were his, or at least that he understood them: "I might not set such a
+bar for a project at work, but for this project the outcome was mostly about me
+learning." When the point of a project is to ship working properties, opacity is
+fine (the core claim above); when the point is to *learn* the domain, he
+deliberately raises the bar back up, using the agent less as an opaque author and
+more as an on-demand tutor — asking it to step him through concepts and then quiz
+his understanding, "like having a custom textbook about exactly this problem at
+just the right level." The lesson generalizes: don't apply one fixed
+comfort-with-opacity setting everywhere — set it per project, based on whether
+the artifact or the understanding is the actual deliverable.
+
 ## Sources
 
 - `sources/marcbrooker/blog/http-brooker.co.za-blog-2026-06-18-my-blog-and-ai.html-9a7ec3a0.md` — origin: https://brooker.co.za/blog/2026/06/18/my-blog-and-ai.html
+- `sources/marcbrooker/blog/http-brooker.co.za-blog-2026-09-28-engineering-system-one.ht-efc2d098.md` — origin: http://brooker.co.za/blog/2026/09/28/engineering-system-one.html

@@ -1,6 +1,19 @@
 # Resolving merge conflicts by recovering intent
 
-`resolving-merge-conflicts` is a small standalone skill (no dependencies on other
+**Archived as of v1.3.0.** The skill this doc describes was removed from the
+plugin and is no longer maintained; nothing replaced it — an agent now works
+through a merge or rebase conflict with no dedicated skill backing it, relying
+on general capability instead of the intent-recovery discipline below. The
+design is kept here for reference because it names a reusable technique
+(recover intent from commits/PRs/issues before resolving a hunk), even though
+the shipped implementation is gone. Removing a skill outright, with no
+successor and no redirect, is itself notable against Matt's usual practice of
+renaming or folding a retired skill into another (`ubiquitous-language` into
+`domain-modeling`, `write-a-skill` into `writing-great-skills` into
+`writing-for-agents`) — this is the one skill in the set that was authored,
+shipped, and later just dropped.
+
+`resolving-merge-conflicts` was a small standalone skill (no dependencies on other
 skills) for an in-progress git merge or rebase conflict. Its design point is that
 a conflict is not a text-diff puzzle but an **intent** reconciliation: before
 touching a hunk, the agent finds the **primary source** for each side — reading
@@ -43,6 +56,6 @@ end throws away exactly the context step one of this skill exists to recover.
 
 ## Sources
 
-- `sources/mattpocock/aihero/https-www.aihero.dev-skills-resolving-merge-conflicts-eaa48129.md` — origin: https://www.aihero.dev/skills-resolving-merge-conflicts
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-resolving-merge-conflicts-eaa48129.md` — origin: https://www.aihero.dev/skills-resolving-merge-conflicts (revision 2026-09-30 — the skill's removal from the plugin in v1.3.0, page kept for reference)
 - `sources/mattpocock/skills-repo/skills-engineering-resolving-merge-conflicts-SKILL.md-f2c6b279.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/resolving-merge-conflicts/SKILL.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md

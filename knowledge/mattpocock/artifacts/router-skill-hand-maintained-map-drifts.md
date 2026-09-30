@@ -50,6 +50,23 @@ authority ranking on this point — where it and a skill's own file disagree,
 the file is right, not the router — which only helps if something actually
 triggers the check.
 
+## Advice to edit a `SKILL.md` doesn't survive the next update
+
+A fourth pattern sits next to the three failure modes above, less about the
+map going stale and more about where the router points you to fix things.
+Asked how to make a downstream skill behave differently, the router's answer
+is often "add a line to the skill" — correct in the moment, but not durable:
+a plugin install is read-only and `npx skills update` overwrites a forked
+copy's edits on the next pull, so the fix quietly disappears the next time
+the skill set updates. Standing behaviour belongs in the repo's own
+`CLAUDE.md` or `AGENTS.md` instead, or in the invocation itself for a
+one-off — both survive an update because they live outside the skill files
+the router is pointing at. This is the same fork-vs-subscribe boundary
+`two-distribution-philosophies-fork-vs-subscribe` describes for the whole
+install: a router that suggests editing a skill is nudging you across that
+boundary without saying so.
+
 ## Sources
 
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-ask-matt-54c74f90.md` — origin: https://www.aihero.dev/skills-ask-matt
+- `sources/mattpocock/skills-repo/docs-engineering-ask-matt.md-cb27a380.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/docs/engineering/ask-matt.md (revision 2026-09-30 — the "it told me to edit a SKILL.md" durability caveat)

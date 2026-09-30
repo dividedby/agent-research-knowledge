@@ -101,6 +101,23 @@ agent (or a human skimming the transcript) has no signal that the write was
 dropped; the only check is to look at the working directory afterward rather
 than trust that a completed interview means `CONTEXT.md`/ADRs actually landed.
 
+## Cross-referencing stops at the code and the docs; it never checks the tracker
+
+The move that makes the discipline click is cross-referencing what the user
+says against the code and the committed `CONTEXT.md`/ADRs — but that's also
+its exact boundary. It does not search the issue tracker, so a naming
+collision that was argued out and deliberately settled in a closed issue
+months ago resurfaces as if it were new, with no memory that the question was
+already answered. There's an open request to close this gap; until it does,
+the workaround is to put the instruction to check prior decisions in the
+repo's own `docs/agents/domain.md`, which the skill already reads as part of
+its setup-seeded config. A related, separately open request asks to split the
+glossary half of the skill from the ADR half, so a team with its own
+established ADR template, location, and naming convention isn't handed
+instructions that conflict with its house style; today the options are
+forking the skill locally or overriding the ADR conventions in the repo's own
+agent docs.
+
 ## The glossary and ADRs are not a full decision ledger
 
 The most substantive open complaint about the discipline: everything that
@@ -193,6 +210,27 @@ team can get the full benefit of the practice while discarding all the
 runtime ceremony; what's left to overcome is convincing people to adopt a
 vocabulary discipline at all, not building tooling to support it.
 
+## The rename that finally shipped: CONTEXT.md becomes GLOSSARY.md
+
+"Why is it `CONTEXT.md` and not `GLOSSARY.md`?" had been the most-argued
+naming question in the whole skill set, with no settled answer for months — at
+least one user maintained a local fork purely to rename the file, and the
+official FAQ conceded the case against the old name was good: if the file is
+"a glossary and nothing else," a name that says so beats one that leans on
+`context`, a word DDD already uses for something else (a bounded area of the
+model — a genuinely different concept the old filename collided with). That
+argument won: the artifact is now `GLOSSARY.md` (and the multi-context index is
+`GLOSSARY-MAP.md`, not `CONTEXT-MAP.md`), and the rename propagates through
+every skill that reads or writes it — `grill-with-docs`, `triage`, `wait-what`,
+`writing-for-agents`, `improve-codebase-architecture`, and
+`setup-matt-pocock-skills` all switched together, not `domain-modeling` alone.
+A skill set pinned to an older release and one just updated will disagree on
+the filename until both catch up — the same lag a hard rename always carries
+(see `writing-great-skills-vocabulary`'s reasoning for why Matt rejects
+symlinking old names forward rather than eating that cost once). The rest of
+this doc keeps `CONTEXT.md` in prose synthesized before the rename landed —
+read it as `GLOSSARY.md` going forward.
+
 ## Not deprecated — absorbed and expanded
 
 Asked whether the standalone `ubiquitous-language` skill had been dropped,
@@ -205,14 +243,15 @@ own — going from one narrow entry point to something woven through the whole
 
 ## Sources
 
+- `sources/mattpocock/skills-repo/docs-engineering-domain-modeling.md-08b1af93.md` — origin: https://github.com/mattpocock/skills/blob/d81f3a183412e71a5b1e84ca21bc1a35eea03a60/docs/engineering/domain-modeling.md (revision 2026-09-30 — the issue-tracker cross-reference gap and the glossary/ADR-split open request)
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-SKILL.md-afe6b5a2.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/SKILL.md (revision 2026-08-14, origin https://github.com/mattpocock/skills/blob/9e8760ab7d4cd49433dcda5dbec74f3c2ac8f9a4/skills/engineering/domain-modeling/SKILL.md — the trigger description revised to name editing an existing CONTEXT.md/ADR directly, not just creating one)
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-CONTEXT-FORMAT.md-d4513441.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/CONTEXT-FORMAT.md
 - `sources/mattpocock/skills-repo/skills-engineering-domain-modeling-ADR-FORMAT.md-0fcfff53.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/skills/engineering/domain-modeling/ADR-FORMAT.md
 - `sources/mattpocock/skills-repo/docs-invocation.md-1ce78905.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/docs/invocation.md
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
-- `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — "most sessions produce a sharper glossary and few or no ADRs"; revision 2026-08-11 — the "assumes one writer" state-drift field report and the plain-English-expansion pushback)
+- `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — "most sessions produce a sharper glossary and few or no ADRs"; revision 2026-08-11 — the "assumes one writer" state-drift field report and the plain-English-expansion pushback; revision 2026-09-30 — the CONTEXT.md → GLOSSARY.md rename)
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-grill-with-docs-ee25180c.md` — origin: https://www.aihero.dev/skills-grill-with-docs
-- `sources/mattpocock/aihero/https-www.aihero.dev-skills-domain-modeling-6c2be29b.md` — origin: https://www.aihero.dev/skills-domain-modeling
+- `sources/mattpocock/aihero/https-www.aihero.dev-skills-domain-modeling-6c2be29b.md` — origin: https://www.aihero.dev/skills-domain-modeling (revision 2026-09-30 — the same rename and the "why is it GLOSSARY.md and not GLOSSARY.md" FAQ, itself evidence of the rename's mechanical propagation across the site's copy)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084255866543390766-29f40882.md` — origin: https://x.com/mattpocockuk/status/2084255866543390766
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085674908051275993-c3c44927.md` — origin: https://x.com/mattpocockuk/status/2085674908051275993
 - `sources/mattpocock/skills-repo/docs-engineering-grill-with-docs.md-95a415e1.md` — origin: https://github.com/mattpocock/skills/blob/b848e846456fba9cc3f06a768cee78011042011f/docs/engineering/grill-with-docs.md (revision 2026-08-06 — the "Common questions" FAQ: the orchestration-layer silent-write-failure bug, the "no ledger tying answers to spec/ticket/test" complaint, and the pairing with `improve-codebase-architecture` for a repo with no docs at all)
