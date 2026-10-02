@@ -188,6 +188,21 @@ files. There's no guardrail in the skill today that prevents the growth in the
 first place; concision is a periodic maintenance pass, not a standing
 property.
 
+A concrete instance of the same instinct shows up in production, outside the
+skill's own guidance: course-video-manager's `CONTEXT.md` later sweeps a run
+of entries to strip implementation leakage that had crept in — a hardcoded
+constant name (`EXPORT_VERSION`) becomes "a number, set by hand in the code";
+database column names (`authoringStatus`, the `video.format` column) drop out
+of the prose entirely; a roughly 700-word Clip Mockup Chapter entry that spelled
+out its exact CLI flags, ID rules, and field semantics shrinks to a few
+sentences. What survives every one of these cuts is the ADR citation — the one
+piece of provenance an agent can't rederive from the code. The targets are
+specific: not length (the file is about the same size before and after) and
+not the ADR pointers, but the implementation vocabulary that had leaked in
+alongside them. It's the same discipline as the `/grill-with-docs ... remove
+any implementation details` prompt above, caught mid-exercise on a real file
+rather than described in the abstract.
+
 ## Sharper terms don't help everywhere: the payoff is upstream, not near the code
 
 DDD-style precision gets less useful the closer it gets to implementation — the
@@ -252,6 +267,7 @@ own — going from one narrow entry point to something woven through the whole
 - `sources/mattpocock/aihero/https-www.aihero.dev-grill-with-docs-d376dfd1.md` — origin: https://www.aihero.dev/grill-with-docs (revision 2026-07-02 — "most sessions produce a sharper glossary and few or no ADRs"; revision 2026-08-11 — the "assumes one writer" state-drift field report and the plain-English-expansion pushback; revision 2026-09-30 — the CONTEXT.md → GLOSSARY.md rename)
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-grill-with-docs-ee25180c.md` — origin: https://www.aihero.dev/skills-grill-with-docs
 - `sources/mattpocock/aihero/https-www.aihero.dev-skills-domain-modeling-6c2be29b.md` — origin: https://www.aihero.dev/skills-domain-modeling (revision 2026-09-30 — the same rename and the "why is it GLOSSARY.md and not GLOSSARY.md" FAQ, itself evidence of the rename's mechanical propagation across the site's copy)
+- `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-10-01 — the glossary-wide sweep stripping hardcoded constant names, database column names, and CLI usage mechanics from entry prose while every ADR citation survives)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2084255866543390766-29f40882.md` — origin: https://x.com/mattpocockuk/status/2084255866543390766
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085674908051275993-c3c44927.md` — origin: https://x.com/mattpocockuk/status/2085674908051275993
 - `sources/mattpocock/skills-repo/docs-engineering-grill-with-docs.md-95a415e1.md` — origin: https://github.com/mattpocock/skills/blob/b848e846456fba9cc3f06a768cee78011042011f/docs/engineering/grill-with-docs.md (revision 2026-08-06 — the "Common questions" FAQ: the orchestration-layer silent-write-failure bug, the "no ledger tying answers to spec/ticket/test" complaint, and the pairing with `improve-codebase-architecture` for a repo with no docs at all)

@@ -49,9 +49,20 @@ sit in. Matt frames this as an open question rather than a settled answer — "s
 I'm asking, how are you evaluating models?" — which is itself the tell that the
 old shorthand no longer does the job it used to.
 
+## His own current answer, stated as a data point not a recommendation
+
+Pressed for his actual pick rather than the method, Matt names a concrete
+model-plus-effort pair: "Opus 5.5 Medium is what I use." He pointedly declines
+to extend the claim past what he's actually run empirically: "No
+recommendation from me for GPT models, I don't use them much" — the
+per-task, run-it-yourself discipline above applies to him too, so an answer
+about one family of models isn't quietly repurposed into a verdict on a
+family he hasn't evaluated.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072996604018143557-01bc560b.md` — origin: https://x.com/mattpocockuk/status/2072996604018143557
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072999535068983359-502d9cb9.md` — origin: https://x.com/mattpocockuk/status/2072999535068983359
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2072999606749720606-bfad223b.md` — origin: https://x.com/mattpocockuk/status/2072999606749720606
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2085534652580712956-ac8e4c9b.md` — origin: https://x.com/mattpocockuk/status/2085534652580712956
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105613628305293733-722d56cb.md` — origin: https://x.com/mattpocockuk/status/2105613628305293733

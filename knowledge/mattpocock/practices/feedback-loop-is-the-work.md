@@ -153,6 +153,18 @@ you have to be explicit in the prompt to force it small. The discipline isn't ne
 humans": context-window limits make it non-negotiable, and **the rate you can get
 feedback is your speed limit — never outrun your headlights.**
 
+## "Use TDD" is a token-efficient way to get more tests out of an agent
+
+Pressed on why he reaches for TDD with agents specifically, Matt gives a
+compressed, practical framing distinct from the correctness case above: "'Use
+TDD' is a very token-efficient way of getting more tests out of your agent."
+One short instruction reliably produces a larger, more complete test suite
+than spelling out test requirements by hand would cost in tokens. He pairs it
+with an explicit trade-off he accepts: it's "an efficient way to get agents to
+care about tests, as long as you don't care about the specific order" — TDD's
+literal red-green sequencing isn't the part he's after here; the leverage is
+in the instruction's brevity, not in enforcing which test gets written first.
+
 ## RGR: the named answer to unnecessary agent "fixes"
 
 Asked how to stop an agent from "fixing" things that never actually failed —
@@ -355,3 +367,5 @@ environment running the loop is the actual cause.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2086110209961828833-589d231b.md` — origin: https://x.com/mattpocockuk/status/2086110209961828833
 - `sources/mattpocock/course-video-manager/.sandcastle-CODING_STANDARDS.md-7b893b74.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/CODING_STANDARDS.md (revision 2026-08-24, "Remotion renderer packages": never test actual render output, test the props schema and the render-orchestration boundary instead, leave the visual "look" to a human in Remotion Studio)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-09-04, new "Testing" section: two-tier discipline — targeted test file(s) while iterating via `pnpm --filter <package> test`, full unfiltered suite runs in CI on every PR, and known PGlite flakiness under a sandboxed agent workspace's CPU load, per `docs/agents/testing.md`)
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105921740614631804-cb8d8fc1.md` — origin: https://x.com/mattpocockuk/status/2105921740614631804
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105946514535436468-8a49bbd4.md` — origin: https://x.com/mattpocockuk/status/2105946514535436468

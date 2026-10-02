@@ -137,6 +137,22 @@ budgeting applied to *prompt template design*: don't pay upfront-context cost
 for content the agent can fetch precisely, and only for the files that turn
 out to matter.
 
+## GitHub Actions is the accessible on-ramp, before you build your own infra
+
+Matt's advice to someone wanting to try a software factory without committing
+to custom infrastructure: reach for GitHub Actions first, for concrete,
+practical reasons rather than as a toy: (1) sandboxes are "essentially free
+… for public repo's", (2) you already have a login, (3) issues double as
+tickets — pieces of work for the agent to do, (4) labels trigger actions,
+which create PRs, (5) actions can themselves apply labels, which is what
+creates the loop (chaining, as above), (6) cron jobs exist for daily runs
+(albeit not very accurate), and (7) simple observability for seeing what went
+wrong comes built in. His framing is explicit about the role this plays:
+"great for messing about with software factories before building them on
+your own infra" — a deliberately low-commitment way to learn the shape of the
+pattern (triggers, labels, refusal guards) before investing in a bespoke
+pipeline like this one.
+
 ## The shipped stack: GitHub Actions + Sandcastle + Claude Code
 
 Matt's current "favourite stack" is exactly this topology productised:
@@ -160,3 +176,4 @@ bash cap (see `sandcastle-plan-execute-merge-loop`, `autonomous-loops-ralph`).
 - `sources/mattpocock/course-video-manager/.sandcastle-to-issues-prd-to-issues-prd.ts-d8d5feb8.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/.sandcastle/to-issues-prd/to-issues-prd.ts (revision 2026-07-25)
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067721938894500036-65f0fb11.md` — origin: https://x.com/mattpocockuk/status/2067721938894500036
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2067919429216645366-e4027437.md` — origin: https://x.com/mattpocockuk/status/2067919429216645366
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105947776236376475-6d90f32a.md` — origin: https://x.com/mattpocockuk/status/2105947776236376475

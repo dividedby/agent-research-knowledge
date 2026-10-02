@@ -81,6 +81,17 @@ correctly every time. Where `codebase-design`'s testability rules teach an
 agent to *design* a deep module, this is the complementary move of making a
 violation *fail the build* rather than pass silent review.
 
+## A ready-made prompt recipe: hunt shallow modules for deletion
+
+Matt's own recommended way to *point* `codebase-design` at a codebase, rather
+than inventing a prompt from the vocabulary each time: "`/codebase-design` Take
+a look in the repo for shallow modules, applying the deletion test and look for
+candidates for deletion." It targets the skill's deletion test specifically
+(not depth or seams in general) and names the payoff directly — "helps kill
+unnecessary abstractions." Framed as a recurring habit ("prompt of the day"),
+this is the skill's reference vocabulary turned into a standing, repeatable
+query rather than something re-derived per session.
+
 ## A reference with no process gets mistaken for a driver
 
 Because `codebase-design` is a **reference** — a glossary and four principles,
@@ -112,3 +123,4 @@ the reference itself having told it to.
 - `sources/mattpocock/skills-repo/skills-engineering-improve-codebase-architecture-SKILL.md-bb41f177.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/improve-codebase-architecture/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/skills-engineering-tdd-SKILL.md-29d824ee.md` — origin: https://github.com/mattpocock/skills/blob/e3b90b5238f38cdea5996e16861dcae28ef52eda/skills/engineering/tdd/SKILL.md (revision 2026-06-17)
 - `sources/mattpocock/skills-repo/CHANGELOG.md.md` — origin: https://github.com/mattpocock/skills/blob/2454c95dc305c158b21a0cdafeb728879dd0359a/CHANGELOG.md
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105563604384915639-f94cb690.md` — origin: https://x.com/mattpocockuk/status/2105563604384915639

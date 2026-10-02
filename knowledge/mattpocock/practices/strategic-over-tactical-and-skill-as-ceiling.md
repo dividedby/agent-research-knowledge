@@ -167,6 +167,19 @@ above as a *review-intensity* gradient rather than only a build-vs-plan one —
 tactical work earns loose supervision, strategic work keeps the firm hand in
 both directions, not just at the planning stage.
 
+## A software factory still needs a strategist to keep the lights on
+
+The tactical/strategic split names *why* a "software factory" (agent sessions
+triggered by events rather than a human, see `label-driven-agent-ci-pipeline`,
+`autonomous-loops-ralph`) can't run itself indefinitely: "agents are great at
+tactical programming but have no appetite for initiating strategic changes on
+their own. So you need a strategist driving them. That means that you can have
+a software factory, but you have to keep the lights on." Automating the
+triggering doesn't remove the human from the strategic seat — it just moves
+their job from writing code to being the one party who notices when the
+factory's output needs a new direction, since noticing isn't something the
+tactical layer is built to do for itself.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2065500685362237868-fec632ae.md` — origin: https://x.com/mattpocockuk/status/2065500685362237868
@@ -198,3 +211,4 @@ both directions, not just at the planning stage.
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097972570322534789-1da6c3e6.md` — origin: https://x.com/mattpocockuk/status/2097972570322534789
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098056919587959293-8b7dc6c6.md` — origin: https://x.com/mattpocockuk/status/2098056919587959293
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2098892897944789453-e6545359.md` — origin: https://x.com/mattpocockuk/status/2098892897944789453
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105628971635277837-e73c42af.md` — origin: https://x.com/mattpocockuk/status/2105628971635277837

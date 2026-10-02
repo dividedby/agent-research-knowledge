@@ -39,8 +39,30 @@ what reasoning-effort setting produced the output isn't yet diagnosable —
 the same output can look like a model failure, a harness bug, or an
 under-provisioned effort setting depending on which of the three changed.
 
+## The same three variables diagnose a slow run, not just a wrong one
+
+The checklist generalises past bad output to bad *speed*: asked to help
+diagnose a run that took too long, Matt reaches for the identical three-way
+split plus one more — "Harness/model/effort? Do you have some slow
+tests/types/feedback loops?" A sluggish feedback loop is itself a candidate
+cause, on the same footing as the model, harness, and effort level, because a
+slow test/type-check cycle multiplies across every iteration the agent runs
+through it (see `feedback-loop-is-the-work`). His own recommended way to run
+the diagnosis after the fact, rather than guessing live, is the `/retro`
+skill pointed at the specific run: "I would also run `/retro` look back at
+the last `/implement` run and diagnose why it ran so slowly" (see
+`retro-skill-symptom-to-intervention-checklist`) — and reasoning it through in
+one real case lands on the same variable the general checklist names first:
+"max effort is probably the thing doing that." Reasoning effort isn't just a
+quality dial (see `evaluating-models-past-tier-labels`); it's frequently the
+answer to "why was this slow," checked before assuming the model or the task
+itself was the cause.
+
 ## Sources
 
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080573297557721316-13e4a49e.md` — origin: https://x.com/mattpocockuk/status/2080573297557721316
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2080576449933644071-b5704544.md` — origin: https://x.com/mattpocockuk/status/2080576449933644071
 - `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2097033781215436971-fdae98db.md` — origin: https://x.com/mattpocockuk/status/2097033781215436971
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105583488804253796-cceef183.md` — origin: https://x.com/mattpocockuk/status/2105583488804253796
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105583580982190563-599dba64.md` — origin: https://x.com/mattpocockuk/status/2105583580982190563
+- `sources/mattpocock/twitter/https-x.com-mattpocockuk-status-2105590181172515298-36265b14.md` — origin: https://x.com/mattpocockuk/status/2105590181172515298

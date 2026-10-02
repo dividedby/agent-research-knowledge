@@ -85,6 +85,21 @@ same two independent questions this CLI already answers per noun: can this
 write go over the shared HTTP transport, and does it touch something that
 only exists on one particular box.
 
+## A sibling noun can answer the local-only question differently
+
+Two revisions later, that same per-noun test produces the opposite answer for
+two siblings of the same feature: `clip-mockup-chapter` (add/update/move/delete
+— the Animatic's dividers) and `clip-mockup-comment` (add/update/delete — the
+author's notes pinned to a Clip Mockup or a Chapter) join the write-capable set
+explicitly marked **not** Local-only, even though `clip-mockup` itself — the
+parent noun in the same Animatic feature — is. The line isn't drawn at the
+feature boundary; it's drawn at what each noun's write actually touches: a Clip
+Mockup's frame is a PNG on the author's disk, but a Chapter is only a title and
+a position, and a Comment is only text — both ordinary domain rows reachable
+over the same HTTP transport every other noun uses. A noun's local-only status
+is decided noun-by-noun even within one feature, never inherited from a
+sibling that happens to manage disk-bound data.
+
 ## Sources
 
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-06-30)
@@ -94,3 +109,4 @@ only exists on one particular box.
 - `sources/mattpocock/course-video-manager/CONTEXT.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CONTEXT.md (revision 2026-07-30, **Deliverable Status** entry adds the "manual means underived, not hand-typed" ADR 0022 clause)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-08-24, "flags come before the positional `<id>`" argument-order convention)
 - `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-09-26, `clip-mockup` joins the write-capable nouns; `footage` and `clip-mockup` widen the Local-only Command set from three commands to five)
+- `sources/mattpocock/course-video-manager/CLAUDE.md.md` — origin: https://github.com/mattpocock/course-video-manager/blob/0dabcefa76514471cea6d99ab494d065f3bb5c71/CLAUDE.md (revision 2026-10-01, `clip-mockup-chapter` and `clip-mockup-comment` join the write-capable nouns, both explicitly not Local-only)
